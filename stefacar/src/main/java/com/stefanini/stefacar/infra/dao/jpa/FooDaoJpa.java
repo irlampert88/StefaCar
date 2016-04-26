@@ -7,7 +7,6 @@ public class FooDaoJpa implements FooDao {
 
 	@Override
 	public Foo findFooByName(String fooName) {
-		// EntityManager query
 		return null;
 	}
 
