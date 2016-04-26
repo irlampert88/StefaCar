@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.view.managed.bean;
+package com.stefanini.stefacar.controller.managed.bean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
