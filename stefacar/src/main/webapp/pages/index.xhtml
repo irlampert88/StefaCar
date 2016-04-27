@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -19,10 +19,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!-- jQuery -->
-<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
-<!-- lined-icons -->
+<link href="css/font-awesome.css" rel="stylesheet"/> 
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
 <script src="js/jquery-1.10.2.min.js"></script>
@@ -32,9 +30,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/radar.js"></script>	
 <link href="css/barChart.css" rel='stylesheet' type='text/css' />
 <link href="css/fabochart.css" rel='stylesheet' type='text/css' />
-<!--clock init-->
+<link rel="stylesheet" href="css/vroom.css"/>
+<script type="text/javascript" src="js/vroom.js"></script>
+<script type="text/javascript" src="js/TweenLite.min.js"></script>
+<script type="text/javascript" src="js/CSSPlugin.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+   <script src="js/bootstrap.min.js"></script>
 <script src="js/css3clock.js"></script>
-<!--Easy Pie Chart-->
 <!--skycons-icons-->
 <script src="js/skycons.js"></script>
 
@@ -54,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						        <div class="main-search">
 											<form>
 											   <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
-												<input type="submit" value="">
+												<input type="submit" value=""/>
 											</form>
 									<div class="close"><img src="images/cross.png" /></div>
 								</div>
@@ -142,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															</div>
 														</li>
 														<li><a href="#">
-														   <div class="user_img"><img src="images/1.jpg" alt=""></div>
+														   <div class="user_img"><img src="images/1.jpg" alt=""/></div>
 														   <div class="notification_desc">
 															<p>Lorem ipsum dolor sit amet</p>
 															<p><span>1 hour ago</span></p>
@@ -150,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														   <div class="clearfix"></div>	
 														 </a></li>
 														 <li class="odd"><a href="#">
-															<div class="user_img"><img src="images/in.jpg" alt=""></div>
+															<div class="user_img"><img src="images/in.jpg" alt=""/></div>
 														   <div class="notification_desc">
 															<p>Lorem ipsum dolor sit amet </p>
 															<p><span>1 hour ago</span></p>
@@ -158,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														  <div class="clearfix"></div>	
 														 </a></li>
 														<li><a href="#">
-														   <div class="user_img"><img src="images/in1.jpg" alt=""></div>
+														   <div class="user_img"><img src="images/in1.jpg" alt=""/></div>
 														   <div class="notification_desc">
 															<p>Lorem ipsum dolor sit amet </p>
 															<p><span>1 hour ago</span></p>
@@ -183,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</li>
 										<li><a href="#">
-											<div class="user_img"><img src="images/in.jpg" alt=""></div>
+											<div class="user_img"><img src="images/in.jpg" alt=""/></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet</p>
 											<p><span>1 hour ago</span></p>
@@ -191,7 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										  <div class="clearfix"></div>	
 										 </a></li>
 										 <li class="odd"><a href="#">
-											<div class="user_img"><img src="images/in5.jpg" alt=""></div>
+											<div class="user_img"><img src="images/in5.jpg" alt=""/></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -199,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										   <div class="clearfix"></div>	
 										 </a></li>
 										 <li><a href="#">
-											<div class="user_img"><img src="images/in8.jpg" alt=""></div>
+											<div class="user_img"><img src="images/in8.jpg" alt=""/></div>
 										   <div class="notification_desc">
 											<p>Lorem ipsum dolor sit amet </p>
 											<p><span>1 hour ago</span></p>
@@ -330,54 +335,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															    <div id="center"><div id="fig">
 																<script type="text/javascript+protovis">
 
-															/* Parse dates. */
-															var dateFormat = pv.Format.date("%d-%b-%y");
-															vix.forEach(function(d) d.date = dateFormat.parse(d.date));
-
-															/* Scales. */
-															var w =1220,
-																h = 300,
-																x = pv.Scale.linear(vix, function(d) d.date).range(0, w),
-																y = pv.Scale.linear(vix, function(d) d.low, function(d) d.high).range(0, h).nice();
-
-															var vis = new pv.Panel()
-																.width(w)
-																.height(h)
-																.margin(10)
-																.left(30);
-
-															/* Dates. */
-															vis.add(pv.Rule)
-																 .data(x.ticks())
-																 .left(x)
-																 .strokeStyle("#eee")
-															   .anchor("bottom").add(pv.Label)
-																 .text(x.tickFormat);
-
-															/* Prices. */
-															vis.add(pv.Rule)
-																 .data(y.ticks(7))
-																 .bottom(y)
-																 .left(-10)
-																 .right(-10)
-																 .strokeStyle(function(d) d % 10 ? "#ddd" : "#ddd")
-															   .anchor("left").add(pv.Label)
-																 .textStyle(function(d) d % 10 ? "#999" : "#ddd")
-																 .text(y.tickFormat);
-
-															/* Candlestick. */
-															vis.add(pv.Rule)
-																.data(vix)
-																.left(function(d) x(d.date))
-																.bottom(function(d) y(Math.min(d.high, d.low)))
-																.height(function(d) Math.abs(y(d.high) - y(d.low)))
-																.strokeStyle(function(d) d.open < d.close ? "#052963" : "#00C6D7")
-															  .add(pv.Rule)
-																.bottom(function(d) y(Math.min(d.open, d.close)))
-																.height(function(d) Math.abs(y(d.open) - y(d.close)))
-																.lineWidth(10);
-
-															vis.render();
 
 																</script>
 																	<script type="text/javascript" src="js/protovis-d3.2.js"></script>
@@ -465,7 +422,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																					  } ],
 																					  "startDuration": 1,
 																					  "graphs": [ {
-																						"balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
+																						"balloonText": "value:<b>[[value]]</b><br>error:</br><b>[[error]]</b>",
 																						"bullet": "yError",
 																						"bulletSize": 10,
 																						"errorField": "error",
@@ -1120,25 +1077,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		<ul class="clock-category">
 																			<li>
 																				<a href="#" class="active">
-																					<img src="images/time.png" alt="">
+																					<img src="images/time.png" alt=""/>
 																					<span>Clock</span>
 																				</a>
 																			</li>
 																			<li>
 																				<a href="#">
-																					<img src="images/alarm.png" alt="">
+																					<img src="images/alarm.png" alt=""/>
 																					<span>Alarm</span>
 																				</a>
 																			</li>
 																			<li>
 																				<a href="#">
-																					<img src="images/watch.png" alt="">
+																					<img src="images/watch.png" alt=""/>
 																					<span>Stop watch</span>
 																				</a>
 																			</li>
 																			<li>
 																				<a href="#">
-																					<img src="images/timer.png" alt="">
+																					<img src="images/timer.png" alt=""/>
 																					<span>Timer</span>
 																				</a>
 																			</li>
@@ -1291,7 +1248,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									 <!--footer section start-->
 										<footer>
-										   <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+										   <p>copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
 										</footer>
 									<!--footer section end-->
 								</div>
@@ -1300,14 +1257,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--/sidebar-menu-->
 				<div class="sidebar-menu">
 					<header class="logo">
-					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"> <h1>Augment</h1></span> 
-					<!--<img id="logo" src="" alt="Logo"/>--> 
+					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"><h1>Augment</h1></span> 
 				  </a> 
 				</header>
 			<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
 			<!--/down-->
 							<div class="down">	
-									  <a href="index.html"><img src="images/admin.jpg"></a>
+									  <a href="index.html"><img src="images/admin.jpg"/></a>
 									  <a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
 									 <p>System Administrator in Company</p>
 									<ul>
@@ -1375,7 +1331,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<li id="menu-mensagens-recebidas"  style="width:130px"><a href="blank.html">Blank</a></li>
 										  </ul>
 										</li>
-										<li id="menu-arquivos" ><a href="500.html">500</a></li>
 									  </ul>
 									</li>
 								  </ul>
@@ -1403,15 +1358,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											toggle = !toggle;
 										});
 							</script>
-<!--js -->
-<link rel="stylesheet" href="css/vroom.css">
-<script type="text/javascript" src="js/vroom.js"></script>
-<script type="text/javascript" src="js/TweenLite.min.js"></script>
-<script type="text/javascript" src="js/CSSPlugin.min.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
