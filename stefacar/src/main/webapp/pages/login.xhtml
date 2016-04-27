@@ -1,5 +1,7 @@
 
 <!DOCTYPE HTML>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -7,7 +9,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <head>
 <title>Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
 	content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -23,12 +25,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/font-awesome.css" rel="stylesheet" />
 <link
 	href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400'
-	rel='stylesheet' type='text/css'>
+	rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -39,30 +44,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h2 class="inner-tittle page">Stefa Car</h2>
 			<div class="login">
 				<h3 class="inner-tittle t-inner">Login</h3>
-				
+
 				<h:form>
 					<h:inputText id="user" placeholder="Username" required="true"
-						value="#{Bean user}" />
-						
+						value="#{}" />
+
 					<h:inputSecret type="password" placeholder="password"
-						required="true" value="#{bean password}" />
+						required="true" value="#{}" />
 
-					<h:commandButton type="submit" value="Login"
-						action="#{action submit login}" />
-			</div>
-			<div class="clearfix"></div>
-
-			<div class="new">
-				
-
-				<div class="clearfix"></div>
-			</div>
+					<h:commandButton type="submit" value="Login" action="#{}" />
+					</div>
+					<div class="clearfix"></div>
+		
+					<div class="new">
+		
+		
+						<div class="clearfix"></div>
+					</div>
 			</h:form>
 		</div>
 
 
 	</div>
-<!--
+	<!--
 
 	<div class="footer">
 		<div class="error-btn">
@@ -71,8 +75,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	</div>
 	-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
