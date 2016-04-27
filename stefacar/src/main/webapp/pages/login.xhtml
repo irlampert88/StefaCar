@@ -1,6 +1,10 @@
 
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <head>
 <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +14,11 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
@@ -28,50 +36,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 		<div class="error-top">
-			<h2 class="inner-tittle page">Augment</h2>
+			<h2 class="inner-tittle page">Stefa Car</h2>
 			<div class="login">
 				<h3 class="inner-tittle t-inner">Login</h3>
-				<div class="buttons login">
-				</div>
-				<form>
-					<input type="text" class="text" value="E-mail address"
-						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'E-mail address';}">
-					<input type="password" value="Password" onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'Password';}">
-					<div class="submit">
-						<input type="submit" onclick="myFunction()" value="Login">
-					</div>
-					<div class="clearfix"></div>
+				
+				<h:form>
+					<h:inputText id="user" placeholder="Username" required="true"
+						value="#{Bean user}" />
+						
+					<h:inputSecret type="password" placeholder="password"
+						required="true" value="#{bean password}" />
 
-					<div class="new">
-						<p>
-							<label class="checkbox11"><input type="checkbox"
-								name="checkbox"><i> </i>Forgot Password ?</label>
-						</p>
-						<p class="sign">
-							Do not have an account ? <a href="sign.html">Sign Up</a>
-						</p>
-						<div class="clearfix"></div>
-					</div>
-				</form>
+					<h:commandButton type="submit" value="Login"
+						action="#{action submit login}" />
 			</div>
+			<div class="clearfix"></div>
 
+			<div class="new">
+				
 
+				<div class="clearfix"></div>
+			</div>
+			</h:form>
 		</div>
 
 
-		<!--//login-top-->
 	</div>
+<!--
 
-	<!--//login-->
-	<!--footer section start-->
 	<div class="footer">
 		<div class="error-btn">
 			<a class="read fourth" href="index.html">Return to Home</a>
 		</div>
-		
+
 	</div>
+	-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/bootstrap.min.js"></script>
