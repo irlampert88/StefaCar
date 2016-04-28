@@ -18,42 +18,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-<!-- Bootstrap Core CSS -->
-<link href="../resources/styles/css/bootstrap.min.css" rel='stylesheet'
-	type='text/css' />
-<!-- Custom CSS -->
-<link href="../resources/styles/css/style.css" rel='stylesheet'
-	type='text/css' />
-<!-- Graph CSS -->
-<link href="../resources/styles/css/font-awesome.css" rel="stylesheet" />
-<link
-	href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400'
-	rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="../css/icon-font.min.css" type='text/css' />
-<!-- //lined-icons -->
+<link href="../resources/styles/css/bootstrap.min.css" rel='stylesheet'	type='text/css' />
+<link href="../resources/styles/css/style.css" rel='stylesheet'	type='text/css' />
+<link href="../resources/styles/css/font-awesome.css" rel="stylesheet" type='text/css'/>
+<link href="../resources/styles/css/font-awesome.min.css" rel="stylesheet" type='text/css'/>
+<link href="../resources/styles/scss/font-awesome.scss" rel="stylesheet" type='text/css'/>
+<link href="../resources/styles/css/font-awesome.css" rel="stylesheet" type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400'	rel='stylesheet' type='text/css' />
+<link href="../resources/styles/css/icon-font.min.css" rel="stylesheet" type='text/css' />
+<link href="../resources/styles/css/vroom.css" rel="stylesheet" type='text/css'/>
+<link href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet"/>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
 <script src="../resources/js/jquery-1.10.2.min.js"></script>
 <script src="../resources/js/serial.js"></script>
 <script src="../resources/js/light.js"></script>
 <script src="../resources/js/radar.js"></script>
-<link rel="stylesheet" href="../css/vroom.css" />
 <script type="text/javascript" src="../resources/js/vroom.js"></script>
 <script type="text/javascript" src="../resources/js/TweenLite.min.js"></script>
 <script type="text/javascript" src="../resources/js/CSSPlugin.min.js"></script>
 <script src="../resources/js/jquery.nicescroll.js"></script>
 <script src="../resources/js/scripts.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
 <script src="../resources/js/bootstrap.min.js"></script>
 <script src="../resources/js/css3clock.js"></script>
-<!--skycons-icons-->
 <script src="../resources/js/skycons.js"></script>
-
 <script src="../resources/js/jquery.easydropdown.js"></script>
 
 <!--//skycons-icons-->
 </head>
-<body>
-	<div class="page-container">
+<div class="jumbotron" >
+		<form class="navbar-form navbar-left navbar-inverse" role="search" style="margin-top:-50px; border-top-width:20px; border-top-style:solid;">
+				<input type="text" class="form-control" placeholder="Search" style="margin-left:1125px; margin-top:-20px;"/>
+			<button type="submit" class="btn btn-default" style="margin-top:-5px; margin-bottom:15px;">Submit</button>
+		</form>
+		</div>
+	<body>
 		<!--/content-inner-->
 		<div class="left-content">
 			<div class="inner-content">
@@ -61,22 +60,93 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="header-section">
 					<!--menu-right-->
 					<div class="top_menu">
-						<div class="main-search">
-							<form>
-								<input type="text" value="Search" onFocus="this.value = '';"
-									onBlur="if (this.value == '') {this.value = 'Search';}"
-									class="text" /> <input type="submit" value=""/>
-							</form>
-							<div class="close">
-								<img src="images/cross.png" />
-							</div>
+						
+						<script type="text/javascript">
+										 $('.main-search').hide();
+										$('button').click(function (){
+											$('.main-search').show();
+											$('.main-search text').focus();
+										}
+										);
+										$('.close').click(function(){
+											$('.main-search').hide();
+										});
+									</script>
+						<!--/profile_details-->
+						<div class="profile_details_left">
+							<ul class="nofitications-dropdown">
+								<li class="dropdown note dra-down">
+									<script type="text/javascript">
+										function DropDown(el) {
+											this.dd = el;
+											this.placeholder = this.dd
+													.children('span');
+											this.opts = this.dd
+													.find('ul.dropdown > li');
+											this.val = '';
+											this.index = -1;
+											this.initEvents();
+										}
+										DropDown.prototype = {
+											initEvents : function() {
+												var obj = this;
+
+												obj.dd.on('click', function(
+														event) {
+													$(this).toggleClass(
+															'active');
+													return false;
+												});
+
+												obj.opts
+														.on(
+																'click',
+																function() {
+																	var opt = $(this);
+																	obj.val = opt
+																			.text();
+																	obj.index = opt
+																			.index();
+																	obj.placeholder
+																			.text(obj.val);
+																});
+											},
+											getValue : function() {
+												return this.val;
+											},
+											getIndex : function() {
+												return this.index;
+											}
+										}
+
+										$(function() {
+
+											var dd = new DropDown($('#dd'));
+
+											$(document)
+													.click(
+															function() {
+																// all dropdowns
+																$(
+																		'.wrapper-dropdown-3')
+																		.removeClass(
+																				'active');
+															});
+
+										});
+									</script>
+								</li>
+
+							</ul>
 						</div>
+						<!--//profile_details-->
 					</div>
+					<!--//menu-right-->
 				</div>
+				<!-- //header-ends -->
 			</div>
 		</div>
 		<div class="srch">
-			<button></button>
 		</div>
 		<script type="text/javascript">
 							$('.main-search').hide();
@@ -93,21 +163,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="dropdown note dra-down" />
 			</ul>
 		</div>
-	</div>
-	<li class="dropdown note"><a href="#" class="dropdown-toggle"
-		data-toggle="dropdown" aria-expanded="false"><i
-			class="fa fa-envelope-o"> </i> <span class="badge">3</span></a></li>
-
-	<li class="dropdown note"><a href="#" class="dropdown-toggle"
-		data-toggle="dropdown" aria-expanded="false"> <i
-			class="fa fa-bell-o"></i> <span class="badge">5</span></a></li>
+	
+	
 
 	<!--//content-inner-->
 	<!--/sidebar-menu-->
 	<div class="sidebar-menu">
 		<header class="logo">
-			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
-			</a> <a href="index.html"> <span id="logo"><h1>Augment</h1></span>
+			<a href="#" class="sidebar-icon"> <span class="glyphicon glyphicon-menu-hamburger"></span>
+			</a> <a href="index.html"> <span id="logo"><h1>StefaCar</h1></span>
 			</a>
 		</header>
 		<div style="border-top: 1px solid rgba(69, 74, 84, 0.7)"></div>
@@ -128,19 +192,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!--//down-->
 		<div class="menu">
 			<ul id="menu">
-				<li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-				<li id="menu-academico"><a href="#"><i class="fa fa-table"></i>
-						<span> Tabs &amp; Panels</span> <span class="fa fa-angle-right"
-						style="float: right"></span></a>
-					<ul id="menu-academico-sub">
-						<li id="menu-academico-avaliacoes"><a href="tabs.html">
-								Tabs &amp; Panels</a></li>
-						<li id="menu-academico-boletim"><a href="widget.html">Widgets</a></li>
-						<li id="menu-academico-avaliacoes"><a href="calender.html">Calendar</a></li>
-
-					</ul></li>
 				<li id="menu-academico"><a href="#"><i
-						class="fa fa-file-text-o"></i> <span>Ui Elements</span> <span
+						class="glyphicon glyphicon-home"></i> <span>Início</span> <span
 						class="fa fa-angle-right" style="float: right"></span></a>
 					<ul id="menu-academico-sub">
 						<li id="menu-academico-avaliacoes"><a href="forms.html">Forms</a></li>
@@ -149,10 +202,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li id="menu-academico-boletim"><a href="table.html">Tables</a></li>
 						<li id="menu-academico-boletim"><a href="buttons.html">Buttons</a></li>
 					</ul></li>
-				<li><a href="typography.html"><i class="lnr lnr-pencil"></i>
-						<span>Typography</span></a></li>
-				<li id="menu-academico"><a href="#"><i class="lnr lnr-book"></i>
-						<span>Pages</span> <span class="fa fa-angle-right"
+				<li id="menu-academico"><a href="#"><i class="glyphicon glyphicon-book"></i>
+						<span>Cadastro</span> <span class="fa fa-angle-right"
 						style="float: right"></span></a>
 					<ul id="menu-academico-sub">
 						<li id="menu-academico-avaliacoes"><a href="login.html">Login</a></li>
@@ -162,8 +213,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								up</a></li>
 						<li id="menu-academico-boletim"><a href="profile.html">Profile</a></li>
 					</ul></li>
-				<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Mail
-							Box</span><span class="fa fa-angle-right" style="float: right"></span></a>
+				<li><a href="#"><i class="glyphicon glyphicon-random"></i> <span>Movimentos</span>
+				<span class="fa fa-angle-right" style="float: right"></span></a>
 					<ul>
 						<li><a href="inbox.html"><i class="fa fa-inbox"></i>
 								Inbox</a></li>
@@ -174,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					</ul></li>
 				<li id="menu-academico"><a href="#"><i
-						class="lnr lnr-layers"></i> <span>Components</span> <span
+						class="glyphicon glyphicon-usd"></i> <span>Faturamento</span> <span
 						class="fa fa-angle-right" style="float: right"></span></a>
 					<ul id="menu-academico-sub">
 						<li id="menu-academico-avaliacoes"><a href="grids.html">Grids</a></li>
@@ -182,8 +233,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								Objects</a></li>
 
 					</ul></li>
-				<li id="menu-comunicacao"><a href="#"><i
-						class="fa fa-smile-o"></i> <span>More</span><span
+				<li id="menu-comunicacao"><a href="#">
+				<span class="glyphicon glyphicon-briefcase"></span> <span>Administração</span><span
 						class="fa fa-angle-double-right" style="float: right"></span></a>
 					<ul id="menu-comunicacao-sub">
 						<li id="menu-mensagens" style="width: 120px"><a
@@ -199,7 +250,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</ul>
 		</div>
 	</div>
-	<div class="clearfix"></div>
+	
+	
+	
 </body>
 <script>
 	var toggle = true;

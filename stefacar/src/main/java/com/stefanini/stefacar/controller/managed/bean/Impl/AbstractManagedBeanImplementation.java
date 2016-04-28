@@ -28,8 +28,8 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 		Mensageiro.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
 	}
 	
-	public void delete(T entidade) {
-		service.delete(entidade);
+	public void delete(T entity) {
+		service.delete(entity);
 		Mensageiro.notificaInformacao("Parabéns!", "Emprestimo deletado com sucesso!");
 	}
 	
