@@ -301,8 +301,8 @@ a.hvr-bounce-to-right {
 /*--/signup--*/
 /*--login--*/
 .login{
-  width: 46%;
-  float: right;
+  width: 60%;
+  float: center;
     margin: 0 auto;
 }
 .login-info{
@@ -795,7 +795,7 @@ a.hvr-shutter-out-horizontal {
 	   font-size: 1.3em;
 	}
 	.login input.text {
-		  width: 92%;
+		  width: 122%;
 		  padding: .7em .7em .7em .7em;
 	}
 	.login input[type="password"] {
