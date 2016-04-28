@@ -3,7 +3,6 @@ package com.stefanini.stefacar.model.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 
 public class ContactList {
 	List<Contact>contactList;
