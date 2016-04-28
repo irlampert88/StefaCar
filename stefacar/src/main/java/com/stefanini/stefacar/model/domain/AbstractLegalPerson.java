@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -19,8 +18,8 @@ public abstract class AbstractLegalPerson implements Serializable{
 	
 	@Id
 	private String cnpj;
-	@OneToMany
-	private ContactList contactList;
+//	@OneToMany
+//	private ContactList contactList;
 	
 
 }

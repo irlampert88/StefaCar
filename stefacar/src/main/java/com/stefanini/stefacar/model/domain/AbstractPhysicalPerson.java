@@ -18,8 +18,8 @@ public abstract class AbstractPhysicalPerson implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	private String cpf;
-	@OneToMany
-	private ContactList contactList;
+//	@OneToMany
+//	private ContactList contactList;
 	
 
 }
