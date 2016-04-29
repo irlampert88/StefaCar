@@ -13,6 +13,7 @@ import com.stefanini.stefacar.util.Mensageiro;
 @ViewScoped
 public abstract class AbstractManagedBeanImplementation <T> implements AbstractManagedBean<T> {
 
+	private T address;
 	protected AbstractServiceImplementation<T> service;
 	private List<T> dataList;
 	
@@ -25,6 +26,7 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 	}
 	
 	public void save() {
+		service.save(getEntity());
 		Mensageiro.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
 	}
 	
@@ -34,10 +36,10 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 	}
 	
 	private void listAllRecordsFromDataBase() {
-		setListaDeDados(service.listAllRecordsFromDataBase());
+		setDataList(service.listAllRecordsFromDataBase());
 	}
 	
-	public void setListaDeDados(List<T> dataList) {
+	public void setDataList(List<T> dataList) {
 		this.dataList = dataList;
 	}
 	
@@ -46,6 +48,23 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 			listAllRecordsFromDataBase();
 		}
 		return dataList;
+	}
+	
+	public T getEntity() {
+		if (address == null) {
+			clean();
+		}
+		return address;
+	}
+	
+	public void setEntity(T entity) {
+		this.address = entity;
+	}
+	
+	public void clean() {
+		/* Implementar metodo limpar
+		 * setEntity(new T());
+		 */
 	}
 	
 }
