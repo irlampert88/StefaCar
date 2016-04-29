@@ -24,6 +24,7 @@ public class FooManagedBean {
 	}
 	
 	public ContactList getContacts() {
+		// teste =D
 		return contacts;
 	}
 	
