@@ -323,3 +323,7 @@
 2016-04-29 18:56:42,994 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\dev\Workspaces\Workspace-Eclipse-Mars2\StefaCar\stefacar\src\main\resources
 2016-04-29 18:56:43,001 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2016-04-29 18:56:43,010 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\dev\Workspaces\Workspace-Eclipse-Mars2\StefaCar\stefacar\src\test\resources
+2016-04-29 19:09:47,414 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-04-29 19:09:47,429 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\dev\Workspaces\Workspace-Eclipse-Mars2\StefaCar\stefacar\src\main\resources
+2016-04-29 19:09:47,568 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-04-29 19:09:47,582 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\dev\Workspaces\Workspace-Eclipse-Mars2\StefaCar\stefacar\src\test\resources
