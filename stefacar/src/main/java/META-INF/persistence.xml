@@ -15,6 +15,11 @@
 		<class>com.stefanini.stefacar.model.domain.ContactList</class>
 		<class>com.stefanini.stefacar.model.domain.PhysicalPerson</class>
 
+		<class>com.stefanini.stefacar.model.domain.Authorized</class>
+
+		<class>com.stefanini.stefacar.model.domain.Address</class>
+
+
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />

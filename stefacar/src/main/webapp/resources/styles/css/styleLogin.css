@@ -28,7 +28,7 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 body{
-  background: url(../images/bg.jpg)no-repeat 0px 0px;
+  background: url(../resources/images/bg.jpg)no-repeat 0px 0px;
   font-family: 'Montserrat', sans-serif;
   background-size:cover;
 }
@@ -81,7 +81,7 @@ h1 {
   padding: 3% 3% 3% 3%;
 }
 .users input.text {
-      width: 93%;
+      width: 85%;
 }
 input.text {
      width: 42.9%;
@@ -99,7 +99,7 @@ input.text {
 	-o-border-radius:4px;
 }
 .users input[type="password"] {
-  width: 93%;
+  width: 85%;
   outline: none;
   border: none;
  padding: 1.5em 1.5em 1.5em 1.5em;
@@ -114,9 +114,9 @@ input.text {
 }
 input[type="submit"] {
   padding: 12px 33px;
-  background: #fea15d;
-     margin: 3% 0 0 29%;
-  color: #fff;
+  background: #c0c0c0;
+  margin: 3% 0 0 29%;
+  color: #00ff00;
   text-transform: uppercase;
   outline: none;
   border: none;
@@ -301,12 +301,12 @@ a.hvr-bounce-to-right {
 /*--/signup--*/
 /*--login--*/
 .login{
-  width: 46%;
-  float: right;
-    margin: 0 auto;
+  width: 120%;
+  float: center;
+  argin: 0 auto;
 }
 .login-info{
-  background: #ffffff;
+  background: #148717;
      padding: 5% 3% 5% 3%;
 }
 .login input.text {
@@ -342,11 +342,11 @@ a.hvr-shutter-out-horizontal {
 	    padding: 1em 0 0;
 }
 .login p a {
-    color: #DBDBDB;
+    color: #008040;
   margin-top: 1.5em;
 }
 .login p a span {
-  color: #fea15d;
+  color: #008040;
   margin-left: 7px;
 }
 .hvr-shutter-out-horizontal {
@@ -795,7 +795,7 @@ a.hvr-shutter-out-horizontal {
 	   font-size: 1.3em;
 	}
 	.login input.text {
-		  width: 92%;
+		  width: 122%;
 		  padding: .7em .7em .7em .7em;
 	}
 	.login input[type="password"] {

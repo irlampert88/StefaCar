@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,26 +7,36 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registro de Autorizadas-Stefa Car</title>
 </head>
 <body>
+
+
 	<div class="Authorizedregister">
-		<h3 class="inner-tittle t-inner">Authorized Register</h3>
-		<h:form>
-			<h:inputText id="nameAuthorized" placeholder="name" required="true"
-				value="#{Bean nameAuthorized}" />
+		<h3 class="inner-tittle t-inner">Registro de Autorizadas</h3>
+ 		<h:form id="authorizedForm">
+			<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+			<p:panelGrid columns="3">
+				<p:outputLabel for="nameAuthorized" value=" Nome :" />
+				<p:inputText id="nameAuthorized" placeholder="nome" required="true"
+					value="#{authorizedManagedBean.authorized.authorizedName}"
+					requiredMessage="Campo Obrigatorio" />
+				<p:message for="nameAuthorized" />
 
-			<h:inputText id="------" placeholder="----" required="true"
-				value="-----------" />
+				<p:outputLabel for="cnpjAuthorized" value=" cnpj :" />
+				<p:inputText id="cnpjAuthorized" placeholder="cnpj" required="true"
+					value="#{authorizedManagedBean.authorized.authorizedCnpj}"
+					requiredMessage="Campo Obrigatorio" />
+				<p:message for="cnpjAuthorized" />
+			</p:panelGrid>
+
+			<p:commandButton value="Salvar" process="@form" update="@form"
+				action="#{authorizedManagedBean.save()}" icon="ui-icon-check"  />
+			<p:commandButton value="Limpar" process="@this" update="@form"
+				action="#{authorizedManagedBean.save()}" icon="fa fa-fw fa-eraser" />
 
 
-			<h:inputText id="------" placeholder="----" required="true"
-				value="-----------" />
-
-
-
-		</h:form>
+		</h:form> 
 	</div>
 </body>
 </html>

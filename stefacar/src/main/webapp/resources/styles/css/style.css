@@ -2764,7 +2764,7 @@ ul#menu-comunicacao-sub {
 }
 /*--/404--*/
 .error_page {
-       background: #00C6D7;
+       background: #3375E8;
     position: relative;
     padding: 11em 0;
     width: 100%
@@ -8118,7 +8118,7 @@ footer  p a:hover ,.footer p a:hover{
 	.login input[type="submit"] {
 		font-size: 17px;
 		font-weight: 400;
-		color: #fff;
+		color: #ffff00;
 		cursor: pointer;
 		outline: none;
 		padding: 7px 15px;
