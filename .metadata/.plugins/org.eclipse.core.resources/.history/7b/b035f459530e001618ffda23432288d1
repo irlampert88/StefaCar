@@ -1,0 +1,66 @@
+package com.stefanini.stefacar.controller.managed.bean.Impl;
+
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import com.stefanini.stefacar.model.domain.AbstractPerson;
+import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;
+import com.stefanini.stefacar.model.service.impl.AbstractPersonService;
+import com.stefanini.stefacar.util.Mensageiro;
+
+@ManagedBean
+@ViewScoped
+public class AbstractPersonManagedBean extends AbstractManagedBeanImplementation<AbstractPerson> {
+
+	private AbstractPerson abstractPerson;
+	protected AbstractServiceImplementation<AbstractPerson> service;
+	private List<AbstractPerson> dataList;
+
+	public AbstractPersonManagedBean(AbstractPersonService service) {
+		this.service = service;
+	}
+
+	public AbstractPersonManagedBean() {
+
+	}
+
+	public void save() {
+		service.save(getEntity());
+		Mensageiro.notificaInformacao("Congratulations! " , " Address saved successfully !");
+	}
+
+	public void delete(AbstractPerson abstractPerson) {
+		service.delete(abstractPerson);
+		Mensageiro.notificaInformacao("Congratulations! " , " Address deleted successfully !");
+	}
+
+	private void listAllRecordsFromDataBase() {
+		setListaDeDados(service.listAllRecordsFromDataBase());
+	}
+
+	public void setListaDeDados(List<AbstractPerson> dataList) {
+		this.dataList = dataList;
+	}
+
+	public List<AbstractPerson> getDataList() {
+		if (dataList == null) {
+			listAllRecordsFromDataBase();
+		}
+		return dataList;
+	}
+
+	public AbstractPerson getAbstractPerson() {
+		if (abstractPerson == null) {
+			clean();
+		}
+		return abstractPerson;
+	}
+
+	public void setAddress(AbstractPerson abstractPerson) {
+		this.abstractPerson = abstractPerson;
+	}
+
+	public void clean() {
+//		setAbstractPerson(new AbstractPerson());
+	}
+}

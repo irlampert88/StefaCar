@@ -1,0 +1,5 @@
+package com.stefanini.stefacar.model.repository.impl;
+
+public class AbstractPersonRepository {
+
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.repository.impl.PersonRepository"/>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.service.impl.PersonService"/>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.service.impl.PhysicalPersonService"/>
+</qualifiedTypeNameHistroy>
