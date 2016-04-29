@@ -24,7 +24,7 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 
 	}
 
-	public void save(Authorized authorized) {
+	public void save() {
 		service.save(authorized);
 		Mensageiro.notificaInformacao("Congrats!", "New athorized save sucesfull");
 	}

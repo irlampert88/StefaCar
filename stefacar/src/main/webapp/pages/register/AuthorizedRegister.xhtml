@@ -31,7 +31,7 @@
 			</p:panelGrid>
 
 			<p:commandButton value="Salvar" process="@form" update="@form"
-				action="#{authorizedManagedBean.save(authorizedFrom)}" icon="fa fa-fw fa-save" />
+				action="#{authorizedManagedBean.save()}" icon="ui-icon-check"  />
 			<p:commandButton value="Limpar" process="@this" update="@form"
 				action="#{authorizedManagedBean.save()}" icon="fa fa-fw fa-eraser" />
 
