@@ -4,7 +4,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
 
-public class FabricaDeFacesContext {
+public class FactoryFacesContext {
 	
 	@Produces @RequestScoped
 	public FacesContext criarFacesContext() {
