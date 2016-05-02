@@ -20,23 +20,23 @@
 		<p:layoutUnit position="center">
 
 			<h:form id="authorizedForm">
-			  <p:tabView>
-        <p:tab title="Dados basicos">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="endereço">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="Contatos">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-            </h:panelGrid>
-        </p:tab>
-    </p:tabView>
+				<p:tabView>
+					<p:tab title="Dados basicos">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="endereço">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Contatos">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
 				<p:panelGrid columns="3">
@@ -62,18 +62,16 @@
 				</p:panelGrid>
 
 				<p:commandButton value="Salvar" process="@form"
-					
 					action="#{authorizedManagedBean.save()}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{authorizedManagedBean.clean()}"
-					icon="fa fa-fw fa-eraser" />
+					action="#{authorizedManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 
 
-	</h:form>
-	</p:layoutUnit>
+			</h:form>
+		</p:layoutUnit>
 
 	</p:layout>
-	
+
 
 </h:body>
 
