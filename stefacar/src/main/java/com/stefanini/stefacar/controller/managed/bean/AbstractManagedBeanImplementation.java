@@ -1,13 +1,12 @@
-package com.stefanini.stefacar.controller.managed.bean.Impl;
+package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import com.stefanini.stefacar.controller.managed.bean.AbstractManagedBean;
-import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;
-import com.stefanini.stefacar.util.Mensageiro;
+import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
+import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;;
 
 @ManagedBean
 @ViewScoped
@@ -27,12 +26,12 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 	
 	public void save() {
 		service.save(getEntity());
-		Mensageiro.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
+		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
 	}
 	
 	public void delete(T entity) {
 		service.delete(entity);
-		Mensageiro.notificaInformacao("Parabéns!", "Emprestimo deletado com sucesso!");
+		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo deletado com sucesso!");
 	}
 	
 	private void listAllRecordsFromDataBase() {

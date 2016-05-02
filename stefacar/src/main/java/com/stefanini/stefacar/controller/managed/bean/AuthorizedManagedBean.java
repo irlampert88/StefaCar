@@ -1,13 +1,13 @@
-package com.stefanini.stefacar.controller.managed.bean.Impl;
+package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Authorized;
 import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;
-import com.stefanini.stefacar.util.Mensageiro;
 
 @ManagedBean
 @ViewScoped
@@ -26,12 +26,12 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 
 	public void save() {
 		service.save(authorized);
-		Mensageiro.notificaInformacao("Congrats!", "New athorized save sucesfull");
+		MessengerSystem.notificaInformacao("Congrats!", "New athorized save sucesfull");
 	}
 
 	public void delete(Authorized authorized) {
 		service.delete(authorized);
-		Mensageiro.notificaInformacao("Congrats!", "Athorized Deleted sucesfull!");
+		MessengerSystem.notificaInformacao("Congrats!", "Athorized Deleted sucesfull!");
 	}
 
 	private void listAllRecordsFromDataBase() {
