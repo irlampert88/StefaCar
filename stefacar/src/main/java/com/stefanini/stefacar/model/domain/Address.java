@@ -1,6 +1,7 @@
 package com.stefanini.stefacar.model.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -92,7 +93,6 @@ public class Address {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((neighborhood == null) ? 0 : neighborhood.hashCode());
 		result = prime * result + ((number == null) ? 0 : number.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
@@ -114,11 +114,6 @@ public class Address {
 			if (other.city != null)
 				return false;
 		} else if (!city.equals(other.city))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
 			return false;
 		if (neighborhood == null) {
 			if (other.neighborhood != null)
@@ -150,10 +145,9 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", city=" + city + ", neighborhood=" + neighborhood + ", street=" + street
-				+ ", number=" + number + ", state=" + state + ", typeOfAddress=" + typeOfAddress + "]";
+		return "Address [city=" + city + ", neighborhood=" + neighborhood + ", street=" + street + ", number=" + number
+				+ ", state=" + state + ", typeOfAddress=" + typeOfAddress + "]";
 	}
 
 	
-
 }

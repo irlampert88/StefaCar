@@ -1,24 +1,35 @@
 package com.stefanini.stefacar.model.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
+@Entity
 public class ContactList {
-	List<Contact>contactList;
 	
-	private int type;
-	private String value;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idEmprestimo;
+	
+	@OneToMany(cascade=CascadeType.REFRESH)	
+	@JoinColumn(name="idContato")
+	private List<Contact>contactList;
+
+	public List<Contact> getContactList() {
+		return contactList;
+	}
+
+	public void setContactList(List<Contact> contactList) {
+		this.contactList = contactList;
+	}
 	
 	public ContactList() {
-		contactList = new ArrayList<>();
+		
 	}
-	
-	public void addContact() {
-		contactList.add(new Contact(type, value));
-		value = "";
-	}
-	
-	// getter e setter
-	
 }

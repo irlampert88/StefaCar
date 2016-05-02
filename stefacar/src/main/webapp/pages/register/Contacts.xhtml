@@ -11,24 +11,8 @@
 </head>
 <body>
 	<ui:param name="contacts" value="#{contacts}" />
+	<p:commandButton value="+" actionListener="#{contacts.addContact()}"
+		<!-- será o valor include para chamar o conjunto --> />
 
-	<h:panelGrid columns="2">
-		<h:panelGrid columns="3">
-			<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
-			<p:selectOneMenu id="tipoContato" value="#{contacts.type}">
-				<f:selectItem itemLabel="Residencial" itemValue="1" />
-				<f:selectItem itemLabel="Empresarial" itemValue="2" />
-				<f:selectItem itemLabel="Celular" itemValue="3" />
-				<f:selectItem itemLabel="Email" itemValue="4" />
-			</p:selectOneMenu>
-			
-			<p:inputText id="campoContato"
-				value="#{contacts.value}" />
-							
-							
-			<p:commandButton value="+" actionListener="#{contacts.addContact()}" />
-							
-						</h:panelGrid> -->
-	</h:panelGrid>
 </body>
 </html>

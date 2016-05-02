@@ -17,6 +17,7 @@ public class FooManagedBean {
 	@Inject
 	private FooRepository repository;
 	
+
 	private ContactList contacts = new ContactList();
 	
 	public void salvaCliente() {
@@ -24,11 +25,12 @@ public class FooManagedBean {
 	}
 	
 	public ContactList getContacts() {
-		// teste =D
 		return contacts;
 	}
 	
 	public void setContacts(ContactList contacts) {
 		this.contacts = contacts;
-	}
+	}	
+	
+
 }

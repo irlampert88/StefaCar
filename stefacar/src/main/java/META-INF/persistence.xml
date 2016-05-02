@@ -9,6 +9,11 @@
 		<jta-data-source>java:/jdbc/StefacarDS</jta-data-source>
 		
 		<class>com.stefanini.stefacar.model.domain.Foo</class>
+		<class>com.stefanini.stefacar.model.domain.Address</class>
+		<class>com.stefanini.stefacar.model.domain.AbstractPerson</class>
+		<class>com.stefanini.stefacar.model.domain.Contact</class>
+		<class>com.stefanini.stefacar.model.domain.ContactList</class>
+		<class>com.stefanini.stefacar.model.domain.PhysicalPerson</class>
 
 		<class>com.stefanini.stefacar.model.domain.Authorized</class>
 
