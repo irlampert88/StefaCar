@@ -1,18 +1,23 @@
-package com.stefanini.stefacar.controller.managed.bean.Impl;
+package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+
+import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Address;
 import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;
 import com.stefanini.stefacar.model.service.impl.AddressService;
-import com.stefanini.stefacar.util.Mensageiro;
 
 @ManagedBean
 @ViewScoped
 public class AddressManagedBean extends AbstractManagedBeanImplementation<Address> {
 
 	private Address address;
+	
+	@Inject
 	protected AbstractServiceImplementation<Address> service;
 	private List<Address> dataList;
 
@@ -25,15 +30,15 @@ public class AddressManagedBean extends AbstractManagedBeanImplementation<Addres
 	}
 
 	public void save() {
-		service.save(getEntity());
-		Mensageiro.notificaInformacao("Congratulations! " , " Loan successfully saved !");
+		service.save(getAddress());
+		MessengerSystem.notificaInformacao("Congratulations! " , " Loan successfully saved !");
 	}
 
 	public void delete(Address address) {
 		service.delete(address);
-		Mensageiro.notificaInformacao("Congratulations! " , " Loan successfully deleted !");
+		MessengerSystem.notificaInformacao("Congratulations! " , " Loan successfully deleted !");
 	}
-
+	
 	private void listAllRecordsFromDataBase() {
 		setListaDeDados(service.listAllRecordsFromDataBase());
 	}

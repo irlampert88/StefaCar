@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.util;
+package com.stefanini.stefacar.controller.converter.jpa;
 
 import java.sql.Date;
 import java.time.LocalDate;

@@ -1,9 +1,9 @@
-package com.stefanini.stefacar.util;
+package com.stefanini.stefacar.controller.converter.jsf;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-public class Mensageiro {
+public class MessengerSystem {
 
 	public static void nootificaErro(String mensagemDeErro, String detalhes){
 		notificar(FacesMessage.SEVERITY_ERROR, mensagemDeErro, detalhes);

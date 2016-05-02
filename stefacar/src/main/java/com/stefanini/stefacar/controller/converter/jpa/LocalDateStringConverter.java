@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.util;
+package com.stefanini.stefacar.controller.converter.jpa;
 
 
 
@@ -11,7 +11,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter(value="localDateTimeConverter")
-public class LocalDateString implements Converter {
+public class LocalDateStringConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String dataString) {
