@@ -8,9 +8,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name = "idPerson")
 public class PhysicalPerson extends AbstractPerson {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Column(nullable=false, unique=true)
 	private String cpf;
