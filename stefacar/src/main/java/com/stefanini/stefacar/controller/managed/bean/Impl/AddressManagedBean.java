@@ -26,12 +26,12 @@ public class AddressManagedBean extends AbstractManagedBeanImplementation<Addres
 
 	public void save() {
 		service.save(getEntity());
-		Mensageiro.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
+		Mensageiro.notificaInformacao("Congratulations! " , " Loan successfully saved !");
 	}
 
 	public void delete(Address address) {
 		service.delete(address);
-		Mensageiro.notificaInformacao("Parabéns!", "Endereço deletado com sucesso!");
+		Mensageiro.notificaInformacao("Congratulations! " , " Loan successfully deleted !");
 	}
 
 	private void listAllRecordsFromDataBase() {
