@@ -4,31 +4,33 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 
 import com.stefanini.stefacar.model.domain.Authorized;
-import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;
+import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 import com.stefanini.stefacar.util.Mensageiro;
 
 @ManagedBean
 @ViewScoped
 public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Authorized> {
 	private Authorized authorized;
-	protected AbstractServiceImplementation<Authorized> service;
+	@Inject
+	protected AuthorizedService service;
 	private List<Authorized> dataList;
 
-	public AuthorizedManagedBean(AbstractServiceImplementation<Authorized> service) {
+	public AuthorizedManagedBean(AuthorizedService service) {
 		this.service = service;
 	}
 
 	public AuthorizedManagedBean() {
 
 	}
-
+@Override
 	public void save() {
-		service.save(authorized);
+		service.save(getAuthorized());
 		Mensageiro.notificaInformacao("Congrats!", "New athorized save sucesfull");
 	}
-
+@Override
 	public void delete(Authorized authorized) {
 		service.delete(authorized);
 		Mensageiro.notificaInformacao("Congrats!", "Athorized Deleted sucesfull!");
@@ -56,11 +58,12 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 		return authorized;
 	}
 
-	public void setAuthorized(Authorized authorized) {
-		this.authorized = authorized;
+	public void setEntity(Authorized entity) {
+		this.authorized = entity;
 	}
-	public void clean(){
-		setAuthorized(new Authorized());
+	@Override
+	public void clean() {
+		setEntity(new Authorized());
 	}
-		
+
 }

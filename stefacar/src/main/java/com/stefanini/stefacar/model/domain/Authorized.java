@@ -12,15 +12,19 @@ public class Authorized {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAuthorized;
-	@Column
-	private String authorizedName;
+	@Column(nullable = false)
+	protected String authorizedName;
+
+//	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+//	@JoinColumn(nullable = false)
+//	protected ContactList contactList;
+//
+//	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+//	@JoinColumn(nullable = false)
+//	protected Address authorizedAdress;
 	@Column
 	private String AuthorizedCnpj;
 
-	// @Column
-	// private ContactList authorizedContactList;
-	// @Column
-	// private Endress endress;
 	public int getIdAuthorized() {
 		return idAuthorized;
 	}
