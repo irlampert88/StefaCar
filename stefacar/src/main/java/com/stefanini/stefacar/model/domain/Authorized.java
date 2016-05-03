@@ -1,10 +1,13 @@
 package com.stefanini.stefacar.model.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Authorized {
@@ -15,13 +18,13 @@ public class Authorized {
 	@Column(nullable = false)
 	protected String authorizedName;
 
-//	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-//	@JoinColumn(nullable = false)
-//	protected ContactList contactList;
-//
-//	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-//	@JoinColumn(nullable = false)
-//	protected Address authorizedAdress;
+	// @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	// @JoinColumn(nullable = false)
+	// protected ContactList contactList;
+
+	@OneToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "idAddress", nullable = false)
+	protected Address authorizedAdress;
 	@Column
 	private String AuthorizedCnpj;
 

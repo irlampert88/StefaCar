@@ -21,48 +21,52 @@
 
 			<h:form id="authorizedForm">
 				<p:tabView>
-					<p:tab title="Dados basicos">
+					<p:tab title="Dados basicos" id="tabBasic">
+						<h:panelGrid columns="3" cellpadding="10">
+							<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+							<p:panelGrid columns="3">
+
+								<p:outputLabel for="authorizedName" value="Nome:" />
+								<p:inputText id="authorizedName"
+									requiredMessage="Campo obrigatório" required="true"
+									placeholder="nome"
+									value="#{authorizedManagedBean.authorized.authorizedName}" />
+								<p:message for="authorizedName" />
+
+
+
+								<p:outputLabel for="authorizedCnpj" value="Cnpj :" />
+								<p:inputMask maxlength="20" id="authorizedCnpj"
+									requiredMessage="Campo obrigatório" required="true"
+									placeholder="cnpj "
+									value="#{authorizedManagedBean.authorized.authorizedCnpj}" />
+								<p:message for="authorizedCnpj" />
+
+
+
+							</p:panelGrid>
+
+						</h:panelGrid>
+						
+					</p:tab>
+					<p:tab title="endereço" id="tabAddress">
 						<h:panelGrid columns="2" cellpadding="10">
+						  <!--   <ui:include src="address.xhtml"/> -->
 
 						</h:panelGrid>
 					</p:tab>
-					<p:tab title="endereço">
-						<h:panelGrid columns="2" cellpadding="10">
-
-						</h:panelGrid>
-					</p:tab>
-					<p:tab title="Contatos">
+					<p:tab title="Contatos" id="tabContact">
 						<h:panelGrid columns="2" cellpadding="10">
 
 						</h:panelGrid>
 					</p:tab>
 				</p:tabView>
-				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-				<p:panelGrid columns="3">
-
-					<p:outputLabel for="authorizedName" value="Nome:" />
-					<p:inputText id="authorizedName"
-						requiredMessage="Campo obrigatório" required="true"
-						placeholder="nome"
-						value="#{authorizedManagedBean.authorized.authorizedName}" />
-					<p:message for="authorizedName" />
-
-
-
-					<p:outputLabel for="authorizedCnpj" value="Cnpj :" />
-					<p:inputMask maxlength="20" id="authorizedCnpj"
-						requiredMessage="Campo obrigatório" required="true"
-						placeholder="cnpj "
-						value="#{authorizedManagedBean.authorized.authorizedCnpj}" />
-					<p:message for="authorizedCnpj" />
-
-
-
-				</p:panelGrid>
 
 				<p:commandButton value="Salvar" process="@form"
-					action="#{authorizedManagedBean.save()}" icon="fa fa-fw fa-save" update="@form"/>
+					action="#{authorizedManagedBean.save()}" icon="fa fa-fw fa-save"
+					update="@form" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{authorizedManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 

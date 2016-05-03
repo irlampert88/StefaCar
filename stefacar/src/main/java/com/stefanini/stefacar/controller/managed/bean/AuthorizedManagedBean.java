@@ -6,6 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import org.primefaces.event.TabChangeEvent;
+
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Authorized;
 import com.stefanini.stefacar.model.service.impl.AuthorizedService;
@@ -28,12 +30,12 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 @Override
 	public void save() {
 		service.save(getAuthorized());
-		MessengerSystem.notificaInformacao("Congrats!", "New athorized save sucesfull");
+		MessengerSystem.notificaInformacao("Parabéns!", "Nova autorizada cadastrada com sucesso");
 	}
 @Override
 	public void delete(Authorized authorized) {
 		service.delete(authorized);
-		MessengerSystem.notificaInformacao("Congrats!", "Athorized Deleted sucesfull!");
+		MessengerSystem.notificaInformacao("Parabéns!", "Autorizada deletada com sucesso !");
 	}
 
 	private void listAllRecordsFromDataBase() {
@@ -65,5 +67,8 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 	public void clean() {
 		setEntity(new Authorized());
 	}
+	public void onTabChange(TabChangeEvent event) {  
+		event.getTab();
+	} 
 
 }
