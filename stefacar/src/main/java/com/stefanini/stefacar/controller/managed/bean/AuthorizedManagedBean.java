@@ -27,13 +27,8 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 	}
 @Override
 	public void save() {
-
 		service.save(getAuthorized());
 		MessengerSystem.notificaInformacao("Congrats!", "New athorized save sucesfull");
-
-		service.save(authorized);
-		MessengerSystem.notificaInformacao("Congrats!", "New athorized save sucesfull");
-
 	}
 @Override
 	public void delete(Authorized authorized) {

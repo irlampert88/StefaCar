@@ -6,11 +6,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>Registro de Peças-Stefa Car</title>
+<head>
+	<title>Registro de Autorizadas-Stefa Car</title>
 
-</h:head>
-<h:body>
+</head>
+
+
+	<ui:composition template="/WEB-INF/modelos/padrao.xhtml">
+	<ui:define name="conteudo">
+	
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
 	<p:layout>
 		<p:layoutUnit position="north" style="text-align: center;">
@@ -77,7 +81,7 @@
 				</p:panelGrid>
 
 				<p:commandButton value="Salvar" process="@form"
-					update="@form"
+					
 					action="#{partsManagedBean.save()}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{partsManagedBean.clean()}"
@@ -88,9 +92,10 @@
 	</p:layoutUnit>
 
 	</p:layout>
-	
+	</ui:define>
+	</ui:composition>
 
-</h:body>
+
 
 
 </html>
