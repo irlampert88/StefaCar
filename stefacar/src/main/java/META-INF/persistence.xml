@@ -17,6 +17,7 @@
 		<class>com.stefanini.stefacar.model.domain.Authorized</class>
 		<class>com.stefanini.stefacar.model.domain.Address</class>
 		<class>com.stefanini.stefacar.model.domain.Parts</class>
+		<class>com.stefanini.stefacar.model.domain.Provider</class>
 
 
 		<properties>
