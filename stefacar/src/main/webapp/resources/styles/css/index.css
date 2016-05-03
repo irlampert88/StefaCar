@@ -1,8 +1,15 @@
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b7deed+0,71ceef+50,21b4e2+51,b7deed+100;Shape+1+Style */
 
+.navbar-responsive {
+	background-color:#3375E8; 
+	margin-top: -5px; 
+	width:auto; 
+	margin: auto;
+	position:relative;
+}
+
 .logo-font {
 	margin-left:20px;
-	line-height: 35px;
 	font-size: 50px;
 	color:#FFFFFF;
 	font-family: 'Ubuntu', sans-serif;
