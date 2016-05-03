@@ -30,7 +30,7 @@ public class PartsManagedBean extends AbstractManagedBeanImplementation<Parts> {
 	@Override
 	public void save() {
 		service.save(getParts());
-		MessengerSystem.notificaInformacao("Congrats!", "A new part was sucessfull save");
+		MessengerSystem.notificaInformacao("Parabéns!", "A new part was sucessfull save");
 
 	}
 
