@@ -1,5 +1,13 @@
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b7deed+0,71ceef+50,21b4e2+51,b7deed+100;Shape+1+Style */
 
+.logo-font {
+	margin-left:20px;
+	line-height: 35px;
+	font-size: 50px;
+	color:#FFFFFF;
+	font-family: 'Ubuntu', sans-serif;
+}
+
 #nbc-searchbox{
 	background:url(http://3.bp.blogspot.com/-A_B_jk1yrIY/Ue7A4JLAVlI/AAAAAAAAAhs/JPrpQvYA-7w/s1600/noxdo_blogspot_com_Search-icon4.png) no-repeat scroll center center transparent;width:307px;height:50px;disaply:block;}
 
