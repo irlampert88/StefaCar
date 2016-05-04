@@ -22,9 +22,9 @@ public class Authorized {
 	// @JoinColumn(nullable = false)
 	// protected ContactList contactList;
 
-	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idAddress", nullable = false)
-	protected Address authorizedAdress;
+	// @OneToOne(cascade = CascadeType.REFRESH)
+	// @JoinColumn(name = "idAddress", nullable = false)
+	// protected Address authorizedAdress;
 	@Column
 	private String AuthorizedCnpj;
 
