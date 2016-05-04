@@ -20,78 +20,77 @@
 		<p:layoutUnit position="center">
 
 			<h:form id="partsForm">
-			  <p:tabView>
-        <p:tab title="Dados basicos">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="endereço">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="Contatos">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-            </h:panelGrid>
-        </p:tab>
-    </p:tabView>
+				<p:tabView>
+					<p:tab title="Dados basicos">
+						<h:panelGrid columns="2" cellpadding="10">
+						
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="endereço">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Contatos">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="PartsName" value="Nome:" />
-					<p:inputText id="PartsName"
-						requiredMessage="Campo obrigatório" required="true"
-						placeholder="nome"
+					<p:inputText id="PartsName" requiredMessage="Campo obrigatório"
+						required="true" placeholder="nome"
 						value="#{partsManagedBean.parts.partsName}" />
 					<p:message for="PartsName" />
 
 					<p:outputLabel for="partsIdExclusive" value="id unico da peça :" />
 					<p:inputMask maxlength="20" id="partsIdExclusive"
 						requiredMessage="Campo obrigatório" required="true"
-						placeholder="id "
-						value="#{partsManagedBean.parts.partsId}" />
+						placeholder="id " value="#{partsManagedBean.parts.partsId}" />
 					<p:message for="partsIdExclusive" />
-					
+
 					<p:outputLabel for="partsValue" value="Valor peça :" />
 					<p:inputMask maxlength="20" id="partsValue"
 						requiredMessage="Campo obrigatório" required="true"
-						placeholder="Valor "
-						value="#{partsManagedBean.parts.partsValue}" />
+						placeholder="Valor " value="#{partsManagedBean.parts.partsValue}" />
 					<p:message for="partsValue" />
-					
-						<p:outputLabel for="partsStash" value="Quantidade no estoque :" />
+
+					<p:outputLabel for="partsStash" value="Quantidade no estoque :" />
 					<p:inputMask maxlength="20" id="partsStash"
 						requiredMessage="Campo obrigatório" required="true"
 						placeholder="estoque "
 						value="#{partsManagedBean.parts.partsStash}" />
 					<p:message for="partsStash" />
-					
-					
-					
+
+
+
 
 
 
 				</p:panelGrid>
 
-				<p:commandButton value="Salvar" process="@form"
-					update="@form"
+				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{partsManagedBean.save()}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{partsManagedBean.clean()}"
-					icon="fa fa-fw fa-eraser" />
+					action="#{partsManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 
 
-	</h:form>
-	<p:button icon="ui-icon-check" id="redirectView"
-				title="Voltar pra lista de peças" value="Voltar para tabela de peças"
-				href="../views/ViewParts.xhtml" />
-	</p:layoutUnit>
+			</h:form>
+
+			<p:button icon="fa fa-fw fa-arrow-left" id="redirectView"
+				title="Voltar pra lista de autorizadas"
+				value="Voltar para tabela de peças" href="../views/ViewParts.xhtml" />
+
+		</p:layoutUnit>
+
 
 	</p:layout>
-	
+
 
 </h:body>
 
