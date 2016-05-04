@@ -8,6 +8,10 @@
 	xmlns:p="http://primefaces.org/ui">
 <head>
 <title>Registro de Autorizadas-Stefa Car</title>
+	
+	<script src="../../resources/js/addressWS.js" />
+	<script type="text/javascript" />
+	
 </head>
 <body>
 
@@ -17,6 +21,13 @@
  		<h:form id="addressForm">
 			<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 			<p:panelGrid columns="3">
+				<p:outputLabel for="zipCodeAddress" value="CEP :" />
+				<p:inputText id="zipCodeAddress" required="true"
+					value="#{addressManagedBean.address.zipCode}"
+					onblur="pesquisacep(this.value);"
+					requiredMessage="Required input" />
+				<p:message for="zipCodeAddress" />
+			
 				<p:outputLabel for="cityAddress" value="Cidade :" />
 				<p:inputText id="cityAddress" required="true"
 					value="#{addressManagedBean.address.city}"
