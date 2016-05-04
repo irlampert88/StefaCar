@@ -7,13 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Address{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(nullable=false)
 	private String city;
+	@Column(nullable=false)
+	private String zipCode;
 	@Column(nullable=false)
 	private String neighborhood;
 	@Column(nullable=false)
@@ -39,6 +41,14 @@ public class Address {
 
 	public String getCity() {
 		return city;
+	}
+	
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public void setCity(String city) {
@@ -92,11 +102,13 @@ public class Address {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((neighborhood == null) ? 0 : neighborhood.hashCode());
 		result = prime * result + ((number == null) ? 0 : number.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((street == null) ? 0 : street.hashCode());
 		result = prime * result + ((typeOfAddress == null) ? 0 : typeOfAddress.hashCode());
+		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
 
@@ -113,6 +125,11 @@ public class Address {
 			if (other.city != null)
 				return false;
 		} else if (!city.equals(other.city))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (neighborhood == null) {
 			if (other.neighborhood != null)
@@ -139,14 +156,21 @@ public class Address {
 				return false;
 		} else if (!typeOfAddress.equals(other.typeOfAddress))
 			return false;
+		if (zipCode == null) {
+			if (other.zipCode != null)
+				return false;
+		} else if (!zipCode.equals(other.zipCode))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Address [city=" + city + ", neighborhood=" + neighborhood + ", street=" + street + ", number=" + number
-				+ ", state=" + state + ", typeOfAddress=" + typeOfAddress + "]";
+		return "Address [id=" + id + ", city=" + city + ", zipCode=" + zipCode + ", neighborhood=" + neighborhood
+				+ ", street=" + street + ", number=" + number + ", state=" + state + ", typeOfAddress=" + typeOfAddress
+				+ "]";
 	}
 
+	
 	
 }
