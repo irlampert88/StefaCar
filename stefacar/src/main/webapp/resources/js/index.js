@@ -81,3 +81,6 @@ $(".sidebar-icon").click(
 
 			toggle = !toggle;
 		});
+
+
+
