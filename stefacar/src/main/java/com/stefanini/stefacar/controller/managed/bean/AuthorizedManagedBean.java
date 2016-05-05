@@ -17,7 +17,7 @@ import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 @ViewScoped
 public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Authorized> {
 	private Authorized authorized;
-	private Contact contact;
+//	private Contact contact;
 	@Inject
 	protected AuthorizedService service;
 	private List<Authorized> dataList;
@@ -33,13 +33,13 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 	@Override
 	public void save() {
 		service.save(getAuthorized());
-		MessengerSystem.notificaInformacao("Parabéns!", "Nova autorizada cadastrada com sucesso");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Nova autorizada cadastrada com sucesso");
 	}
 
 	@Override
 	public void delete(Authorized authorized) {
 		service.delete(authorized);
-		MessengerSystem.notificaInformacao("Parabéns!", "Autorizada deletada com sucesso !");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Autorizada deletada com sucesso !");
 	}
 
 	private void listAllRecordsFromDataBase() {
@@ -65,13 +65,13 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 		return authorized;
 	}
 
-	public Contact getContact() {
+/*	public Contact getContact() {
 		return contact;
 	}
 
 	public void setContact(Contact contact) {
 		this.contact = contact;
-	}
+	}*/
 
 	public void setEntity(Authorized entity) {
 		this.authorized = entity;

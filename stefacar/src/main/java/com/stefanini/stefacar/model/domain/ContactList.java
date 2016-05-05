@@ -1,5 +1,6 @@
 package com.stefanini.stefacar.model.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import com.stefanini.stefacar.controller.warehouse.ContactType;
 
 @Entity
 public class ContactList {
@@ -24,16 +23,16 @@ public class ContactList {
 	@JoinColumn(name="idContact")
 	private List<Contact> contacts;
 
-	private ContactType type;
+	private String type;
 	private String value;
 	
 	
 	
-	public ContactType getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(ContactType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -46,7 +45,7 @@ public class ContactList {
 	}
 
 	public ContactList() {
-		
+		this.contacts=new ArrayList<>();
 	}
 	
 	public List<Contact> getContactList() {
@@ -67,7 +66,7 @@ public class ContactList {
 	}
 
 	private void clearValues() {
-		setType(null);
-		setValue(null);
+		setType("");
+		setValue("");
 	}
 }

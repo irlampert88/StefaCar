@@ -12,16 +12,17 @@
 	<h:form>
 		<div id="gridContato">
 			<ui:repeat var="#{contact}" value="contactList.contacts">
-				<p:outputLabel value="#{contact.type.name}" />
+				<p:outputLabel value="#{contact.type}" />
 				<p:outputLabel value="#{contact.value}" />
 			</ui:repeat>
 
 			<h:panelGrid columns="3">
 				<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
-				<p:selectOneMenu id="tipoContato" value="#{contactList.type}"
-					converter="comboBoxConverter">
-					<f:selectItems itemLabel="#{type.name}" itemValue="#{type}"
-						value="#{contactTypeManagedBean.types}" />
+				<p:selectOneMenu id="tipoContato" value="#{contactList.type}">
+					<f:selectItem itemLabel="Residencial" itemValue="Residencial" />
+					<f:selectItem itemLabel="Empresarial" itemValue="Empresarial" />
+					<f:selectItem itemLabel="Celular" itemValue="Celular" />
+					<f:selectItem itemLabel="Email" itemValue="Email" />
 				</p:selectOneMenu>
 
 				<p:inputText id="campoContato" value="#{contactList.value}" />
