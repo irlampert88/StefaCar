@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<h:panelGrid columns="2">
-	<h:panelGrid columns="3">
-		<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
-		<p:selectOneMenu id="tipoContato" value="#{contacts.type}">
-			<f:selectItem itemLabel="Residencial" itemValue="1" />
-			<f:selectItem itemLabel="Empresarial" itemValue="2" />
-			<f:selectItem itemLabel="Celular" itemValue="3" />
-			<f:selectItem itemLabel="Email" itemValue="4" />
-		</p:selectOneMenu>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>	
+	
+</head>
+<body>
+	<div id="gridContato">
+		<h:panelGrid columns="3">
+			<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
+			<p:selectOneMenu id="tipoContato" value="#{contacts.type}">
+				<f:selectItem itemLabel="Residencial" itemValue="1" />
+				<f:selectItem itemLabel="Empresarial" itemValue="2" />
+				<f:selectItem itemLabel="Celular" itemValue="3" />
+				<f:selectItem itemLabel="Email" itemValue="4" />
+			</p:selectOneMenu>
 
-		<p:inputText id="campoContato" value="#{contacts.value}" />
-
-	</h:panelGrid>
+			<p:inputText id="campoContato" value="#{contacts.value}" />
+			<p:commandButton id="botao"></p:commandButton>
+		</h:panelGrid>
+	</div>
+</body>
+	
 </html>
