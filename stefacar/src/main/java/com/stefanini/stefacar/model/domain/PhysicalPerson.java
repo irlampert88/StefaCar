@@ -44,7 +44,4 @@ public class PhysicalPerson extends AbstractPerson {
 			return false;
 		return true;
 	}
-	
-	
-	
 }

@@ -66,6 +66,10 @@ public abstract class AbstractPerson implements Serializable{
 	public void setContactList(ContactList contactList) {
 		this.contactList = contactList;
 	}
+	
+	public void addContactList(Contact contact){
+		this.contactList.addContactInList(contact);
+	}
 
 	@Override
 	public int hashCode() {
@@ -102,7 +106,5 @@ public abstract class AbstractPerson implements Serializable{
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	
+	}	
 }
