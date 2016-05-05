@@ -54,10 +54,10 @@
 						<h:panelGrid columns="2" cellpadding="10">
 							<ui:include src="GridContacts.xhtml">
 
-								<ui:param name="contacts"
-									value="#{authorizedManagedBean.authorized}" />
+								<ui:param name="contactList" value="#{authorizedManagedBean.authorized.contactList}" />
+								
 							</ui:include>
-							
+
 
 
 						</h:panelGrid>

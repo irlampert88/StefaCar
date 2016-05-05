@@ -10,12 +10,14 @@ import org.primefaces.event.TabChangeEvent;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Authorized;
+import com.stefanini.stefacar.model.domain.Contact;
 import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 
 @Named
 @ViewScoped
 public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Authorized> {
 	private Authorized authorized;
+	private Contact contact;
 	@Inject
 	protected AuthorizedService service;
 	private List<Authorized> dataList;
@@ -27,12 +29,14 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 	public AuthorizedManagedBean() {
 
 	}
-@Override
+
+	@Override
 	public void save() {
 		service.save(getAuthorized());
 		MessengerSystem.notificaInformacao("Parabéns!", "Nova autorizada cadastrada com sucesso");
 	}
-@Override
+
+	@Override
 	public void delete(Authorized authorized) {
 		service.delete(authorized);
 		MessengerSystem.notificaInformacao("Parabéns!", "Autorizada deletada com sucesso !");
@@ -53,6 +57,7 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 		return dataList;
 	}
 
+	// Reescrever para nao sobrecarregar get
 	public Authorized getAuthorized() {
 		if (authorized == null) {
 			clean();
@@ -60,15 +65,27 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 		return authorized;
 	}
 
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
 	public void setEntity(Authorized entity) {
 		this.authorized = entity;
 	}
+
 	@Override
 	public void clean() {
 		setEntity(new Authorized());
 	}
-	public void onTabChange(TabChangeEvent event) {  
+
+	public void onTabChange(TabChangeEvent event) {
 		event.getTab();
-	} 
+	}
+ 
+	
 
 }

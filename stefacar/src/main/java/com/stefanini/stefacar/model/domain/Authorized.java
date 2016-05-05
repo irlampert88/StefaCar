@@ -9,7 +9,7 @@ public class Authorized extends AbstractPerson {
 
 	@Column
 	private String AuthorizedCnpj;
-
+	
 	public String getAuthorizedCnpj() {
 		return AuthorizedCnpj;
 	}

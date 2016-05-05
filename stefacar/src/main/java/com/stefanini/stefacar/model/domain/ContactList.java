@@ -1,5 +1,6 @@
 package com.stefanini.stefacar.model.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,39 +11,63 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.stefanini.stefacar.controller.warehouse.ContactType;
+
 @Entity
 public class ContactList {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idContato;
+	private Integer idContactList;
 	
 	@OneToMany(cascade=CascadeType.REFRESH)	
-	@JoinColumn(name="idContato")
-	private List<Contact>contactList;
+	@JoinColumn(name="idContact")
+	private List<Contact> contacts;
+
+	private ContactType type;
+	private String value;
+	
+	
+	
+	public ContactType getType() {
+		return type;
+	}
+
+	public void setType(ContactType type) {
+		this.type = type;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
 
 	public ContactList() {
 		
 	}
 	
 	public List<Contact> getContactList() {
-		return contactList;
+		return Collections.unmodifiableList(contacts);
 	}
-
-	public void setContactList(List<Contact> contactList) {
-		this.contactList = contactList;
-	}
-	
 
 	public Integer getIdContato() {
-		return idContato;
+		return idContactList;
 	}
 
 	public void setIdContato(Integer idContato) {
-		this.idContato = idContato;
+		this.idContactList = idContato;
 	}
 	
-	public void addContactInList(Contact contact){
-		this.contactList.add(contact);
+	public void addContact(){
+		this.contacts.add(new Contact(type, value));
+		clearValues();
+	}
+
+	private void clearValues() {
+		setType(null);
+		setValue(null);
 	}
 }

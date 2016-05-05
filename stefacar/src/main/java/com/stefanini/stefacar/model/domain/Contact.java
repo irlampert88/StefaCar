@@ -9,14 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.stefanini.stefacar.controller.warehouse.ContactType;
+
 @Entity
 //@Inheritance(strategy = InheritanceType.JOINED)
 public class Contact {	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;	
+	private Integer idContact;	
 	@Column
-	private int type;		
+	private ContactType type;		
 	@Column
 	private String value;	
 	
@@ -27,22 +29,22 @@ public class Contact {
 	public Contact() {
 	}
 	
-	public Contact(int type2, String value2) {
+	public Contact(ContactType type, String value) {
 	}
 
 	public Integer getId() {
-		return id;
+		return idContact;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.idContact = id;
 	}
 
-	public int getType() {
+	public ContactType getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(ContactType type) {
 		this.type = type;
 	}
 

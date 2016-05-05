@@ -5,24 +5,32 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<head>	
-	
+<head>
+
 </head>
 <body>
-	<div id="gridContato">
-		<h:panelGrid columns="3">
-			<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
-			<p:selectOneMenu id="tipoContato" value="#{contacts.type}">
-				<f:selectItem itemLabel="Residencial" itemValue="1" />
-				<f:selectItem itemLabel="Empresarial" itemValue="2" />
-				<f:selectItem itemLabel="Celular" itemValue="3" />
-				<f:selectItem itemLabel="Email" itemValue="4" />
-			</p:selectOneMenu>
+	<h:form>
+		<div id="gridContato">
+			<ui:repeat var="#{contact}" value="contactList.contacts">
+				<p:outputLabel value="#{contact.type.name}" />
+				<p:outputLabel value="#{contact.value}" />
+			</ui:repeat>
 
-			<p:inputText id="campoContato" value="#{contacts.value}" />
-			<p:commandButton id="button" action="#{contacts.add}"/>
-		</h:panelGrid>
-	</div>
+			<h:panelGrid columns="3">
+				<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
+				<p:selectOneMenu id="tipoContato" value="#{contactList.type}"
+					converter="comboBoxConverter">
+					<f:selectItems itemLabel="#{type.name}" itemValue="#{type}"
+						value="#{contactTypeManagedBean.types}" />
+				</p:selectOneMenu>
+
+				<p:inputText id="campoContato" value="#{contactList.value}" />
+
+				<p:commandButton id="button" value="Adicionar" update="@form"
+					action="#{contactList.addContact()}" />
+			</h:panelGrid>
+		</div>
+	</h:form>
 </body>
-	
+
 </html>

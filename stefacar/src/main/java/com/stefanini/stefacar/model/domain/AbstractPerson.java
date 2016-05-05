@@ -67,9 +67,9 @@ public abstract class AbstractPerson implements Serializable{
 		this.contactList = contactList;
 	}
 	
-	public void addContactList(Contact contact){
+	/*public void addContactList(Contact contact){
 		this.contactList.addContactInList(contact);
-	}
+	}*/
 
 	@Override
 	public int hashCode() {
