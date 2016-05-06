@@ -4,5 +4,6 @@ public interface AbstractManagedBean <T>{
 	
 	public void save();
 	public void delete(T entity);
+	void clean();
 
 }
