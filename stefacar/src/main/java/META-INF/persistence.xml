@@ -18,6 +18,7 @@
 		<class>com.stefanini.stefacar.model.domain.Address</class>
 		<class>com.stefanini.stefacar.model.domain.Parts</class>
 		<class>com.stefanini.stefacar.model.domain.Provider</class>
+		<class>com.stefanini.stefacar.model.domain.Employee</class>
 
 
 		<properties>
