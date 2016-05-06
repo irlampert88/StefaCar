@@ -11,7 +11,7 @@ public class Address{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Integer idAddress;
 	@Column(nullable=false)
 	private String city;
 	@Column(nullable=false)
@@ -34,11 +34,11 @@ public class Address{
 	}
 
 	public Integer getId() {
-		return id;
+		return idAddress;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.idAddress = id;
 	}
 
 	public String getCity() {
@@ -111,7 +111,7 @@ public class Address{
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((complement == null) ? 0 : complement.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((idAddress == null) ? 0 : idAddress.hashCode());
 		result = prime * result + ((neighborhood == null) ? 0 : neighborhood.hashCode());
 		result = prime * result + ((number == null) ? 0 : number.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
@@ -140,10 +140,10 @@ public class Address{
 				return false;
 		} else if (!complement.equals(other.complement))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (idAddress == null) {
+			if (other.idAddress != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idAddress.equals(other.idAddress))
 			return false;
 		if (neighborhood == null) {
 			if (other.neighborhood != null)
@@ -180,7 +180,7 @@ public class Address{
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", city=" + city + ", zipCode=" + zipCode + ", neighborhood=" + neighborhood
+		return "Address [id=" + idAddress + ", city=" + city + ", zipCode=" + zipCode + ", neighborhood=" + neighborhood
 				+ ", street=" + street + ", number=" + number + ", complement=" + complement + ", state=" + state
 				+ ", typeOfAddress=" + typeOfAddress + "]";
 	}
