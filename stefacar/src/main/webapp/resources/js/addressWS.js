@@ -1,11 +1,11 @@
-function limpa_formulário_cep() {
+function cleanZipCodeForm() {
             document.getElementById('addressForm:streetAddress').value=("");
             document.getElementById('addressForm:neighborhoodAddress').value=("");
             document.getElementById('addressForm:cityAddress').value=("");
             document.getElementById('addressForm:stateAddress').value=("");
     }
 
-    function meu_callback(conteudo) {
+    function myCallback(conteudo) {
         if (!("erro" in conteudo)) {
             document.getElementById('addressForm:streetAddress').value=(conteudo.logradouro);
             document.getElementById('addressForm:neighborhoodAddress').value=(conteudo.bairro);
@@ -13,18 +13,18 @@ function limpa_formulário_cep() {
             document.getElementById('addressForm:stateAddress').value=(conteudo.uf);
         }
         else {
-            limpa_formulário_cep();
+            cleanZipCodeForm();
             alert("CEP não encontrado.");
         }
     }
         
-    function pesquisacep(valor) {
+    function findAddressByZipCode(value) {
 
-        var cep = valor.replace(/\D/g, '');
-        if (cep != "") {
-            var validacep = /^[0-9]{8}$/;
+        var zipCode = value.replace(/\D/g, '');
+        if (zipCode != "") {
+            var verifyZipCode = /^[0-9]{8}$/;
 
-            if(validacep.test(cep)) {
+            if(verifyZipCode.test(zipCode)) {
                 document.getElementById('addressForm:streetAddress').value="Loading content...";
                 document.getElementById('addressForm:neighborhoodAddress').value="Loading content...";
                 document.getElementById('addressForm:cityAddress').value="Loading content...";
@@ -32,17 +32,17 @@ function limpa_formulário_cep() {
 
                 var script = document.createElement('script');
 
-                script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+                script.src = '//viacep.com.br/ws/'+ zipCode + '/json/?callback=myCallback';
 
                 document.body.appendChild(script);
 
             } 
             else {
-                limpa_formulário_cep();
+                cleanZipCodeForm();
                 alert("Formato de CEP inválido.");
             }
         }
         else {
-            limpa_formulário_cep();
+            cleanZipCodeForm();
         }
     };

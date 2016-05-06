@@ -2,13 +2,13 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;;
 
-@ManagedBean
+@Named
 @ViewScoped
 public abstract class AbstractManagedBeanImplementation <T> implements AbstractManagedBean<T> {
 

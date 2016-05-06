@@ -24,7 +24,7 @@
 				<p:outputLabel for="zipCodeAddress" value="CEP :" />
 				<p:inputText id="zipCodeAddress" required="true"
 					value="#{addressManagedBean.address.zipCode}"
-					onblur="pesquisacep(this.value);"
+					onblur="findAddressByZipCode(this.value);"
 					requiredMessage="Required input" />
 				<p:message for="zipCodeAddress" />
 			
@@ -51,6 +51,12 @@
 					value="#{addressManagedBean.address.number}"
 					requiredMessage="Required input" />
 				<p:message for="numberAddress" />
+				
+				<p:outputLabel for="complementAddress" value="Complemento :" />
+				<p:inputText id="complementAddress" required="true"
+					value="#{addressManagedBean.address.complement}"
+					requiredMessage="Required input" />
+				<p:message for="complementAddress" />
 				
 				<p:outputLabel for="stateAddress" value="Estado :" />
 				<p:inputText id="stateAddress" required="true"

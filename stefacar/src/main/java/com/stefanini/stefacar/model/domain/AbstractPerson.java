@@ -17,29 +17,53 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
+<<<<<<< HEAD
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_person", discriminatorType=DiscriminatorType.STRING)
 public abstract class AbstractPerson implements Serializable{
+=======
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class AbstractPerson implements Serializable {
+>>>>>>> f07fde8e430ddd4097622ae3f50af7c735696b0a
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
 	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+=======
+
+//	public AbstractPerson(Integer idPerson, String name, ContactList contactList, Address adress) {
+//		super();
+//		this.idPerson = idPerson;
+//		this.name = name;
+//		this.contactList = contactList;
+//		this.adress = adress;
+//	}
+
+	public AbstractPerson() {
+		super();
+		this.contactList = new ContactList();
+	}
+
+	@Id
+	// @GeneratedValue(strategy=GenerationType.IDENTITY)
+>>>>>>> f07fde8e430ddd4097622ae3f50af7c735696b0a
 	protected Integer idPerson;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	protected String name;
-	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch= FetchType.LAZY)
-	@JoinColumn(nullable=false)	
+
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@JoinColumn(nullable = false)
 	protected ContactList contactList;
-	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch= FetchType.LAZY)
-	@JoinColumn(nullable=false)
+
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@JoinColumn(nullable = false)
 	protected Address adress;
 
 	public AbstractPerson() {
@@ -61,6 +85,7 @@ public abstract class AbstractPerson implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+<<<<<<< HEAD
 
 	public ContactList getContactList() {
 		return contactList;
@@ -69,6 +94,8 @@ public abstract class AbstractPerson implements Serializable{
 	public void setContactList(ContactList contactList) {
 		this.contactList = contactList;
 	}
+=======
+>>>>>>> f07fde8e430ddd4097622ae3f50af7c735696b0a
 
 	public Address getAdress() {
 		return adress;
@@ -81,6 +108,11 @@ public abstract class AbstractPerson implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
+//	 public void addContactList(Contact contact){
+//	 this.contactList.addContact(); }
+	
 
 	@Override
 	public int hashCode() {
@@ -124,7 +156,10 @@ public abstract class AbstractPerson implements Serializable{
 			return false;
 		return true;
 	}
+<<<<<<< HEAD
 	
 	
 	
+=======
+>>>>>>> f07fde8e430ddd4097622ae3f50af7c735696b0a
 }
