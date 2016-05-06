@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
+import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.service.impl.EmployeeService;
 
@@ -30,15 +31,15 @@ public class EmployeeManagedBean extends AbstractManagedBeanImplementation<Emplo
 
 	@Override
 	public void save() {
-		service.save(getParts());
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de funcionário salvo com sucesso");
+		service.save(getEmployee());
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario salvo com sucesso");
 
 	}
 
 	@Override
 	public void delete(Employee employee) {
 		service.delete(employee);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de funcionário excluído com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario excluido com sucesso!");
 	}
 
 	private void listAllRecordsFromDataBase() {
@@ -56,7 +57,7 @@ public class EmployeeManagedBean extends AbstractManagedBeanImplementation<Emplo
 		return dataList;
 	}
 
-	public Employee getParts() {
+	public Employee getEmployee() {
 		if (employee == null) {
 			clean();
 		}
@@ -66,6 +67,10 @@ public class EmployeeManagedBean extends AbstractManagedBeanImplementation<Emplo
 	public void setEntity(Employee entity) {
 		this.employee = entity;
 	}
+	
+	public EmployeeType[] getEmployeeType() {
+        return EmployeeType.values();
+    }
 
 	@Override
 	public void clean() {
