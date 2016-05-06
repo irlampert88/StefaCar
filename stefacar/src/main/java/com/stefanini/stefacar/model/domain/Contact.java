@@ -14,6 +14,22 @@ import javax.persistence.ManyToOne;
 @Entity
  @Inheritance(strategy = InheritanceType.JOINED)
 public class Contact {
+	public Integer getIdContact() {
+		return idContact;
+	}
+
+	public void setIdContact(Integer idContact) {
+		this.idContact = idContact;
+	}
+
+	public ContactList getListContacts() {
+		return listContacts;
+	}
+
+	public void setListContacts(ContactList listContacts) {
+		this.listContacts = listContacts;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idContact;
@@ -32,15 +48,7 @@ public class Contact {
 	public Contact(String type, String value) {
 		this.type = type;
 		this.value = value;
-	}
-
-	public Integer getId() {
-		return idContact;
-	}
-
-	public void setId(Integer id) {
-		this.idContact = id;
-	}
+	}	
 
 	public String getType() {
 		return type;
