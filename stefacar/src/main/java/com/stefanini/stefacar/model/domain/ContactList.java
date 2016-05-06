@@ -1,5 +1,7 @@
 package com.stefanini.stefacar.model.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,21 +17,56 @@ public class ContactList {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idEmprestimo;
+	private Integer idContactList;
 	
 	@OneToMany(cascade=CascadeType.REFRESH)	
-	@JoinColumn(name="idContato")
-	private List<Contact>contactList;
+	@JoinColumn(name="idContact")
+	private List<Contact> contacts;
 
-	public List<Contact> getContactList() {
-		return contactList;
+	private String type;
+	private String value;
+	
+	
+	
+	public String getType() {
+		return type;
 	}
 
-	public void setContactList(List<Contact> contactList) {
-		this.contactList = contactList;
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public ContactList() {
+		this.contacts=new ArrayList<>();
 	}
 	
-	public ContactList() {
-		
+	public List<Contact> getContactList() {
+		return Collections.unmodifiableList(contacts);
+	}
+
+	public Integer getIdContato() {
+		return idContactList;
+	}
+
+	public void setIdContato(Integer idContato) {
+		this.idContactList = idContato;
+	}
+	
+	public void addContact(){
+		this.contacts.add(new Contact(type, value));
+		clearValues();
+	}
+
+	private void clearValues() {
+		setType("");
+		setValue("");
 	}
 }

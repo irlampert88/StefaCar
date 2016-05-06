@@ -10,39 +10,41 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.JOINED)
-public class Contact {	
+// @Inheritance(strategy = InheritanceType.JOINED)
+public class Contact {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idContact;
 	@Column
-	private int type;		
+	private String type;
 	@Column
-	private String value;	
-	
+	private String value;
+
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name="listaDeContatosID")
-	private ContactList listContacts;	
+	@JoinColumn(name = "listaDeContatosID")
+	private ContactList listContacts;
 
 	public Contact() {
 	}
-	
-	public Contact(int type2, String value2) {
+
+	public Contact(String type, String value) {
+		this.type = type;
+		this.value = value;
 	}
 
 	public Integer getId() {
-		return id;
+		return idContact;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.idContact = id;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -52,5 +54,5 @@ public class Contact {
 
 	public void setValue(String value) {
 		this.value = value;
-	}	
+	}
 }

@@ -14,25 +14,39 @@ import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class AbstractPerson implements Serializable{
+public abstract class AbstractPerson implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+//	public AbstractPerson(Integer idPerson, String name, ContactList contactList, Address adress) {
+//		super();
+//		this.idPerson = idPerson;
+//		this.name = name;
+//		this.contactList = contactList;
+//		this.adress = adress;
+//	}
+
+	public AbstractPerson() {
+		super();
+		this.contactList = new ContactList();
+	}
+
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	// @GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Integer idPerson;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	protected String name;
-	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch= FetchType.LAZY)
-	@JoinColumn(nullable=false)	
+
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@JoinColumn(nullable = false)
 	protected ContactList contactList;
-	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch= FetchType.LAZY)
-	@JoinColumn(nullable=false)
+
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@JoinColumn(nullable = false)
 	protected Address adress;
 
 	public Integer getIdPerson() {
@@ -49,7 +63,7 @@ public abstract class AbstractPerson implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}	
+	}
 
 	public Address getAdress() {
 		return adress;
@@ -66,6 +80,11 @@ public abstract class AbstractPerson implements Serializable{
 	public void setContactList(ContactList contactList) {
 		this.contactList = contactList;
 	}
+
+	
+//	 public void addContactList(Contact contact){
+//	 this.contactList.addContact(); }
+	
 
 	@Override
 	public int hashCode() {
@@ -103,6 +122,4 @@ public abstract class AbstractPerson implements Serializable{
 			return false;
 		return true;
 	}
-
-	
 }

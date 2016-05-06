@@ -31,7 +31,7 @@
 								<p:inputText id="authorizedName"
 									requiredMessage="Campo obrigatório" required="true"
 									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
+									value="#{authorizedManagedBean.authorized.name}" />
 								<p:message for="authorizedName" />
 
 
@@ -52,6 +52,13 @@
 					</p:tab>
 					<p:tab title="endereço" id="tabAddress">
 						<h:panelGrid columns="2" cellpadding="10">
+							<ui:include src="GridContacts.xhtml">
+
+								<ui:param name="contactList" value="#{authorizedManagedBean.authorized.contactList}" />
+								
+							</ui:include>
+
+
 
 						</h:panelGrid>
 					</p:tab>
@@ -71,8 +78,9 @@
 
 
 			</h:form>
-			<p:button icon="ui-icon-check" id="redirectView"
-				title="Voltar pra lista de autorizadas" value="Voltar para tabela de autorizadas"
+			<p:button icon="fa fa-fw fa-arrow-left" id="redirectView"
+				title="Voltar pra lista de autorizadas"
+				value="Voltar para tabela de autorizadas"
 				href="../views/ViewAuthorized.xhtml" />
 		</p:layoutUnit>
 
