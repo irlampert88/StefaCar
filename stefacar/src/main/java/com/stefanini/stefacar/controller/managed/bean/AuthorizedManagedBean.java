@@ -10,7 +10,6 @@ import org.primefaces.event.TabChangeEvent;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Authorized;
-import com.stefanini.stefacar.model.domain.Contact;
 import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 
 @Named
