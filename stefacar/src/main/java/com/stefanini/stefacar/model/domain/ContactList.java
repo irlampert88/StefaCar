@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class ContactList {
@@ -22,7 +23,7 @@ public class ContactList {
 	@OneToMany(cascade=CascadeType.REFRESH)	
 	@JoinColumn(name="idContact")
 	private List<Contact> contacts;
-
+	@Transient
 	private Contact contact;
 	
 
