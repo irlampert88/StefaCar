@@ -52,11 +52,7 @@
 					</p:tab>
 					<p:tab title="endereço" id="tabAddress">
 						<h:panelGrid columns="2" cellpadding="10">
-							<ui:include src="GridContacts.xhtml">
-
-								<ui:param name="contactList" value="#{authorizedManagedBean.authorized.contactList}" />
-								
-							</ui:include>
+							
 
 
 
@@ -64,7 +60,11 @@
 					</p:tab>
 					<p:tab title="Contatos" id="tabContact">
 						<h:panelGrid columns="2" cellpadding="10">
+							<ui:include src="GridContacts.xhtml">
 
+								<ui:param name="contactList" value="#{authorizedManagedBean.authorized.contactList}" />
+								
+							</ui:include>
 						</h:panelGrid>
 					</p:tab>
 				</p:tabView>

@@ -22,21 +22,39 @@ public class ContactList {
 	
 	@OneToMany(cascade=CascadeType.REFRESH)	
 	@JoinColumn(name="idContact")
-	private List<Contact> contacts;
+	private List<Contact> contactList;
 	@Transient
 	private Contact contact;
 	
 
 	public ContactList() {
-		this.contacts=new ArrayList<>();
+		this.contactList=new ArrayList<>();
+		this.contact = new Contact();
 	}
 	
-	public List<Contact> getContactList() {
-		return Collections.unmodifiableList(contacts);
-	}
+//	public List<Contact> getContactList() {
+//		return Collections.unmodifiableList(contactList);
+//	}
+	
 
 	public Integer getIdContato() {
 		return idContactList;
+	}
+
+	public Integer getIdContactList() {
+		return idContactList;
+	}
+
+	public void setIdContactList(Integer idContactList) {
+		this.idContactList = idContactList;
+	}
+
+	public List<Contact> getContactList() {
+		return contactList;
+	}
+
+	public void setContactList(List<Contact> contactList) {
+		this.contactList = contactList;
 	}
 
 	public void setIdContato(Integer idContato) {
@@ -44,8 +62,16 @@ public class ContactList {
 	}
 	
 	public void addContact(){
-		this.contacts.add(contact); //contact
+		this.contactList.add(contact); //contact
 		clearValues();
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
 	}
 
 	private void clearValues() {
