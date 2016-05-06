@@ -26,12 +26,12 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 	
 	public void save() {
 		service.save(getEntity());
-		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
+		MessengerSystem.notificaInformacao("Congratulations! " , " successfully saved !");
 	}
 	
 	public void delete(T entity) {
 		service.delete(entity);
-		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo deletado com sucesso!");
+		MessengerSystem.notificaInformacao("Congratulations! " , " successfully deleted !");
 	}
 	
 	private void listAllRecordsFromDataBase() {
@@ -56,14 +56,12 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 		return address;
 	}
 	
+
+
 	public void setEntity(T entity) {
 		this.address = entity;
 	}
 	
-	public void clean() {
-		/* Implementar metodo limpar
-		 * setEntity(new T());
-		 */
-	}
+	
 	
 }
