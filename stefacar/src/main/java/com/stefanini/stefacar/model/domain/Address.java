@@ -22,6 +22,8 @@ public class Address{
 	private String street;
 	@Column(nullable=false)
 	private String number;
+	@Column(nullable=true)
+	private String complement;
 	@Column(nullable=false)
 	private String state;
 	@Column(nullable=false)
@@ -78,6 +80,14 @@ public class Address{
 	public void setNumber(String number) {
 		this.number = number;
 	}
+	
+	public String getComplement() {
+		return complement;
+	}
+
+	public void setComplement(String complement) {
+		this.complement = complement;
+	}
 
 	public String getState() {
 		return state;
@@ -87,8 +97,6 @@ public class Address{
 		this.state = state;
 	}
 	
-	
-
 	public String getTypeOfAddress() {
 		return typeOfAddress;
 	}
@@ -102,6 +110,7 @@ public class Address{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((complement == null) ? 0 : complement.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((neighborhood == null) ? 0 : neighborhood.hashCode());
 		result = prime * result + ((number == null) ? 0 : number.hashCode());
@@ -125,6 +134,11 @@ public class Address{
 			if (other.city != null)
 				return false;
 		} else if (!city.equals(other.city))
+			return false;
+		if (complement == null) {
+			if (other.complement != null)
+				return false;
+		} else if (!complement.equals(other.complement))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -167,10 +181,9 @@ public class Address{
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", city=" + city + ", zipCode=" + zipCode + ", neighborhood=" + neighborhood
-				+ ", street=" + street + ", number=" + number + ", state=" + state + ", typeOfAddress=" + typeOfAddress
-				+ "]";
+				+ ", street=" + street + ", number=" + number + ", complement=" + complement + ", state=" + state
+				+ ", typeOfAddress=" + typeOfAddress + "]";
 	}
 
-	
 	
 }
