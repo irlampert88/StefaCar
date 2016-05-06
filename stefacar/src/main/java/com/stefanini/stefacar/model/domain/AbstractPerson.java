@@ -34,9 +34,9 @@ public abstract class AbstractPerson implements Serializable {
 		this.contactList = new ContactList();
 	}
 
-	@Id
-	// @GeneratedValue(strategy=GenerationType.IDENTITY)
-	protected Integer idPerson;
+//	@Id
+//	// @GeneratedValue(strategy=GenerationType.IDENTITY)
+//	protected Integer idPerson;
 
 	@Column(nullable = false)
 	protected String name;
@@ -49,13 +49,13 @@ public abstract class AbstractPerson implements Serializable {
 	@JoinColumn(nullable = false)
 	protected Address adress;
 
-	public Integer getIdPerson() {
-		return idPerson;
-	}
-
-	public void setIdPerson(Integer idPerson) {
-		this.idPerson = idPerson;
-	}
+//	public Integer getIdPerson() {
+//		return idPerson;
+//	}
+//
+//	public void setIdPerson(Integer idPerson) {
+//		this.idPerson = idPerson;
+//	}
 
 	public String getName() {
 		return name;
@@ -91,7 +91,7 @@ public abstract class AbstractPerson implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adress == null) ? 0 : adress.hashCode());
-		result = prime * result + ((idPerson == null) ? 0 : idPerson.hashCode());
+//		result = prime * result + ((idPerson == null) ? 0 : idPerson.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -110,11 +110,11 @@ public abstract class AbstractPerson implements Serializable {
 				return false;
 		} else if (!adress.equals(other.adress))
 			return false;
-		if (idPerson == null) {
-			if (other.idPerson != null)
-				return false;
-		} else if (!idPerson.equals(other.idPerson))
-			return false;
+//		if (idPerson == null) {
+//			if (other.idPerson != null)
+//				return false;
+//		} else if (!idPerson.equals(other.idPerson))
+//			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
