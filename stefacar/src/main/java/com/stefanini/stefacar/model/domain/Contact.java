@@ -1,27 +1,18 @@
 package com.stefanini.stefacar.model.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-@Entity
+//@Entity
 // @Inheritance(strategy = InheritanceType.JOINED)
 public class Contact {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idContact;
-	@Column
+//	@Column
 	private String type;
-	@Column
+//	@Column
 	private String value;
 
-	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "listaDeContatosID")
+//	@ManyToOne(cascade = CascadeType.REFRESH)
+//	@JoinColumn(name = "listaDeContatosID")
 	private ContactList listContacts;
 
 	public Contact() {
