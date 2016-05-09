@@ -1,58 +1,72 @@
 package com.stefanini.stefacar.model.domain;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class ServiceModel implements Serializable{
+public class ServiceModel extends AbstractPerson{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
 	@Column(nullable=false)
-	private String typeService;//criar uma Enum para alimentar esse atributo.
-	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(nullable = false)
-	private AbstractPerson client;
+	private String typeService;
+	
+	
 	@Column(nullable=false)
 	private LocalDate serviceDate;
+	
 	@Column(nullable=false)
-	private double prize;//criar uma forma de auto incrementar os valores conforme o serviço ou com Enum etc.
+	private double prize;
+	
+	public ServiceModel() {
+		
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getTypeService() {
 		return typeService;
 	}
+
 	public void setTypeService(String typeService) {
 		this.typeService = typeService;
 	}
-	public AbstractPerson getClient() {
-		return client;
-	}
-	public void setClient(AbstractPerson client) {
-		this.client = client;
-	}
+
+
 	public LocalDate getServiceDate() {
 		return serviceDate;
 	}
+
 	public void setServiceDate(LocalDate serviceDate) {
 		this.serviceDate = serviceDate;
 	}
+
 	public double getPrize() {
 		return prize;
 	}
+
 	public void setPrize(double prize) {
 		this.prize = prize;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(prize);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -60,6 +74,7 @@ public class ServiceModel implements Serializable{
 		result = prime * result + ((typeService == null) ? 0 : typeService.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -69,10 +84,10 @@ public class ServiceModel implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ServiceModel other = (ServiceModel) obj;
-		if (client == null) {
-			if (other.client != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!client.equals(other.client))
+		} else if (!id.equals(other.id))
 			return false;
 		if (Double.doubleToLongBits(prize) != Double.doubleToLongBits(other.prize))
 			return false;
@@ -88,4 +103,7 @@ public class ServiceModel implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
+	
 }

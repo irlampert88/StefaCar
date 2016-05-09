@@ -6,15 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@SuppressWarnings("serial")
 @Entity
 public class Authorized extends AbstractPerson {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column
 	private String AuthorizedCnpj;
+
+	public Authorized() {
+	}
 
 	public int getId() {
 		return id;

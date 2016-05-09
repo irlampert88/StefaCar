@@ -27,7 +27,7 @@ public abstract class AbstractServiceImplementation <T> implements AbstractServi
 	
 	@Transacional
 	public List<T> listAllRecordsFromDataBase() {
-		return (List<T>) repository.allRecords(entityClass);
+		return repository.allRecords(entityClass);
 	}
 	
 	@Transacional
