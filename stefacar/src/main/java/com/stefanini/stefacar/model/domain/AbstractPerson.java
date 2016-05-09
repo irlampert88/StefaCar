@@ -6,7 +6,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -21,21 +20,23 @@ public abstract class AbstractPerson implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-//	public AbstractPerson(Integer idPerson, String name, ContactList contactList, Address adress) {
-//		super();
-//		this.idPerson = idPerson;
-//		this.name = name;
-//		this.contactList = contactList;
-//		this.adress = adress;
-//	}
+	// public AbstractPerson(Integer idPerson, String name, ContactList
+	// contactList, Address adress) {
+	// super();
+	// this.idPerson = idPerson;
+	// this.name = name;
+	// this.contactList = contactList;
+	// this.adress = adress;
+	// }
 
 	public AbstractPerson() {
 		super();
 		this.contactList = new ContactList();
 	}
 
-	@Id
-	// @GeneratedValue(strategy=GenerationType.IDENTITY)
+	// @Id
+	// // @GeneratedValue(strategy=GenerationType.IDENTITY)
+	// protected Integer idPerson;
 	protected Integer idPerson;
 
 	@Column(nullable = false)
@@ -65,14 +66,6 @@ public abstract class AbstractPerson implements Serializable {
 		this.name = name;
 	}
 
-	public Address getAdress() {
-		return adress;
-	}
-
-	public void setAdress(Address adress) {
-		this.adress = adress;
-	}
-
 	public ContactList getContactList() {
 		return contactList;
 	}
@@ -81,16 +74,29 @@ public abstract class AbstractPerson implements Serializable {
 		this.contactList = contactList;
 	}
 
-	
-//	 public void addContactList(Contact contact){
-//	 this.contactList.addContact(); }
-	
+	public Address getAdress() {
+		return adress;
+	}
+
+	public void setAdress(Address adress) {
+		this.adress = adress;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	// public void addContactList(Contact contact){
+	// this.contactList.addContact(); }
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adress == null) ? 0 : adress.hashCode());
+		// result = prime * result + ((idPerson == null) ? 0 :
+		// idPerson.hashCode());
+		result = prime * result + ((contactList == null) ? 0 : contactList.hashCode());
 		result = prime * result + ((idPerson == null) ? 0 : idPerson.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
@@ -109,6 +115,16 @@ public abstract class AbstractPerson implements Serializable {
 			if (other.adress != null)
 				return false;
 		} else if (!adress.equals(other.adress))
+			return false;
+		// if (idPerson == null) {
+		// if (other.idPerson != null)
+		// return false;
+		// } else if (!idPerson.equals(other.idPerson))
+		// return false;
+		if (contactList == null) {
+			if (other.contactList != null)
+				return false;
+		} else if (!contactList.equals(other.contactList))
 			return false;
 		if (idPerson == null) {
 			if (other.idPerson != null)

@@ -3,21 +3,25 @@ package com.stefanini.stefacar.controller.managed.bean;
 import java.util.List;
 
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.primefaces.event.TabChangeEvent;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.PhysicalPerson;
-import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;
+import com.stefanini.stefacar.model.service.impl.PhysicalPersonService;
 
 @Named
 @ViewScoped
 public class PhysicalPersonManagedBean extends AbstractManagedBeanImplementation<PhysicalPerson> {
 
-	private PhysicalPerson physicalPerson;
-	protected AbstractServiceImplementation<PhysicalPerson> service;
+	private PhysicalPerson person;
+	@Inject
+	protected PhysicalPersonService service;
 	private List<PhysicalPerson> dataList;
 
-	public PhysicalPersonManagedBean(AbstractServiceImplementation<PhysicalPerson> service) {
+	public PhysicalPersonManagedBean(PhysicalPersonService service) {
 		this.service = service;
 	}
 
@@ -25,22 +29,25 @@ public class PhysicalPersonManagedBean extends AbstractManagedBeanImplementation
 
 	}
 
+	@Override
 	public void save() {
-		service.save(getEntity());
-		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
+		service.save(getPerson());
+		MessengerSystem.notificaInformacao("ParabÃ©ns!", "Nova autorizada cadastrada com sucesso");
 	}
 
-	public void delete(PhysicalPerson address) {
-		service.delete(physicalPerson);
-		MessengerSystem.notificaInformacao("Parabéns!", "Endereço deletado com sucesso!");
+	@Override
+	public void delete(PhysicalPerson person) {
+		service.delete(person);
+		MessengerSystem.notificaInformacao("ParabÃ©ns!", "Autorizada deletada com sucesso !");
 	}
 
 	private void listAllRecordsFromDataBase() {
 		setListaDeDados(service.listAllRecordsFromDataBase());
 	}
 
-	public void setListaDeDados(List<PhysicalPerson> dataList) {
-		this.dataList = dataList;
+	private void setListaDeDados(List<PhysicalPerson> list) {
+		this.dataList = list;
+
 	}
 
 	public List<PhysicalPerson> getDataList() {
@@ -50,18 +57,24 @@ public class PhysicalPersonManagedBean extends AbstractManagedBeanImplementation
 		return dataList;
 	}
 
-	public PhysicalPerson getPhysicalPerson() {
-		if (physicalPerson == null) {
-			clean();
-		}
-		return physicalPerson;
-	}
-
-	public void setPhysicalPerson(PhysicalPerson physicalPerson) {
-		this.physicalPerson = physicalPerson;
+	public void setEntity(PhysicalPerson entity) {
+		this.person = entity;
 	}
 
 	public void clean() {
-		setPhysicalPerson(new PhysicalPerson());
+		setEntity(new PhysicalPerson());
 	}
+
+	public void onTabChange(TabChangeEvent event) {
+		event.getTab();
+	}
+
+	public PhysicalPerson getPerson() {
+		return person;
+	}
+
+	public void setPerson(PhysicalPerson person) {
+		this.person = person;
+	}
+
 }

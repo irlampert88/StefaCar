@@ -1,4 +1,5 @@
 package com.stefanini.stefacar.controller.managed.bean;
+
 import java.util.List;
 
 import javax.faces.bean.ViewScoped;
@@ -65,7 +66,7 @@ public class PartsManagedBean extends AbstractManagedBeanImplementation<Parts> {
 		this.parts = entity;
 	}
 
-	@Override
+	
 	public void clean() {
 		setEntity(new Parts());
 	}

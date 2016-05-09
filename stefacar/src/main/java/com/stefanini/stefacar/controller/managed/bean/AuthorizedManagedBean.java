@@ -77,7 +77,6 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 		this.authorized = entity;
 	}
 
-	@Override
 	public void clean() {
 		setEntity(new Authorized());
 	}

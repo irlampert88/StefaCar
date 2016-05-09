@@ -2,9 +2,13 @@ package com.stefanini.stefacar.model.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 
 @Entity
 public class Employee {
@@ -12,11 +16,14 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idEmployee;
 	
-	@Column(nullable=false)
+	@Column
 	private String name;
 	
-	@Column(nullable=false)
+	@Column
 	private String cpf;
+	
+	@Enumerated(EnumType.STRING)
+	private EmployeeType employeeType;
 
 	public Employee () {
 		
@@ -46,11 +53,20 @@ public class Employee {
 		this.cpf = cpf;
 	}
 
+	public EmployeeType getEmployeeType() {
+		return employeeType;
+	}
+
+	public void setEmployeeType(EmployeeType employeeType) {
+		this.employeeType = employeeType;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+		result = prime * result + ((employeeType == null) ? 0 : employeeType.hashCode());
 		result = prime * result + ((idEmployee == null) ? 0 : idEmployee.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
@@ -70,6 +86,8 @@ public class Employee {
 				return false;
 		} else if (!cpf.equals(other.cpf))
 			return false;
+		if (employeeType != other.employeeType)
+			return false;
 		if (idEmployee == null) {
 			if (other.idEmployee != null)
 				return false;
@@ -82,7 +100,7 @@ public class Employee {
 			return false;
 		return true;
 	}
-	
+
 	
 	
 }
