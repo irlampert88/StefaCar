@@ -25,7 +25,7 @@ public class Parts {
 	@Column(nullable = false)
 	private Integer partsStash;
 
-//falta implementar um Fornecedor
+	// falta implementar um Fornecedor
 	public int getIdParts() {
 		return idParts;
 	}

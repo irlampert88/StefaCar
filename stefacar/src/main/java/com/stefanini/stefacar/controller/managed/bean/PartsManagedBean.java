@@ -1,5 +1,4 @@
 package com.stefanini.stefacar.controller.managed.bean;
-
 import java.util.List;
 
 import javax.faces.bean.ViewScoped;
@@ -30,7 +29,7 @@ public class PartsManagedBean extends AbstractManagedBeanImplementation<Parts> {
 	@Override
 	public void save() {
 		service.save(getParts());
-		MessengerSystem.notificaInformacao("Parabéns!", "A new part was sucessfull save");
+		MessengerSystem.notificaInformacao("ParabÃ©ns!", "A new part was sucessfull save");
 
 	}
 

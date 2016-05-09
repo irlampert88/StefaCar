@@ -10,7 +10,7 @@ import com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation;;
 
 @Named
 @ViewScoped
-public abstract class AbstractManagedBeanImplementation <T> implements AbstractManagedBean<T> {
+public abstract class AbstractManagedBeanImplementation <T>  {
 
 	private T address;
 	protected AbstractServiceImplementation<T> service;
@@ -26,12 +26,12 @@ public abstract class AbstractManagedBeanImplementation <T> implements AbstractM
 	
 	public void save() {
 		service.save(getEntity());
-		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo salvo com sucesso!");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Emprestimo salvo com sucesso!");
 	}
 	
 	public void delete(T entity) {
 		service.delete(entity);
-		MessengerSystem.notificaInformacao("Parabéns!", "Emprestimo deletado com sucesso!");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Emprestimo deletado com sucesso!");
 	}
 	
 	private void listAllRecordsFromDataBase() {
