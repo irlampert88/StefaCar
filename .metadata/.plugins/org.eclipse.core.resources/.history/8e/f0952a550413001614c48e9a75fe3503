@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+body{
+	background: windowframe;
+}
+#contextest {
+	width: 1500px;
+	height: 400px;
+	padding-left: 300px;
+}

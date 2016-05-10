@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>Cadastro de Funcionário StefaCar</title>
+</h:head>
+<h:body>
+
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	
+	<p:layout style="min-width:400px; min-height:500px;" fullPage="true">
+	
+		<p:layoutUnit position="north" style="text-align: center;">
+			<p:outputLabel style="font-size: 30px;" value="Cadastro de Funcionários" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+
+			<h:form id="employeeForm">
+				<p:tabView >
+					<p:tab title="Dados basicos" id="tabBasic" >
+						<h:panelGrid columns="3" cellpadding="10">
+							<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+							<p:panelGrid columns="3">
+
+								<p:outputLabel for="Name" value="Nome:" />
+								<p:inputText id="Name"
+									requiredMessage="Campo obrigatório" required="true"
+									placeholder="nome"
+									value="#{employeeManagedBean.employee.name}" />
+								<p:message for="Name" />
+
+								<p:outputLabel for="Cpf" value="Cpf :" />
+								<p:inputMask maxlength="20" id="Cpf"
+									requiredMessage="Campo obrigatório" required="true"
+									placeholder="cpf"
+									value="#{employeeManagedBean.employee.cpf}" />
+								<p:message for="Cpf" />
+
+								 <p:outputLabel for="idEmployee" value="Selecione o cargo: " />
+								<p:selectOneMenu id="idEmployee" converter="comboBoxConverter"
+									requiredMessage="Campo obrigatório" required="true"
+									value="#{employeeManagedBean.employee.employeeType}"
+									effect="fold">
+									<f:selectItem itemLabel="Selecione um cargo" itemValue="" />
+									<f:selectItems
+										value="#{employeeManagedBean.employeeType}"
+										var="employeeType" itemLabel="#{employeeType.label}" itemValue="#{employeeType}" />
+								</p:selectOneMenu> 
+
+							</p:panelGrid>
+
+						</h:panelGrid>
+
+					</p:tab>
+					<p:tab title="endereço" id="tabAddress">
+						<h:panelGrid columns="2" cellpadding="10">
+
+								<ui:param name="contactList" value="#{employeeManagedBean.employee.contactList}" />
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Contatos" id="tabContact">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+
+
+				<p:commandButton value="Salvar" process="@form"
+					action="#{employeeManagedBean.save()}" icon="fa fa-fw fa-save"
+					update="@form" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{employeeManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+
+
+			</h:form>
+			<p:button icon="fa fa-fw fa-arrow-left" id="redirectView"
+				title="Voltar"
+				value="Voltar"
+				href="../views/ViewAuthorized.xhtml" />
+		</p:layoutUnit>
+
+	</p:layout>
+
+</h:body>
+
+</html>

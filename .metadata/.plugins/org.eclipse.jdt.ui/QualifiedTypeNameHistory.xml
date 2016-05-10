@@ -2,5 +2,19 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.stefanini.stefacar.model.repository.impl.PersonRepository"/>
 <fullyQualifiedTypeName name="com.stefanini.stefacar.model.service.impl.PersonService"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="MovimentoFinananceiro"/>
+<fullyQualifiedTypeName name="MovimentoFinananceiroTest"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.service.impl.AbstractServiceImplementation"/>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.repository.AbstractRepository"/>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.domain.PhysicalPerson"/>
+<fullyQualifiedTypeName name="com.stefanini.stefacar.model.domain.AbstractPerson"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
 <fullyQualifiedTypeName name="com.stefanini.stefacar.model.service.impl.PhysicalPersonService"/>
 </qualifiedTypeNameHistroy>

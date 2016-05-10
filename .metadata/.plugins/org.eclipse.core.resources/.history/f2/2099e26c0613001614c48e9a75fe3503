@@ -1,0 +1,68 @@
+@CHARSET "ISO-8859-1";
+
+/* Componentes tinham borda */
+.ui-widget-content {
+	background-color: activeborder;
+    border: 2px white !important;
+    color: #408080;
+}
+
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+
+.navbar-responsive {
+	background-color:#3375E8; 
+	margin-top: -5px; 
+	width:auto; 
+	margin: auto;
+	position:relative;
+}
+
+.logo-font {
+	margin-left:20px;
+	font-size: 50px;
+	color:#FFFFFF;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#nbc-searchbox{
+	background:url(http://3.bp.blogspot.com/-A_B_jk1yrIY/Ue7A4JLAVlI/AAAAAAAAAhs/JPrpQvYA-7w/s1600/noxdo_blogspot_com_Search-icon4.png) no-repeat scroll center center transparent;width:307px;height:50px;disaply:block;}
+
+form#nbc-searchform{
+	display: block;
+	padding: 12px;
+	margin:0;
+	}
+
+form#nbc-searchform #s{
+	padding: 6px 6px 6px 26px;
+	margin:0;
+	width: 215px;
+	font-size:14px;
+	vertical-align: top;
+	border:none;
+	background:transparent;
+	}
+
+form#nbc-searchform #sbutton{
+	margin:0;
+	padding:0;
+	height:30px;
+	width:30px;
+	vertical-align: top;
+	border:none;
+	background:transparent;
+	}
+	
+	.btn:hover {
+  background:#A5BD14;
+}
+	
+	

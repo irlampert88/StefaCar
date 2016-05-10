@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+
+</head>
+<body>
+	<h:form>
+		<div id="gridContato">
+		
+			<ui:repeat var="#{contact}" value="#{contactList.contactList}">
+				<p:outputLabel value="#{contact.type}" />
+				<p:outputLabel value="#{contact.value}" />
+			</ui:repeat>
+			
+			<h:panelGrid columns="3">
+				<p:outputLabel for="tipoContato" value="Tipo de Contato: " />
+				<p:selectOneMenu id="tipoContato" value="#{contactList.contact.type}">
+					<f:selectItem itemLabel="Residencial" itemValue="Residencial" />
+					<f:selectItem itemLabel="Empresarial" itemValue="Empresarial" />
+					<f:selectItem itemLabel="Celular" itemValue="Celular" />
+					<f:selectItem itemLabel="Email" itemValue="Email" />
+				</p:selectOneMenu>
+
+				<p:inputText id="campoContato" value="#{contactList.contact.value}" />
+
+				<p:commandButton id="button" value="Adicionar" update="@form"
+					action="#{contactList.addContact()}" />
+			</h:panelGrid>
+
+
+		</div>
+	</h:form>
+</body>
+
+</html>

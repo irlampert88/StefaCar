@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- LINKS CSS -->
+	<link href="../resources/styles/css/style.css" rel='stylesheet'
+		type='text/css' />
+	<link
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link href="../resources/styles/css/index.css" rel="stylesheet"
+		type='text/css' />
+	<!-- LINKS JAVASCRIPT -->
+	<script src="../resources/js/jquery-1.10.2.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/index.js"></script>
+	<script>
+		var toggle = true;
+
+		$(".sidebar-icon").click(
+				function() {
+					if (toggle) {
+						$(".page-container").addClass("sidebar-collapsed")
+								.removeClass("sidebar-collapsed-back");
+						$("#menu span").css({
+							"position" : "absolute"
+						});
+					} else {
+						$(".page-container").removeClass("sidebar-collapsed")
+								.addClass("sidebar-collapsed-back");
+						setTimeout(function() {
+							$("#menu span").css({
+								"position" : "relative"
+							});
+						}, 400);
+					}
+
+					toggle = !toggle;
+				});
+	</script>
+
+</h:head>
+
+<h:body>
+
+<!--................................................................ DIVISORIA GERAL ..........................................................-->
+
+<!--................................................................INICIO DIVISORIA LOGO ..........................................................-->
+	<nav class="navbar-responsive">
+		<div style="height: auto;">
+
+			<span class="logo-font">Stefacar</span> <img
+				src="../resources/images/audi.png"
+				style="height: 80px; margin-left: 20px; margin-top: -25px; margin-bottom: -8px;" />
+				
+		
+			<span id="logo-stefanini"></span> <img
+				src="../resources/images/stefanini.png"
+				style="height: 80px; margin-left: 20px; margin-top: -25px; margin-bottom: -8px;" />
+
+			<form class="navbar-form navbar-right" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" style="margin-top: 10px;"
+						placeholder="Search" />
+				</div>
+				<button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-search" style="height: 20px;"></span>
+				</button>
+			</form>
+		</div>
+	</nav>
+<!--................................................................FIM DIVISORIA LOGO ..........................................................-->
+
+
+<!--................................................................INICIO DIVISORIA CONTAINER ..........................................................-->
+	
+<!--................................................................INICIO DIVISORIA RODAPE ..........................................................-->
+
+		<DIV id="testmenu">
+
+			<!-- INICIO DIVISORIA MENU -->
+			<div class="sidebar-menu"
+				style="position: relative; padding-bottom: 500px;">
+				<header class="logo">
+					<a href="#" class="sidebar-icon"> <span
+						class="glyphicon glyphicon-menu-hamburger"></span>
+					</a> <a href="index.html"> <span id="logo"><h1>Menu</h1></span>
+					</a>
+
+				</header>
+
+
+
+				<div class="down" style="padding-bottom: 50px;">
+					<a href="index.html"><img src="../resources/images/admin.jpg" /></a>
+					<a href="index.html"><span class=" name-caret">Jasmin
+							Leo</span></a>
+					<p>System Administrator in Company</p>
+					<ul>
+						<li><a class="tooltips" href="index.html"><span>Perfil</span>
+								<i class="lnr lnr-user"></i></a></li>
+						<li><a class="tooltips" href="index.html"><span>Editar</span>
+								<i class="lnr lnr-cog"></i></a></li>
+						<li><a class="tooltips" href="index.html"><span>Sair</span><i
+								class="lnr lnr-power-switch"></i></a></li>
+					</ul>
+				</div>
+
+				<div class="menu">
+					<ul id="menu">
+						<li id="menu-academico"><a href="#"
+							style="padding-bottom: 17px;"><i
+								class="glyphicon glyphicon-home"></i> <span>Início</span> <span
+								class="glyphicon glyphicon-menu-right" style="float: right"></span></a>
+							<ul id="menu-academico-sub">
+								<li id="menu-academico-avaliacoes"><a href="forms.html">Forms</a></li>
+								<li id="menu-academico-boletim"><a href="validation.html">Validation
+										Forms</a></li>
+								<li id="menu-academico-boletim"><a href="table.html">Tables</a></li>
+								<li id="menu-academico-boletim"><a href="buttons.html">Buttons</a></li>
+							</ul></li>
+						<li id="menu-academico"><a style="padding-bottom: 17px;"
+							href="#"><i class="glyphicon glyphicon-book"></i> <span>Cadastros</span>
+								<span class="glyphicon glyphicon-menu-right"
+								style="float: right;"></span></a>
+							<ul id="menu-academico-sub">
+								<li id="menu-academico-boletim"><a href="#">Funcionários</a></li>
+								<li id="menu-academico-boletim"><a
+									href="views/ViewAuthorized.xhtml">Autorizadas</a></li>
+								<li id="menu-academico-boletim"><a
+									href="views/ViewProvider.xhtml">Revendedores</a></li>
+								<li id="menu-academico-boletim"><a href="#">Clientes</a></li>
+								<li id="menu-academico-boletim"><a
+									href="views/ViewParts.xhtml">Peças</a></li>
+							</ul></li>
+						<li><a style="padding-bottom: 17px;" href="#"><i
+								class="glyphicon glyphicon-random"></i> <span>Movimentos</span>
+								<span class="glyphicon glyphicon-menu-right"
+								style="float: right"></span></a>
+							<ul>
+								<li><a href="inbox.html">Inbox</a></li>
+								<li><a href="compose.html">Compose Mail</a></li>
+								<li><a href="editor.html">Editors Page</a></li>
+
+							</ul></li>
+						<li id="menu-academico"><a style="padding-bottom: 17px;"
+							href="#"><i class="glyphicon glyphicon-usd"></i> <span>Faturamento</span>
+								<span class="glyphicon glyphicon-menu-right"
+								style="float: right"></span></a>
+							<ul id="menu-academico-sub">
+								<li id="menu-academico-avaliacoes"><a href="grids.html">Grids</a></li>
+								<li id="menu-academico-boletim"><a href="media.html">Media
+										Objects</a></li>
+
+							</ul></li>
+						<li id="menu-comunicacao"><a style="padding-bottom: 17px;"
+							href="#"> <i class="glyphicon glyphicon-briefcase"></i> <span>Administração</span><span
+								class="glyphicon glyphicon-menu-right" style="float: right"></span></a>
+							<ul id="menu-comunicacao-sub">
+								<li id="menu-mensagens" style="width: 120px"><a
+									href="project.html">Projects<span
+										class="glyphicon glyphicon-menu-right" style="float: right"></span>
+								</a>
+									<ul id="menu-mensagens-sub">
+										<li id="menu-mensagens-enviadas" style="width: 130px"><a
+											href="ribbon.html">Ribbons</a></li>
+										<li id="menu-mensagens-recebidas" style="width: 130px"><a
+											href="blank.html">Blank</a></li>
+									</ul></li>
+							</ul></li>
+					</ul>
+				</div>
+				<!-- FIM DIVISORIA MENU -->
+			</div>
+
+
+
+		</DIV>
+
+
+
+
+	
+<!--................................................................FIM DIVISORIA MENU LATERAL ..........................................................-->
+
+<!--................................................................INICIO DIVISORIA CONTEUDO ..........................................................-->
+	<div id="testdiv">
+
+
+		<p:layoutUnit>
+			<ui:insert name="contextest" />
+		</p:layoutUnit>
+
+
+	</div>
+<!--................................................................FIM DIVISORIA CONTEUDO ..........................................................-->
+
+
+	<div id="footer">
+
+		<H3>Copyright 2016. Todos os Direitos reservados a Stefanini
+			STEFACAR.</H3>
+	</div>
+<!--................................................................FIM DIVISORIA RODAPE ..........................................................-->
+</h:body>
+</html>

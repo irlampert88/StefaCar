@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:include src="/WEB-INF/modelos/padrao.xhtml"></ui:include>
+				
+			
+	<div id="contextest"  >
+	<ui:include src="/WEB-INF/modelos/padrao.xhtml"></ui:include>
+	<ui:insert><style>
+<!--
+body{
+	background: menu;
+}
+#contextest {
+	background: #eeeeee;
+	width: 1550px;
+	height: 700px;
+	margin-left: 70px;
+	text-align: center;
+}
+.form_context{
+width: 600px;
+height:500px;
+background:yellow;	
+position: center;
+margin-left: 500px;
+}
+
+.input_text{
+	color: white;
+
+}
+-->
+</style></ui:insert>
+
+<br />
+				<p:layoutUnit position="north" style="text-align: center;">
+					<p:outputLabel style="font-size: 30px;" value="Register Physical Persons"/>
+				</p:layoutUnit>
+	
+				<h:form class="form_context" id="physicalPersonForm">				
+						<p:growl id="growl" showDetail="true" sticky="false" life="4000" />  
+						
+						<p:panelGrid columns="3">
+						
+							<p:outputLabel for="name" value="Name:"/>
+							<p:inputText id="name" requiredMessage="Requerid Field" required="true" class="input_text" 
+								value="#{physicalPersonManagedBean.physicalPerson.name}" />
+							<p:message for="name" />
+								
+							<p:outputLabel for="cpf" value="Cpf:"/>
+							<p:inputMask maxlength="4" id="cpf" requiredMessage="Requerid Field" mask="9?999" required="true" class="input_text"
+								value="#{physicalPersonManagedBean.physicalPerson.cpf}" />
+							<p:message for="cpf" />
+						
+						</p:panelGrid>
+					
+						<p:commandButton value="Save" process="@form" action="#{livroManagedBean.salvar()}" icon="fa fa-fw fa-save" />
+						<p:commandButton value="Clean" process="@this" update="@form" action="#{livroManagedBean.limpar()}" icon="fa fa-fw fa-eraser" />
+					</h:form>
+
+
+					<p:dataTable id="tabelaDeLivros" var="livro" value="#{livroManagedBean.listaDeLivrosCadastrados}"
+						emptyMessage="Não existem livros cadastrados" style="padding-top:20px;">
+					
+					    <p:column headerText="Name">
+				    	    <h:outputText value="#{phisicalPerson.name}" />
+					    </p:column>
+					    <p:column headerText="Páginas">
+				    	    <h:outputText value="#{phisicalPerson.cpf}" />
+					    </p:column>
+					    
+					    <p:column headerText="Actions" style="text-align: center">
+					    	<p:commandButton icon="fa fa-fw fa-edit" title="Edit Physical Person" update="physicalPersonForm" action="#{physicalPersonManagedBean.setPhysicalPerson(physicalPerson)}" />
+					    	<p:commandButton icon="fa fa-fw fa-trash" title="Delete Physical Person" update=" physicalPersonForm" action="#{physicalPersonManagedBean.delete(physicalPerson)}">
+					    		<p:confirm header="Confirmation" message="You want to delete the person ?" icon="ui-icon-alert" />
+					    	</p:commandButton>
+					    	
+					    	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						    </p:confirmDialog>
+					    </p:column>
+					</p:dataTable>
+
+
+	</div>
+
+	
+
+</html>

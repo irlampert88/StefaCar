@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+<h:head>
+<title>Registro de Autorizadas-Stefa Car</title>
+
+	<script type="text/javascript" />
+	<script src="../resources/js/addressWS.js" />
+
+</h:head>
+
+<h:body>
+
+<ui:composition template="/WEB-INF/modelos/padrao.xhtml">
+	<ui:define name="contextest">
+
+<script type="text/javascript">
+function cleanZipCodeForm() {
+    document.getElementById('addressForm:streetAddress').value=("");
+    document.getElementById('addressForm:neighborhoodAddress').value=("");
+    document.getElementById('addressForm:cityAddress').value=("");
+    document.getElementById('addressForm:stateAddress').value=("");
+}
+
+function myCallback(conteudo) {
+if (!("erro" in conteudo)) {
+    document.getElementById('addressForm:streetAddress').value=(conteudo.logradouro);
+    document.getElementById('addressForm:neighborhoodAddress').value=(conteudo.bairro);
+    document.getElementById('addressForm:cityAddress').value=(conteudo.localidade);
+    document.getElementById('addressForm:stateAddress').value=(conteudo.uf);
+}
+else {
+    cleanZipCodeForm();
+    alert("CEP não encontrado.");
+}
+}
+
+function findAddressByZipCode(value) {
+
+var zipCode = value.replace(/\D/g, '');
+if (zipCode != "") {
+    var verifyZipCode = /^[0-9]{8}$/;
+
+    if(verifyZipCode.test(zipCode)) {
+        document.getElementById('addressForm:streetAddress').value="Loading content...";
+        document.getElementById('addressForm:neighborhoodAddress').value="Loading content...";
+        document.getElementById('addressForm:cityAddress').value="Loading content...";
+        document.getElementById('addressForm:stateAddress').value="Loading content...";
+
+        var script = document.createElement('script');
+
+        script.src = '//viacep.com.br/ws/'+ zipCode + '/json/?callback=myCallback';
+
+        document.body.appendChild(script);
+
+    } 
+    else {
+        cleanZipCodeForm();
+        alert("Formato de CEP inválido.");
+    }
+}
+else {
+    cleanZipCodeForm();
+}
+};
+
+</script>
+
+		<h3 class="inner-tittle t-inner">Cadastro de endereços</h3>
+ 		<h:form id="addressForm">
+			<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+			<p:panelGrid columns="3">
+				<p:outputLabel for="zipCodeAddress" value="CEP :" />
+				<p:inputText id="zipCodeAddress" required="true"
+					value="#{addressManagedBean.address.zipCode}"
+					onblur="findAddressByZipCode(this.value);"
+					requiredMessage="Required input" />
+				<p:message for="zipCodeAddress" />
+			
+				<p:outputLabel for="cityAddress" value="Cidade :" />
+				<p:inputText id="cityAddress" required="true"
+					value="#{addressManagedBean.address.city}"
+					requiredMessage="Required input" />
+				<p:message for="cityAddress" />
+				
+				<p:outputLabel for="neighborhoodAddress" value="Bairro :" />
+				<p:inputText id="neighborhoodAddress" required="true"
+					value="#{addressManagedBean.address.neighborhood}"
+					requiredMessage="Required input" />
+				<p:message for="neighborhoodAddress" />
+				
+				<p:outputLabel for="streetAddress" value="Rua :" />
+				<p:inputText id="streetAddress" required="true"
+					value="#{addressManagedBean.address.street}"
+					requiredMessage="Required input" />
+				<p:message for="streetAddress" />
+				
+				<p:outputLabel for="numberAddress" value="Numero :" />
+				<p:inputText id="numberAddress" required="true"
+					value="#{addressManagedBean.address.number}"
+					requiredMessage="Required input" />
+				<p:message for="numberAddress" />
+				
+				<p:outputLabel for="complementAddress" value="Complemento :" />
+				<p:inputText id="complementAddress" required="true"
+					value="#{addressManagedBean.address.complement}"
+					requiredMessage="Required input" />
+				<p:message for="complementAddress" />
+				
+				<p:outputLabel for="stateAddress" value="Estado :" />
+				<p:inputText id="stateAddress" required="true"
+					value="#{addressManagedBean.address.state}"
+					requiredMessage="Required input" />
+				<p:message for="stateAddress" />
+				
+				<p:outputLabel for="typeOfAddress" value="Tipo de entereço :" />
+				<p:inputText id="typeOfAddress" required="true"
+					value="#{addressManagedBean.address.typeOfAddress}"
+					requiredMessage="Required input" />
+				<p:message for="typeOfAddress" />
+			</p:panelGrid>
+
+			<p:commandButton value="Salvar" process="@form" update="@form"
+				action="#{addressManagedBean.save()}" icon="ui-icon-check"  />
+			<p:commandButton value="Limpar" process="@this" update="@form"
+				action="#{addressManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+		</h:form> 
+
+	</ui:define>
+</ui:composition>
+</h:body>
+</html>

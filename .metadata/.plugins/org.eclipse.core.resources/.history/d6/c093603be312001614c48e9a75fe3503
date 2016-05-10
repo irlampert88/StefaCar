@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<ui:include src="/WEB-INF/modelos/padrao.xhtml"></ui:include>
+				
+			
+	<div id="contextest" >
+	<ui:insert><style>
+<!--
+body{
+	background: menu;
+}
+#contextest {
+	width: 1500px;
+	height: 400px;
+	padding-left: 300px;
+}
+-->
+</style></ui:insert>
+
+<br />
+	<br></br>
+		<br></br>
+			<br></br>
+				<br></br>
+					<br></br>
+	<h:outputLabel>Name</h:outputLabel><br></br>
+	<h:inputText>Name</h:inputText><br></br>
+		<h:outputLabel>Cpf</h:outputLabel><br></br>
+	<h:inputText>cpf</h:inputText><br></br>
+	<h:button value="Save" ></h:button>
+	<h:button value="Clean"></h:button>
+	
+</div>	
+	
+</html>

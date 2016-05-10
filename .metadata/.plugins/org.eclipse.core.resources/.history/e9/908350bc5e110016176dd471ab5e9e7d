@@ -1,0 +1,29 @@
+import java.util.Date;
+
+public class MovimentoFinananceiro {
+
+	private Date datavencimento;
+	private Double valororiginal;
+	private Double valorjuros;
+	private Double valorpagamento;
+	
+	
+	public MovFin() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Date geravencimento(Date dataemissao) {
+		dataemissao = datavencimento * 0.30;
+		
+		return dataemissao;
+	}
+	
+	public Double calculajuros(Double valororiginal) {
+		
+		
+		
+		return valororiginal;
+	}
+	
+	
+}

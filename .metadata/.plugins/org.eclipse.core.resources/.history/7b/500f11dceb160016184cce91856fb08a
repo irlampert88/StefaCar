@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>conteúdo Contato</title>
+</head>
+<body>
+	<p:layout>
+		<p:layoutUnit position="north">
+			<h:form id="contatoForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+				<p:tabView>
+					<p:tab title="Dados Pessoais">
+						<p:outputLabel for="nome" value="Nome: " />
+						<p:inputText id="nome"
+							value="#{}" />
+
+						<p:outputLabel for="cpf" value="CPF ou CNPJ: " />
+						<p:inputText id="cpf"
+							value="#{}" />
+					</p:tab>
+					<p:tab title="Contatos">
+						<!-- Essa seria a tela que vai chamar a tela contato e 
+						nela que informamos o valor da managedBean -->
+						<ui:include src="GridContacts.xhtml">
+							<ui:param name="contacts" value="#{aqui se joga a managedBean Responsável.contacts}" />
+						</ui:include>
+					
+<!-- 						<h:panelGrid columns="3"> -->
+<!-- 							<p:outputLabel for="tipoContato" value="Tipo de Contato: " /> -->
+<!-- 							<p:selectOneMenu id="tipoContato"> -->
+<!-- 								<f:selectItem itemLabel="Residencial" itemValue="Residencial" /> -->
+<!-- 								<f:selectItem itemLabel="Empresarial" itemValue="Empresarial" /> -->
+<!-- 								<f:selectItem itemLabel="Celular" itemValue="Celular" /> -->
+<!-- 								<f:selectItem itemLabel="Email" itemValue="Email" /> -->
+<!-- 							</p:selectOneMenu> -->
+<!-- 							<p:inputText id="campoContato" value="#{ver como faremos para direcionar a managedCorreta}" /> -->
+<!-- 							ver como fazer para colocar o mais para adcionar esse campo -->
+<!-- 						</h:panelGrid> -->
+
+
+					</p:tab>
+
+				</p:tabView>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+
+
+</body>
+</html>
