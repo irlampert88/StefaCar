@@ -7,54 +7,54 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Address{
-	
+public class Address {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idAddress;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String city;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String zipCode;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String neighborhood;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String street;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String number;
-	@Column(nullable=true)
+	@Column(nullable = false)
 	private String complement;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String state;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String typeOfAddress;
-	
+
 	public Address() {
 
 	}
 
-	public Integer getId() {
+	public Integer getIdAddress() {
 		return idAddress;
 	}
 
-	public void setId(Integer id) {
-		this.idAddress = id;
+	public void setIdAddress(Integer idAddress) {
+		this.idAddress = idAddress;
 	}
 
 	public String getCity() {
 		return city;
 	}
-	
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 	public String getZipCode() {
 		return zipCode;
 	}
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
 	}
 
 	public String getNeighborhood() {
@@ -80,7 +80,7 @@ public class Address{
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	
+
 	public String getComplement() {
 		return complement;
 	}
@@ -96,7 +96,7 @@ public class Address{
 	public void setState(String state) {
 		this.state = state;
 	}
-	
+
 	public String getTypeOfAddress() {
 		return typeOfAddress;
 	}
@@ -178,12 +178,4 @@ public class Address{
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Address [id=" + idAddress + ", city=" + city + ", zipCode=" + zipCode + ", neighborhood=" + neighborhood
-				+ ", street=" + street + ", number=" + number + ", complement=" + complement + ", state=" + state
-				+ ", typeOfAddress=" + typeOfAddress + "]";
-	}
-
-	
 }

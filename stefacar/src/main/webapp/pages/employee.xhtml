@@ -6,13 +6,14 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head>
-	<title>Home StefaCar</title>
 
-</h:head>
 <ui:composition template="/WEB-INF/modelos/padrao.xhtml">
 	<ui:define name="contextest">
+
 		<br></br>
+
+
+
 		<p:layoutUnit position="center"
 			style="border:0px solid white; text-align: center;" resizable="true"
 			size="90" minSize="90" maxSize="90" styleClass="form">
@@ -37,59 +38,12 @@
 									value="#{authorizedManagedBean.authorized.authorizedName}" />
 								<p:message for="authorizedName" />
 
-
-
 								<p:outputLabel for="authorizedCnpj" value="Cnpj :" />
 								<p:inputMask maxlength="20" id="authorizedCnpj"
 									requiredMessage="Campo obrigatório" required="true"
 									placeholder="cnpj "
 									value="#{authorizedManagedBean.authorized.authorizedCnpj}" />
 								<p:message for="authorizedCnpj" />
-
-								<p:outputLabel for="authorizedName2" value="Nome:" />
-								<p:inputText id="authorizedName2"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-								<p:outputLabel for="authorizedName3" value="Nome:" />
-								<p:inputText id="authorizedName3"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-
-								<p:outputLabel for="authorizedName" value="Nome:" />
-								<p:inputText id="authorizedName6"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-
-
-								<p:outputLabel for="authorizedCnpj" value="Cnpj :" />
-								<p:inputMask maxlength="20" id="authorizedCnpj7"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="cnpj "
-									value="#{authorizedManagedBean.authorized.authorizedCnpj}" />
-								<p:message for="authorizedCnpj" />
-
-								<p:outputLabel for="authorizedName2" value="Nome:" />
-								<p:inputText id="authorizedName27"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-								<p:outputLabel for="authorizedName3" value="Nome:" />
-								<p:inputText id="authorizedName37"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
 
 
 							</p:panelGrid>

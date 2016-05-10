@@ -6,21 +6,181 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-
+	<title>StefaCAR</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<!-- LINKS CSS -->
-	<link href="../resources/styles/css/style.css" rel='stylesheet'
-		type='text/css' />
-	<link
-		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-		rel="stylesheet" />
-	<link href="../resources/styles/css/index.css" rel="stylesheet"
-		type='text/css' />
-	<!-- LINKS JAVASCRIPT -->
+	<meta name="keywords" />
+	<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+	</script>
+	<!-- Custom CSS -->
+	<link href="../resources/styles/css/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="../resources/styles/css/font-awesome.css" rel="stylesheet" />
+	<!-- jQuery -->
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="../resources/styles/css/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
 	<script src="../resources/js/jquery-1.10.2.min.js"></script>
-	<script src="../resources/js/bootstrap.min.js"></script>
-	<script src="../resources/js/index.js"></script>
+	<script src="../resources/js/amcharts.js"></script>
+	<script src="../resources/js/serial.js"></script>
+	<script src="../resources/js/light.js"></script>
+	<script src="../resources/js/radar.js"></script>
+	<link href="../resources/styles/css/barChart.css" rel='stylesheet' type='text/css' />
+	<link href="../resources/styles/css/fabochart.css" rel='stylesheet' type='text/css' />
+	<!--clock init-->
+	<script src="../resources/js/css3clock.js"></script>
+	<!--Easy Pie Chart-->
+	<!--skycons-icons-->
+	<script src="../resources/js/skycons.js"></script>
+	<script src="../resources/js/jquery.easydropdown.js"></script>
+	<!--//skycons-icons-->
+</h:head>
+<h:body>
+
+	<div class="page-container">
+
+
+		<!--/content-inner-->
+		<div class="left-content">
+
+
+			<div class="inner-content">
+				<!-- header-starts -->
+				<div class="header-section">
+					<!--menu-right-->
+					
+						<div >
+
+							<span class="logo-font"></span> <img
+								src="../resources/images/audi.png"
+								style="height:60px; padding-left: 180px; padding-top: 10px;" />
+
+							<A href="https://stefanini.com/"><span id="logo-stefanini"></span>
+								<img src="../resources/images/stefanini.png"
+								style="margin-left: 140px;" /></A>
+
+						<div class="main-search">
+							<form>
+								<input type="text" value="Search" onFocus="this.value = '';"
+									onBlur="if (this.value == '') {this.value = 'Search';}"
+									class="text" /> <input type="submit" value="" />
+							</form>
+							<div class="close">
+								<img src="../resources/images/cross.png" />
+							</div>
+						</div>
+						<div class="srch" ><button><img src="../resources/images/search2.png" /></button></div>
+									<script type="text/javascript">
+										 $('.main-search').hide();
+										$('button').click(function (){
+											$('.main-search').show();
+											$('.main-search text').focus();
+										}
+										);
+										$('.close').click(function(){
+											$('.main-search').hide();
+										});
+									</script>
+							
+			
+						</div>
+		
+
+					
+				</div>
+				<!-- //header-ends -->
+				<div class="outter-wp" >
+					<!--custom-widgets-->
+					<p:layoutUnit>
+						<ui:insert name="contextest" />
+					</p:layoutUnit>
+					<!--//outer-wp-->
+				</div>
+				<!--footer section start-->
+				<footer>
+					<p>
+						2016 Augment . All Rights Reserved | Design by <a
+							href="https://stefanini.com/">STEFANINI STEFACAR</a>
+					</p>
+					
+				</footer>
+				<!--footer section end-->
+			</div>
+		</div>
+		<!--//content-inner-->
+
+
+		<!--/sidebar-menu-->
+		<div class="sidebar-menu">
+			<header class="logo">
+				<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
+				</a> <a href="index.html"> <span id="logo">
+						<h1>StefaCAR</h1>
+				</span> <!--<img id="logo" src="" alt="Logo"/>-->
+				</a>
+			</header>
+			<div style="border-top: 1px solid rgba(69, 74, 84, 0.7)"></div>
+			<!--/down-->
+			<div class="down">
+				<a href="index.html"><img src="../resources/images/admin.jpg" /></a> <a
+					href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
+				<p>System Administrator in Company</p>
+				<ul>
+					<li><a class="tooltips" href="index.html"><span>Profile</span><i
+							class="lnr lnr-user"></i></a></li>
+					<li><a class="tooltips" href="index.html"><span>Settings</span><i
+							class="lnr lnr-cog"></i></a></li>
+					<li><a class="tooltips" href="index.html"><span>Log
+								out</span><i class="lnr lnr-power-switch"></i></a></li>
+				</ul>
+			</div>
+			<!--//down-->
+			<div class="menu">
+				<ul id="menu">
+					<li><a href="../pages/index.xhtml"><i class="fa fa-tachometer"></i>
+							<span>HOME</span></a></li>
+					<li id="menu-academico"><a href="#"><i class="fa fa-table"></i>
+							<span>Records</span> <span class="fa fa-angle-right"
+							style="float: right"></span></a>
+						<ul id="menu-academico-sub">
+							<li id="menu-academico-avaliacoes"><a href="../pages/authorizedregister.xhtml">Clients</a></li>
+							<li id="menu-academico-boletim"><a href="../pages/employee.xhtml">Employee</a></li>
+							<li id="menu-academico-boletim"><a href="../pages/Contacts.xhtml">Contacts</a></li>
+							<li id="menu-academico-boletim"><a href="../pages/addressregister.xhtml">Register Address</a></li>
+							
+							
+
+						</ul></li>
+					<li id="menu-academico"><a href="#"><i
+							class="fa fa-file-text-o"></i> <span>Manufacturers</span> <span
+							class="fa fa-angle-right" style="float: right"></span></a>
+						<ul id="menu-academico-sub">
+							<li id="menu-academico-avaliacoes"><a href="../pages/forms.html">Fiat</a></li>
+							<li id="menu-academico-boletim"><a href="../pages/validation.html">Wolks</a></li>
+						<li id="menu-academico-boletim"><a href="../pages/buttons.html">GM</a></li>
+							<li id="menu-academico-boletim"><a href="../pages/buttons.html">Renault</a></li>
+						</ul></li>
+					<li id="menu-comunicacao"><a href="#"><i
+							class="fa fa-smile-o"></i> <span>Services</span><span
+							class="fa fa-angle-double-right" style="float: right"></span></a>
+						<ul id="menu-comunicacao-sub">
+							<li id="menu-mensagens" style="width: 120px"><a
+								href="../pages/project.html">Consultations<i class="fa fa-angle-right"
+									style="float: right; margin-right: -8px; margin-top: 2px;"></i></a>
+								<ul id="menu-mensagens-sub">
+									<li id="menu-mensagens-enviadas" style="width: 130px"><a
+										href="../pages/ribbon.html">Parts</a></li>
+									<li id="menu-mensagens-recebidas" style="width: 130px"><a
+										href="../pages/blank.html">Service Orders</a></li>
+								</ul></li>
+							<li id="menu-arquivos"><a href="../pages/500.html">Warranty</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
 	<script>
 		var toggle = true;
 
@@ -45,169 +205,15 @@
 					toggle = !toggle;
 				});
 	</script>
+	<!--js -->
+	<link rel="stylesheet" href="css/vroom.css" />
+	<script type="text/javascript" src="../resources/js/vroom.js"></script>
+	<script type="text/javascript" src="../resources/js/TweenLite.min.js"></script>
+	<script type="text/javascript" src="../resources/js/CSSPlugin.min.js"></script>
+	<script src="../resources/js/jquery.nicescroll.js"></script>
+	<script src="../resources/js/scripts.js"></script>
 
-</h:head>
-
-<h:body>
-
-<!--................................................................ DIVISORIA GERAL ..........................................................-->
-
-<!--................................................................INICIO DIVISORIA LOGO ..........................................................-->
-	<nav class="navbar-responsive">
-		<div style="height: auto;">
-
-			<span class="logo-font">Stefacar</span> <img
-				src="../resources/images/audi.png"
-				style="height: 80px; margin-left: 20px; margin-top: -25px; margin-bottom: -8px;" />
-				
-		
-			<span id="logo-stefanini"></span> <img
-				src="../resources/images/stefanini.png"
-				style="height: 80px; margin-left: 200px; margin-top: -25px; margin-bottom: -8px;" />
-
-			<form class="navbar-form navbar-right" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" style="margin-top: 10px;"
-						placeholder="Search" />
-				</div>
-				<button type="submit" class="btn btn-default">
-					<span class="glyphicon glyphicon-search" style="height: 20px;"></span>
-				</button>
-			</form>
-		</div>
-	</nav>
-<!--................................................................FIM DIVISORIA LOGO ..........................................................-->
-
-
-<!--................................................................INICIO DIVISORIA CONTAINER ..........................................................-->
-	
-<!--................................................................INICIO DIVISORIA RODAPE ..........................................................-->
-
-		<DIV id="testmenu">
-
-			<!-- INICIO DIVISORIA MENU -->
-			<div class="sidebar-menu"
-				style="position: relative; padding-bottom: 500px;">
-				<header class="logo">
-					<a href="#" class="sidebar-icon"> <span
-						class="glyphicon glyphicon-menu-hamburger"></span>
-					</a> <a href="index.html"> <span id="logo"><h1>Menu</h1></span>
-					</a>
-
-				</header>
-
-
-
-				<div class="down" style="padding-bottom: 50px;">
-					<a href="index.html"><img src="../resources/images/admin.jpg" /></a>
-					<a href="index.html"><span class=" name-caret">Jasmin
-							Leo</span></a>
-					<p>System Administrator in Company</p>
-					<ul>
-						<li><a class="tooltips" href="index.html"><span>Perfil</span>
-								<i class="lnr lnr-user"></i></a></li>
-						<li><a class="tooltips" href="index.html"><span>Editar</span>
-								<i class="lnr lnr-cog"></i></a></li>
-						<li><a class="tooltips" href="index.html"><span>Sair</span><i
-								class="lnr lnr-power-switch"></i></a></li>
-					</ul>
-				</div>
-
-				<div class="menu">
-					<ul id="menu">
-						<li id="menu-academico"><a href="#"
-							style="padding-bottom: 17px;"><i
-								class="glyphicon glyphicon-home"></i> <span>Início</span> <span
-								class="glyphicon glyphicon-menu-right" style="float: right"></span></a>
-							<ul id="menu-academico-sub">
-								<li id="menu-academico-avaliacoes"><a href="forms.html">Forms</a></li>
-								<li id="menu-academico-boletim"><a href="validation.html">Validation
-										Forms</a></li>
-								<li id="menu-academico-boletim"><a href="table.html">Tables</a></li>
-								<li id="menu-academico-boletim"><a href="buttons.html">Buttons</a></li>
-							</ul></li>
-						<li id="menu-academico"><a style="padding-bottom: 17px;"
-							href="#"><i class="glyphicon glyphicon-book"></i> <span>Cadastros</span>
-								<span class="glyphicon glyphicon-menu-right"
-								style="float: right;"></span></a>
-							<ul id="menu-academico-sub">
-								<li id="menu-academico-boletim"><a href="#">Funcionários</a></li>
-								<li id="menu-academico-boletim"><a
-									href="views/ViewAuthorized.xhtml">Autorizadas</a></li>
-								<li id="menu-academico-boletim"><a
-									href="views/ViewProvider.xhtml">Revendedores</a></li>
-								<li id="menu-academico-boletim"><a href="#">Clientes</a></li>
-								<li id="menu-academico-boletim"><a
-									href="views/ViewParts.xhtml">Peças</a></li>
-							</ul></li>
-						<li><a style="padding-bottom: 17px;" href="#"><i
-								class="glyphicon glyphicon-random"></i> <span>Movimentos</span>
-								<span class="glyphicon glyphicon-menu-right"
-								style="float: right"></span></a>
-							<ul>
-								<li><a href="inbox.html">Inbox</a></li>
-								<li><a href="compose.html">Compose Mail</a></li>
-								<li><a href="editor.html">Editors Page</a></li>
-
-							</ul></li>
-						<li id="menu-academico"><a style="padding-bottom: 17px;"
-							href="#"><i class="glyphicon glyphicon-usd"></i> <span>Faturamento</span>
-								<span class="glyphicon glyphicon-menu-right"
-								style="float: right"></span></a>
-							<ul id="menu-academico-sub">
-								<li id="menu-academico-avaliacoes"><a href="grids.html">Grids</a></li>
-								<li id="menu-academico-boletim"><a href="media.html">Media
-										Objects</a></li>
-
-							</ul></li>
-						<li id="menu-comunicacao"><a style="padding-bottom: 17px;"
-							href="#"> <i class="glyphicon glyphicon-briefcase"></i> <span>Administração</span><span
-								class="glyphicon glyphicon-menu-right" style="float: right"></span></a>
-							<ul id="menu-comunicacao-sub">
-								<li id="menu-mensagens" style="width: 120px"><a
-									href="project.html">Projects<span
-										class="glyphicon glyphicon-menu-right" style="float: right"></span>
-								</a>
-									<ul id="menu-mensagens-sub">
-										<li id="menu-mensagens-enviadas" style="width: 130px"><a
-											href="ribbon.html">Ribbons</a></li>
-										<li id="menu-mensagens-recebidas" style="width: 130px"><a
-											href="blank.html">Blank</a></li>
-									</ul></li>
-							</ul></li>
-					</ul>
-				</div>
-				<!-- FIM DIVISORIA MENU -->
-			</div>
-
-
-
-		</DIV>
-
-
-
-
-	
-<!--................................................................FIM DIVISORIA MENU LATERAL ..........................................................-->
-
-<!--................................................................INICIO DIVISORIA CONTEUDO ..........................................................-->
-	<div id="testdiv">
-
-
-		<p:layoutUnit>
-			<ui:insert name="contextest" />
-		</p:layoutUnit>
-
-
-	</div>
-<!--................................................................FIM DIVISORIA CONTEUDO ..........................................................-->
-
-
-	<div id="footer">
-
-		<H3>Copyright 2016. Todos os Direitos reservados a Stefanini
-			STEFACAR.</H3>
-	</div>
-<!--................................................................FIM DIVISORIA RODAPE ..........................................................-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../resources/js/bootstrap.min.js"></script>
 </h:body>
 </html>

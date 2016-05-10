@@ -22,6 +22,8 @@
 					value="Cadastro de Autorizadas" />
 			</p:layoutUnit>
 
+		<p:layoutUnit position="center" >
+
 			<h:form id="authorizedForm">
 				<p:tabView>
 					<p:tab title="Dados basicos" id="tabBasic">
@@ -34,7 +36,7 @@
 								<p:inputText id="authorizedName"
 									requiredMessage="Campo obrigatório" required="true"
 									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
+									value="" />
 								<p:message for="authorizedName" />
 
 
@@ -46,50 +48,6 @@
 									value="#{authorizedManagedBean.authorized.authorizedCnpj}" />
 								<p:message for="authorizedCnpj" />
 
-								<p:outputLabel for="authorizedName2" value="Nome:" />
-								<p:inputText id="authorizedName2"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-								<p:outputLabel for="authorizedName3" value="Nome:" />
-								<p:inputText id="authorizedName3"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-
-								<p:outputLabel for="authorizedName" value="Nome:" />
-								<p:inputText id="authorizedName6"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-
-
-								<p:outputLabel for="authorizedCnpj" value="Cnpj :" />
-								<p:inputMask maxlength="20" id="authorizedCnpj7"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="cnpj "
-									value="#{authorizedManagedBean.authorized.authorizedCnpj}" />
-								<p:message for="authorizedCnpj" />
-
-								<p:outputLabel for="authorizedName2" value="Nome:" />
-								<p:inputText id="authorizedName27"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
-
-								<p:outputLabel for="authorizedName3" value="Nome:" />
-								<p:inputText id="authorizedName37"
-									requiredMessage="Campo obrigatório" required="true"
-									placeholder="nome"
-									value="#{authorizedManagedBean.authorized.authorizedName}" />
-								<p:message for="authorizedName" />
 
 
 							</p:panelGrid>
@@ -97,14 +55,23 @@
 						</h:panelGrid>
 
 					</p:tab>
-					<p:tab title="Endereço" id="tabAddress">
+					<p:tab title="endereço" id="tabAddress">
 						<h:panelGrid columns="2" cellpadding="10">
+							
+
+
 
 						</h:panelGrid>
 					</p:tab>
 					<p:tab title="Contatos" id="tabContact">
 						<h:panelGrid columns="2" cellpadding="10">
+<!-- 
+							<ui:include src="../pages/gridcontacts.xhtml">
 
+								<ui:param name="contactList" value="#{authorizedManagedBean.authorized.contactList}" />
+								
+							</ui:include>
+-->	
 						</h:panelGrid>
 					</p:tab>
 				</p:tabView>
@@ -116,15 +83,13 @@
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{authorizedManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 
+
 			</h:form>
-			<p:button icon="ui-icon-check" id="redirectView"
+			<p:button icon="fa fa-fw fa-arrow-left" id="redirectView"
 				title="Voltar pra lista de autorizadas"
 				value="Voltar para tabela de autorizadas"
 				href="../views/ViewAuthorized.xhtml" />
-
-
-
-
+		</p:layoutUnit>
 
 		</p:layoutUnit>
 
