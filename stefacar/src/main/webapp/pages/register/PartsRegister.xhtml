@@ -20,7 +20,24 @@
 		<p:layoutUnit position="center">
 
 			<h:form id="partsForm">
-				
+				<p:tabView>
+					<p:tab title="Dados basicos">
+						<h:panelGrid columns="2" cellpadding="10">
+						
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="endereço">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Contatos">
+						<h:panelGrid columns="2" cellpadding="10">
+
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
 				<p:panelGrid columns="3">
@@ -28,26 +45,26 @@
 					<p:outputLabel for="PartsName" value="Nome:" />
 					<p:inputText id="PartsName" requiredMessage="Campo obrigatório"
 						required="true" placeholder="nome"
-						value="#{partsManagedBean.parts.partsName}" />
+						value="#{partsManagedBean.parts.name}" />
 					<p:message for="PartsName" />
 
 					<p:outputLabel for="partsIdExclusive" value="id unico da peça :" />
 					<p:inputMask maxlength="20" id="partsIdExclusive"
 						requiredMessage="Campo obrigatório" required="true"
-						placeholder="id " value="#{partsManagedBean.parts.partsId}" />
+						placeholder="id " value="#{partsManagedBean.parts.id}" />
 					<p:message for="partsIdExclusive" />
 
 					<p:outputLabel for="partsValue" value="Valor peça :" />
 					<p:inputMask maxlength="20" id="partsValue"
 						requiredMessage="Campo obrigatório" required="true"
-						placeholder="Valor " value="#{partsManagedBean.parts.partsValue}" />
+						placeholder="Valor " value="#{partsManagedBean.parts.value}" />
 					<p:message for="partsValue" />
 
 					<p:outputLabel for="partsStash" value="Quantidade no estoque :" />
 					<p:inputMask maxlength="20" id="partsStash"
 						requiredMessage="Campo obrigatório" required="true"
 						placeholder="estoque "
-						value="#{partsManagedBean.parts.partsStash}" />
+						value="#{partsManagedBean.parts.stash}" />
 					<p:message for="partsStash" />
 
 

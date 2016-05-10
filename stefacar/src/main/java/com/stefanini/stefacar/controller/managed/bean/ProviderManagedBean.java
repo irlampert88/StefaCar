@@ -66,7 +66,6 @@ public class ProviderManagedBean extends AbstractManagedBeanImplementation<Provi
 		this.provider = provider;
 	}
 
-	@Override
 	public void clean() {
 		setEntity(new Provider());
 	}

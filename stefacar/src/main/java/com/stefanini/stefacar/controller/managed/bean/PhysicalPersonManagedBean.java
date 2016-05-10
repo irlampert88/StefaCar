@@ -3,15 +3,12 @@ package com.stefanini.stefacar.controller.managed.bean;
 import java.util.List;
 
 import javax.faces.bean.ViewScoped;
-
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.primefaces.event.TabChangeEvent;
 
-import javax.inject.Named;
-
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
-import com.stefanini.stefacar.model.domain.AbstractPerson;
 import com.stefanini.stefacar.model.domain.PhysicalPerson;
 import com.stefanini.stefacar.model.service.impl.PhysicalPersonService;
 
@@ -19,10 +16,10 @@ import com.stefanini.stefacar.model.service.impl.PhysicalPersonService;
 @ViewScoped
 public class PhysicalPersonManagedBean extends AbstractManagedBeanImplementation<PhysicalPerson> {
 
-	private PhysicalPerson physicalPerson;
+	private PhysicalPerson person;
 	@Inject
 	protected PhysicalPersonService service;
-	private List<AbstractPerson> dataList;
+	private List<PhysicalPerson> dataList;
 
 	public PhysicalPersonManagedBean(PhysicalPersonService service) {
 		this.service = service;
@@ -32,34 +29,52 @@ public class PhysicalPersonManagedBean extends AbstractManagedBeanImplementation
 
 	}
 
+	@Override
 	public void save() {
-		service.save(getPhysicalPerson());
-		MessengerSystem.notificaInformacao("Congratulations! " , " Loan successfully saved !");
+		service.save(getPerson());
+		MessengerSystem.notificaInformacao("Parabéns!", "Nova autorizada cadastrada com sucesso");
+	}
+
+	@Override
+	public void delete(PhysicalPerson person) {
+		service.delete(person);
+		MessengerSystem.notificaInformacao("Parabéns!", "Autorizada deletada com sucesso !");
 	}
 
 	private void listAllRecordsFromDataBase() {
 		setListaDeDados(service.listAllRecordsFromDataBase());
 	}
 
-	public void setListaDeDados(List<AbstractPerson> list) {
+	private void setListaDeDados(List<PhysicalPerson> list) {
 		this.dataList = list;
+
 	}
 
-	public PhysicalPerson getPhysicalPerson() {
-		if (physicalPerson == null) {
-			clean();
+	public List<PhysicalPerson> getDataList() {
+		if (dataList == null) {
+			listAllRecordsFromDataBase();
 		}
-		return physicalPerson;
+		return dataList;
 	}
 
 	public void setEntity(PhysicalPerson entity) {
-		this.physicalPerson = entity;
+		this.person = entity;
 	}
-	@Override
+
 	public void clean() {
 		setEntity(new PhysicalPerson());
 	}
-	public void onTabChange(TabChangeEvent event) {  
+
+	public void onTabChange(TabChangeEvent event) {
 		event.getTab();
-	} 
+	}
+
+	public PhysicalPerson getPerson() {
+		return person;
+	}
+
+	public void setPerson(PhysicalPerson person) {
+		this.person = person;
+	}
+
 }
