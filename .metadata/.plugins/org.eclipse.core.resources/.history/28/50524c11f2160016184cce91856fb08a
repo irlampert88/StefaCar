@@ -1,0 +1,32 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="StefacarUnit" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<jta-data-source>java:/jdbc/StefacarDS</jta-data-source>
+		
+		<class>com.stefanini.stefacar.model.domain.Foo</class>
+		<class>com.stefanini.stefacar.model.domain.Address</class>
+		<class>com.stefanini.stefacar.model.domain.AbstractPerson</class>
+		<class>com.stefanini.stefacar.model.domain.Contact</class>
+		<class>com.stefanini.stefacar.model.domain.ContactList</class>
+		<class>com.stefanini.stefacar.model.domain.PhysicalPerson</class>
+		<class>com.stefanini.stefacar.model.domain.Authorized</class>
+		<class>com.stefanini.stefacar.model.domain.Address</class>
+		<class>com.stefanini.stefacar.model.domain.Parts</class>
+		<class>com.stefanini.stefacar.model.domain.Provider</class>
+		<class>com.stefanini.stefacar.model.domain.Employee</class>
+
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
