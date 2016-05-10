@@ -5,49 +5,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+@SuppressWarnings("serial")
 @Entity
-public class Provider {
+public class Provider extends AbstractPerson {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer providerId;
+	private Integer Id;
+
 	@Column(nullable = false)
-	private String providerName;
-	@Column(nullable = false)
-	private String providerCnpj;
+	private String Cnpj;
 
-	// @Column(nullable=false)
-	// private Address providerAddres;
-	public Integer getProviderId() {
-		return providerId;
+	public Integer getId() {
+		return Id;
 	}
 
-	public void setProviderId(Integer providerId) {
-		this.providerId = providerId;
+	public void setId(Integer id) {
+		Id = id;
 	}
 
-	public String getProviderName() {
-		return providerName;
+	public String getCnpj() {
+		return Cnpj;
 	}
 
-	public void setProviderName(String providerName) {
-		this.providerName = providerName;
-	}
-
-	public String getProviderCnpj() {
-		return providerCnpj;
-	}
-
-	public void setProviderCnpj(String providerCnpj) {
-		this.providerCnpj = providerCnpj;
+	public void setCnpj(String cnpj) {
+		Cnpj = cnpj;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((providerCnpj == null) ? 0 : providerCnpj.hashCode());
-		result = prime * result + ((providerId == null) ? 0 : providerId.hashCode());
-		result = prime * result + ((providerName == null) ? 0 : providerName.hashCode());
+		int result = super.hashCode();
+		result = prime * result + ((Cnpj == null) ? 0 : Cnpj.hashCode());
+		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
 		return result;
 	}
 
@@ -55,27 +46,21 @@ public class Provider {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		Provider other = (Provider) obj;
-		if (providerCnpj == null) {
-			if (other.providerCnpj != null)
+		if (Cnpj == null) {
+			if (other.Cnpj != null)
 				return false;
-		} else if (!providerCnpj.equals(other.providerCnpj))
+		} else if (!Cnpj.equals(other.Cnpj))
 			return false;
-		if (providerId == null) {
-			if (other.providerId != null)
+		if (Id == null) {
+			if (other.Id != null)
 				return false;
-		} else if (!providerId.equals(other.providerId))
-			return false;
-		if (providerName == null) {
-			if (other.providerName != null)
-				return false;
-		} else if (!providerName.equals(other.providerName))
+		} else if (!Id.equals(other.Id))
 			return false;
 		return true;
 	}
-
 }

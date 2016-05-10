@@ -10,6 +10,7 @@ import org.primefaces.event.TabChangeEvent;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Authorized;
+
 import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 
 @Named
@@ -76,7 +77,6 @@ public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Aut
 		this.authorized = entity;
 	}
 
-	@Override
 	public void clean() {
 		setEntity(new Authorized());
 	}

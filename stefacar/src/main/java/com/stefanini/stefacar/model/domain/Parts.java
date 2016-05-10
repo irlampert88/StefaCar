@@ -11,70 +11,69 @@ public class Parts {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idParts;
+	private int id;
 
 	@Column(nullable = false)
-	private String partsName;
+	private String name;
 
 	@Column(nullable = false)
-	private Integer partsId;
+	private Integer specificId;
 
 	@Column(nullable = false)
-	private Double partsValue;
+	private Double value;
 
 	@Column(nullable = false)
-	private Integer partsStash;
+	private Integer stash;
 
-//falta implementar um Fornecedor
-	public int getIdParts() {
-		return idParts;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdParts(int idParts) {
-		this.idParts = idParts;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getPartsName() {
-		return partsName;
+	public String getName() {
+		return name;
 	}
 
-	public void setPartsName(String partsName) {
-		this.partsName = partsName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Integer getPartsId() {
-		return partsId;
+	public Integer getSpecificId() {
+		return specificId;
 	}
 
-	public void setPartsId(Integer partsId) {
-		this.partsId = partsId;
+	public void setSpecificId(Integer specificId) {
+		this.specificId = specificId;
 	}
 
-	public Double getPartsValue() {
-		return partsValue;
+	public Double getValue() {
+		return value;
 	}
 
-	public void setPartsValue(Double partsDouble) {
-		this.partsValue = partsDouble;
+	public void setValue(Double value) {
+		this.value = value;
 	}
 
-	public Integer getPartsStash() {
-		return partsStash;
+	public Integer getStash() {
+		return stash;
 	}
 
-	public void setPartsStash(Integer partsStash) {
-		this.partsStash = partsStash;
+	public void setStash(Integer stash) {
+		this.stash = stash;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idParts;
-		result = prime * result + ((partsValue == null) ? 0 : partsValue.hashCode());
-		result = prime * result + ((partsId == null) ? 0 : partsId.hashCode());
-		result = prime * result + ((partsName == null) ? 0 : partsName.hashCode());
-		result = prime * result + ((partsStash == null) ? 0 : partsStash.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((specificId == null) ? 0 : specificId.hashCode());
+		result = prime * result + ((stash == null) ? 0 : stash.hashCode());
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
 
@@ -87,27 +86,27 @@ public class Parts {
 		if (getClass() != obj.getClass())
 			return false;
 		Parts other = (Parts) obj;
-		if (idParts != other.idParts)
+		if (id != other.id)
 			return false;
-		if (partsValue == null) {
-			if (other.partsValue != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!partsValue.equals(other.partsValue))
+		} else if (!name.equals(other.name))
 			return false;
-		if (partsId == null) {
-			if (other.partsId != null)
+		if (specificId == null) {
+			if (other.specificId != null)
 				return false;
-		} else if (!partsId.equals(other.partsId))
+		} else if (!specificId.equals(other.specificId))
 			return false;
-		if (partsName == null) {
-			if (other.partsName != null)
+		if (stash == null) {
+			if (other.stash != null)
 				return false;
-		} else if (!partsName.equals(other.partsName))
+		} else if (!stash.equals(other.stash))
 			return false;
-		if (partsStash == null) {
-			if (other.partsStash != null)
+		if (value == null) {
+			if (other.value != null)
 				return false;
-		} else if (!partsStash.equals(other.partsStash))
+		} else if (!value.equals(other.value))
 			return false;
 		return true;
 	}

@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.controller.converter.jpa;
+package com.stefanini.stefacar.controller.converter.jsf;
 
 
 

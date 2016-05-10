@@ -3,7 +3,6 @@ package com.stefanini.stefacar.model.service.impl;
 import java.util.List;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transacional;
-import com.stefanini.stefacar.model.domain.PhysicalPerson;
 import com.stefanini.stefacar.model.repository.impl.AbstractRepositoryImplementation;
 import com.stefanini.stefacar.model.service.AbstractService;
 
@@ -28,7 +27,7 @@ public abstract class AbstractServiceImplementation <T> implements AbstractServi
 	
 	@Transacional
 	public List<T> listAllRecordsFromDataBase() {
-		return (List<T>) repository.allRecords(entityClass);
+		return repository.allRecords(entityClass);
 	}
 	
 	@Transacional

@@ -15,6 +15,7 @@ import com.stefanini.stefacar.model.service.impl.EmployeeService;
 @ViewScoped
 public class EmployeeManagedBean extends AbstractManagedBeanImplementation<Employee> {
 
+	
 	private Employee employee;
 	
 	@Inject
@@ -72,7 +73,7 @@ public class EmployeeManagedBean extends AbstractManagedBeanImplementation<Emplo
         return EmployeeType.values();
     }
 
-	@Override
+	
 	public void clean() {
 		setEntity(new Employee());
 	}

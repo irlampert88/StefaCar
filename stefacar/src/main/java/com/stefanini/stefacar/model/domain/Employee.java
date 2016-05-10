@@ -16,16 +16,23 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idEmployee;
 	
-	@Column
+	@Column(nullable=false)
 	private String name;
 	
-	@Column
+	@Column(nullable=false)
 	private String cpf;
 	
 	@Enumerated(EnumType.STRING)
 	private EmployeeType employeeType;
 
 	public Employee () {
+		
+	}
+
+	public Employee(Integer idEmployee, String name, String cpf) {
+		this.idEmployee = idEmployee;
+		this.name = name;
+		this.cpf = cpf;
 		
 	}
 
@@ -100,7 +107,5 @@ public class Employee {
 			return false;
 		return true;
 	}
-
-	
 	
 }
