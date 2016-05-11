@@ -44,10 +44,10 @@
 									value="#{employeeManagedBean.employee.cpf}" />
 								<p:message for="Cpf" />
 
-								 <p:outputLabel for="idEmployee" value="Selecione o cargo: " />
-								<p:selectOneMenu id="idEmployee" converter="comboBoxConverter"
+								 <p:outputLabel for="id" value="Selecione o cargo: " />
+								<p:selectOneMenu id="id" converter="comboBoxConverter"
 									requiredMessage="Campo obrigatório" required="true"
-									value="#{employeeManagedBean.employee.employeeType}"
+									value="#{employeeManagedBean.employee.type}"
 									effect="fold">
 									<f:selectItem itemLabel="Selecione um cargo" itemValue="" />
 									<f:selectItems
