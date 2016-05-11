@@ -13,7 +13,7 @@ import com.stefanini.stefacar.model.domain.Authorized;
 
 import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 
-@Named
+@ManagedBean
 @ViewScoped
 public class AuthorizedManagedBean extends AbstractManagedBeanImplementation<Authorized> {
 	private Authorized authorized;

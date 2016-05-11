@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.warehouse.ContactType;
 
-@Named(value="contactManagedBean")
+@ManagedBean
 @ViewScoped
 public class ContactManagedBean {
 

@@ -10,7 +10,7 @@ import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Provider;
 import com.stefanini.stefacar.model.service.impl.ProviderService;
 
-@Named
+@ManagedBean
 @ViewScoped
 public class ProviderManagedBean extends AbstractManagedBeanImplementation<Provider> {
 

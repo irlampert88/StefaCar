@@ -10,7 +10,7 @@ import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Parts;
 import com.stefanini.stefacar.model.service.impl.PartsService;
 
-@Named
+@ManagedBean
 @ViewScoped
 public class PartsManagedBean extends AbstractManagedBeanImplementation<Parts> {
 

@@ -12,7 +12,7 @@ import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.PhysicalPerson;
 import com.stefanini.stefacar.model.service.impl.PhysicalPersonService;
 
-@Named
+@ManagedBean
 @ViewScoped
 public class PhysicalPersonManagedBean extends AbstractManagedBeanImplementation<PhysicalPerson> {
 
