@@ -2,16 +2,16 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.service.impl.EmployeeService;
 
-@Named
+@ManagedBean
 @ViewScoped
 public class EmployeeManagedBean extends AbstractManagedBeanImplementation<Employee> {
 
