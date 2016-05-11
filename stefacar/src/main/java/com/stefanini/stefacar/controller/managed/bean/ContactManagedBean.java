@@ -1,7 +1,7 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
+import javax.annotation.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.warehouse.ContactType;
 

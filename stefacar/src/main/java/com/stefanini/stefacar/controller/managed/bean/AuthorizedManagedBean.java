@@ -2,15 +2,14 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.primefaces.event.TabChangeEvent;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Authorized;
-
 import com.stefanini.stefacar.model.service.impl.AuthorizedService;
 
 @ManagedBean

@@ -2,9 +2,9 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.converter.jsf.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Provider;
@@ -27,14 +27,12 @@ public class ProviderManagedBean extends AbstractManagedBeanImplementation<Provi
 
 	}
 
-	@Override
 	public void save() {
 		service.save(getProvider());
 		MessengerSystem.notificaInformacao("Parabens!", "Um novo fornecedor foi salvo com sucesso");
 
 	}
 
-	@Override
 	public void delete(Provider provider) {
 		service.delete(provider);
 		MessengerSystem.notificaInformacao("Parabens!", "Um novo fornecedor foi deletado com sucesso");

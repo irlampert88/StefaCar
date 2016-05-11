@@ -9,18 +9,22 @@
 	<title>StefaCAR</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<<<<<<< HEAD
+
 	<meta name="keywords" />
 	<script type="application/x-javascript">
+		
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+	
 	</script>
 	<!-- Custom CSS -->
-	<link href="../resources/styles/css/style.css" rel='stylesheet' type='text/css' />
+	<link href="../resources/styles/css/style.css" rel='stylesheet'
+		type='text/css' />
 	<!-- Graph CSS -->
 	<link href="../resources/styles/css/font-awesome.css" rel="stylesheet" />
 	<!-- jQuery -->
 	<!-- lined-icons -->
-	<link rel="stylesheet" href="../resources/styles/css/icon-font.min.css" type='text/css' />
+	<link rel="stylesheet" href="../resources/styles/css/icon-font.min.css"
+		type='text/css' />
 
 	<!-- //lined-icons -->
 	<script src="../resources/js/jquery-1.10.2.min.js"></script>
@@ -28,9 +32,12 @@
 	<script src="../resources/js/serial.js"></script>
 	<script src="../resources/js/light.js"></script>
 	<script src="../resources/js/radar.js"></script>
-
-	<link href="../resources/styles/css/barChart.css" rel='stylesheet' type='text/css' />
-	<link href="../resources/styles/css/fabochart.css" rel='stylesheet' type='text/css' />
+	<script src="../resources/js/Search.js"></script>
+	<h:outputScript name="Search" id="Search" value="Search"></h:outputScript>
+	<link href="../resources/styles/css/barChart.css" rel='stylesheet'
+		type='text/css' />
+	<link href="../resources/styles/css/fabochart.css" rel='stylesheet'
+		type='text/css' />
 
 	<!--clock init-->
 	<script src="../resources/js/css3clock.js"></script>
@@ -55,16 +62,16 @@
 				<!-- header-starts -->
 				<div class="header-section">
 					<!--menu-right-->
-					
-						<div >
 
-							<span class="logo-font"></span> <img
-								src="../resources/images/audi.png"
-								style="height:60px; padding-left: 180px; padding-top: 10px;" />
+					<div>
 
-							<A href="https://stefanini.com/"><span id="logo-stefanini"></span>
-								<img src="../resources/images/stefanini.png"
-								style="margin-left: 140px;" /></A>
+						<span class="logo-font"></span> <img
+							src="../resources/images/audi.png"
+							style="height: 60px; padding-left: 180px; padding-top: 10px;" />
+
+						<A href="https://stefanini.com/"><span id="logo-stefanini"></span>
+							<img src="../resources/images/stefanini.png"
+							style="margin-left: 140px;" /></A>
 
 						<div class="main-search">
 							<form>
@@ -76,27 +83,29 @@
 								<img src="../resources/images/cross.png" />
 							</div>
 						</div>
-						<div class="srch" ><button><img src="../resources/images/search2.png" /></button></div>
-									<script type="text/javascript">
-										 $('.main-search').hide();
-										$('button').click(function (){
-											$('.main-search').show();
-											$('.main-search text').focus();
-										}
-										);
-										$('.close').click(function(){
-											$('.main-search').hide();
-										});
-									</script>
-							
-			
+						<div class="srch">
+							<button>
+								<img src="../resources/images/search2.png" />
+							</button>
 						</div>
-		
 
-					
+						<script src="../resources/js/Search.js"></script>
+
+						<script type="text/javascript">
+							$('.main-search').hide();
+							$('button').click(function() {
+								$('.main-search').show();
+								$('.main-search text').focus();
+							});
+							$('.close').click(function() {
+								$('.main-search').hide();
+							});
+						</script>
+					</div>
+
 				</div>
 				<!-- //header-ends -->
-				<div class="outter-wp" >
+				<div class="outter-wp">
 					<!--custom-widgets-->
 					<p:layoutUnit>
 						<ui:insert name="contextest" />
@@ -109,7 +118,7 @@
 						2016 Augment . All Rights Reserved | Design by <a
 							href="https://stefanini.com/">STEFANINI STEFACAR</a>
 					</p>
-					
+
 				</footer>
 				<!--footer section end-->
 			</div>
@@ -129,8 +138,8 @@
 			<div style="border-top: 1px solid rgba(69, 74, 84, 0.7)"></div>
 			<!--/down-->
 			<div class="down">
-				<a href="index.html"><img src="../resources/images/admin.jpg" /></a> <a
-					href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
+				<a href="index.html"><img src="../resources/images/admin.jpg" /></a>
+				<a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
 				<p>System Administrator in Company</p>
 				<ul>
 					<li><a class="tooltips" href="index.html"><span>Profile</span><i
@@ -145,37 +154,45 @@
 			<div class="menu">
 				<ul id="menu">
 
-					<li><a href="../pages/index.xhtml"><i class="fa fa-tachometer"></i>
-							<span>HOME</span></a></li>
+					<li><a href="../pages/index.xhtml"><i
+							class="fa fa-tachometer"></i> <span>HOME</span></a></li>
 					<li id="menu-academico"><a href="#"><i class="fa fa-table"></i>
 							<span>Records</span> <span class="fa fa-angle-right"
 							style="float: right"></span></a>
 						<ul id="menu-academico-sub">
-							<li id="menu-academico-avaliacoes"><a href="../pages/authorizedregister.xhtml">Clients</a></li>
-							<li id="menu-academico-boletim"><a href="../pages/employee.xhtml">Employee</a></li>
-							<li id="menu-academico-boletim"><a href="../pages/Contacts.xhtml">Contacts</a></li>
-							<li id="menu-academico-boletim"><a href="../pages/addressregister.xhtml">Register Address</a></li>
+							<li id="menu-academico-avaliacoes"><a
+								href="../pages/authorizedregister.xhtml">Clients</a></li>
+							<li id="menu-academico-boletim"><a
+								href="../pages/employee.xhtml">Employee</a></li>
+							<li id="menu-academico-boletim"><a
+								href="../pages/Contacts.xhtml">Contacts</a></li>
+							<li id="menu-academico-boletim"><a
+								href="../pages/addressregister.xhtml">Register Address</a></li>
 
-							
-							
+
+
 
 						</ul></li>
 					<li id="menu-academico"><a href="#"><i
-
 							class="fa fa-file-text-o"></i> <span>Manufacturers</span> <span
 							class="fa fa-angle-right" style="float: right"></span></a>
 						<ul id="menu-academico-sub">
-							<li id="menu-academico-avaliacoes"><a href="../pages/forms.html">Fiat</a></li>
-							<li id="menu-academico-boletim"><a href="../pages/validation.html">Wolks</a></li>
-						<li id="menu-academico-boletim"><a href="../pages/buttons.html">GM</a></li>
-							<li id="menu-academico-boletim"><a href="../pages/buttons.html">Renault</a></li>
+							<li id="menu-academico-avaliacoes"><a
+								href="../pages/forms.html">Fiat</a></li>
+							<li id="menu-academico-boletim"><a
+								href="../pages/validation.html">Wolks</a></li>
+							<li id="menu-academico-boletim"><a
+								href="../pages/buttons.html">GM</a></li>
+							<li id="menu-academico-boletim"><a
+								href="../pages/buttons.html">Renault</a></li>
 						</ul></li>
 					<li id="menu-comunicacao"><a href="#"><i
 							class="fa fa-smile-o"></i> <span>Services</span><span
 							class="fa fa-angle-double-right" style="float: right"></span></a>
 						<ul id="menu-comunicacao-sub">
 							<li id="menu-mensagens" style="width: 120px"><a
-								href="../pages/project.html">Consultations<i class="fa fa-angle-right"
+								href="../pages/project.html">Consultations<i
+									class="fa fa-angle-right"
 									style="float: right; margin-right: -8px; margin-top: 2px;"></i></a>
 								<ul id="menu-mensagens-sub">
 									<li id="menu-mensagens-enviadas" style="width: 130px"><a
@@ -185,7 +202,7 @@
 								</ul></li>
 							<li id="menu-arquivos"><a href="../pages/500.html">Warranty</a></li>
 
-						
+
 						</ul></li>
 				</ul>
 			</div>

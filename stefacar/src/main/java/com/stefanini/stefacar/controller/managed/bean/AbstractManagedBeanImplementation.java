@@ -2,6 +2,7 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
