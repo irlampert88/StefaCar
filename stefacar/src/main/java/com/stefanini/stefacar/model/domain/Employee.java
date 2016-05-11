@@ -14,7 +14,7 @@ import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idEmployee;
+	private Integer id;
 	
 	@Column(nullable=false)
 	private String name;
@@ -23,25 +23,25 @@ public class Employee {
 	private String cpf;
 	
 	@Enumerated(EnumType.STRING)
-	private EmployeeType employeeType;
+	private EmployeeType type;
 
 	public Employee () {
 		
 	}
 
-	public Employee(Integer idEmployee, String name, String cpf) {
-		this.idEmployee = idEmployee;
+	public Employee(Integer id, String name, String cpf) {
+		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		
 	}
 
-	public Integer getIdEmployee() {
-		return idEmployee;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdEmployee(Integer idEmployee) {
-		this.idEmployee = idEmployee;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -60,12 +60,12 @@ public class Employee {
 		this.cpf = cpf;
 	}
 
-	public EmployeeType getEmployeeType() {
-		return employeeType;
+	public EmployeeType getType() {
+		return type;
 	}
 
-	public void setEmployeeType(EmployeeType employeeType) {
-		this.employeeType = employeeType;
+	public void setType(EmployeeType type) {
+		this.type = type;
 	}
 
 	@Override
@@ -73,8 +73,8 @@ public class Employee {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((employeeType == null) ? 0 : employeeType.hashCode());
-		result = prime * result + ((idEmployee == null) ? 0 : idEmployee.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -93,12 +93,12 @@ public class Employee {
 				return false;
 		} else if (!cpf.equals(other.cpf))
 			return false;
-		if (employeeType != other.employeeType)
+		if (type != other.type)
 			return false;
-		if (idEmployee == null) {
-			if (other.idEmployee != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idEmployee.equals(other.idEmployee))
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)
