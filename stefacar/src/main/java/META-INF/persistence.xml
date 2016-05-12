@@ -8,17 +8,7 @@
 
 		<jta-data-source>java:/jdbc/StefacarDS</jta-data-source>
 		
-	
-		<class>com.stefanini.stefacar.model.domain.Address</class>
-		<class>com.stefanini.stefacar.model.domain.AbstractPerson</class>
-		<class>com.stefanini.stefacar.model.domain.Contact</class>
-		<class>com.stefanini.stefacar.model.domain.ContactList</class>
-		<class>com.stefanini.stefacar.model.domain.PhysicalPerson</class>
-		<class>com.stefanini.stefacar.model.domain.Authorized</class>
-		<class>com.stefanini.stefacar.model.domain.Parts</class>
-		<class>com.stefanini.stefacar.model.domain.Provider</class>
-		<class>com.stefanini.stefacar.model.domain.Employee</class>
-
+		<class>com.stefanini.stefacar.model.domain.Foo</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
