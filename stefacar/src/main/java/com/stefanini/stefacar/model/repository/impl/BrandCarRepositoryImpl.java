@@ -1,32 +1,35 @@
 package com.stefanini.stefacar.model.repository.impl;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import com.stefanini.stefacar.infra.dao.BrandCarDao;
 import com.stefanini.stefacar.model.domain.BrandCar;
-import com.stefanini.stefacar.model.repository.BrandCarRepository;
 
-public class BrandCarRepositoryImpl{
+
+public class BrandCarRepositoryImpl {
 
 	@Inject
-	private BrandCarDao brandCarDao;
-	
-	public BrandCar findBrandCarByName(String brandCarName) {
-		return brandCarDao.findBrandCarByName(brandCarName);
+	private EntityManager entityManager;
+
+	public void insert(BrandCar brandCar) {
+		entityManager.persist(brandCar);
 	}
 
-	public void save(BrandCar newRegister) {
-		fireEventBeforeSave();
-		brandCarDao.persist(newRegister);
-		fireEventAfterSave();
+	public void delete(BrandCar brandCar) {
+		entityManager.remove(entityManager.merge(brandCar));
 	}
 
-	private void fireEventAfterSave() {
-		// something action after save
+	public void update(BrandCar brandCar) {
+		entityManager.merge(brandCar);
 	}
 
-	private void fireEventBeforeSave() {
-		// something action before save
+	@SuppressWarnings("unchecked")
+	public List<BrandCar> listAllRecords(BrandCar brandCar) {
+		return entityManager.createQuery("select l from " + BrandCar.class.getSimpleName() + " l").getResultList();
 	}
+
+
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.stefanini.stefacar.model.domain.BrandCar;
 import com.stefanini.stefacar.model.domain.ModelCar;
 
 public class ModelCarRepositoryImpl {
@@ -28,6 +29,8 @@ public class ModelCarRepositoryImpl {
 	public List<ModelCar> listAllRecords(ModelCar modelCar) {
 		return entityManager.createQuery("select l from " + ModelCar.class.getSimpleName() + " l").getResultList();
 	}
+
+
 	
 	
 }

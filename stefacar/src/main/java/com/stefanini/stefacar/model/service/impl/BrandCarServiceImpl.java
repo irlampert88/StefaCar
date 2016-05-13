@@ -1,29 +1,35 @@
 package com.stefanini.stefacar.model.service.impl;
 
-import java.util.Collections;
+import java.util.List;
 
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.infra.dao.transactional.Transacional;
 import com.stefanini.stefacar.model.domain.BrandCar;
-import com.stefanini.stefacar.model.repository.BrandCarRepository;
+import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
+import com.stefanini.stefacar.model.repository.impl.ModelCarRepositoryImpl;
 
 
-public class BrandCarServiceImpl {
+public class BrandCarServiceImpl{
 
 	@Inject
-	private BrandCarRepository brandCarrepository;
+	private ModelCarRepositoryImpl modelCarRepository;
 	
-	public Iterable<BrandCar> listAllModelCarFriends(BrandCar modelCar) {
-		return Collections.emptyList();
+	@Transacional
+	public void save(BrandCar brandCar) {
+		modelCarRepository.insert(brandCar);
+		
 	}
 
-	public BrandCarRepository getBrandCarrepository() {
-		return brandCarrepository;
+	@Transacional
+	public void delete(BrandCar brandCar) {
+		modelCarRepository.delete(brandCar);
+		
 	}
-
-	public void setBrandCarrepository(BrandCarRepository brandCarrepository) {
-		this.brandCarrepository = brandCarrepository;
+	
+	@Transacional
+	public List<BrandCar> listAllRecords(BrandCar brandCar) {
+		return BrandCarRepositoryImpl.listAllRecords(brandCar);
 	}
-
 }
 
