@@ -70,6 +70,10 @@ public class Client {
 		this.mail = mail;
 	}
 
+	public Client() {
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

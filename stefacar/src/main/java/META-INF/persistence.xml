@@ -3,12 +3,14 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-	<persistence-unit name="StefacarUnit" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="StefacarUnit"
+		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<jta-data-source>java:/jdbc/StefacarDS</jta-data-source>
-		
+
 		<class>com.stefanini.stefacar.model.domain.Foo</class>
+		<class>com.stefanini.stefacar.model.domain.Client</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

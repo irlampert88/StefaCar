@@ -33,7 +33,7 @@ public class TransacionalInterceptor implements Serializable {
 			entityManager.getTransaction().rollback();
 
 //			Mensageiro.nootificaErro("Erro - ",
-//					"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
+//				"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
 
 			e.printStackTrace();
 			

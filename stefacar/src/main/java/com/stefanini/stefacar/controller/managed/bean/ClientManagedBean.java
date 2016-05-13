@@ -14,50 +14,57 @@ import com.stefanini.stefacar.model.service.impl.ClientServiceImpl;
 public class ClientManagedBean {
 
 	private Client client;
-	private List<Client> listOfClients;
+	private List<Client> dataList;
+
 	@Inject
-	private ClientServiceImpl service;
+	protected ClientServiceImpl service;
+
+	public ClientManagedBean(ClientServiceImpl service) {
+		this.service = service;
+	}
 
 	public ClientManagedBean() {
 	}
 
 	public void save() {
-		service.saveClientOnDB(getClient());
-		loadClientList();
-
+		service.save(getClient());
+		// MessengerSystem.notificaInformacao("Parabens!", "Cadastro de
+		// funcionario salvo com sucesso");
 	}
 
 	public void delete(Client client) {
-		service.deleteClient(client);
-		loadClientList();
+		service.delete(client);
+		// MessengerSystem.notificaInformacao("Parabens!", "Cadastro de
+		// funcionario excluido com sucesso!");
 	}
 
-	private void limpar() {
-		setClient(new Client());
+	private void listAllRecords() {
+		setList(service.listAllRecords(client));
+	}
 
+	public void setList(List<Client> dataList) {
+		this.dataList = dataList;
+	}
+
+	public List<Client> getDataList() {
+		if (dataList == null) {
+			listAllRecords();
+		}
+		return dataList;
 	}
 
 	public Client getClient() {
 		if (client == null) {
-			limpar();
+			clean();
 		}
 		return client;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setEntity(Client entity) {
+		this.client = entity;
 	}
 
-	public List<Client> getListOfClients() {
-		return listOfClients;
+	public void clean() {
+		setEntity(new Client());
 	}
-
-	public void setListOfClients(List<Client> listOfClients) {
-		this.listOfClients = listOfClients;
-	}
-
-	public void loadClientList() {
-		setListOfClients(service.loadAllClientsFromDB());
-	}
-
 }
