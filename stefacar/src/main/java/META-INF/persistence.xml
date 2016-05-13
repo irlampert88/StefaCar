@@ -8,7 +8,7 @@
 
 		<jta-data-source>java:/jdbc/StefacarDS</jta-data-source>
 		
-		<class>com.stefanini.stefacar.model.domain.Foo</class>
+		<class>com.stefanini.stefacar.model.domain.Employee</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

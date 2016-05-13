@@ -1,26 +1,31 @@
 package com.stefanini.stefacar.model.repository.impl;
 
-import javax.inject.Inject;
+import java.util.List;
 
-import com.stefanini.stefacar.infra.dao.jpa.EmployeeDaoJpa;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
 import com.stefanini.stefacar.model.domain.Employee;
 
 public class EmployeeRepositoryImpl {
 
 	@Inject
-	private EmployeeDaoJpa employeeDaoJpa;
-	
-	public Employee findByName(String name) {
-		return employeeDaoJpa.findByName(name);
+	private EntityManager entityManager;
+
+	public void insert(Employee employee) {
+		entityManager.persist(employee);
 	}
 
-	public void save(Employee newRegister) {
-		employeeDaoJpa.persist(newRegister);
-	}
- 
 	public void delete(Employee employee) {
-		employeeDaoJpa.remove(employeeDaoJpa.merge(employee));
+		entityManager.remove(entityManager.merge(employee));
 	}
 
-	
+	public void update(Employee employee) {
+		entityManager.merge(employee);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Employee> listAllRecords(Employee employee) {
+		return entityManager.createQuery("select l from " + Employee.class.getSimpleName() + " l").getResultList();
+	}
 }

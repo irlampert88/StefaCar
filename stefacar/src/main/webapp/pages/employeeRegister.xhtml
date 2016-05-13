@@ -41,6 +41,24 @@
 								requiredMessage="Campo obrigatório" required="true"
 								placeholder="cpf" value="#{employeeManagedBean.employee.cpf}" />
 							<p:message for="Cpf" />
+							
+							<p:outputLabel for="Email" value="E-mail: " />
+							<p:inputText id="Email" requiredMessage="Campo obrigatório"
+								required="true" placeholder="email"
+								value="#{employeeManagedBean.employee.email}" />
+							<p:message for="Email" />
+							
+							<p:outputLabel for="Phone" value="Telefone: " />
+							<p:inputText id="Phone" requiredMessage="Campo obrigatório"
+								required="true" placeholder="telefone"
+								value="#{employeeManagedBean.employee.phone}" />
+							<p:message for="Phone" />
+							
+							<p:outputLabel for="Registration" value="Matrícula: " />
+							<p:inputText id="Registration" requiredMessage="Campo obrigatório"
+								required="true" placeholder="matricula"
+								value="#{employeeManagedBean.employee.registration}" />
+							<p:message for="Registration" />
 
 							<p:outputLabel for="id" value="Selecione o cargo: " />
 							<p:selectOneMenu id="id" converter="comboBoxConverter"

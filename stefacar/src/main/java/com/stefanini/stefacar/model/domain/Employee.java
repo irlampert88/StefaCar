@@ -24,13 +24,13 @@ public class Employee {
 	private String cpf;
 	
 	@Column(nullable=false)
-	private String telefone;
+	private String phone;
 	
 	@Column(nullable=false)
 	private String email;
 	
 	@Column(nullable=false)
-	private Integer matricula;
+	private Integer registration;
 	
 	@Enumerated(EnumType.STRING)
 	private EmployeeType type;
@@ -63,12 +63,12 @@ public class Employee {
 		this.cpf = cpf;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {
@@ -79,12 +79,12 @@ public class Employee {
 		this.email = email;
 	}
 
-	public Integer getMatricula() {
-		return matricula;
+	public Integer getRegistration() {
+		return registration;
 	}
 
-	public void setMatricula(Integer matricula) {
-		this.matricula = matricula;
+	public void setRegistration(Integer registration) {
+		this.registration = registration;
 	}
 
 	public EmployeeType getType() {
@@ -102,9 +102,9 @@ public class Employee {
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result + ((registration == null) ? 0 : registration.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -133,25 +133,24 @@ public class Employee {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (matricula == null) {
-			if (other.matricula != null)
-				return false;
-		} else if (!matricula.equals(other.matricula))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
+		if (phone == null) {
+			if (other.phone != null)
 				return false;
-		} else if (!telefone.equals(other.telefone))
+		} else if (!phone.equals(other.phone))
+			return false;
+		if (registration == null) {
+			if (other.registration != null)
+				return false;
+		} else if (!registration.equals(other.registration))
 			return false;
 		if (type != other.type)
 			return false;
 		return true;
 	}
-
 	
 }
