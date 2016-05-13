@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Venda de Carro</title>
+</head>
+<body>
+	<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
+	<h:form id="saleForm">
+		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+		<p:panelGrid columns="3">
+
+			<p:outputLabel for="employeeSelect" value="Funcionário:" />
+			<p:selectOneMenu id="employeeSelect" converter="converterCombobox"
+				value="#{saleManagedBean.sale.employee}">
+				<f:selectItem itemLabel="selecione um funcionário" itemValue="" />
+				<f:selectItems value="#{saleManagedBean.}"
+					var="employee" itemLabel="#{employee.nome}"
+					itemValue="#{employee}" />
+			</p:selectOneMenu>
+			<p:message for="employeeSelect" />
+			
+			<p:outputLabel for="clientSelect" value="Cliente:" />
+			<p:selectOneMenu id="clientSelect" converter="converterCombobox"
+				value="#{saleManagedBean.}">
+				<f:selectItem itemLabel="selecione um cliente" itemValue="" />
+				<f:selectItems value="#{saleManagedBean.}"
+					var="employee" itemLabel="#{employee.nome}"
+					itemValue="#{client}" />
+			</p:selectOneMenu>
+			<p:message for="clientSelect" />
+			
+			<p:outputLabel for="carSelect" value="Carro:" />
+			<p:selectOneMenu id="carSelect" converter="converterCombobox"
+				value="#{saleManagedBean.}">
+				<f:selectItem itemLabel="selecione um carro" itemValue="" />
+				<f:selectItems value="#{saleManagedBean.}"
+					var="car" itemLabel="#{car.nome}"
+					itemValue="#{car}" />
+			</p:selectOneMenu>
+			<p:message for="carSelect" />
+			
+		</p:panelGrid>
+</body>
+</html>
