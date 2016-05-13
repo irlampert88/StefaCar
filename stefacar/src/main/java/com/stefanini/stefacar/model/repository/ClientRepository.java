@@ -2,28 +2,30 @@ package com.stefanini.stefacar.model.repository;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.stefanini.stefacar.model.domain.Client;
 
+@SuppressWarnings("all")
 public class ClientRepository {
 
+	private EntityManager entityManager;
+
 	public void insert(Client client) {
-		// TODO Auto-generated method stub
-		
+		entityManager.persist(client);
 	}
 
 	public void refresh(Client client) {
-		// TODO Auto-generated method stub
-		
+		entityManager.merge(client);
 	}
 
 	public void delete(Client client) {
-		// TODO Auto-generated method stub
-		
+		entityManager.remove(client);
 	}
 
 	public List<Client> allClients() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return entityManager.createQuery("select l from " + Client.class.getSimpleName() + " l ").getResultList();
 	}
 
 }
