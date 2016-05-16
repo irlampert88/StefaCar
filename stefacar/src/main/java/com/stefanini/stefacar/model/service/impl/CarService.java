@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.stefanini.stefacar.infra.dao.transactional.Transacional;
+import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.repository.impl.CarRepository;
 
@@ -13,7 +13,7 @@ public class CarService {
 	@Inject
 	private CarRepository repository;
 	
-	@Transacional
+	@Transactional
 	public void save(Car car) {
 		if (car.getId() == null) {
 			repository.insert(car);
@@ -22,12 +22,12 @@ public class CarService {
 		} 
 	}
 
-	@Transacional
+	@Transactional
 	public List<Car> loadAllCarsFromDataBase() {
 		return repository.allCars();
 	}
 
-	@Transacional
+	@Transactional
 	public void delete(Car car) {
 		repository.delete(car);;
 	}
