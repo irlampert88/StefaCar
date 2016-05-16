@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.stefanini.stefacar.infra.dao.transactional.Transacional;
+import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 import com.stefanini.stefacar.model.domain.ModelCar;
 import com.stefanini.stefacar.model.repository.impl.ModelCarRepository;
 
@@ -13,19 +13,19 @@ public class ModelCarServiceImpl{
 	@Inject
 	private ModelCarRepository modelCarRepository;
 	
-	@Transacional
+	@Transactional
 	public void save(ModelCar modelCar) {
 		modelCarRepository.insert(modelCar);
 		
 	}
 
-	@Transacional
+	@Transactional
 	public void delete(ModelCar modelCar) {
 		modelCarRepository.delete(modelCar);
 		
 	}
 	
-	@Transacional
+	@Transactional
 	public List<ModelCar> listAllRecords(ModelCar modelCar) {
 		return modelCarRepository.listAllRecords(modelCar);
 	}
