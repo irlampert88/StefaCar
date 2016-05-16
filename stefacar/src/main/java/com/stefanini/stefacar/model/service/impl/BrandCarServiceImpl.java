@@ -6,30 +6,29 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transacional;
 import com.stefanini.stefacar.model.domain.BrandCar;
-import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.ModelCarRepositoryImpl;
+import com.stefanini.stefacar.model.repository.BrandCarRepository;
 
 
 public class BrandCarServiceImpl{
 
 	@Inject
-	private ModelCarRepositoryImpl modelCarRepository;
+	private BrandCarRepository brandCarRepository;
 	
 	@Transacional
 	public void save(BrandCar brandCar) {
-		modelCarRepository.insert(brandCar);
+		brandCarRepository.insert(brandCar);
 		
 	}
 
 	@Transacional
 	public void delete(BrandCar brandCar) {
-		modelCarRepository.delete(brandCar);
+		brandCarRepository.delete(brandCar);
 		
 	}
 	
 	@Transacional
 	public List<BrandCar> listAllRecords(BrandCar brandCar) {
-		return BrandCarRepositoryImpl.listAllRecords(brandCar);
+		return brandCarRepository.listAllRecords(brandCar);
 	}
 }
 

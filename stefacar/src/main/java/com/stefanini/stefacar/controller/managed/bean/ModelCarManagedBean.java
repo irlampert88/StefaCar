@@ -2,58 +2,54 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.MessengerSystem;
 import com.stefanini.stefacar.model.domain.ModelCar;
-import com.stefanini.stefacar.model.service.ModelCarService;
+import com.stefanini.stefacar.model.service.impl.ModelCarServiceImpl;
 
 @ViewScoped
-@ManagedBean
+@javax.annotation.ManagedBean
 public class ModelCarManagedBean {
 
+
 	private ModelCar modelCar;
-	private List<ModelCar> listAllModelCars;
-	
+	private List<ModelCar> dataList;
+
 	@Inject
-	private ModelCarService service;
-	
-	
-	public ModelCarManagedBean(ModelCarService service) {
+	protected ModelCarServiceImpl service;
+
+	public ModelCarManagedBean(ModelCarServiceImpl service) {
 		this.service = service;
 	}
 
 	public ModelCarManagedBean() {
-
 	}
 
 	public void save() {
-		
-		ModelCarService.save(getModelCar());
-		MessengerSystem.notificaInformacao("Congratulations! " , " Loan successfully saved !");
+		service.save(getModelCar());
+		 MessengerSystem.notificaInformacao("Congratulations! " , " ModelCar successfully saved !");
 	}
 
 	public void delete(ModelCar modelCar) {
-		ModelCarService.delete(modelCar);
-		MessengerSystem.notificaInformacao("Congratulations! " , " Loan successfully deleted !");
-	}
-	
-	private void listAllRecordsFromDataBase() {
-		setListaDeDados(service.listAllRecordsFromDataBase());
+		service.delete(modelCar);
+		 MessengerSystem.notificaInformacao("Congratulations! " , " ModelCar successfully deleted !");
 	}
 
-	public void setListaDeDados(List<ModelCar> dataList) {
-		this.listAllModelCars = dataList;
+	private void listAllRecords() {
+		setList(service.listAllRecords(modelCar));
+	}
+
+	public void setList(List<ModelCar> dataList) {
+		this.dataList = dataList;
 	}
 
 	public List<ModelCar> getDataList() {
-		if (listAllModelCars == null) {
-			listAllRecordsFromDataBase();
-			clean();
+		if (dataList == null) {
+			listAllRecords();
 		}
-		return listAllModelCars;
+		return dataList;
 	}
 
 	public ModelCar getModelCar() {
@@ -63,13 +59,11 @@ public class ModelCarManagedBean {
 		return modelCar;
 	}
 
-	public void setModelCar(ModelCar modelCar) {
-		this.modelCar = modelCar;
+	public void setEntity(ModelCar entity) {
+		this.modelCar = entity;
 	}
 
 	public void clean() {
-		setModelCar(new ModelCar());
+		setEntity(new ModelCar());
 	}
-
-	
 }

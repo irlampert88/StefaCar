@@ -24,10 +24,19 @@ public class ModelCar {
 
 	@Column(nullable=false)
 	private String displacement;
-
-	@Column(nullable=false)
-	private BrandCar brandCar;
 	
+//	@Column(nullable=false)
+//	private BrandCar brandCar;
+//
+//	public BrandCar getBrandCar() {
+//		return brandCar;
+//	}
+//
+//	public void setBrandCar(BrandCar brandCar) {
+//		this.brandCar = brandCar;
+//	}
+
+
 	public ModelCar() {
 		// TODO Auto-generated constructor stub
 	}
@@ -72,19 +81,13 @@ public class ModelCar {
 		this.displacement = displacement;
 	}
 
-	public BrandCar getBrandCar() {
-		return brandCar;
-	}
-
-	public void setBrandCar(BrandCar brandCar) {
-		this.brandCar = brandCar;
-	}
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
+//		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
 		result = prime * result + ((displacement == null) ? 0 : displacement.hashCode());
 		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -102,11 +105,11 @@ public class ModelCar {
 		if (getClass() != obj.getClass())
 			return false;
 		ModelCar other = (ModelCar) obj;
-		if (brandCar == null) {
-			if (other.brandCar != null)
-				return false;
-		} else if (!brandCar.equals(other.brandCar))
-			return false;
+//		if (brandCar == null) {
+//			if (other.brandCar != null)
+//				return false;
+//		} else if (!brandCar.equals(other.brandCar))
+//			return false;
 		if (displacement == null) {
 			if (other.displacement != null)
 				return false;
@@ -136,6 +139,11 @@ public class ModelCar {
 	}
 
 	
-	
+	@Override
+	public String toString() {
+		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
+				+ ", displacement=" + displacement + "]";
+	}
+
 	
 }
