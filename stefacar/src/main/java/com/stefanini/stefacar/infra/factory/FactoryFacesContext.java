@@ -4,10 +4,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
 
-public class FacesContextFactory {
+public class FactoryFacesContext {
 	
 	@Produces @RequestScoped
-	public FacesContext criarFacesContext() {
+	public FacesContext createFacesContext() {
 		return FacesContext.getCurrentInstance();
 	}
 	

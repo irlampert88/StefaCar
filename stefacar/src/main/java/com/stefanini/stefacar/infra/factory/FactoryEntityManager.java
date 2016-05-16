@@ -9,16 +9,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ApplicationScoped
-public class EntityManagerFactory {
+public class FactoryEntityManager {
 
     private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("StefacarUnit");
 
 	@Produces @RequestScoped
-	public EntityManager criarEntityManager() {
+	public EntityManager createEntityManager() {
 		return factory.createEntityManager();
 	}
 	
-	public void fecharEntityManager(@Disposes EntityManager manager){
+	public void closeEntityManager(@Disposes EntityManager manager){
 		manager.close();
 	}
 }

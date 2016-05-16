@@ -17,9 +17,6 @@ public class Car {
 	@Column(name="idCar")
 	private Integer id;
 	@OneToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="idBrand")
-	private BrandCar brand;
-	@OneToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idCarModel")
 	private ModelCar carModel;
 	@Column(nullable=false)
@@ -34,12 +31,6 @@ public class Car {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public BrandCar getBrand() {
-		return brand;
-	}
-	public void setBrand(BrandCar brand) {
-		this.brand = brand;
 	}
 	public ModelCar getCarModel() {
 		return carModel;
@@ -64,7 +55,6 @@ public class Car {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + ((carColor == null) ? 0 : carColor.hashCode());
 		result = prime * result + ((carModel == null) ? 0 : carModel.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -81,11 +71,6 @@ public class Car {
 		if (getClass() != obj.getClass())
 			return false;
 		Car other = (Car) obj;
-		if (brand == null) {
-			if (other.brand != null)
-				return false;
-		} else if (!brand.equals(other.brand))
-			return false;
 		if (carColor == null) {
 			if (other.carColor != null)
 				return false;
@@ -111,9 +96,9 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", brand=" + brand + ", carModel=" + carModel + ", price=" + price + ", carColor="
-				+ carColor + "]";
+		return "Car [id=" + id + ", carModel=" + carModel + ", price=" + price + ", carColor=" + carColor + "]";
 	}
+
 	
 	
 }
