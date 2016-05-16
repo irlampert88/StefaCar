@@ -20,11 +20,6 @@ public class BrandCarManagedBean {
 	@Inject
 	protected BrandCarServiceImpl service;
 	
-	@PostConstruct
-	public void init() {
-		
-	}
-	
 	public BrandCarManagedBean(BrandCarServiceImpl service) {
 		this.service = service;
 	}
