@@ -3,7 +3,7 @@ package com.stefanini.stefacar.controller.managed.bean;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.view.ViewScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.jsf.SystemMesenger;
@@ -13,6 +13,7 @@ import com.stefanini.stefacar.model.service.impl.CarService;
 @ManagedBean
 @ViewScoped
 public class CarManagedBean {
+	
 	
 	private Car car;
 	private List<Car> listAllCars;
