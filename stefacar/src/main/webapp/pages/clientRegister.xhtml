@@ -6,92 +6,63 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
-	<title>Cadastro de Cliente StefaCar</title>
-</h:head>
 <h:body>
+	<ui:decorate template="../WEB-INF/modelos/default.xhtml">
+		<ui:define name="center">
 
-	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
 
+			<h:form id="clientForm">
+				<h:panelGrid columns="3" cellpadding="10">
+					<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-	<p:layoutUnit position="north" style="text-align: center;">
-		<p:outputLabel style="font-size: 30px;" value="Cadastro de clientes" />
-	</p:layoutUnit>
+					<p:panelGrid columns="3">
 
-	<p:layoutUnit position="center">
+						<p:outputLabel for="Name" value="Nome:" />
+						<p:inputText id="Name" requiredMessage="Campo obrigatório"
+							required="true" placeholder="nome"
+							value="#{clientManagedBean.client.name}" />
+						<p:message for="Name" />
 
-		<h:form id="clientForm">
-			<p:tabView>
-				<p:tab title="Dados basicos" id="tabBasic">
-					<h:panelGrid columns="3" cellpadding="10">
-						<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+						<p:outputLabel for="Cpf" value="Cpf :" />
+						<p:inputMask maxlength="20" id="Cpf"
+							requiredMessage="Campo obrigatório" required="true"
+							placeholder="cpf" value="#{clientManagedBean.client.cpf}" />
+						<p:message for="Cpf" />
 
-						<p:panelGrid columns="3">
+						<p:outputLabel for="Email" value="E-mail: " />
+						<p:inputText id="Email" requiredMessage="Campo obrigatório"
+							required="true" placeholder="email"
+							value="#{clientManagedBean.client.mail}" />
+						<p:message for="Email" />
 
-							<p:outputLabel for="Name" value="Nome:" />
-							<p:inputText id="Name" requiredMessage="Campo obrigatório"
-								required="true" placeholder="nome"
-								value="#{clientManagedBean.client.name}" />
-							<p:message for="Name" />
+						<p:outputLabel for="Phone" value="Telefone: " />
+						<p:inputText id="Phone" requiredMessage="Campo obrigatório"
+							required="true" placeholder="telefone"
+							value="#{clientManagedBean.client.phone}" />
+						<p:message for="Phone" />
 
-							<p:outputLabel for="Cpf" value="Cpf :" />
-							<p:inputMask maxlength="20" id="Cpf"
-								requiredMessage="Campo obrigatório" required="true"
-								placeholder="cpf" value="#{clientManagedBean.client.cpf}" />
-							<p:message for="Cpf" />
-
-							<p:outputLabel for="Email" value="E-mail: " />
-							<p:inputText id="Email" requiredMessage="Campo obrigatório"
-								required="true" placeholder="email"
-								value="#{clientManagedBean.client.mail}" />
-							<p:message for="Email" />
-
-							<p:outputLabel for="Phone" value="Telefone: " />
-							<p:inputText id="Phone" requiredMessage="Campo obrigatório"
-								required="true" placeholder="telefone"
-								value="#{clientManagedBean.client.phone}" />
-							<p:message for="Phone" />
-
-							<p:outputLabel for="address" value="Endereço: " />
-							<p:inputText id="address" requiredMessage="Campo obrigatório"
-								required="true" value="#{clientManagedBean.client.address}" />
-							<p:message for="address" />
+						<p:outputLabel for="address" value="Endereço: " />
+						<p:inputText id="address" requiredMessage="Campo obrigatório"
+							required="true" value="#{clientManagedBean.client.address}" />
+						<p:message for="address" />
 
 
 
-						</p:panelGrid>
+					</p:panelGrid>
 
-					</h:panelGrid>
+				</h:panelGrid>
 
-				</p:tab>
-				<p:tab title="endereço" id="tabAddress">
-					<h:panelGrid columns="2" cellpadding="10">
-
-						<!-- <ui:param name="contactList"
-							value="#{employeeManagedBean.employee.contactList}" /> -->
-
-					</h:panelGrid>
-				</p:tab>
-				<p:tab title="Contatos" id="tabContact">
-					<h:panelGrid columns="2" cellpadding="10">
-
-					</h:panelGrid>
-				</p:tab>
-			</p:tabView>
+				<p:commandButton value="Salvar" process="@form"
+					action="#{clientManagedBean.save()}" icon="fa fa-fw fa-save"
+					update="@form" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{clientManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 
 
-			<p:commandButton value="Salvar" process="@form"
-				action="#{clientManagedBean.save()}" icon="fa fa-fw fa-save"
-				update="@form" />
-			<p:commandButton value="Limpar" process="@this" update="@form"
-				action="#{clientManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+			</h:form>
 
-
-		</h:form>
-
-	</p:layoutUnit>
+		</ui:define>
+	</ui:decorate>
 
 </h:body>
-
 </html>
