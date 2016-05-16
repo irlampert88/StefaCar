@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.model.repository;
+package com.stefanini.stefacar.model.service.impl;
 
 import java.util.List;
 
