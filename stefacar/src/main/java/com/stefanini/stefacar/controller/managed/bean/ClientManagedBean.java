@@ -39,7 +39,7 @@ public class ClientManagedBean {
 	}
 
 	private void listAllRecords() {
-		setList(service.listAllRecords(client));
+		setList(service.listAllRecords());
 	}
 
 	public void setList(List<Client> dataList) {
