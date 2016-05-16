@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.model.service.impl;
+package com.stefanini.stefacar.model.repository.impl;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 
 import com.stefanini.stefacar.model.domain.Client;
 
-public class ClientRepository {
+public class ClientRepositoryImpl {
 
 	@Inject
 	private EntityManager entityManager;

@@ -13,9 +13,9 @@ import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.Sale;
+import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
-import com.stefanini.stefacar.model.service.impl.ClientRepository;
 import com.stefanini.stefacar.model.service.impl.SaleService;
 
 //@SessionScoped não consegui usar o Session não subia o servidor
@@ -44,7 +44,7 @@ public class SaleManagedBean implements Serializable{
 //	@Inject
 //	private CarRepositoryImpl repositoryCar;
 	@Inject
-	private ClientRepository repositoryClient;
+	private ClientRepositoryImpl repositoryClient;
 	
 	public SaleManagedBean() {
 		listOfSales = new ArrayList<>();

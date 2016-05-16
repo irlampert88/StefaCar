@@ -7,13 +7,13 @@ import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-public class FabricaDeNavigationHandler {
+public class FactoryNavigationHandler {
 	
 	@Inject
 	FacesContext facesContext;
 	
 	@Produces @RequestScoped
-	public NavigationHandler criarNavigationHandler() {
+	public NavigationHandler createNavigationHandler() {
 		
 	    if (facesContext != null) {
 	        Application application = facesContext.getApplication();

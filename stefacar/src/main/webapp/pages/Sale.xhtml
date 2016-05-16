@@ -28,10 +28,10 @@
 			
 			<p:outputLabel for="clientSelect" value="Cliente:" />
 			<p:selectOneMenu id="clientSelect" converter="converterCombobox"
-				value="#{saleManagedBean.}">
+				value="#{saleManagedBean.sale.client}">
 				<f:selectItem itemLabel="selecione um cliente" itemValue="" />
-				<f:selectItems value="#{saleManagedBean.}"
-					var="employee" itemLabel="#{employee.nome}"
+				<f:selectItems value="#{saleManagedBean.listOfClient}"
+					var="client" itemLabel="#{client.name}"
 					itemValue="#{client}" />
 			</p:selectOneMenu>
 			<p:message for="clientSelect" />

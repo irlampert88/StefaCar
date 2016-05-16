@@ -6,11 +6,12 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 import com.stefanini.stefacar.model.domain.Client;
+import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 
 public class ClientServiceImpl {
 
 	@Inject
-	private ClientRepository repository;
+	private ClientRepositoryImpl repository;
 
 	@Transactional
 	public void save(Client client) {

@@ -38,7 +38,7 @@ public class EmployeeManagedBean {
 	}
 
 	private void listAllRecords() {
-		setList(service.listAllRecords(employee));
+		setList(service.listAllRecords());
 	}
 
 	public void setList(List<Employee> dataList) {
