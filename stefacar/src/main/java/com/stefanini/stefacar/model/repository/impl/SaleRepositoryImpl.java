@@ -18,6 +18,14 @@ public class SaleRepositoryImpl {
 //		fireEventAfterSave();
 	}
 	
+	public void update(Sale sale) {
+		entityManager.merge(sale);
+	}
+	
+	public void delete(Sale sale) {
+		entityManager.remove(sale);
+	}
+	
 	private void fireEventAfterSave() {
 		// something action after save
 	}

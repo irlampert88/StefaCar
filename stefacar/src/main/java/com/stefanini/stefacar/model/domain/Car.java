@@ -1,6 +1,5 @@
 package com.stefanini.stefacar.model.domain;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import com.stefanini.stefacar.model.domain.ModelCar;
 
 @Entity
 public class Car {

@@ -4,22 +4,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.*;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.Sale;
+import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleService;
 
 //@SessionScoped não consegui usar o Session não subia o servidor
-@Named(value= "saleManagedBean")
+@ManagedBean
 @ViewScoped
 public class SaleManagedBean implements Serializable{
 	
@@ -41,8 +41,8 @@ public class SaleManagedBean implements Serializable{
 	private SaleRepositoryImpl repositorySale;
 	@Inject
 	private EmployeeRepositoryImpl repositoryEmployee;
-//	@Inject
-//	private CarRepositoryImpl repositoryCar;
+	@Inject
+	private CarRepositoryImpl repositoryCar;
 	@Inject
 	private ClientRepositoryImpl repositoryClient;
 	
@@ -53,7 +53,7 @@ public class SaleManagedBean implements Serializable{
 		listOfClient = new ArrayList<>();
 		clean();
 		upLoadSaleList();
-//		upLoadCarList();
+		upLoadCarList();
 		upLoadClientList();
 		upLoadEmployeeList();
 	}
@@ -103,13 +103,29 @@ public class SaleManagedBean implements Serializable{
 		listOfEmployee.clear();
 	}
 	
+	public void cleanSale(){
+		sale = new Sale();
+	}
+	
+	public void save(){
+		service.save(getSale());
+		upLoadSaleList();
+		cleanSale();
+	}
+	
+	public void delete() {
+		service.delete(getSale());
+		upLoadSaleList();
+		cleanSale();
+	}
+	
 	private void upLoadSaleList(){
 		setListOfSales(repositorySale.allSales());
 	}
 	
-//	private void upLoadCarList(){
-//		setListOfCar(repositoryCar.allCars());
-//	}
+	private void upLoadCarList(){
+		setListOfCar(repositoryCar.allCars());
+	}
 	
 	private void upLoadClientList(){
 		setListOfClient(repositoryClient.listAllRecords());
