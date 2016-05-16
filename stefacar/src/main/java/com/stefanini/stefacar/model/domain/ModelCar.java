@@ -22,7 +22,7 @@ public class ModelCar {
 	@Column(nullable=false)
 	private String year;
 	@Column(nullable=false)
-	private String displacement;
+	private String deplasare;
 	@OneToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idBrandCar")
 	private BrandCar brandCar;
@@ -54,10 +54,10 @@ public class ModelCar {
 		this.year = year;
 	}
 	public String getDisplacement() {
-		return displacement;
+		return deplasare;
 	}
-	public void setDisplacement(String displacement) {
-		this.displacement = displacement;
+	public void setDisplacement(String deplasare) {
+		this.deplasare = deplasare;
 	}
 
 	public BrandCar getBrand() {
@@ -73,7 +73,7 @@ public class ModelCar {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
-		result = prime * result + ((displacement == null) ? 0 : displacement.hashCode());
+		result = prime * result + ((deplasare == null) ? 0 : deplasare.hashCode());
 		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((version == null) ? 0 : version.hashCode());
@@ -95,10 +95,10 @@ public class ModelCar {
 				return false;
 		} else if (!brandCar.equals(other.brandCar))
 			return false;
-		if (displacement == null) {
-			if (other.displacement != null)
+		if (deplasare == null) {
+			if (other.deplasare != null)
 				return false;
-		} else if (!displacement.equals(other.displacement))
+		} else if (!deplasare.equals(other.deplasare))
 			return false;
 		if (idModelCar == null) {
 			if (other.idModelCar != null)
@@ -126,7 +126,7 @@ public class ModelCar {
 	@Override
 	public String toString() {
 		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
-				+ ", displacement=" + displacement + ", brand=" + brandCar + "]";
+				+ ", deplasare=" + deplasare + ", brand=" + brandCar + "]";
 	}
 
 	
