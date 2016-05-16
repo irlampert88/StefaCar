@@ -2,15 +2,15 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.stefanini.stefacar.controller.converter.jsf.SystemMesenger;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.service.impl.CarService;
 
-@Named
+@ManagedBean
 @ViewScoped
 public class CarManagedBean {
 	
@@ -25,14 +25,14 @@ public class CarManagedBean {
 	
 	public void save() {
 		service.save(getCar());
-		SystemMesenger.notificaInformacao("Parabéns!", "Car salva com sucesso!");
+		SystemMesenger.notificaInformacao("Parabï¿½ns!", "Car salva com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}
 	
 	public void delete(Car Car) {
 		service.delete(Car);
-		SystemMesenger.notificaInformacao("Parabéns!", "Car deletada com sucesso!");
+		SystemMesenger.notificaInformacao("Parabï¿½ns!", "Car deletada com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}
