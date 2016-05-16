@@ -20,8 +20,8 @@
 			<p:selectOneMenu id="employeeSelect" converter="converterCombobox"
 				value="#{saleManagedBean.sale.employee}">
 				<f:selectItem itemLabel="selecione um funcionário" itemValue="" />
-				<f:selectItems value="#{saleManagedBean.}"
-					var="employee" itemLabel="#{employee.nome}"
+				<f:selectItems value="#{saleManagedBean.listOfEmploee}"
+					var="employee" itemLabel="#{employee.name}"
 					itemValue="#{employee}" />
 			</p:selectOneMenu>
 			<p:message for="employeeSelect" />

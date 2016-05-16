@@ -25,7 +25,7 @@ public class ClientServiceImpl {
 	}
 
 	@Transactional
-	public List<Client> listAllRecords(Client client) {
-		return repository.listAllRecords(client);
+	public List<Client> listAllRecords() {
+		return repository.listAllRecords();
 	}
 }

@@ -13,7 +13,9 @@ import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.Sale;
+import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
+import com.stefanini.stefacar.model.service.impl.ClientRepository;
 import com.stefanini.stefacar.model.service.impl.SaleService;
 
 //@SessionScoped não consegui usar o Session não subia o servidor
@@ -37,12 +39,12 @@ public class SaleManagedBean implements Serializable{
 	private SaleService service;
 	@Inject
 	private SaleRepositoryImpl repositorySale;
-//	@Inject
-//	private EmployeeRepositoryImpl repositoryEmployee;
+	@Inject
+	private EmployeeRepositoryImpl repositoryEmployee;
 //	@Inject
 //	private CarRepositoryImpl repositoryCar;
-//	@Inject
-//	private ClientRepositoryImpl repositoryClient;
+	@Inject
+	private ClientRepository repositoryClient;
 	
 	public SaleManagedBean() {
 		listOfSales = new ArrayList<>();
@@ -52,8 +54,8 @@ public class SaleManagedBean implements Serializable{
 		clean();
 		upLoadSaleList();
 //		upLoadCarList();
-//		upLoadClientList();
-//		upLoadEmployeeList();
+		upLoadClientList();
+		upLoadEmployeeList();
 	}
 	
 	public Sale getSale() {
@@ -108,12 +110,12 @@ public class SaleManagedBean implements Serializable{
 //	private void upLoadCarList(){
 //		setListOfCar(repositoryCar.allCars());
 //	}
-//	
-//	private void upLoadClientList(){
-//		setListOfCar(repositoryClient.allClients());
-//	}
-//	
-//	private void upLoadEmployeeList(){
-//		setListOfCar(repositoryEmployee.allEmployes());
-//	}
+	
+	private void upLoadClientList(){
+		setListOfClient(repositoryClient.listAllRecords());
+	}
+	
+	private void upLoadEmployeeList(){
+		setListOfEmploee(repositoryEmployee.listAllRecords());
+	}
 }

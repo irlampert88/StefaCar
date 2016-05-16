@@ -25,7 +25,7 @@ public class EmployeeRepositoryImpl {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Employee> listAllRecords(Employee employee) {
+	public List<Employee> listAllRecords() {
 		return entityManager.createQuery("select l from " + Employee.class.getSimpleName() + " l").getResultList();
 	}
 }

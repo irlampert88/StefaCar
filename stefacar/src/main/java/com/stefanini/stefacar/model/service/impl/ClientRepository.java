@@ -25,7 +25,7 @@ public class ClientRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Client> listAllRecords(Client client) {
+	public List<Client> listAllRecords() {
 		return entityManager.createQuery("select l from " + Client.class.getSimpleName() + " l").getResultList();
 	}
 }
