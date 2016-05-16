@@ -9,8 +9,8 @@ import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 
 @Interceptor 
-@Transacional
-public class TransacionalInterceptor implements Serializable {
+@Transactional
+public class TransactionalInterceptor implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class TransacionalInterceptor implements Serializable {
 			entityManager.getTransaction().rollback();
 
 //			Mensageiro.nootificaErro("Erro - ",
-//					"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
+//				"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
 
 			e.printStackTrace();
 			
