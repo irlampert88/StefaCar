@@ -8,6 +8,11 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<jta-data-source>java:/jdbc/StefacarDS</jta-data-source>
+
+		
+		<class>com.stefanini.stefacar.model.domain.Car</class>
+		<class>com.stefanini.stefacar.model.domain.ModelCar</class>
+		<class>com.stefanini.stefacar.model.domain.BrandCar</class>
 		<class>com.stefanini.stefacar.model.domain.Foo</class>
 		<class>com.stefanini.stefacar.model.domain.Client</class>		
 		<class>com.stefanini.stefacar.model.domain.Employee</class>
