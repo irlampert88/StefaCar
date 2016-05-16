@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transacional;
 import com.stefanini.stefacar.model.domain.BrandCar;
-import com.stefanini.stefacar.model.repository.BrandCarRepository;
+import com.stefanini.stefacar.model.repository.impl.BrandCarRepository;
 
 
 public class BrandCarServiceImpl{

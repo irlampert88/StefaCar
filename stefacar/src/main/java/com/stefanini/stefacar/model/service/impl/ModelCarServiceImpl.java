@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transacional;
 import com.stefanini.stefacar.model.domain.ModelCar;
-import com.stefanini.stefacar.model.repository.ModelCarRepository;
+import com.stefanini.stefacar.model.repository.impl.ModelCarRepository;
 
 public class ModelCarServiceImpl{
 
