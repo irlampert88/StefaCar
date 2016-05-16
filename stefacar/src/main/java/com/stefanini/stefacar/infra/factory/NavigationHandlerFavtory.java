@@ -7,7 +7,7 @@ import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-public class FabricaDeNavigationHandler {
+public class NavigationHandlerFavtory {
 	
 	@Inject
 	FacesContext facesContext;

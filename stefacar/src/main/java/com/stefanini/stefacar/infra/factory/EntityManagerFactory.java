@@ -9,7 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ApplicationScoped
-public class FabricaDeEntityManager {
+public class EntityManagerFactory {
 
     private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("StefacarUnit");
 
