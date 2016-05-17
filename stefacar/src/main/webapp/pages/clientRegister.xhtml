@@ -34,7 +34,10 @@
 						<p:outputLabel for="Email" value="E-mail: " />
 						<p:inputText id="Email" requiredMessage="Campo obrigatório"
 							required="true" placeholder="email"
-							value="#{clientManagedBean.client.mail}" />
+							value="#{clientManagedBean.client.mail}">
+							<f:validator validatorId="emailValidator" />
+						</p:inputText>
+
 						<p:message for="Email" />
 
 						<p:outputLabel for="Phone" value="Telefone: " />
