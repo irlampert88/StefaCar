@@ -24,9 +24,11 @@
 						<p:message for="Name" />
 
 						<p:outputLabel for="Cpf" value="Cpf :" />
-						<p:inputMask maxlength="20" id="Cpf"
+						<p:inputMask maxlength="11" id="Cpf" mask="99999999999"
 							requiredMessage="Campo obrigatório" required="true"
-							placeholder="cpf" value="#{clientManagedBean.client.cpf}" />
+							placeholder="cpf" value="#{clientManagedBean.client.cpf}">
+							<f:validator validatorId="cpfValidator" />
+						</p:inputMask>
 						<p:message for="Cpf" />
 
 						<p:outputLabel for="Email" value="E-mail: " />
