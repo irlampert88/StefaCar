@@ -22,7 +22,7 @@ public class ModelCar {
 	@Column(nullable=false)
 	private String year;
 	@Column(nullable=false)
-	private String deplasare;
+	private String cid;
 	@OneToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idBrandCar")
 	private BrandCar brandCar;
@@ -54,10 +54,10 @@ public class ModelCar {
 		this.year = year;
 	}
 	public String getDisplacement() {
-		return deplasare;
+		return cid;
 	}
-	public void setDisplacement(String deplasare) {
-		this.deplasare = deplasare;
+	public void setDisplacement(String cid) {
+		this.cid = cid;
 	}
 
 	public BrandCar getBrand() {
@@ -73,7 +73,7 @@ public class ModelCar {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
-		result = prime * result + ((deplasare == null) ? 0 : deplasare.hashCode());
+		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
 		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((version == null) ? 0 : version.hashCode());
@@ -95,10 +95,10 @@ public class ModelCar {
 				return false;
 		} else if (!brandCar.equals(other.brandCar))
 			return false;
-		if (deplasare == null) {
-			if (other.deplasare != null)
+		if (cid == null) {
+			if (other.cid != null)
 				return false;
-		} else if (!deplasare.equals(other.deplasare))
+		} else if (!cid.equals(other.cid))
 			return false;
 		if (idModelCar == null) {
 			if (other.idModelCar != null)
@@ -126,7 +126,7 @@ public class ModelCar {
 	@Override
 	public String toString() {
 		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
-				+ ", deplasare=" + deplasare + ", brand=" + brandCar + "]";
+				+ ", cid=" + cid + ", brand=" + brandCar + "]";
 	}
 
 	
