@@ -69,6 +69,10 @@ public class SaleManagedBean implements Serializable{
 	public void delete(Sale sale) {
 		service.delete(sale);
 	}
+	
+	public void clean(){
+		sale = new Sale();
+	}
 
 	
 	//--[GETTES AND SETTERS]

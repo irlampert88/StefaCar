@@ -6,86 +6,92 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Venda de Carro</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Venda de Carro</title>
 </h:head>
 <h:body>
+
 	<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
-	<h:form id="saleForm">
-		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+	<ui:decorate template="../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="saleForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-		<p:panelGrid columns="3">
+				<p:panelGrid columns="3">
 
-			<p:outputLabel for="employeeSelect" value="Funcionário:" />
-			<p:selectOneMenu id="employeeSelect" converter="converterCombobox"
-				value="#{saleManagedBean.sale.employee}"
-				requiredMessage="Campo obrigatório">
-				<f:selectItem itemLabel="selecione um funcionário" itemValue="" />
-				<f:selectItems value="#{saleManagedBean.listOfEmployee}"
-					var="employee" itemLabel="#{employee.name}" itemValue="#{employee}" />
-			</p:selectOneMenu>
-			<p:message for="employeeSelect" />
+					<p:outputLabel for="employeeSelect" value="Funcionário:" />
+					<p:selectOneMenu id="employeeSelect" converter="converterCombobox"
+						value="#{saleManagedBean.sale.employee}"
+						requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="selecione um funcionário" itemValue="" />
+						<f:selectItems value="#{saleManagedBean.listOfEmployee}"
+							var="employee" itemLabel="#{employee.name}"
+							itemValue="#{employee}" />
+					</p:selectOneMenu>
+					<p:message for="employeeSelect" />
 
-			<p:outputLabel for="clientSelect" value="Cliente:" />
-			<p:selectOneMenu id="clientSelect" converter="converterCombobox"
-				value="#{saleManagedBean.sale.client}"
-				requiredMessage="Campo obrigatório">
-				<f:selectItem itemLabel="selecione um cliente" itemValue="" />
-				<f:selectItems value="#{saleManagedBean.listOfClient}" var="client"
-					itemLabel="#{client.name}" itemValue="#{client}" />
-			</p:selectOneMenu>
-			<p:message for="clientSelect" />
+					<p:outputLabel for="clientSelect" value="Cliente:" />
+					<p:selectOneMenu id="clientSelect" converter="converterCombobox"
+						value="#{saleManagedBean.sale.client}"
+						requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="selecione um cliente" itemValue="" />
+						<f:selectItems value="#{saleManagedBean.listOfClient}"
+							var="client" itemLabel="#{client.name}" itemValue="#{client}" />
+					</p:selectOneMenu>
+					<p:message for="clientSelect" />
 
-			<p:outputLabel for="carSelect" value="Carro:" />
-			<p:selectOneMenu id="carSelect" converter="converterCombobox"
-				value="#{saleManagedBean.sale.car}"
-				requiredMessage="Campo obrigatório">
-				<f:selectItem itemLabel="selecione um carro" itemValue="" />
-				<f:selectItems value="#{saleManagedBean.listOfCar}" var="car"
-					itemLabel="#{car.id}" itemValue="#{car}" />
-			</p:selectOneMenu>
-			<p:message for="carSelect" />
-		</p:panelGrid>
+					<p:outputLabel for="carSelect" value="Carro:" />
+					<p:selectOneMenu id="carSelect" converter="converterCombobox"
+						value="#{saleManagedBean.sale.car}"
+						requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="selecione um carro" itemValue="" />
+						<f:selectItems value="#{saleManagedBean.listOfCar}" var="car"
+							itemLabel="#{car.id}" itemValue="#{car}" />
+					</p:selectOneMenu>
+					<p:message for="carSelect" />
+				</p:panelGrid>
 
-		<p:commandButton value="Salvar" process="@form"
-			update="@form saleTable" action="#{saleManagedBean.save}"
-			icon="fa fa-fw fa-save" />
-		<p:commandButton value="Limpar" process="@this" update="@form"
-			action="#{saleManagedBean.cleanSale}" icon="fa fa-fw fa-eraser" />
-	</h:form>
-	<p:dataTable id="saleTable" var="sale"
-		value="#{saleManagedBean.listOfSales}"
-		emptyMessage="Não existem empréstimos cadastrados"
-		style="padding-top:20px;">
-		<p:column headerText="Funcionário">
-			<h:outputText value="#{sale.employee.name}" />
-		</p:column>
-		<p:column headerText="Cliente">
-			<h:outputText value="#{sale.client.name}" />
-		</p:column>
-		<p:column headerText="Carro">
-			<h:outputText value="#{sale.car.id}" />
-		</p:column>
-		<p:column headerText="Ações" style="text-align: center">
-			<p:commandButton icon="fa fa-fw fa-edit" title="Editar Venda"
-				update="saleForm">
-				<f:setPropertyActionListener value="#{sale}"
-					target="#{saleManagedBean.sale}" />
-			</p:commandButton>
-			<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
-				update="saleTable saleForm"
-				action="#{saleManagedBean.delete(sale)}">
-				<p:confirm header="Confirmação"
-					message="Deseja deletar a venda?" icon="ui-icon-alert" />
-			</p:commandButton>
+				<p:commandButton value="Salvar" process="@form"
+					update="@form saleTable" action="#{saleManagedBean.save}"
+					icon="fa fa-fw fa-save" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
+			</h:form>
+			<p:dataTable id="saleTable" var="sale"
+				value="#{saleManagedBean.listOfSales}"
+				emptyMessage="Não existem empréstimos cadastrados"
+				style="padding-top:20px;">
+				<p:column headerText="Funcionário">
+					<h:outputText value="#{sale.employee.name}" />
+				</p:column>
+				<p:column headerText="Cliente">
+					<h:outputText value="#{sale.client.name}" />
+				</p:column>
+				<p:column headerText="Carro">
+					<h:outputText value="#{sale.car.id}" />
+				</p:column>
+				<p:column headerText="Ações" style="text-align: center">
+					<p:commandButton icon="fa fa-fw fa-edit" title="Editar Venda"
+						update="saleForm">
+						<f:setPropertyActionListener value="#{sale}"
+							target="#{saleManagedBean.sale}" />
+					</p:commandButton>
+					<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
+						update="saleTable saleForm"
+						action="#{saleManagedBean.delete(sale)}">
+						<p:confirm header="Confirmação" message="Deseja deletar a venda?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
 
-			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-				<p:commandButton value="Sim" type="button"
-					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-				<p:commandButton value="Não" type="button"
-					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-			</p:confirmDialog>
-		</p:column>
-	</p:dataTable>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Sim" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="Não" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</p:column>
+			</p:dataTable>
+		</ui:define>
+	</ui:decorate>
 </h:body>
 </html>
