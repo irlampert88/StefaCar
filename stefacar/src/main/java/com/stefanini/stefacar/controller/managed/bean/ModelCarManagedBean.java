@@ -60,11 +60,11 @@ public class ModelCarManagedBean {
 		return modelCar;
 	}
 
-	public void setEntity(ModelCar entity) {
-		this.modelCar = entity;
+	public void setModelCar(ModelCar modelCar) {
+		this.modelCar = modelCar;
 	}
 
 	public void clean() {
-		setEntity(new ModelCar());
+		setModelCar(new ModelCar());
 	}
 }

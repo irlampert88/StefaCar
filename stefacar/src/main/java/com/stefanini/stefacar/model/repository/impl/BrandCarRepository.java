@@ -26,7 +26,7 @@ public class BrandCarRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<BrandCar> listAllRecords(BrandCar brandCar) {
+	public List<BrandCar> listAllRecords() {
 		return entityManager.createQuery("select l from " + BrandCar.class.getSimpleName() + " l").getResultList();
 	}
 
