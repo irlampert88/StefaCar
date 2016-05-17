@@ -3,6 +3,8 @@ package com.stefanini.stefacar.model.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,6 +28,8 @@ public class ModelCar {
 	@OneToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idBrandCar")
 	private BrandCar brandCar;
+	@Enumerated(EnumType.STRING)
+	private Category category;
 
 	public ModelCar() {}
 
@@ -67,12 +71,36 @@ public class ModelCar {
 	public void setBrand(BrandCar brand) {
 		this.brandCar = brand;
 	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
+	public BrandCar getBrandCar() {
+		return brandCar;
+	}
+
+	public void setBrandCar(BrandCar brandCar) {
+		this.brandCar = brandCar;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
 		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -94,6 +122,8 @@ public class ModelCar {
 			if (other.brandCar != null)
 				return false;
 		} else if (!brandCar.equals(other.brandCar))
+			return false;
+		if (category != other.category)
 			return false;
 		if (cid == null) {
 			if (other.cid != null)
@@ -126,9 +156,8 @@ public class ModelCar {
 	@Override
 	public String toString() {
 		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
-				+ ", cid=" + cid + ", brand=" + brandCar + "]";
+				+ ", cid=" + cid + ", brandCar=" + brandCar + ", category=" + category + "]";
 	}
 
-	
 
 }
