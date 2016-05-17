@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -22,11 +23,23 @@ import com.stefanini.stefacar.model.service.impl.SaleService;
 @ManagedBean
 @ViewScoped
 public class SaleManagedBean implements Serializable{
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private SaleService service;
+	
+	@Inject
+	private SaleRepositoryImpl repositorySale;
+	
+	@Inject
+	private EmployeeRepositoryImpl repositoryEmployee;
+
+	@Inject
+	private CarRepositoryImpl repositoryCar;
+
+	@Inject
+	private ClientRepositoryImpl repositoryClient;
+	
 	
 	private Sale sale;
 	private List<Sale> listOfSales;
@@ -35,48 +48,52 @@ public class SaleManagedBean implements Serializable{
 	private List<Client>listOfClient;
 	
 	
-	@Inject
-	private SaleService service;
-	@Inject
-	private SaleRepositoryImpl repositorySale;
-	@Inject
-	private EmployeeRepositoryImpl repositoryEmployee;
-	@Inject
-	private CarRepositoryImpl repositoryCar;
-	@Inject
-	private ClientRepositoryImpl repositoryClient;
-	
-	public SaleManagedBean() {
-		listOfSales = new ArrayList<>();
-		listOfEmployee = new ArrayList<>();
-		listOfCar = new ArrayList<>();
-		listOfClient = new ArrayList<>();
-		clean();
-		upLoadSaleList();
-		upLoadCarList();
-		upLoadClientList();
-		upLoadEmployeeList();
+	@PostConstruct
+	public void init() {
+		sale = new Sale();
+		listOfSales = repositorySale.allSales();
+		listOfEmployee = repositoryEmployee.listAllRecords();
+		listOfCar = repositoryCar.allCars();
+		listOfClient = repositoryClient.listAllRecords();
+		
+//		listOfSales = new ArrayList<>();
+//		listOfEmployee = new ArrayList<>();
+//		listOfCar = new ArrayList<>();
+//		listOfClient = new ArrayList<>();		
 	}
 	
+	public void save(){
+		service.save(sale);
+	}
+	
+	public void delete(Sale sale) {
+		service.delete(sale);
+	}
+
+	
+	//--[GETTES AND SETTERS]
 	public Sale getSale() {
 		return sale;
 	}
+
 	public void setSale(Sale sale) {
 		this.sale = sale;
 	}
+
 	public List<Sale> getListOfSales() {
 		return listOfSales;
 	}
+
 	public void setListOfSales(List<Sale> listOfSales) {
 		this.listOfSales = listOfSales;
 	}
-	
-	public List<Employee> getListOfEmploee() {
+
+	public List<Employee> getListOfEmployee() {
 		return listOfEmployee;
 	}
 
-	public void setListOfEmploee(List<Employee> listOfEmploee) {
-		this.listOfEmployee = listOfEmploee;
+	public void setListOfEmployee(List<Employee> listOfEmployee) {
+		this.listOfEmployee = listOfEmployee;
 	}
 
 	public List<Car> getListOfCar() {
@@ -93,45 +110,5 @@ public class SaleManagedBean implements Serializable{
 
 	public void setListOfClient(List<Client> listOfClient) {
 		this.listOfClient = listOfClient;
-	}
-
-	private void clean(){
-		sale = new Sale();
-		listOfSales.clear();
-		listOfCar.clear();
-		listOfClient.clear();
-		listOfEmployee.clear();
-	}
-	
-	public void cleanSale(){
-		sale = new Sale();
-	}
-	
-	public void save(){
-		service.save(getSale());
-		upLoadSaleList();
-		cleanSale();
-	}
-	
-	public void delete() {
-		service.delete(getSale());
-		upLoadSaleList();
-		cleanSale();
-	}
-	
-	private void upLoadSaleList(){
-		setListOfSales(repositorySale.allSales());
-	}
-	
-	private void upLoadCarList(){
-		setListOfCar(repositoryCar.allCars());
-	}
-	
-	private void upLoadClientList(){
-		setListOfClient(repositoryClient.listAllRecords());
-	}
-	
-	private void upLoadEmployeeList(){
-		setListOfEmploee(repositoryEmployee.listAllRecords());
 	}
 }

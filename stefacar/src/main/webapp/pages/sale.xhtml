@@ -5,11 +5,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Venda de Carro</title>
-</head>
-<body>
+</h:head>
+<h:body>
 	<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
 	<h:form id="saleForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
@@ -21,7 +21,7 @@
 				value="#{saleManagedBean.sale.employee}"
 				requiredMessage="Campo obrigatório">
 				<f:selectItem itemLabel="selecione um funcionário" itemValue="" />
-				<f:selectItems value="#{saleManagedBean.listOfEmploee}"
+				<f:selectItems value="#{saleManagedBean.listOfEmployee}"
 					var="employee" itemLabel="#{employee.name}" itemValue="#{employee}" />
 			</p:selectOneMenu>
 			<p:message for="employeeSelect" />
@@ -46,11 +46,46 @@
 			</p:selectOneMenu>
 			<p:message for="carSelect" />
 		</p:panelGrid>
-		<p:commandButton value="Salvar" process="@form listaLivros"
-			update="@form saleTable"
-			action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
+
+		<p:commandButton value="Salvar" process="@form"
+			update="@form saleTable" action="#{saleManagedBean.save}"
+			icon="fa fa-fw fa-save" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{saleManagedBean.cleanSale}" icon="fa fa-fw fa-eraser" />
 	</h:form>
-</body>
+	<p:dataTable id="saleTable" var="sale"
+		value="#{saleManagedBean.listOfSales}"
+		emptyMessage="Não existem empréstimos cadastrados"
+		style="padding-top:20px;">
+		<p:column headerText="Funcionário">
+			<h:outputText value="#{sale.employee.name}" />
+		</p:column>
+		<p:column headerText="Cliente">
+			<h:outputText value="#{sale.client.name}" />
+		</p:column>
+		<p:column headerText="Carro">
+			<h:outputText value="#{sale.car.id}" />
+		</p:column>
+		<p:column headerText="Ações" style="text-align: center">
+			<p:commandButton icon="fa fa-fw fa-edit" title="Editar Venda"
+				update="saleForm">
+				<f:setPropertyActionListener value="#{sale}"
+					target="#{saleManagedBean.sale}" />
+			</p:commandButton>
+			<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
+				update="saleTable saleForm"
+				action="#{saleManagedBean.delete(sale)}">
+				<p:confirm header="Confirmação"
+					message="Deseja deletar a venda?" icon="ui-icon-alert" />
+			</p:commandButton>
+
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Sim" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Não" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+		</p:column>
+	</p:dataTable>
+</h:body>
 </html>
