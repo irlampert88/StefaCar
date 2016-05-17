@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.stefanini.stefacar.model.domain.ModelCar;
+
 @Entity
 public class Car {
 	
@@ -98,7 +100,4 @@ public class Car {
 	public String toString() {
 		return "Car [id=" + id + ", carModel=" + carModel + ", price=" + price + ", carColor=" + carColor + "]";
 	}
-
-	
-	
 }

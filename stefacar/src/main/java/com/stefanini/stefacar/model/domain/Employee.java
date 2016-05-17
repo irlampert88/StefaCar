@@ -155,6 +155,5 @@ public class Employee {
 		if (type != other.type)
 			return false;
 		return true;
-	}
-	
+	}	
 }

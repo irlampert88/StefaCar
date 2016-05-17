@@ -6,12 +6,12 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 import com.stefanini.stefacar.model.domain.Car;
-import com.stefanini.stefacar.model.repository.impl.CarRepository;
+import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 
 public class CarService {
 	
 	@Inject
-	private CarRepository repository;
+	private CarRepositoryImpl repository;
 	
 	@Transactional
 	public void save(Car car) {

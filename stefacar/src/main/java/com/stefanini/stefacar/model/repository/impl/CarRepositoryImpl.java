@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import com.stefanini.stefacar.model.domain.Car;
 
 @SuppressWarnings("all")
-public class CarRepository {
+public class CarRepositoryImpl {
 	
 	@Inject
 	private EntityManager entityManager;

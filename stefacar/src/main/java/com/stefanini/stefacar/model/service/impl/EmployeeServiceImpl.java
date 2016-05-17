@@ -26,7 +26,7 @@ public class EmployeeServiceImpl {
 	}
 
 	@Transactional
-	public List<Employee> listAllRecords(Employee employee) {
-		return repository.listAllRecords(employee);
+	public List<Employee> listAllRecords() {
+		return repository.listAllRecords();
 	}
 }

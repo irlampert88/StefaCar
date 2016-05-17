@@ -31,7 +31,6 @@ public class ClientManagedBean {
 		service.save(getClient());
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de cliente salvo com sucesso");
 		clean();
-
 	}
 
 	public void delete(Client client) {
