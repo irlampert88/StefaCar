@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.controller.converter.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.service.impl.ClientServiceImpl;
 
@@ -28,14 +29,16 @@ public class ClientManagedBean {
 
 	public void save() {
 		service.save(getClient());
-		// MessengerSystem.notificaInformacao("Parabens!", "Cadastro de
-		// funcionario salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de cliente salvo com sucesso");
+		clean();
+
 	}
 
 	public void delete(Client client) {
 		service.delete(client);
-		// MessengerSystem.notificaInformacao("Parabens!", "Cadastro de
-		// funcionario excluido com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de cliente excluido com sucesso!");
+		clean();
+
 	}
 
 	private void listAllRecords() {

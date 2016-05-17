@@ -1,5 +1,6 @@
 package com.stefanini.stefacar.controller.warehouse;
 
+
 public enum EmployeeType {
 	ATENDENTE("Atendente"), 
 	VENDEDOR("Vendedor"), 

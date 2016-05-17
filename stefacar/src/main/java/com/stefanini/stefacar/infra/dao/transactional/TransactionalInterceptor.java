@@ -8,6 +8,8 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 
+import com.stefanini.stefacar.controller.converter.MessengerSystem;
+
 @Interceptor 
 @Transactional
 public class TransactionalInterceptor implements Serializable {
@@ -32,8 +34,8 @@ public class TransactionalInterceptor implements Serializable {
 
 			entityManager.getTransaction().rollback();
 
-//			Mensageiro.nootificaErro("Erro - ",
-//				"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
+			MessengerSystem.nootificaErro("Erro - ",
+				"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
 
 			e.printStackTrace();
 			

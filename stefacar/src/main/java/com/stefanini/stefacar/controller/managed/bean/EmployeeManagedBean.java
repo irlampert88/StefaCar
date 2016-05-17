@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.controller.converter.MessengerSystem;
 import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.service.impl.EmployeeServiceImpl;
@@ -29,12 +30,13 @@ public class EmployeeManagedBean {
 
 	public void save() {
 		service.save(getEmployee());
-//		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario salvo com sucesso");
+		clean();
 	}
 
 	public void delete(Employee employee) {
 		service.delete(employee);
-//		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario excluido com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario excluido com sucesso!");
 	}
 
 	private void listAllRecords() {
