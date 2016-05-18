@@ -31,12 +31,12 @@ public class BrandCarManagedBean {
 
 	public void save() {
 		service.save(getBrandCar());
-		MessengerSystem.notificaInformacao("Congratulations! " , " BrandCar successfully saved !");
+		MessengerSystem.notificaInformacao("Congratulations !", "BrandCar Saved success !");
 	}
 
 	public void delete(BrandCar brandCar) {
 		service.delete(brandCar);
-		MessengerSystem.notificaInformacao("Congratulations! " , " BrandCar successfully deleted !");
+		MessengerSystem.notificaInformacao("Congratulations !", "BrandCar deleted success!");
 	}
 	
 	private void listAllRecords() {

@@ -20,22 +20,22 @@
 
 							<p:outputLabel for="name" value="Nome da Modelo" />
 							<p:inputText id="name" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.name}" />
+								required="true" value="#{modelCarManagedBean.modelCar.name}" placeholder="name" />
 							<p:message for="name" />
 
 							<p:outputLabel for="version" value="Versão:" />
 							<p:inputText id="version" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.version}" />
+								required="true" value="#{modelCarManagedBean.modelCar.version}" placeholder="version"/>
 							<p:message for="version" />
 
 							<p:outputLabel for="year" value="Ano do Modelo" />
 							<p:inputText id="year" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.year}" />
+								required="true" value="#{modelCarManagedBean.modelCar.year}" placeholder="year"/>
 							<p:message for="year" />
 
 							<p:outputLabel for="cid" value="Cilindrada:" />
 							<p:inputText id="cid" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.cid}" />
+								required="true" value="#{modelCarManagedBean.modelCar.cid}" placeholder="cid"/>
 							<p:message for="cid" />
 
 							
@@ -55,8 +55,7 @@
 
 						</p:panelGrid>
 
-						<p:commandButton value="Salvar" process="@form"
-							
+						<p:commandButton value="Salvar" process="@form" update="@form"	
 							action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" />
 						<p:commandButton value="Limpar" process="@this" update="@form"
 							action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

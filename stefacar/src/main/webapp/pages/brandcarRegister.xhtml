@@ -19,18 +19,18 @@
 
 					<p:outputLabel for="name" value="Nome da Marca" />
 					<p:inputText id="name" requiredMessage="Campo obrigatório"
-						required="true" value="#{brandCarManagedBean.brandCar.name}" />
+						required="true" value="#{brandCarManagedBean.brandCar.name}" placeholder="name"/>
 					<p:message for="name" />
 
 					<p:outputLabel for="nationality" value="Nacionalidade:" />
 					<p:inputText id="nationality" requiredMessage="Campo obrigatório"
 						required="true"
-						value="#{brandCarManagedBean.brandCar.nationality}" />
+						value="#{brandCarManagedBean.brandCar.nationality}" placeholder="nationality"/>
 					<p:message for="nationality" />
 				</p:panelGrid>
 
 				<p:commandButton value="Salvar" process="@form"
-					action="#{brandCarManagedBean.save()}" icon="fa fa-fw fa-save" />
+					action="#{brandCarManagedBean.save()}" icon="fa fa-fw fa-save" update="@form"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{brandCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>
