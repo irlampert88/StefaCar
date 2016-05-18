@@ -11,7 +11,7 @@
 		<ui:define name="center">
 			<p:dataTable id="carTable" var="car"
 				value="#{carManagedBean.listAllCars}"
-				emptyMessage="Não existem pessoas cadastrados"
+				emptyMessage="Não existem carros cadastrados"
 				style="padding-top:20px;">
 				<p:column headerText="Id">
 					<h:outputText value="#{car.id}" />
@@ -24,9 +24,9 @@
 				</p:column>
 				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-edit" title="Editar carro"
-						update="carForm" action="#{carManagedBean.setCar(car)}" />
+						action="#{carManagedBean.setCar(car)}" />
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
-						update="carTable carForm" action="#{carManagedBean.delete(car)}">
+						update="carTable " action="#{carManagedBean.delete(car)}">
 						<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
 							icon="ui-icon-alert" />
 					</p:commandButton>
