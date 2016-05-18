@@ -8,60 +8,92 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
-		<ui:define name="center">		
+		<ui:define name="center">
 			<p:layout>
 				<p:layoutUnit position="north" style="text-align: center;">
-					<p:outputLabel style="font-size: 30px;" value="Manutenção de carro"/>
+					<p:outputLabel style="font-size: 30px;" value="Manutenção de carro" />
 				</p:layoutUnit>
 
 				<p:layoutUnit position="center">
 
-					<h:form id="carForm">				
-						<p:growl id="growl" showDetail="true" sticky="false" life="4000" />  
-						
+					<h:form id="carForm">
+						<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
 						<p:panelGrid columns="3">
-						
-							<p:outputLabel for="price" value="Preco"/>
-							<p:inputText id="price" requiredMessage="Campo obrigatório" required="true" 
-								value="#{carManagedBean.car.price}" />
+
+							<p:outputLabel for="price" value="Preço" />
+							<p:inputText id="price" requiredMessage="Campo obrigatório"
+								required="true" value="#{carManagedBean.car.price}" />
 							<p:message for="price" />
-							
-							<p:outputLabel for="color" value="Cor do carro:"/>
-							<p:inputText id="color" requiredMessage="Campo obrigatório" required="true" 
-								value="#{carManagedBean.car.carColor}" />
+
+							<p:outputLabel for="color" value="Cor do carro:" />
+							<p:inputText id="color" requiredMessage="Campo obrigatório"
+								required="true" value="#{carManagedBean.car.carColor}" />
 							<p:message for="color" />
+
+							<p:outputLabel for="modelCarSelect" value="Modelo do Carro:" />
+
+							<p:selectOneMenu id="modelCarSelect"
+								converter="converterCombobox"
+								value="#{carManagedBean.car.carModel}"
+								requiredMessage="Campo obrigatório">
+								<f:selectItem itemLabel="selecione um Modelo" itemValue="" />
+								<f:selectItems value="#{modelCarManagedBean.dataList}"
+									var="modelCar" itemLabel="#{modelCar.name}"
+									itemValue="#{modelCar}" />
+							</p:selectOneMenu>
+							<p:message for="modelCarSelect" />
+
+
+
+
 						</p:panelGrid>
-					
-						<p:commandButton value="Salvar" process="@form" update="@form carTable" action="#{carManagedBean.save()}" icon="fa fa-fw fa-save" />
-						<p:commandButton value="Limpar" process="@this" update="@form" action="#{carManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+
+						<p:commandButton value="Salvar" process="@form"
+							update="@form carTable" action="#{carManagedBean.save()}"
+							icon="fa fa-fw fa-save" />
+						<p:commandButton value="Limpar" process="@this" update="@form"
+							action="#{carManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 					</h:form>
-					
-					<p:dataTable id="carTable" var="car" value="#{carManagedBean.listAllCars}"
-						emptyMessage="Não existem pessoas cadastrados" style="padding-top:20px;">
+
+					<p:dataTable id="carTable" var="car"
+						value="#{carManagedBean.listAllCars}"
+						emptyMessage="Não existem pessoas cadastrados"
+						style="padding-top:20px;">
 						<p:column headerText="Id">
-				    	    <h:outputText value="#{car.id}" />
-					    </p:column>
-					    <p:column headerText="Preço">
-				    	    <h:outputText value="#{car.price}" />
-					    </p:column>
-					    <p:column headerText="Cor">
-				    	    <h:outputText value="#{car.carColor}" />
-					    </p:column>
-					    <p:column headerText="Ações" style="text-align: center">
-					    	<p:commandButton icon="fa fa-fw fa-edit" title="Editar carro" update="carForm" action="#{carManagedBean.setCar(car)}" />
-					    	<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro" update="carTable carForm" action="#{carManagedBean.delete(car)}">
-					    		<p:confirm header="Confirmação" message="Deseja deletar o Carro?" icon="ui-icon-alert" />
-					    	</p:commandButton>
-					    	
-					    	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-						        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-						    </p:confirmDialog>
-					    </p:column>
+							<h:outputText value="#{car.id}" />
+						</p:column>
+						<p:column headerText="Preço">
+							<h:outputText value="#{car.price}" />
+						</p:column>
+						<p:column headerText="Cor">
+							<h:outputText value="#{car.carColor}" />
+						</p:column>
+						<p:column headerText="Modelo">
+							<h:outputText value="#{car.carModel.name}" />
+						</p:column>
+
+						<p:column headerText="Ações" style="text-align: center">
+							<p:commandButton icon="fa fa-fw fa-edit" title="Editar carro"
+								update="carForm" action="#{carManagedBean.setCar(car)}" />
+							<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
+								update="carTable carForm" action="#{carManagedBean.delete(car)}">
+								<p:confirm header="Confirmação"
+									message="Deseja deletar o Carro?" icon="ui-icon-alert" />
+							</p:commandButton>
+
+							<p:confirmDialog global="true" showEffect="fade"
+								hideEffect="fade">
+								<p:commandButton value="Sim" type="button"
+									styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+								<p:commandButton value="Não" type="button"
+									styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+							</p:confirmDialog>
+						</p:column>
 					</p:dataTable>
-				
+
 				</p:layoutUnit>
-			
+
 			</p:layout>
 
 

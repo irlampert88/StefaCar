@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.stefanini.stefacar.controller.warehouse.Category;
+
 @Entity
 public class ModelCar {
 

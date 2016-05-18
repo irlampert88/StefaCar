@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.model.domain;
+package com.stefanini.stefacar.controller.warehouse;
 
 public enum Category {
 
