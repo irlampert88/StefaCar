@@ -2,30 +2,14 @@ package com.stefanini.stefacar.model.repository.impl;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
 import com.stefanini.stefacar.model.domain.Employee;
 
-public class EmployeeRepositoryImpl {
+public class EmployeeRepositoryImpl extends AbstractRepository<Employee> {
 
-	@Inject
-	private EntityManager entityManager;
+	private List<Employee> employeeList;
 
-	public void insert(Employee employee) {
-		entityManager.persist(employee);
-	}
-
-	public void delete(Employee employee) {
-		entityManager.remove(entityManager.merge(employee));
-	}
-
-	public void update(Employee employee) {
-		entityManager.merge(employee);
-	}
-
-	@SuppressWarnings("unchecked")
+	@Override
 	public List<Employee> listAllRecords() {
-		return entityManager.createQuery("select l from " + Employee.class.getSimpleName() + " l").getResultList();
+		return employeeList;
 	}
 }
