@@ -17,7 +17,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
 		super();
 		ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
 		this.clazz = (Class<T>) (type).getActualTypeArguments()[0];
-		System.out.println("qualquer coisa");
+//		System.out.println("qualquer coisa");
 	}	
 	
 	@Inject
