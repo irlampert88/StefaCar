@@ -9,18 +9,19 @@ import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 
-public class SaleService {
-	
+public class SaleServiceImpl {	
+			
 	@Inject
 	private SaleRepositoryImpl repository;
 	
 	public Iterable<Sale> listAllFooFriends(Sale sale) {
 		return Collections.emptyList();
 	}
+	
 	@Transactional
 	public void save(Sale sale){
 		if (sale.getIdSale() == null) {
-			repository.save(sale);
+			repository.insert(sale);
 		} else {
 			repository.update(sale);
 		} 
@@ -33,6 +34,6 @@ public class SaleService {
 	
 	@Transactional
 	public List<Sale> loadAllSalesFromDataBase() {
-		return repository.allSales();		
+		return repository.listAllRecords();		
 	}
 }

@@ -18,7 +18,7 @@ import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
-import com.stefanini.stefacar.model.service.impl.SaleService;
+import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
 //@SessionScoped não consegui usar o Session não subia o servidor
 @ManagedBean
@@ -27,7 +27,7 @@ public class SaleManagedBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private SaleService service;
+	private SaleServiceImpl service;
 	
 	@Inject
 	private SaleRepositoryImpl repositorySale;
@@ -52,7 +52,7 @@ public class SaleManagedBean implements Serializable{
 	@PostConstruct
 	public void init() {
 		sale = new Sale();
-		listOfSales = repositorySale.allSales();
+		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.allCars();
 		listOfClient = repositoryClient.listAllRecords();
