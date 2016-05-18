@@ -9,29 +9,28 @@
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-		
-		<p:outputLabel style="font-size: 30px;"
-				value="Cadastro de Carro" />
-		
-			<p:dataTable id="carTable" var="car"
-				value="#{carManagedBean.listAllCars}"
-				emptyMessage="Não existem carros cadastrados"
+
+<p:outputLabel style="font-size: 30px;"
+				value="Visualização de Marca de Carro" />
+			<p:dataTable id="brandCarTable" var="brandCar"
+				value="#{brandCarManagedBean.dataList}"
+				emptyMessage="Não existem pessoas cadastrados"
 				style="padding-top:20px;">
-				<p:column headerText="Id">
-					<h:outputText value="#{car.id}" />
+				<p:column headerText="Nome da Marca">
+					<h:outputText value="#{brandCar.name}" />
 				</p:column>
-				<p:column headerText="Preço">
-					<h:outputText value="#{car.price}" />
+				<p:column headerText="Nacionalidade">
+					<h:outputText value="#{brandCar.nationality}" />
 				</p:column>
-				<p:column headerText="Cor">
-					<h:outputText value="#{car.carColor}" />
-				</p:column>
+
 				<p:column headerText="Ações" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-edit" title="Editar carro"
-						action="#{carManagedBean.setCar(car)}" />
-					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
-						update="carTable " action="#{carManagedBean.delete(car)}">
-						<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
+					<p:commandButton icon="fa fa-fw fa-edit" title="Editar a Marca"
+						
+						action="#{brandCarManagedBean.setBrandCar(brandCar)}" />
+					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar a Marca"
+						
+						action="#{brandCarManagedBean.delete(brandCar)}">
+						<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
 							icon="ui-icon-alert" />
 					</p:commandButton>
 
@@ -43,6 +42,8 @@
 					</p:confirmDialog>
 				</p:column>
 			</p:dataTable>
+
+
 		</ui:define>
 	</ui:decorate>
 </h:body>
