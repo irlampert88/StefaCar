@@ -9,8 +9,7 @@
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
-
+		<p:outputLabel style="font-size: 30px;" value="Cadastro de clientes" />
 			<h:form id="clientForm">
 				<h:panelGrid columns="3" cellpadding="10">
 					<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
@@ -34,7 +33,10 @@
 						<p:outputLabel for="Email" value="E-mail: " />
 						<p:inputText id="Email" requiredMessage="Campo obrigatório"
 							required="true" placeholder="email"
-							value="#{clientManagedBean.client.mail}" />
+							value="#{clientManagedBean.client.mail}">
+							<f:validator validatorId="emailValidator" />
+						</p:inputText>
+
 						<p:message for="Email" />
 
 						<p:outputLabel for="Phone" value="Telefone: " />

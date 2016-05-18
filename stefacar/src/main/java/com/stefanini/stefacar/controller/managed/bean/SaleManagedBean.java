@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.controller.converter.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
@@ -63,10 +64,12 @@ public class SaleManagedBean implements Serializable{
 	
 	public void save(){
 		service.save(sale);
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salva com sucesso");
 	}
 	
 	public void delete(Sale sale) {
 		service.delete(sale);
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salvo com sucesso");
 	}
 	
 	public void clean(){

@@ -1,32 +1,16 @@
 package com.stefanini.stefacar.model.service.impl;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
-import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 
-public class EmployeeServiceImpl {
+public class EmployeeServiceImpl extends AbstractService<Employee> {
 
 	@Inject
-	private EmployeeRepositoryImpl repository;
-
-	@Transactional
-	public void save(Employee employee) {
-		repository.insert(employee);
-
+	public EmployeeServiceImpl(EmployeeRepositoryImpl repository) {
+		super(Employee.class, repository);
 	}
-
-	@Transactional
-	public void delete(Employee employee) {
-		repository.delete(employee);
-
-	}
-
-	@Transactional
-	public List<Employee> listAllRecords() {
-		return repository.listAllRecords();
-	}
+	
 }
