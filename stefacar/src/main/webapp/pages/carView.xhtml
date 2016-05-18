@@ -17,8 +17,8 @@
 				value="#{carManagedBean.listAllCars}"
 				emptyMessage="Não existem carros cadastrados"
 				style="padding-top:20px;">
-				<p:column headerText="Id">
-					<h:outputText value="#{car.id}" />
+				<p:column headerText="Nome do Modelo">
+					<h:outputText value="#{car.carModel.name}" />
 				</p:column>
 				<p:column headerText="Preço">
 					<h:outputText value="#{car.price}" />
@@ -27,8 +27,7 @@
 					<h:outputText value="#{car.carColor}" />
 				</p:column>
 				<p:column headerText="Ações" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-edit" title="Editar carro"
-						action="#{carManagedBean.setCar(car)}" />
+					
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
 						update="carTable " action="#{carManagedBean.delete(car)}">
 						<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
