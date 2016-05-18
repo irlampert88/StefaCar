@@ -12,7 +12,7 @@ public class FooDaoJpa implements FooDao {
 
 	@Override
 	public void persist(Foo newRegister) {
-		// persist a new register
+		this.persist(newRegister);
 	}
 
 }

@@ -3,11 +3,15 @@ package com.stefanini.stefacar.model.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import com.stefanini.stefacar.controller.warehouse.Category;
 
 @Entity
 public class ModelCar {
@@ -22,10 +26,12 @@ public class ModelCar {
 	@Column(nullable=false)
 	private String year;
 	@Column(nullable=false)
-	private String displacement;
+	private String cid;
 	@OneToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idBrandCar")
 	private BrandCar brandCar;
+	@Enumerated(EnumType.STRING)
+	private Category category;
 
 	public ModelCar() {}
 
@@ -54,10 +60,10 @@ public class ModelCar {
 		this.year = year;
 	}
 	public String getDisplacement() {
-		return displacement;
+		return cid;
 	}
-	public void setDisplacement(String displacement) {
-		this.displacement = displacement;
+	public void setDisplacement(String cid) {
+		this.cid = cid;
 	}
 
 	public BrandCar getBrand() {
@@ -67,13 +73,37 @@ public class ModelCar {
 	public void setBrand(BrandCar brand) {
 		this.brandCar = brand;
 	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
+	public BrandCar getBrandCar() {
+		return brandCar;
+	}
+
+	public void setBrandCar(BrandCar brandCar) {
+		this.brandCar = brandCar;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
-		result = prime * result + ((displacement == null) ? 0 : displacement.hashCode());
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
+		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
 		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((version == null) ? 0 : version.hashCode());
@@ -95,10 +125,12 @@ public class ModelCar {
 				return false;
 		} else if (!brandCar.equals(other.brandCar))
 			return false;
-		if (displacement == null) {
-			if (other.displacement != null)
+		if (category != other.category)
+			return false;
+		if (cid == null) {
+			if (other.cid != null)
 				return false;
-		} else if (!displacement.equals(other.displacement))
+		} else if (!cid.equals(other.cid))
 			return false;
 		if (idModelCar == null) {
 			if (other.idModelCar != null)
@@ -126,9 +158,8 @@ public class ModelCar {
 	@Override
 	public String toString() {
 		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
-				+ ", displacement=" + displacement + ", brand=" + brandCar + "]";
+				+ ", cid=" + cid + ", brandCar=" + brandCar + ", category=" + category + "]";
 	}
 
-	
 
 }

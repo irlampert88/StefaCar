@@ -27,8 +27,8 @@ public class BrandCarServiceImpl{
 	}
 	
 	@Transactional
-	public List<BrandCar> listAllRecords(BrandCar brandCar) {
-		return brandCarRepository.listAllRecords(brandCar);
+	public List<BrandCar> listAllRecords() {
+		return brandCarRepository.listAllRecords();
 	}
 }
 

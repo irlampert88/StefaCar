@@ -40,7 +40,7 @@ public class BrandCarManagedBean {
 	}
 	
 	private void listAllRecords() {
-		setList(service.listAllRecords(brandCar));
+		setList(service.listAllRecords());
 	}
 
 	public void setList(List<BrandCar> dataList) {

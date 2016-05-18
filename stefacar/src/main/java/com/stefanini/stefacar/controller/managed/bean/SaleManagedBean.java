@@ -1,7 +1,6 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
