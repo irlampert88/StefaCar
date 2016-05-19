@@ -53,7 +53,7 @@ public class SaleManagedBean implements Serializable{
 		sale = new Sale();
 		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
-		listOfCar = repositoryCar.allCars();
+		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
 		
 //		listOfSales = new ArrayList<>();
