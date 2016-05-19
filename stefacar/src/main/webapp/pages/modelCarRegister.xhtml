@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:decorate template="../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+		
+		<p:outputLabel style="font-size: 30px;"
+				value="Cadastro de Modelo de Carro" />
+
+					<h:form id="modelCarForm">
+						<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+						<p:panelGrid columns="3">
+
+							<p:outputLabel for="name" value="Nome da Modelo" />
+							<p:inputText id="name" requiredMessage="Campo obrigatório"
+								required="true" value="#{modelCarManagedBean.modelCar.name}" placeholder="name" />
+							<p:message for="name" />
+
+							<p:outputLabel for="version" value="Versão:" />
+							<p:inputText id="version" requiredMessage="Campo obrigatório"
+								required="true" value="#{modelCarManagedBean.modelCar.version}" placeholder="version"/>
+							<p:message for="version" />
+
+							<p:outputLabel for="year" value="Ano do Modelo" />
+							<p:inputText id="year" requiredMessage="Campo obrigatório"
+								required="true" value="#{modelCarManagedBean.modelCar.year}" placeholder="year"/>
+							<p:message for="year" />
+
+							<p:outputLabel for="cid" value="Cilindrada:" />
+							<p:inputText id="cid" requiredMessage="Campo obrigatório"
+								required="true" value="#{modelCarManagedBean.modelCar.cid}" placeholder="cid"/>
+							<p:message for="cid" />
+
+							
+							<p:outputLabel for="brandCarSelect" value="Marca do Carro:" />
+							
+							<p:selectOneMenu id="brandCarSelect"
+								converter="converterCombobox"
+								value="#{modelCarManagedBean.modelCar.brandCar}"
+								requiredMessage="Campo obrigatório">
+								<f:selectItem itemLabel="selecione uma Marca" itemValue="" />
+								<f:selectItems value="#{brandCarManagedBean.dataList}"
+									var="brandCar" itemLabel="#{brandCar.name}"
+									itemValue="#{brandCar}" />
+							</p:selectOneMenu>
+							<p:message for="brandCarSelect" />
+
+
+						</p:panelGrid>
+
+						<p:commandButton value="Salvar" process="@form" update="@form"	
+							action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" />
+						<p:commandButton value="Limpar" process="@this" update="@form"
+							action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+					</h:form>
+
+		
+
+		</ui:define>
+	</ui:decorate>
+
+</h:body>
+
+</html>

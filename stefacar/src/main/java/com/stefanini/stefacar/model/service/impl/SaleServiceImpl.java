@@ -1,6 +1,5 @@
 package com.stefanini.stefacar.model.service.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,10 +12,6 @@ public class SaleServiceImpl {
 			
 	@Inject
 	private SaleRepositoryImpl repository;
-	
-	public Iterable<Sale> listAllFooFriends(Sale sale) {
-		return Collections.emptyList();
-	}
 	
 	@Transactional
 	public void save(Sale sale){
