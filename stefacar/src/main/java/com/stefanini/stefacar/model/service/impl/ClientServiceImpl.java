@@ -1,6 +1,5 @@
 package com.stefanini.stefacar.model.service.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,10 +11,6 @@ import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 public class ClientServiceImpl {
 	@Inject
 	private ClientRepositoryImpl repository;
-
-	public Iterable<Client> listAllFooFriends(Client client) {
-		return Collections.emptyList();
-	}
 
 	@Transactional
 	public void save(Client client) {
@@ -32,7 +27,7 @@ public class ClientServiceImpl {
 	}
 
 	@Transactional
-	public List<Client> loadAllClientFromDB() {
+	public List<Client> loadAllClientFromDataBase() {
 		return repository.listAllRecords();
 	}
 }

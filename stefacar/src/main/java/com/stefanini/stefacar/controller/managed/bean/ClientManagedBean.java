@@ -8,7 +8,9 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.MessengerSystem;
+
 import com.stefanini.stefacar.model.domain.Client;
+
 import com.stefanini.stefacar.model.service.impl.ClientServiceImpl;
 
 @ManagedBean
@@ -21,27 +23,29 @@ public class ClientManagedBean {
 	@Inject
 	protected ClientServiceImpl service;
 
-	public ClientManagedBean(ClientServiceImpl service) {
-		this.service = service;
-	}
-
 	@PostConstruct
 	public void init() {
 		client = new Client();
-		dataList = service.loadAllClientFromDB();
+		dataList = service.loadAllClientFromDataBase();
 	}
 
 	public void save() {
 		service.save(getClient());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de cliente salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Client client) {
 		service.delete(client);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de cliente excluido com sucesso!");
-		clean();
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client excluido com sucesso!");
+	}
 
+	public void setList(List<Client> dataList) {
+		this.dataList = dataList;
+	}
+
+	public List<Client> getDataList() {
+		return dataList;
 	}
 
 	public Client getClient() {
@@ -52,15 +56,7 @@ public class ClientManagedBean {
 		this.client = client;
 	}
 
-	public List<Client> getDataList() {
-		return dataList;
-	}
-
-	public void setDataList(List<Client> dataList) {
-		this.dataList = dataList;
-	}
-
 	public void clean() {
-		client = new Client();
+		setClient(new Client());
 	}
 }
