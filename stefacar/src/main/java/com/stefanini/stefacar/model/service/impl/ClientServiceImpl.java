@@ -9,6 +9,7 @@ import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 
 public class ClientServiceImpl {
+	
 	@Inject
 	private ClientRepositoryImpl repository;
 
