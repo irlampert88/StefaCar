@@ -1,6 +1,5 @@
 package com.stefanini.stefacar.model.service.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,10 +12,6 @@ public class EmployeeServiceImpl {
 
 	@Inject
 	private EmployeeRepositoryImpl repository;
-
-	public Iterable<Employee> listAll(Employee employee) {
-		return Collections.emptyList();
-	}
 
 	@Transactional
 	public void save(Employee employee) {
