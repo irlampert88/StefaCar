@@ -1,6 +1,5 @@
 package com.stefanini.stefacar.model.service.impl;
 
-
 import java.util.Collections;
 import java.util.List;
 
@@ -14,28 +13,28 @@ public class EmployeeServiceImpl {
 
 	@Inject
 	private EmployeeRepositoryImpl repository;
-	
+
 	public Iterable<Employee> listAll(Employee employee) {
 		return Collections.emptyList();
 	}
-	
+
 	@Transactional
-	public void save(Employee employee){
+	public void save(Employee employee) {
 		if (employee.getId() == null) {
 			repository.insert(employee);
 		} else {
 			repository.update(employee);
-		} 
+		}
 	}
-	
+
 	@Transactional
-	public void delete(Employee employee){
+	public void delete(Employee employee) {
 		repository.delete(employee);
 	}
-	
+
 	@Transactional
 	public List<Employee> loadAllEmployeeFromDataBase() {
-		return repository.listAllRecords();		
+		return repository.listAllRecords();
 	}
-	
+
 }

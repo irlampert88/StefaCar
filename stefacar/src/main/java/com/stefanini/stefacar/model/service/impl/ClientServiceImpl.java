@@ -32,7 +32,7 @@ public class ClientServiceImpl {
 	}
 
 	@Transactional
-	public List<Client> loadAllSalesFromDataBase() {
+	public List<Client> loadAllClientFromDB() {
 		return repository.listAllRecords();
 	}
 }

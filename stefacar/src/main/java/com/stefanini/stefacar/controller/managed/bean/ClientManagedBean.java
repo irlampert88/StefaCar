@@ -2,6 +2,7 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -24,7 +25,10 @@ public class ClientManagedBean {
 		this.service = service;
 	}
 
-	public ClientManagedBean() {
+	@PostConstruct
+	public void init() {
+		client = new Client();
+		dataList = service.loadAllClientFromDB();
 	}
 
 	public void save() {
@@ -40,33 +44,23 @@ public class ClientManagedBean {
 
 	}
 
-	private void listAllRecords() {
-		setList(service.listAllRecords());
-	}
-
-	public void setList(List<Client> dataList) {
-		this.dataList = dataList;
-	}
-
-	public List<Client> getDataList() {
-		if (dataList == null) {
-			listAllRecords();
-		}
-		return dataList;
-	}
-
 	public Client getClient() {
-		if (client == null) {
-			clean();
-		}
 		return client;
 	}
 
-	public void setEntity(Client entity) {
-		this.client = entity;
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public List<Client> getDataList() {
+		return dataList;
+	}
+
+	public void setDataList(List<Client> dataList) {
+		this.dataList = dataList;
 	}
 
 	public void clean() {
-		setEntity(new Client());
+		client = new Client();
 	}
 }
