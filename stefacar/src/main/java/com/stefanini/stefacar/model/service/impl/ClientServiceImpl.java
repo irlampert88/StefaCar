@@ -28,7 +28,7 @@ public class ClientServiceImpl {
 	}
 
 	@Transactional
-	public List<Client> loadAllSalesFromDataBase() {
+	public List<Client> loadAllClientFromDataBase() {
 		return repository.listAllRecords();
 	}
 }
