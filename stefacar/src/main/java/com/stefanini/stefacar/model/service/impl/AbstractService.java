@@ -27,12 +27,10 @@ public abstract class AbstractService<T> implements Service<T> {
 	@Transactional
 	public void delete(T data) {
 		repository.insert(data);
-
 	}
 
 	@Transactional
 	public List<T> listAllRecords() {
-		return repository.listAllRecords(entity);
+		return repository.listAllRecords();
 	}
-
 }

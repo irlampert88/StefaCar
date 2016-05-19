@@ -17,7 +17,7 @@ import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
-import com.stefanini.stefacar.model.service.impl.SaleService;
+import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
 //@SessionScoped nÃ£o consegui usar o Session nÃ£o subia o servidor
 @ManagedBean
@@ -26,7 +26,7 @@ public class SaleManagedBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private SaleService service;
+	private SaleServiceImpl service;
 	
 	@Inject
 	private SaleRepositoryImpl repositorySale;
@@ -51,7 +51,7 @@ public class SaleManagedBean implements Serializable{
 	@PostConstruct
 	public void init() {
 		sale = new Sale();
-		listOfSales = repositorySale.allSales();
+		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.allCars();
 		listOfClient = repositoryClient.listAllRecords();
@@ -64,12 +64,12 @@ public class SaleManagedBean implements Serializable{
 	
 	public void save(){
 		service.save(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salva com sucesso");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de venda de carro salva com sucesso");
 	}
 	
 	public void delete(Sale sale) {
 		service.delete(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de venda de carro salvo com sucesso");
 	}
 	
 	public void clean(){

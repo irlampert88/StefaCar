@@ -2,6 +2,7 @@ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -20,12 +21,11 @@ public class EmployeeManagedBean {
 	
 	@Inject
 	protected EmployeeServiceImpl service;
-	
-	public EmployeeManagedBean(EmployeeServiceImpl service) {
-		this.service = service;
-	}
 
-	public EmployeeManagedBean() {
+	@PostConstruct
+	public void init() {
+		employee = new Employee();
+		dataList = service.loadAllEmployeeFromDataBase();
 	}
 
 	public void save() {
@@ -39,30 +39,20 @@ public class EmployeeManagedBean {
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario excluido com sucesso!");
 	}
 
-	private void listAllRecords() {
-		setList(service.listAllRecords());
-	}
-
 	public void setList(List<Employee> dataList) {
 		this.dataList = dataList;
 	}
 
 	public List<Employee> getDataList() {
-		if (dataList == null) {
-			listAllRecords();
-		}
 		return dataList;
 	}
 
 	public Employee getEmployee() {
-		if (employee == null) {
-			clean();
-		}
 		return employee;
 	}
 
-	public void setEntity(Employee entity) {
-		this.employee = entity;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
 	public EmployeeType[] getEmployeeType() {
@@ -70,6 +60,6 @@ public class EmployeeManagedBean {
 	}
 
 	public void clean() {
-		setEntity(new Employee());
+		setEmployee(new Employee());
 	}
 }
