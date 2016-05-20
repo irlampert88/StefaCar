@@ -15,41 +15,41 @@ import com.stefanini.stefacar.model.service.impl.CarServiceImpl;
 @ManagedBean
 @ViewScoped
 public class CarManagedBean {
-	
-	
+
 	private Car car;
 	private List<Car> listAllCars;
-	
+
 	@Inject
 	private CarServiceImpl service;
-	
+
 	@Inject
 	private CarRepositoryImpl repositoryCar;
-	
+
 	@PostConstruct
 	public void init() {
 		car = new Car();
 		listAllCars = repositoryCar.listAllRecords();
 	}
-	
+
 	public void save() {
 		service.save(getCar());
 		SystemMesenger.notificaInformacao("Parabens!", "Car salva com sucesso!");
 		loadAllCarsFromDataBase();
+		car.setAvaliable(true);
 		clean();
 	}
-	
+
 	public void delete(Car Car) {
 		service.delete(Car);
 		SystemMesenger.notificaInformacao("Parab�Parabens!", "Car deletada com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}
-	
+
 	public void clean() {
 		setCar(new Car());
 	}
-	
+
 	private void loadAllCarsFromDataBase() {
 		setListAllCars(service.loadAllCarsFromDataBase());
 	}
@@ -69,6 +69,5 @@ public class CarManagedBean {
 	public void setListAllCars(List<Car> listAllCars) {
 		this.listAllCars = listAllCars;
 	}
-	
 
 }

@@ -22,15 +22,15 @@ import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 //@SessionScoped não consegui usar o Session não subia o servidor
 @ManagedBean
 @ViewScoped
-public class SaleManagedBean implements Serializable{
+public class SaleManagedBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private SaleServiceImpl service;
-	
+
 	@Inject
 	private SaleRepositoryImpl repositorySale;
-	
+
 	@Inject
 	private EmployeeRepositoryImpl repositoryEmployee;
 
@@ -39,15 +39,13 @@ public class SaleManagedBean implements Serializable{
 
 	@Inject
 	private ClientRepositoryImpl repositoryClient;
-	
-	
+
 	private Sale sale;
 	private List<Sale> listOfSales;
-	private List<Employee>listOfEmployee;
-	private List<Car>listOfCar;
-	private List<Client>listOfClient;
-	
-	
+	private List<Employee> listOfEmployee;
+	private List<Car> listOfCar;
+	private List<Client> listOfClient;
+
 	@PostConstruct
 	public void init() {
 		sale = new Sale();
@@ -55,29 +53,29 @@ public class SaleManagedBean implements Serializable{
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
-		
-//		listOfSales = new ArrayList<>();
-//		listOfEmployee = new ArrayList<>();
-//		listOfCar = new ArrayList<>();
-//		listOfClient = new ArrayList<>();		
+
+		// listOfSales = new ArrayList<>();
+		// listOfEmployee = new ArrayList<>();
+		// listOfCar = new ArrayList<>();
+		// listOfClient = new ArrayList<>();
 	}
-	
-	public void save(){
+
+	public void save() {
 		service.save(sale);
+		sale.getCar().setAvaliable(false);
 		MessengerSystem.notificaInformacao("Parab�ns!", "Cadastro de venda de carro salva com sucesso");
 	}
-	
+
 	public void delete(Sale sale) {
 		service.delete(sale);
 		MessengerSystem.notificaInformacao("Parab�ns!", "Cadastro de venda de carro salvo com sucesso");
 	}
-	
-	public void clean(){
+
+	public void clean() {
 		sale = new Sale();
 	}
 
-	
-	//--[GETTES AND SETTERS]
+	// --[GETTES AND SETTERS]
 	public Sale getSale() {
 		return sale;
 	}
