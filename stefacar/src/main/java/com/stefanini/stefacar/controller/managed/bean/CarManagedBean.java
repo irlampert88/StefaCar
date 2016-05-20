@@ -33,7 +33,7 @@ public class CarManagedBean {
 
 	public void save() {
 		service.save(getCar());
-		SystemMesenger.notificaInformacao("Parabens!", "Car salva com sucesso!");
+		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro salva com sucesso!");
 		loadAllCarsFromDataBase();
 		car.setAvaliable(true);
 		clean();
@@ -41,7 +41,7 @@ public class CarManagedBean {
 
 	public void delete(Car Car) {
 		service.delete(Car);
-		SystemMesenger.notificaInformacao("Parab�Parabens!", "Car deletada com sucesso!");
+		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro excluido com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}
