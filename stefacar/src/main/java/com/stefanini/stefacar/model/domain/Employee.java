@@ -38,6 +38,19 @@ public class Employee {
 	public Employee () {
 		
 	}
+	
+	public Employee(Integer id, String name, String cpf, String phone, String email, Integer registration,
+			EmployeeType type) {
+		this.id = id;
+		this.name = name;
+		this.cpf = cpf;
+		this.phone = phone;
+		this.email = email;
+		this.registration = registration;
+		this.type = type;
+	}
+
+
 
 	public Integer getId() {
 		return id;

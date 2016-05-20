@@ -17,17 +17,22 @@
 				value="#{carManagedBean.listAllCars}"
 				emptyMessage="Não existem Carros Cadastrados"
 				style="padding-top:20px;">
-				<p:column headerText="Nome do Modelo">
+				<p:column headerText="Nome do Modelo" style="text-align: center">
 					<h:outputText value="#{car.carModel.name}" />
 				</p:column>
-				<p:column headerText="Preço">
+				<p:column headerText="Preço" style="text-align: center">
 					<h:outputText value="#{car.price}" />
 				</p:column>
-				<p:column headerText="Cor">
+				<p:column headerText="Cor" style="text-align: center">
 					<h:outputText value="#{car.carColor}" />
 				</p:column>
+
 				<p:column headerText="Categoria">
 					<h:outputText value="#{car.carModel.type}" />
+				</p:column>
+				
+				<p:column headerText="Disponibilidade">
+					<h:outputText value="#{car.getAvaliableString()}" />
 				</p:column>
 				
 				<p:column headerText="Ações" style="text-align: center">

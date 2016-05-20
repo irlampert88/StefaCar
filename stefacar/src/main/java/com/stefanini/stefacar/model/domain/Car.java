@@ -13,44 +13,84 @@ import com.stefanini.stefacar.model.domain.ModelCar;
 
 @Entity
 public class Car {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idCar")
+	@Column(name = "idCar")
 	private Integer id;
-	@OneToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="idCarModel")
+	@OneToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "idCarModel")
 	private ModelCar carModel;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Double price;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String carColor;
-	
-	public Car() {}
-	
+	@Column(nullable = false)
+	private boolean avaliable;
+
+	public Car() {
+	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public ModelCar getCarModel() {
 		return carModel;
 	}
+
+	public String getCarStatusString() {
+		if (this.avaliable) {
+			return "Disponivel";
+		} else
+			return "Vendido";
+	}
+
 	public void setCarModel(ModelCar carModel) {
 		this.carModel = carModel;
 	}
+
 	public Double getPrice() {
 		return price;
 	}
+
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
 	public String getCarColor() {
 		return carColor;
 	}
+
 	public void setCarColor(String carColor) {
 		this.carColor = carColor;
+	}
+
+	public boolean isAvaliable() {
+		return avaliable;
+	}
+
+	public void setAvaliable(boolean avaliable) {
+		this.avaliable = avaliable;
+	}
+	
+	public String getAvaliableString(){
+		if(this.avaliable){
+			return "Disponivel";
+		}else{
+			return "Vendido";
+		}
+	}
+	
+	public void changeAvailability(){
+		if(this.avaliable)
+			this.avaliable = false;
+		else 
+			this.avaliable = true;
 	}
 
 	@Override
@@ -61,6 +101,7 @@ public class Car {
 		result = prime * result + ((carModel == null) ? 0 : carModel.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + (avaliable ? 1231 : 1237);
 		return result;
 	}
 
@@ -93,11 +134,9 @@ public class Car {
 				return false;
 		} else if (!price.equals(other.price))
 			return false;
+		if (avaliable != other.avaliable)
+			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Car [id=" + id + ", carModel=" + carModel + ", price=" + price + ", carColor=" + carColor + "]";
-	}
 }
