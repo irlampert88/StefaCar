@@ -33,6 +33,7 @@ public class ModelCarManagedBean {
 	public void save() {
 		service.save(getModelCar());
 		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo salvo com sucesso!");
+		 clean();
 	}
 
 	public void delete(ModelCar modelCar) {
