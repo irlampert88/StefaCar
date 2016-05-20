@@ -17,7 +17,7 @@ body {
 
 <h:body>
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
-	<div align="center">
+	<div align="center" class="ui-grid ui-grid-responsive">
 		<p:layout
 			style="min-width:1020px;max-width:1020px;min-height:600px; background-color: #0072C6;">
 			<p:layoutUnit position="north" size="100">
@@ -28,7 +28,7 @@ body {
 				<ui:insert name="menu">
 
 					<h:form>
-						<p:panelMenu style="width:200px">
+						<p:panelMenu style="width:200px" >
 							<p:submenu label="Menu Cadastro">
 								<p:menuitem value="Cliente" icon="fa fa-plus-square"
 									url="/pages/clientRegister.xhtml" />
