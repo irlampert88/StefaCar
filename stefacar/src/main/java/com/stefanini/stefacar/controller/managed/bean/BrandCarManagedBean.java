@@ -32,6 +32,7 @@ public class BrandCarManagedBean {
 	public void save() {
 		service.save(getBrandCar());
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Marca salvo com sucesso!");
+		clean();
 	}
 
 	public void delete(BrandCar brandCar) {
