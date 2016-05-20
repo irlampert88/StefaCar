@@ -25,7 +25,7 @@ public class Car {
 	private Double price;
 	@Column(nullable = false)
 	private String carColor;
-	@Column
+	
 	private boolean avaliable;
 
 	public Car() {
