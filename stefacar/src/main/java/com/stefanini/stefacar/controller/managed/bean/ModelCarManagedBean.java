@@ -7,6 +7,8 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.MessengerSystem;
+import com.stefanini.stefacar.controller.warehouse.CategoryType;
+import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.ModelCar;
 import com.stefanini.stefacar.model.service.impl.ModelCarServiceImpl;
 
@@ -30,12 +32,12 @@ public class ModelCarManagedBean {
 
 	public void save() {
 		service.save(getModelCar());
-		 MessengerSystem.notificaInformacao("Congratulations !", "ModelCar Saved success!");
+		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo salvo com sucesso!");
 	}
 
 	public void delete(ModelCar modelCar) {
 		service.delete(modelCar);
-		 MessengerSystem.notificaInformacao("Congratulations !", "ModelCar deleted success!");
+		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo excluido com sucesso!");
 	}
 
 	private void listAllRecords() {
@@ -67,4 +69,9 @@ public class ModelCarManagedBean {
 	public void clean() {
 		setModelCar(new ModelCar());
 	}
+	
+	public CategoryType[] getCategoryType() {
+		return CategoryType.values();
+	}
+
 }

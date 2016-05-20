@@ -22,6 +22,9 @@
 				<p:column headerText="Nome do Modelo">
 					<h:outputText value="#{modelCar.name}" />
 				</p:column>
+				<p:column headerText="Categoria">
+					<h:outputText value="#{modelCar.type}" />
+				</p:column>
 				<p:column headerText="Versão">
 					<h:outputText value="#{modelCar.version}" />
 				</p:column>
@@ -34,6 +37,7 @@
 				<p:column headerText="Marca">
 					<h:outputText value="#{modelCar.brandCar.name}" />
 				</p:column>
+				
 
 
 				<p:column headerText="Ações" style="text-align: center">

@@ -51,6 +51,17 @@
 									itemValue="#{brandCar}" />
 							</p:selectOneMenu>
 							<p:message for="brandCarSelect" />
+							
+							<p:outputLabel for="idModelCar" value="Categoria do Carro:" />
+							
+							<p:selectOneMenu id="idModelCar" converter="comboBoxConverter"
+							requiredMessage="Campo obrigatório" required="true"
+							value="#{modelCarManagedBean.modelCar.type}" effect="fold">
+							<f:selectItem itemLabel="Selecione uma Categoria" itemValue="" />
+							<f:selectItems value="#{modelCarManagedBean.categoryType}"
+								var="categoryType" itemLabel="#{categoryType.label}"
+								itemValue="#{categoryType}" />
+						</p:selectOneMenu>
 
 
 						</p:panelGrid>

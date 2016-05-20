@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.stefanini.stefacar.controller.warehouse.Category;
+import com.stefanini.stefacar.controller.warehouse.CategoryType;
 
 @Entity
 public class ModelCar {
@@ -31,54 +31,40 @@ public class ModelCar {
 	@JoinColumn(name="idBrandCar")
 	private BrandCar brandCar;
 	@Enumerated(EnumType.STRING)
-	private Category category;
+	private CategoryType type;
 
 	public ModelCar() {}
 
 	public Integer getIdModelCar() {
 		return idModelCar;
 	}
+
 	public void setIdModelCar(Integer idModelCar) {
 		this.idModelCar = idModelCar;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getVersion() {
 		return version;
 	}
+
 	public void setVersion(String version) {
 		this.version = version;
 	}
+
 	public String getYear() {
 		return year;
 	}
+
 	public void setYear(String year) {
 		this.year = year;
-	}
-	public String getDisplacement() {
-		return cid;
-	}
-	public void setDisplacement(String cid) {
-		this.cid = cid;
-	}
-
-	public BrandCar getBrand() {
-		return brandCar;
-	}
-
-	public void setBrand(BrandCar brand) {
-		this.brandCar = brand;
-	}
-	
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 
 	public String getCid() {
@@ -97,15 +83,23 @@ public class ModelCar {
 		this.brandCar = brandCar;
 	}
 
+	public CategoryType getType() {
+		return type;
+	}
+
+	public void setType(CategoryType type) {
+		this.type = type;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
 		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + ((version == null) ? 0 : version.hashCode());
 		result = prime * result + ((year == null) ? 0 : year.hashCode());
 		return result;
@@ -125,8 +119,6 @@ public class ModelCar {
 				return false;
 		} else if (!brandCar.equals(other.brandCar))
 			return false;
-		if (category != other.category)
-			return false;
 		if (cid == null) {
 			if (other.cid != null)
 				return false;
@@ -141,6 +133,11 @@ public class ModelCar {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
 			return false;
 		if (version == null) {
 			if (other.version != null)
@@ -158,8 +155,9 @@ public class ModelCar {
 	@Override
 	public String toString() {
 		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
-				+ ", cid=" + cid + ", brandCar=" + brandCar + ", category=" + category + "]";
+				+ ", cid=" + cid + ", brandCar=" + brandCar + ", type=" + type + "]";
 	}
 
+	
 
 }
