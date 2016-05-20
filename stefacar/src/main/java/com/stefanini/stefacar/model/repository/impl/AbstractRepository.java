@@ -5,23 +5,23 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import com.stefanini.stefacar.model.repository.Repository;
 
+@SuppressWarnings("unchecked")
 public abstract class AbstractRepository<T> implements Repository<T> {
 	
+	@SuppressWarnings("rawtypes")
 	private Class clazz = null;
+	
 	
 	public AbstractRepository() {
 		super();
 		ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
 		this.clazz = (Class<T>) (type).getActualTypeArguments()[0];
-//		System.out.println("qualquer coisa");
 	}	
 	
 	@Inject
-	//@PersistenceContext(unitName="StefacarUnit")
 	protected EntityManager entityManager;
 
 	@Override
