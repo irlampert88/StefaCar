@@ -31,4 +31,6 @@ public class SaleServiceImpl {
 	public List<Sale> loadAllSalesFromDataBase() {
 		return repository.listAllRecords();		
 	}
+	
+	
 }
