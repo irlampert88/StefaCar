@@ -14,13 +14,13 @@
 				value="#{clientManagedBean.dataList}"
 				emptyMessage="Não existem clientes cadastrados"
 				style="padding-top:20px;">
-				<p:column headerText="Name">
+				<p:column headerText="Name" style="text-align: center">
 					<h:outputText value="#{client.name}" />
 				</p:column>
-				<p:column headerText="Cpf">
+				<p:column headerText="Cpf" style="text-align: center">
 					<h:outputText value="#{client.cpf}" />
 				</p:column>
-				<p:column headerText="email">
+				<p:column headerText="email" style="text-align: center">
 					<h:outputText value="#{client.mail}" />
 				</p:column>
 				<p:column headerText="Ações" style="text-align: center">
