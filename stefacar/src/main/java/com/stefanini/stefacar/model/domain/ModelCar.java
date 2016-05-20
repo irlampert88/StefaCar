@@ -18,7 +18,7 @@ public class ModelCar {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idModelCar;
+	private Integer id;
 	@Column(nullable=false)
 	private String name;
 	@Column(nullable=false)
@@ -35,12 +35,12 @@ public class ModelCar {
 
 	public ModelCar() {}
 
-	public Integer getIdModelCar() {
-		return idModelCar;
+	public Integer getid() {
+		return id;
 	}
 
-	public void setIdModelCar(Integer idModelCar) {
-		this.idModelCar = idModelCar;
+	public void setid(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -97,7 +97,7 @@ public class ModelCar {
 		int result = 1;
 		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
 		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
-		result = prime * result + ((idModelCar == null) ? 0 : idModelCar.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + ((version == null) ? 0 : version.hashCode());
@@ -124,10 +124,10 @@ public class ModelCar {
 				return false;
 		} else if (!cid.equals(other.cid))
 			return false;
-		if (idModelCar == null) {
-			if (other.idModelCar != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idModelCar.equals(other.idModelCar))
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -154,7 +154,7 @@ public class ModelCar {
 
 	@Override
 	public String toString() {
-		return "ModelCar [idModelCar=" + idModelCar + ", name=" + name + ", version=" + version + ", year=" + year
+		return "ModelCar [id=" + id + ", name=" + name + ", version=" + version + ", year=" + year
 				+ ", cid=" + cid + ", brandCar=" + brandCar + ", type=" + type + "]";
 	}
 

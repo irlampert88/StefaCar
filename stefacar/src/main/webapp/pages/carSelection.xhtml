@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:dialog xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalCarId"
+	widgetVar="dialogCar" modal="false" appendToBody="true"
+	resizable="false" header="Selecione o Carro" closable="true">
+
+	<div style="height: 200px; width: 550px; overflow: auto;">
+	
+	
+		<p:dataTable selection="#{saleManagedBean.sale.car}"
+			rowKey="#{car.id}" id="tableCars" var="car"
+			value="#{saleManagedBean.listOfCar}"
+			emptyMessage="Não existem carros cadastrados"
+			style="padding-top:20px;">
+
+			<f:facet name="header" />
+			<p:column selectionMode="single"
+				style="width:16px;text-align:center" />
+
+			<p:column headerText="Id">
+				<h:outputText value="#{car.id}" />
+			</p:column>
+			<p:column headerText="Marca">
+				<h:outputText value="#{car.carModel.brandCar.name}" />
+			</p:column>
+			<p:column headerText="Modelo">
+				<h:outputText value="#{car.carModel.name}" />
+			</p:column>			
+			<p:column headerText="Ano do carro">
+				<h:outputText value="#{car.carModel.year}" />
+			</p:column>
+			<p:column headerText="Preço">
+				<h:outputText value="#{car.price}" />
+			</p:column>
+			<p:column headerText="Cor">
+				<h:outputText value="#{car.carColor}" />
+			</p:column>
+			
+
+			<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogCar').close" update="saleForm"
+					icon="ui-icon-search" process="tableCars" />
+			</f:facet>
+		</p:dataTable>
+
+	</div>
+
+</p:dialog>

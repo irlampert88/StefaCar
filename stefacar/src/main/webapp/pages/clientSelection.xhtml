@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:dialog xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalClientId"
+	widgetVar="dialogClient" modal="false" appendToBody="true"
+	resizable="false" header="Selecione o Cliente" closable="true">
+
+	<div style="height: 200px; width: 550px; overflow: auto;">
+		<p:dataTable selection="#{saleManagedBean.sale.client}"
+			rowKey="#{client.id}" id="tableClients" var="client"
+			value="#{saleManagedBean.listOfClient}"
+			emptyMessage="Não existem clientes cadastrados"
+			style="padding-top:20px;">
+
+			<f:facet name="header" />
+			<p:column selectionMode="single"
+				style="width:16px;text-align:center" />
+
+			<p:column headerText="CPF">
+				<h:outputText value="#{client.cpf}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{client.name}" />
+			</p:column>			
+
+			<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogClient').close" update="saleForm"
+					icon="ui-icon-search" process="tableClients" />
+			</f:facet>
+		</p:dataTable>
+
+	</div>
+
+</p:dialog>

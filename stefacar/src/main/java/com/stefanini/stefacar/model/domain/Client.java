@@ -13,13 +13,13 @@ public class Client {
 	private Integer id;
 	@Column(nullable = false)
 	private String name;
-	@Column(nullable = false)
+	@Column(nullable = false, unique=true)
 	private String cpf;
 	@Column(nullable = false)
 	private String phone;
 	@Column(nullable = false)
 	private String address;
-	@Column(nullable = false)
+	@Column(nullable = false, unique=true)
 	private String mail;
 
 	public Integer getId() {
