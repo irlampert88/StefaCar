@@ -25,7 +25,7 @@ public class Car {
 	private Double price;
 	@Column(nullable = false)
 	private String carColor;
-	
+	@Column(nullable = false)
 	private boolean avaliable;
 
 	public Car() {
@@ -44,7 +44,7 @@ public class Car {
 	}
 
 	public String getCarStatusString() {
-		if (this.avaliable == true) {
+		if (this.avaliable) {
 			return "Disponivel";
 		} else
 			return "Vendido";
@@ -76,6 +76,21 @@ public class Car {
 
 	public void setAvaliable(boolean avaliable) {
 		this.avaliable = avaliable;
+	}
+	
+	public String getAvaliableString(){
+		if(this.avaliable){
+			return "Disponivel";
+		}else{
+			return "Vendido";
+		}
+	}
+	
+	public void changeAvailability(){
+		if(this.avaliable)
+			this.avaliable = false;
+		else 
+			this.avaliable = true;
 	}
 
 	@Override

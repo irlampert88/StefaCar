@@ -32,10 +32,11 @@ public class CarManagedBean {
 	}
 
 	public void save() {
+		getCar().changeAvailability();
+//		getCar().setAvaliable(true);
 		service.save(getCar());
 		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro salva com sucesso!");
-		loadAllCarsFromDataBase();
-		car.setAvaliable(true);
+		loadAllCarsFromDataBase();		
 		clean();
 	}
 
