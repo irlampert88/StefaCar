@@ -18,7 +18,7 @@ public class Sale {
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Client client;
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idFuncionário", nullable = false)
+	@JoinColumn(name = "idFuncionario", nullable = false)
 	private Employee employee;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idCarro", nullable = false)

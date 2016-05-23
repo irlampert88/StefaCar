@@ -19,7 +19,6 @@ import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
-//@SessionScoped nÃ£o consegui usar o Session nÃ£o subia o servidor
 @ManagedBean
 @ViewScoped
 public class SaleManagedBean implements Serializable {
@@ -64,13 +63,13 @@ public class SaleManagedBean implements Serializable {
 		sale.getCar().changeAvailability();
 //		sale.getCar().setAvaliable(false);
 		service.save(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salva com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Sale sale) {
 		service.delete(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro excluido com sucesso");
 	}
 
 	public void clean() {

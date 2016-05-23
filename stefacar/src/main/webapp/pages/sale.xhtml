@@ -32,8 +32,12 @@
 					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
 					<p:commandButton value="Selecionar Carro" id="btnModalCar"
 						oncomplete="PF('dialogCar').show();" />
-					<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.id}"/>	
-										
+						<p:panelGrid columns="4">
+							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.brandCar.name}"/>
+							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.name}"/>	
+							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.version}"/>
+							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.year}"/>
+						</p:panelGrid>		
 				</p:panelGrid>
 				<ui:include src="carSelection.xhtml" />
 				<ui:include src="clientSelection.xhtml" />	
