@@ -30,13 +30,13 @@ public class EmployeeManagedBean {
 
 	public void save() {
 		service.save(getEmployee());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Funcionario salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Employee employee) {
 		service.delete(employee);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de funcionario excluido com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Funcionario excluido com sucesso!");
 	}
 
 	public void setList(List<Employee> dataList) {
