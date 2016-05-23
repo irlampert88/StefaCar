@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import com.stefanini.stefacar.controller.warehouse.CategoryType;
 
@@ -27,7 +27,7 @@ public class ModelCar {
 	private String year;
 	@Column(nullable=false)
 	private String cid;
-	@OneToOne(cascade=CascadeType.REFRESH)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idBrandCar")
 	private BrandCar brandCar;
 	@Enumerated(EnumType.STRING)
@@ -35,11 +35,11 @@ public class ModelCar {
 
 	public ModelCar() {}
 
-	public Integer getid() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setid(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
