@@ -22,11 +22,7 @@
 				<p:column headerText="Carro">
 					<h:outputText value="#{sale.car.id}" />
 				</p:column>
-				<p:column headerText="Ações" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-edit" title="Editar Venda">
-						<f:setPropertyActionListener value="#{sale}"
-							target="#{saleManagedBean.sale}" />
-					</p:commandButton>
+				<p:column headerText="Ações" style="text-align: center">					
 					<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
 						update="saleTable " action="#{saleManagedBean.delete(sale)}">
 						<p:confirm header="Confirmação" message="Deseja deletar a venda?"

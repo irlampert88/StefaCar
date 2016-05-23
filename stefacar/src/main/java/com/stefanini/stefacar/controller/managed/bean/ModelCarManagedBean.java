@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.MessengerSystem;
 import com.stefanini.stefacar.controller.warehouse.CategoryType;
-import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.ModelCar;
 import com.stefanini.stefacar.model.service.impl.ModelCarServiceImpl;
 
@@ -33,6 +32,7 @@ public class ModelCarManagedBean {
 	public void save() {
 		service.save(getModelCar());
 		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo salvo com sucesso!");
+		 clean();
 	}
 
 	public void delete(ModelCar modelCar) {
