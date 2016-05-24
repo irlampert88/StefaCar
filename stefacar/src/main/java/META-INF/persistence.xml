@@ -22,10 +22,14 @@
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 =======
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 >>>>>>> refs/remotes/origin/master
+=======
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+>>>>>>> c2c8e36038a009f520297c9db2d9561cef6ab83b
 		</properties>
 	</persistence-unit>
 
