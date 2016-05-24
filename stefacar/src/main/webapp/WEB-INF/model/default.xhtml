@@ -22,37 +22,36 @@ body {
 <h:body>
 	
 	<div align="center" class="ui-grid ui-grid-responsive">
-		<p:layout
-			style="min-height:710px; background-color: #BAC1D3;">
+		<p:layout style="min-height:710px; background-color: #BAC1D3;">
 			<p:layoutUnit position="north" size="100">
-				<h:graphicImage url="/resources/imagens/stefanini.png" width="170px" />
+				<h:graphicImage url="/resources/imagens/stefanini.png" width="240px" />
 			</p:layoutUnit>
 
 			<p:layoutUnit position="west" size="220" style="">
 				<ui:insert name="menu">
 
 					<h:form>
-						<p:panelMenu style="width:200px" >
+						<p:panelMenu style="width:200px">
 							<p:submenu label="Menu Cadastro">
-								<p:menuitem value="Cliente" icon="fa fa-plus-square"
+								<p:menuitem value="Cliente" icon="fa fa-arrow-right"
 									url="/pages/clientRegister.xhtml" />
 								<p:separator></p:separator>
-								<p:menuitem value="Empregado" icon="fa fa-plus-square"
+								<p:menuitem value="Funcionário" icon="fa fa-arrow-right"
 									url="/pages/employeeRegister.xhtml" />
 								<p:separator></p:separator>
 
-								<p:menuitem value="Carro" icon="fa fa-plus-square"
+								<p:menuitem value="Carro" icon="fa fa-arrow-right"
 									url="/pages/carRegister.xhtml" />
 
 								<p:separator />
-								<p:menuitem value="Venda de Carro" icon="fa fa-plus-square"
+								<p:menuitem value="Venda de Carro" icon="fa fa-arrow-right"
 									url="/pages/sale.xhtml" />
 
 								<p:separator />
-								<p:menuitem value="Marca do Carro" icon="fa fa-plus-square"
+								<p:menuitem value="Marca do Carro" icon="fa fa-arrow-right"
 									url="/pages/brandcarRegister.xhtml" />
 								<p:separator />
-								<p:menuitem value="Modelo do  Carro" icon="fa fa-plus-square"
+								<p:menuitem value="Modelo do  Carro" icon="fa fa-arrow-right"
 									url="/pages/modelCarRegister.xhtml" />
 
 
@@ -87,8 +86,15 @@ body {
                         O que estiver aqui será substituido!
                     </ui:insert>
 			</p:layoutUnit>
+<<<<<<< HEAD
 			
 
+=======
+		  <p:layoutUnit position="south" size="30"
+				style="min-width:70px;max-width:1500px;min-height:30px ">
+               Versão de Teste. Copyright 2016. Todos os Direitos reservados a equipe de desenvolvimento
+			</p:layoutUnit> 
+>>>>>>> refs/remotes/origin/master
 		</p:layout>
 	</div>
 	
