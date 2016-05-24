@@ -31,13 +31,13 @@ public class ClientManagedBean {
 
 	public void save() {
 		service.save(getClient());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Cliente salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Client client) {
 		service.delete(client);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client excluido com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Cliente excluido com sucesso!");
 	}
 
 	public void setList(List<Client> dataList) {

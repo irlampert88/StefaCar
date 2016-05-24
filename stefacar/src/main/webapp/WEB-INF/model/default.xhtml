@@ -15,10 +15,12 @@ body {
 	font-size: 15px
 }
 </style>
+<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+
 </h:head>
 
 <h:body>
-	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	
 	<div align="center" class="ui-grid ui-grid-responsive">
 		<p:layout style="min-height:710px; background-color: #BAC1D3;">
 			<p:layoutUnit position="north" size="100">
@@ -100,11 +102,12 @@ body {
                         O que estiver aqui será substituido!
                     </ui:insert>
 			</p:layoutUnit>
-			<p:layoutUnit position="south" size="30"
-				style="min-width:70px;max-width:1500px;min-height:30px ">
-               Versão de Teste. Copyright 2016. Todos os Direitos reservados a equipe de desenvolvimento
-			</p:layoutUnit>
 		</p:layout>
+	</div>
+	
+	<div position="absolute">
+	<p align="center">
+	 Versão de Teste. Copyright 2016. Todos os Direitos reservados a equipe de desenvolvimento</p>
 	</div>
 </h:body>
 </html>

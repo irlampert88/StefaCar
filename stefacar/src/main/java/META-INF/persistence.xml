@@ -13,8 +13,6 @@
 		<class>com.stefanini.stefacar.model.domain.Car</class>
 		<class>com.stefanini.stefacar.model.domain.ModelCar</class>
 		<class>com.stefanini.stefacar.model.domain.BrandCar</class>
-		<class>com.stefanini.stefacar.model.domain.Foo</class>
-		<class>com.stefanini.stefacar.model.domain.Car</class>
 		<class>com.stefanini.stefacar.model.domain.Client</class>
 		<class>com.stefanini.stefacar.model.domain.Employee</class>
 		<class>com.stefanini.stefacar.model.domain.Sale</class>		
@@ -26,6 +24,7 @@
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+
 		</properties>
 	</persistence-unit>
 
