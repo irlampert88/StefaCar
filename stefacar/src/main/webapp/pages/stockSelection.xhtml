@@ -10,9 +10,9 @@
 	<div style="height: 200px; width: 550px; overflow: auto;">
 	
 	
-		<p:dataTable selection="#{stockManagedBean.stock.car}"
+		<p:dataTable selection="#{saleManagedBean.sale.car}"
 			rowKey="#{car.id}" id="tableCars" var="car"
-			value="#{stockManagedBean.listOfCar}"
+			value="#{saleManagedBean.listOfCar}"
 			emptyMessage="Não existem carros cadastrados"
 			style="padding-top:20px;">
 
@@ -24,27 +24,25 @@
 				<h:outputText value="#{car.id}" />
 			</p:column>
 			<p:column headerText="Marca">
-				<h:outputText value="#{car.model.brand.name}" />
+				<h:outputText value="#{car.carModel.brandCar.name}" />
 			</p:column>
 			<p:column headerText="Modelo">
-				<h:outputText value="#{car.model.name}" />
+				<h:outputText value="#{car.carModel.name}" />
 			</p:column>			
 			<p:column headerText="Ano do carro">
-				<h:outputText value="#{car.model.year}" />
+				<h:outputText value="#{car.carModel.year}" />
 			</p:column>
 			<p:column headerText="Preço">
 				<h:outputText value="#{car.price}" />
 			</p:column>
 			<p:column headerText="Cor">
-				<h:outputText value="#{car.color}" />
+				<h:outputText value="#{car.carColor}" />
 			</p:column>
-			<p:inputText id="quantity" requiredMessage="Campo obrigatório"
-				required="true" value="#{stockManagedBean.stock.qunatity}" placeholder="quantidade"/>
-			<p:message for="quantity" />
+			
 
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
-					oncomplete="PF('dialogCar').close" update="stockForm"
+					oncomplete="PF('dialogCar').close" update="saleForm"
 					icon="ui-icon-search" process="tableCars" />
 			</f:facet>
 		</p:dataTable>

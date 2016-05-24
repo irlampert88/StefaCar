@@ -9,41 +9,30 @@
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
-			
-
-			<p:dataTable id="modelCarTable" var="modelCar"
-				value="#{modelCarManagedBean.dataList}"
-				emptyMessage="Não existem Modelos Cadastrados"
+			<p:dataTable id="stockTable" var="stock"
+				value="#{stockManagedBean.listAllCarsFromStock}"
+				emptyMessage="Não existem carros cadastrados no estoque"
 				style="padding-top:20px;">
-
-
-				<p:column headerText="Nome do Modelo">
-					<h:outputText value="#{model.name}" />
-				</p:column>
-				<p:column headerText="Categoria">
-					<h:outputText value="#{model.type}" />
-				</p:column>
-				<p:column headerText="Versão">
-					<h:outputText value="#{model.version}" />
-				</p:column>
-				<p:column headerText="Ano">
-					<h:outputText value="#{model.year}" />
-				</p:column>
-				<p:column headerText="Cilindrada">
-					<h:outputText value="#{model.cid}" />
-				</p:column>
 				<p:column headerText="Marca">
-					<h:outputText value="#{model.brandCar.name}" />
+					<p:outputLabel value="#{stock.car.model.brandCar.name}" />
+				</p:column>
+				<p:column headerText="Modelo">
+					<p:outputLabel value="#{stock.car.model.name}" />
+				</p:column>
+				<p:column headerText="Cor">
+					<p:outputLabel value="#{stock.car.color}" />
+				</p:column>
+				<p:column headerText="Preço">
+					<p:outputLabel value="#{stock.car.price}" />
+				</p:column>
+				<p:column headerText="Quantidade">
+					<p:outputLabel value="#{stock.quantity}" />
 				</p:column>
 				
-
-
-				<p:column headerText="Ações" style="text-align: center">
-				
-					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar o Modelo"
-						action="#{modelCarManagedBean.delete(modelCar)}">
-						<p:confirm header="Confirmação" message="Deseja deletar o Modelo?"
+				<p:column headerText="Ações" style="text-align: center">					
+					<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
+						update="saleTable " action="#{saleManagedBean.delete(sale)}">
+						<p:confirm header="Confirmação" message="Deseja deletar a venda?"
 							icon="ui-icon-alert" />
 					</p:commandButton>
 
@@ -55,9 +44,6 @@
 					</p:confirmDialog>
 				</p:column>
 			</p:dataTable>
-
-
-
 		</ui:define>
 	</ui:decorate>
 </h:body>

@@ -29,7 +29,7 @@ public class ModelCar {
 	private String cid;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idBrandCar")
-	private BrandCar brandCar;
+	private BrandCar brand;
 	@Enumerated(EnumType.STRING)
 	private CategoryType type;
 
@@ -75,12 +75,12 @@ public class ModelCar {
 		this.cid = cid;
 	}
 
-	public BrandCar getBrandCar() {
-		return brandCar;
+	public BrandCar getBrand() {
+		return brand;
 	}
 
-	public void setBrandCar(BrandCar brandCar) {
-		this.brandCar = brandCar;
+	public void setBrand(BrandCar brand) {
+		this.brand = brand;
 	}
 
 	public CategoryType getType() {
@@ -95,7 +95,7 @@ public class ModelCar {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((brandCar == null) ? 0 : brandCar.hashCode());
+		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -114,10 +114,10 @@ public class ModelCar {
 		if (getClass() != obj.getClass())
 			return false;
 		ModelCar other = (ModelCar) obj;
-		if (brandCar == null) {
-			if (other.brandCar != null)
+		if (brand == null) {
+			if (other.brand != null)
 				return false;
-		} else if (!brandCar.equals(other.brandCar))
+		} else if (!brand.equals(other.brand))
 			return false;
 		if (cid == null) {
 			if (other.cid != null)
@@ -155,7 +155,7 @@ public class ModelCar {
 	@Override
 	public String toString() {
 		return "ModelCar [id=" + id + ", name=" + name + ", version=" + version + ", year=" + year
-				+ ", cid=" + cid + ", brandCar=" + brandCar + ", type=" + type + "]";
+				+ ", cid=" + cid + ", brand=" + brand + ", type=" + type + "]";
 	}
 
 	
