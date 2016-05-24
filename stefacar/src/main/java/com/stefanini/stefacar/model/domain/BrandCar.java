@@ -1,5 +1,7 @@
 package com.stefanini.stefacar.model.domain;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class BrandCar {
@@ -20,9 +22,9 @@ public class BrandCar {
 	private String name;
 	@Column(nullable=false)
 	private String nationality;
-	@OneToOne(cascade=CascadeType.REFRESH)
+	@OneToMany(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idModelCar")
-	private ModelCar modelCarList;
+	private List<ModelCar> modelCarList;
 
 	
 	public BrandCar() {}
@@ -46,11 +48,11 @@ public class BrandCar {
 		this.nationality = nationality;
 	}
 
-	public ModelCar getModelCarList() {
+	public List<ModelCar> getModelCarList() {
 		return modelCarList;
 	}
 
-	public void setModelCarList(ModelCar modelCarList) {
+	public void setModelCarList(List<ModelCar> modelCarList) {
 		this.modelCarList = modelCarList;
 	}
 
@@ -99,9 +101,7 @@ public class BrandCar {
 
 	@Override
 	public String toString() {
-		return "BrandCar [id=" + id + ", name=" + name + ", nationality=" + nationality
-				+ ", modelCarList=" + modelCarList + "]";
+		return "BrandCar [id=" + id + ", name=" + name + ", nationality=" + nationality + ", modelCarList="
+				+ modelCarList + "]";
 	}
-	
-	
 }

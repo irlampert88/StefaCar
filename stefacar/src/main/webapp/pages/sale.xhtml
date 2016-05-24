@@ -22,21 +22,30 @@
 					<p:outputLabel for="btnModalEmployee" value="Seleção de Funcionário: " />
 					<p:commandButton value="Selecionar Funcionário" id="btnModalEmployee"
 						oncomplete="PF('dialogEmployee').show();" />
-					<p:outputLabel for="btnModalEmployee" value="#{saleManagedBean.sale.employee.registration}"/>					
+					<p:panelGrid columns="3" for="btnModalEmployee">
+						<p:outputLabel for="btnModalEmployee" value="#{saleManagedBean.sale.employee.registration}"/>
+						<p:outputLabel for="btnModalEmployee" value="#{saleManagedBean.sale.employee.name}"/>
+						<p:outputLabel for="btnModalEmployee" value="#{saleManagedBean.sale.employee.type}"/>
+					</p:panelGrid>
+										
 					
 					<p:outputLabel for="btnModalClient" value="Seleção de Cliente: " />
 					<p:commandButton value="Selecionar Cliente" id="btnModalClient"
 						oncomplete="PF('dialogClient').show();" />
-					<p:outputLabel for="btnModalClient" value="#{saleManagedBean.sale.client.cpf}"/>									
-				
+					<p:panelGrid columns="2" for="btnModalClient">
+						<p:outputLabel for="btnModalClient" value="#{saleManagedBean.sale.client.cpf}"/>
+						<p:outputLabel for="btnModalClient" value="#{saleManagedBean.sale.client.name}"/>
+					</p:panelGrid>
+														
+					
 					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
 					<p:commandButton value="Selecionar Carro" id="btnModalCar"
 						oncomplete="PF('dialogCar').show();" />
-						<p:panelGrid columns="4">
-							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.brandCar.name}"/>
-							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.name}"/>	
-							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.version}"/>
-							<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel.year}"/>
+						<p:panelGrid columns="4" for="btnModalCar">
+							<p:outputLabel value="#{saleManagedBean.sale.car.carModel.brandCar.name}"/>
+							<p:outputLabel value="#{saleManagedBean.sale.car.carModel.name}"/>	
+							<p:outputLabel value="#{saleManagedBean.sale.car.carModel.version}"/>
+							<p:outputLabel value="#{saleManagedBean.sale.car.carModel.year}"/>
 						</p:panelGrid>		
 				</p:panelGrid>
 				<ui:include src="carSelection.xhtml" />
