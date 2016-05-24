@@ -18,6 +18,7 @@
 		<class>com.stefanini.stefacar.model.domain.Sale</class>		
 		<class>com.stefanini.stefacar.model.domain.Manufacturer</class>
 		<class>com.stefanini.stefacar.model.domain.Outfitter</class>
+        <class>com.stefanini.stefacar.model.domain.Pieces</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
