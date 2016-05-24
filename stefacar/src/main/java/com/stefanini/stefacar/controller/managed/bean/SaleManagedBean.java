@@ -1,18 +1,22 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.MessengerSystem;
+import com.stefanini.stefacar.model.domain.BrandCar;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.Sale;
+import com.stefanini.stefacar.model.repository.impl.BrandCarRepository;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
@@ -39,16 +43,24 @@ public class SaleManagedBean implements Serializable {
 
 	@Inject
 	private ClientRepositoryImpl repositoryClient;
+	
+	@Inject
+	private BrandCarRepository repositoryBrand;
 
 	private Sale sale;
 	private List<Sale> listOfSales;
 	private List<Employee> listOfEmployee;
 	private List<Car> listOfCar;
 	private List<Client> listOfClient;
+	private List<BrandCar> listOfBrand;
+	private Integer selectedBrand;
+	private List<Car> listOfCarWhereBrandSelected;
 
 	@PostConstruct
 	public void init() {
 		sale = new Sale();
+		listOfCarWhereBrandSelected = new ArrayList<>();
+		listOfBrand = repositoryBrand.listAllRecords();
 		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.listAllRecords();
@@ -75,6 +87,12 @@ public class SaleManagedBean implements Serializable {
 
 	public void clean() {
 		sale = new Sale();
+	}
+	
+	public void deliveryCarByBrand(ValueChangeEvent event){
+		String teste = event.getNewValue().toString();
+		selectedBrand = Integer.parseInt(teste); 
+		listOfCarWhereBrandSelected = repositoryCar.listAllRecordsByBrand(selectedBrand);
 	}
 
 	// --[GETTES AND SETTERS]
@@ -116,5 +134,29 @@ public class SaleManagedBean implements Serializable {
 
 	public void setListOfClient(List<Client> listOfClient) {
 		this.listOfClient = listOfClient;
+	}
+
+	public List<BrandCar> getListOfBrand() {
+		return listOfBrand;
+	}
+
+	public void setListOfBrand(List<BrandCar> listOfBrand) {
+		this.listOfBrand = listOfBrand;
+	}
+
+	public Integer getSelectedBrand() {
+		return selectedBrand;
+	}
+
+	public void setSelectedBrand(Integer selectedBrand) {
+		this.selectedBrand = selectedBrand;
+	}
+
+	public List<Car> getListOfCarWhereBrandSelected() {
+		return listOfCarWhereBrandSelected;
+	}
+
+	public void setListOfCarWhereBrandSelected(List<Car> listOfCarWhereBrandSelected) {
+		this.listOfCarWhereBrandSelected = listOfCarWhereBrandSelected;
 	}
 }
