@@ -1,0 +1,61 @@
+package com.stefanini.stefacar.controller.managed.bean;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+
+import com.stefanini.stefacar.controller.converter.MessengerSystem;
+
+import com.stefanini.stefacar.model.domain.Outfitter;
+import com.stefanini.stefacar.model.service.impl.OutfitterServiceImpl;
+
+@ManagedBean
+@ViewScoped
+public class OutfitterManagedBean {
+
+	private Outfitter outfitter;
+	private List<Outfitter> dataList;
+
+	@Inject
+	protected OutfitterServiceImpl service;
+
+	@PostConstruct
+	public void init() {
+		outfitter = new Outfitter();
+		dataList = service.loadAllOutfitterFromDataBase();
+	}
+
+	public void save() {
+		service.save(getOutfitter());
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client salvo com sucesso");
+		clean();
+	}
+
+	public void delete(Outfitter outfitter) {
+		service.delete(outfitter);
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client excluido com sucesso!");
+	}
+
+	public void setList(List<Outfitter> dataList) {
+		this.dataList = dataList;
+	}
+
+	public List<Outfitter> getDataList() {
+		return dataList;
+	}
+
+	public Outfitter getOutfitter() {
+		return outfitter;
+	}
+
+	public void setOutfitter(Outfitter outfitter) {
+		this.outfitter = outfitter;
+	}
+
+	public void clean() {
+		setOutfitter(new Outfitter());
+	}
+}

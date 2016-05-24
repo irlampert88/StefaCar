@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:decorate template="../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+
+			<p:dataTable id="manufacturerTable" var="manufacturer"
+				value="#{manufacturerManagedBean.dataList}"
+				emptyMessage="Não existem fabricantes cadastrados"
+				style="padding-top:20px;">
+				<p:column headerText="Name" style="text-align: center">
+					<h:outputText value="#{manufacturer.name}" />
+				</p:column>
+				<p:column headerText="Cnpj" style="text-align: center">
+					<h:outputText value="#{manufacturer.cnpj}" />
+				</p:column>
+				<p:column headerText="telefone" style="text-align: center">
+					<h:outputText value="#{manufacturer.phone}" />
+				</p:column>
+
+				<p:column headerText="Ações" style="text-align: center">
+					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
+						update="manufacturerTable"
+						action="#{manufacturerManagedBean.delete(manufacturer)}">
+						<p:confirm header="Confirmação"
+							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
+					</p:commandButton>
+
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Sim" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="Não" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</p:column>
+			</p:dataTable>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+</html>
