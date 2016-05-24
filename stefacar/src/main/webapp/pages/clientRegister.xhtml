@@ -27,9 +27,9 @@
 
 						<p:outputLabel for="Cpf" value="Cpf :" />
 					<p:inputMask maxlength="11" id="Cpf" mask="99999999999"
-						requiredMessage="Campo obrigatório" required="true"
+						requiredMessage="Campo obrigatório" required="true" validatorMessage="Digita um cpf válido seu besta"
 						placeholder="cpf" value="#{clientManagedBean.client.cpf}">
-						<f:validator validatorId="cpfValidator" />
+						<f:validator for="Cpf" validatorId="cpfValidator" />
 					</p:inputMask>
 					<p:message for="Cpf" />
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:dialog xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalLivroId"
+	widgetVar="dialogPieces" modal="false" appendToBody="true"
+	header="Escolher Peça" closable="true">
+
+
+	<div style="height: 200px; width: 700px; overflow: auto;">
+		<p:dataTable id="piecesTable" var="pieces"
+			value="#{piecesManagedBean.dataList}"
+			selection="#{piecesSaleManagedBean.piecesSale.pieces}"
+			rowKey="#{pieces.id}"
+			emptyMessage="Não existem peças cadastradas"
+			style=" padding-top:20px;">
+            <f:facet name="header" />
+			<p:column selectionMode="multiple"
+				style="width:16px;text-align:center" />
+			<p:column headerText="Nº série">
+				<h:outputText value="#{pieces.serialNumber}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{pieces.name}" />
+			</p:column>
+			<p:column headerText="Modelo">
+				<h:outputText value="#{pieces.model.name}" />
+			</p:column>
+			<p:column headerText="Fornecedor">
+				<h:outputText value="#{pieces.outfitter.name}" />
+			</p:column>
+			<p:column headerText="Fabricante">
+				<h:outputText value="#{pieces.manufacturer.name}" />
+			</p:column>
+			
+				<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogPieces').close" 
+					update="saleForm"
+					icon="ui-icon-search" process="piecesTable" />
+			</f:facet>
+			
+		</p:dataTable>
+	</div>
+
+</p:dialog>
