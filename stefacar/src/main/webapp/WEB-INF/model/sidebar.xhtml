@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="js" name="bootstrap.js" />
+	<h:outputStylesheet library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="js" name="default.js" />
+</h:head>
+
+<h:body>
+
+	<ui:composition>
+		
+               <nav class="sidebar-nav" role="navigation"
+						style="background-color:#2C2E78;">
+					<div>
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#bs-sidebar-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse"
+						id="bs-sidebar-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+
+							<li class="dropdown" style="background-color: #CBCBCB;"><a
+								href="#" class="dropdown-toggle" data-toggle="dropdown">Menu
+									Cadastro<span class="caret"></span><span
+									style="font-size: 16px;"
+									class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span>
+							</a>
+								<ul class="dropdown-menu forAnimate" role="menu">
+									<li><a href="/stefacar/pages/clientRegister.xhtml">Cliente</a></li>
+									<li><a href="/stefacar/pages/employeeRegister.xhtml">Funcionário</a></li>
+									<li><a href="/stefacar/pages/carRegister.xhtml">Carro</a></li>
+									<li><a href="/stefacar/pages/manufacturerRegister.xhtml">Fabricante</a></li>
+									<li><a href="/stefacar/pages/outfitterRegister.xhtml">Fornecedor</a></li>
+									<li><a href="/stefacar/pages/sale.xhtml">Venda de carro</a></li>
+									<li><a href="/stefacar/pages/brandcarRegister.xhtml">Marca do carro</a></li>
+									<li><a href="/stefacar/pages/modelCarRegister.xhtml">Modelo	de carro</a></li>
+								</ul></li>
+
+
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Menu Visualização<span class="caret"></span><span
+									style="font-size: 16px;"
+									class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a>
+								<ul class="dropdown-menu forAnimate" role="menu">
+									<li><a href="/stefacar/pages/clientView.xhtml">Cliente</a></li>
+									<li><a href="/stefacar/pages/employeeView.xhtml">Funcionário</a></li>
+									<li><a href="/stefacar/pages/carView.xhtml">Carro</a></li>
+									<li><a href="/stefacar/pages/outfitterView.xhtml">Fornecedores</a></li>
+									<li><a href="/stefacar/pages/manufacturerView.xhtml">Fabricantes</a></li>
+									<li><a href="/stefacar/pages/saleView.xhtml">Venda</a></li>
+									<li><a href="/stefacar/pages/brandCarView.xhtml">Modelos</a></li>
+									<li><a href="/stefacar/pages/modelCarView.xhtml">Marcas</a></li>
+								</ul></li>
+						</ul>
+					</div>
+					</nav>
+			
+	</ui:composition>
+
+</h:body>
+</html>

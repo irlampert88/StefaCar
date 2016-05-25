@@ -15,207 +15,19 @@
 	overflow: visible !important;
 }
 
-.navBar-mine {
-	height:200%;
-}
 
- body,html{
-    height: 100%;
-  }
-
-  nav.sidebar, .main{
-    -webkit-transition: margin 200ms ease-out;
-      -moz-transition: margin 200ms ease-out;
-      -o-transition: margin 200ms ease-out;
-      transition: margin 200ms ease-out;
-  }
-
-  .main{
-    padding: 10px 10px 0 10px;
-  }
-
- @media (min-width: 765px) {
-
-    .main{
-      position: relative;
-      width: calc(100% - 40px); 
-      margin-left: 40px;
-      float: right;
-    }
-
-    nav.sidebar:hover + .main{
-      margin-left: 200px;
-    }
-
-    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-      margin-left: 0px;
-    }
-
-    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
-      text-align: center;
-      width: 100%;
-      margin-left: 0px;
-    }
-    
-    nav.sidebar a{
-      padding-right: 13px;
-    }
-
-    nav.sidebar .navbar-nav > li:first-child{
-      border-top: 4px #AEAFAE solid;
-    }
-
-    nav.sidebar .navbar-nav > li{
-      border-bottom: 4px #AEAFAE solid;
-    }
-
-    nav.sidebar .navbar-nav .open .dropdown-menu {
-      position: relative;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: #AEAFAE;
-      border: 0;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-
-    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
-      padding: 0 0px 0 0px;
-    }
-
-    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-      color: #AEAFAE;
-    }
-
-    nav.sidebar{
-      width: 200px;
-      height: 100%;
-      margin-left: -160px;
-      float: left;
-      margin-bottom: 0px;
-    }
-
-    nav.sidebar li {
-      width: 100%;
-    }
-
-    nav.sidebar:hover{
-      margin-left: 0px;
-    }
-
-    .forAnimate{
-      opacity: 0;
-    }
-  }
-   
-  @media (min-width: 1330px) {
-
-    .main{
-      width: calc(100% - 200px);
-      margin-left: 200px;
-    }
-
-    nav.sidebar{
-      margin-left: 0px;
-      float: left;
-    }
-
-    nav.sidebar .forAnimate{
-      opacity: 1;
-    }
-  }
-
-  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
-    color: #AEAFAE;
-    background-color: #AEAFAE;
-  }
-
-  nav:hover .forAnimate{
-    opacity: 2;
-  }
-  section{
-    padding-left: 15px;
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  body {
-    position: relative;
-    overflow-x: hidden;
-}
-body,
-html { height: 100%;}
-.nav .open > a, 
-.nav .open > a:hover, 
-.nav .open > a:focus {background-color: transparent;}
-
-/*-------------------------------*/
-/*           Wrappers            */
-/*-------------------------------*/
-
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 220px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
-    left: 220px;
-    width: 0;
-    height: 100%;
-    margin-left: -220px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: #1a1a1a;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#sidebar-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-    width: 220px;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    padding-top: 70px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -220px;
-}
 
 /*-------------------------------*/
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 
 .sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 220px;
-    margin: 0;
-    padding: 0;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    top: 67px;
+    margin: 0px;
+    padding-top: 25px;
     list-style: none;
 }
 
@@ -224,6 +36,7 @@ html { height: 100%;}
     line-height: 20px;
     display: inline-block;
     width: 100%;
+    
 }
 
 .sidebar-nav li:before {
@@ -242,7 +55,7 @@ html { height: 100%;}
 
 }
 .sidebar-nav li:first-child a {
-    color: #fff;
+    
     background-color: #1a1a1a;
 }
 .sidebar-nav li:nth-child(2):before {
@@ -292,7 +105,7 @@ html { height: 100%;}
 .sidebar-nav li.open a:hover,
 .sidebar-nav li.open a:active,
 .sidebar-nav li.open a:focus{
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     background-color: transparent;
 }
