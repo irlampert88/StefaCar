@@ -14,7 +14,7 @@
 				emptyMessage="Não existem carros cadastrados no estoque"
 				style="padding-top:20px;">
 				<p:column headerText="Marca">
-					<p:outputLabel value="#{stock.car.model.brandCar.name}" />
+					<p:outputLabel value="#{stock.car.model.brand.name}" />
 				</p:column>
 				<p:column headerText="Modelo">
 					<p:outputLabel value="#{stock.car.model.name}" />
@@ -27,21 +27,6 @@
 				</p:column>
 				<p:column headerText="Quantidade">
 					<p:outputLabel value="#{stock.quantity}" />
-				</p:column>
-				
-				<p:column headerText="Ações" style="text-align: center">					
-					<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
-						update="saleTable " action="#{saleManagedBean.delete(sale)}">
-						<p:confirm header="Confirmação" message="Deseja deletar a venda?"
-							icon="ui-icon-alert" />
-					</p:commandButton>
-
-					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						<p:commandButton value="Sim" type="button"
-							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-						<p:commandButton value="Não" type="button"
-							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-					</p:confirmDialog>
 				</p:column>
 			</p:dataTable>
 		</ui:define>

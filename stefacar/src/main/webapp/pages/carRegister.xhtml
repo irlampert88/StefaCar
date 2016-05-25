@@ -24,17 +24,17 @@
 
 					<p:outputLabel for="color" value="Cor do carro:" />
 					<p:inputText id="color" requiredMessage="Campo obrigatório"
-						required="true" value="#{carManagedBean.car.carColor}" placeholder="cor"/>
+						required="true" value="#{carManagedBean.car.color}" placeholder="cor"/>
 					<p:message for="color" />
 
 					<p:outputLabel for="modelCarSelect" value="Modelo do Carro:" />
 
 					<p:selectOneMenu id="modelCarSelect" converter="converterCombobox"
-						value="#{carManagedBean.car.carModel}"
+						value="#{carManagedBean.car.model}"
 						requiredMessage="Campo obrigatório">
 						<f:selectItem itemLabel="selecione um Modelo" itemValue="" />
 						<f:selectItems value="#{modelCarManagedBean.dataList}"
-							var="modelCar" itemLabel="#{modelCar.name}"
+							var="modelCar" itemLabel="#{model.name}"
 							itemValue="#{modelCar}" />
 					</p:selectOneMenu>
 					<p:message for="modelCarSelect" />

@@ -15,7 +15,7 @@ import com.stefanini.stefacar.model.service.impl.BrandCarServiceImpl;
 @ViewScoped
 public class BrandCarManagedBean {
 
-	private BrandCar brandCar;
+	private BrandCar brand;
 	private List<BrandCar> datalist;
 	
 	@Inject
@@ -30,13 +30,13 @@ public class BrandCarManagedBean {
 	}
 
 	public void save() {
-		service.save(getBrandCar());
+		service.save(getBrand());
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Marca salvo com sucesso!");
 		clean();
 	}
 
-	public void delete(BrandCar brandCar) {
-		service.delete(brandCar);
+	public void delete(BrandCar brand) {
+		service.delete(brand);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Marca excluido com sucesso!");
 	}
 	
@@ -55,19 +55,19 @@ public class BrandCarManagedBean {
 		return datalist;
 	}
 
-	public BrandCar getBrandCar() {
-		if (brandCar == null) {
+	public BrandCar getBrand() {
+		if (brand == null) {
 			clean();
 		}
-		return brandCar;
+		return brand;
 	}
 
-	public void setBrandCar(BrandCar brandCar) {
-		this.brandCar = brandCar;
+	public void setBrand(BrandCar brand) {
+		this.brand = brand;
 	}
 
 	public void clean() {
-		setBrandCar(new BrandCar());
+		setBrand(new BrandCar());
 	}
 
 	

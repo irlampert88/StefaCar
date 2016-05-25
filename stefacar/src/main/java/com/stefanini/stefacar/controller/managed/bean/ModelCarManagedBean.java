@@ -16,7 +16,7 @@ import com.stefanini.stefacar.model.service.impl.ModelCarServiceImpl;
 public class ModelCarManagedBean {
 
 
-	private ModelCar modelCar;
+	private ModelCar model;
 	private List<ModelCar> dataList;
 
 	@Inject
@@ -30,18 +30,18 @@ public class ModelCarManagedBean {
 	}
 
 	public void save() {
-		service.save(getModelCar());
+		service.save(getModel());
 		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo salvo com sucesso!");
 		 clean();
 	}
 
-	public void delete(ModelCar modelCar) {
-		service.delete(modelCar);
+	public void delete(ModelCar model) {
+		service.delete(model);
 		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo excluido com sucesso!");
 	}
 
 	private void listAllRecords() {
-		setList(service.listAllRecords(modelCar));
+		setList(service.listAllRecords(model));
 	}
 
 	public void setList(List<ModelCar> dataList) {
@@ -55,19 +55,19 @@ public class ModelCarManagedBean {
 		return dataList;
 	}
 
-	public ModelCar getModelCar() {
-		if (modelCar == null) {
+	public ModelCar getModel() {
+		if (model == null) {
 			clean();
 		}
-		return modelCar;
+		return model;
 	}
 
-	public void setModelCar(ModelCar modelCar) {
-		this.modelCar = modelCar;
+	public void setModel(ModelCar model) {
+		this.model = model;
 	}
 
 	public void clean() {
-		setModelCar(new ModelCar());
+		setModel(new ModelCar());
 	}
 	
 	public CategoryType[] getCategoryType() {

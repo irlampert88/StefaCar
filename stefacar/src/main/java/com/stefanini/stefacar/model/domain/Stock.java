@@ -1,20 +1,14 @@
 package com.stefanini.stefacar.model.domain;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
+@Embeddable
 public class Stock {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idStock")
-	private Integer id;
+	
 	@Column(nullable=false)
 	private Integer qunatity;
 	@OneToOne
