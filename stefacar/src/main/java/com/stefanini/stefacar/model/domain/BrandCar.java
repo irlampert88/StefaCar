@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class BrandCar {
@@ -20,7 +20,7 @@ public class BrandCar {
 	private String name;
 	@Column(nullable=false)
 	private String nationality;
-	@OneToOne(cascade=CascadeType.REFRESH)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idModelCar")
 	private ModelCar modelCarList;
 

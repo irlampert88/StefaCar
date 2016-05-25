@@ -9,8 +9,7 @@
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;"
-				value="Cadastro de Carro" />
+			<p:outputLabel style="font-size: 30px;" value="Cadastro de Carro" />
 
 			<h:form id="carForm">
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
@@ -19,12 +18,14 @@
 					<p:outputLabel for="price" value="Preço" />
 
 					<p:inputText id="price" requiredMessage="Campo obrigatório"
-						required="true" value="#{carManagedBean.car.price}" placeholder="preço"/>
+						required="true" value="#{carManagedBean.car.price}"
+						placeholder="preço" />
 					<p:message for="price" />
 
 					<p:outputLabel for="color" value="Cor do carro:" />
 					<p:inputText id="color" requiredMessage="Campo obrigatório"
-						required="true" value="#{carManagedBean.car.carColor}" placeholder="cor"/>
+						required="true" value="#{carManagedBean.car.carColor}"
+						placeholder="cor" />
 					<p:message for="color" />
 
 					<p:outputLabel for="modelCarSelect" value="Modelo do Carro:" />
