@@ -29,6 +29,8 @@ public class ModelCarRepository {
 		return entityManager.createQuery("select l from " + ModelCar.class.getSimpleName() + " l").getResultList();
 	}
 
-
+	public ModelCar deliveryModelCar(Integer id){
+		return entityManager.find(ModelCar.class, id);		
+	}
 
 }

@@ -32,7 +32,7 @@
 					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
 					<p:commandButton value="Selecionar Carro" id="btnModalCar"
 						oncomplete="PF('dialogCar').show();" />
-					<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.id}"/>	
+					<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.car.carModel}"/>	
 										
 				</p:panelGrid>
 				<ui:include src="carSelection.xhtml" />

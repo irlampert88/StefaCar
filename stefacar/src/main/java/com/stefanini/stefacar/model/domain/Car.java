@@ -30,7 +30,15 @@ public class Car {
 
 	public Car() {
 	}
-
+	
+	public Car(ModelCar carModel, Double price, String color, Integer id){
+		this.carModel = carModel;
+		this.price = price;
+		this.carColor = color;
+		this.id = id;
+		this.avaliable = false;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
