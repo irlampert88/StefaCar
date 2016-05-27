@@ -20,7 +20,6 @@ import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.domain.SaleCarShow;
 import com.stefanini.stefacar.model.domain.Stock;
 import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ModelCarRepository;
@@ -42,33 +41,32 @@ public class SaleManagedBean implements Serializable {
 	@Inject
 	private EmployeeRepositoryImpl repositoryEmployee;
 
-	@Inject
-	private CarRepositoryImpl repositoryCar;
+//	@Inject
+//	private CarRepositoryImpl repositoryCar;
 
 	@Inject
 	private ClientRepositoryImpl repositoryClient;
 	
 	@Inject
-
 	private BrandCarRepositoryImpl repositoryBrand;
 	
 	@Inject
 	private ModelCarRepository repositoryModelCar;
 	
-	private ModelCar modelCar;
-
+	@Inject
 	private StockRepositoryImpl repositoryStock;
-
+	
+	private ModelCar modelCar;
 	private Sale sale;
 	private SaleCarShow carShow;
 	private List<Sale> listOfSales;
 	private List<Employee> listOfEmployee;
-	private List<Car> listOfCar;
+//	private List<Car> listOfCar;
 	private List<Client> listOfClient;
 	private List<BrandCar> listOfBrand;
 	private Integer selectedBrand;
 	private List<SaleCarShow> listOfCarWhereBrandSelected;
-	private List<Stock> listFromStock;
+	private List<Stock> listOfStock;
 
 	@PostConstruct
 	public void init() {
@@ -79,13 +77,13 @@ public class SaleManagedBean implements Serializable {
 		listOfBrand = repositoryBrand.listAllRecords();
 		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
-		listOfCar = repositoryCar.listAllRecords();
+//		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
-		listFromStock = repositoryStock.listAllRecords();
+		listOfStock = repositoryStock.listAllRecords();
 	}
 
 	public void save() {
-		sale.getCar().changeAvailability();
+		sale.getStock().getCar().changeAvailability();
 		changeCarShowToCarAndSetCarInSale();
 		service.save(sale);
 		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro salvo com sucesso");
@@ -106,13 +104,13 @@ public class SaleManagedBean implements Serializable {
 	public void deliveryCarByBrand(ValueChangeEvent event){
 		String teste = event.getNewValue().toString();
 		selectedBrand = Integer.parseInt(teste); 
-		listOfCarWhereBrandSelected = repositoryCar.listAllRecordsByBrand(selectedBrand);
+		listOfCarWhereBrandSelected = repositoryStock.listAllRecordsByBrand(selectedBrand);
 	}
 	
 	public void changeCarShowToCarAndSetCarInSale(){
 		modelCar = repositoryModelCar.deliveryModelCar(carShow.getIdModel());
 		Car temporaryCar = new Car(modelCar, carShow.getPrice(), carShow.getColor(), carShow.getIdCar());
-		sale.setCar(temporaryCar);
+		sale.getStock().setCar(temporaryCar);
 	}
 
 	// --[GETTES AND SETTERS]
@@ -138,15 +136,7 @@ public class SaleManagedBean implements Serializable {
 
 	public void setListOfEmployee(List<Employee> listOfEmployee) {
 		this.listOfEmployee = listOfEmployee;
-	}
-
-	public List<Car> getListOfCar() {
-		return listOfCar;
-	}
-
-	public void setListOfCar(List<Car> listOfCar) {
-		this.listOfCar = listOfCar;
-	}
+	}	
 
 	public List<Client> getListOfClient() {
 		return listOfClient;
@@ -189,10 +179,10 @@ public class SaleManagedBean implements Serializable {
 	}
 	
 	public List<Stock> getListFromStock() {
-		return listFromStock;
+		return listOfStock;
 	}
 
 	public void setListFromStock(List<Stock> listFromStock) {
-		this.listFromStock = listFromStock;
+		this.listOfStock = listFromStock;
 	}	
 }

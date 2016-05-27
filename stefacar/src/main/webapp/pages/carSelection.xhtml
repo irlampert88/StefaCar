@@ -8,20 +8,6 @@
 	resizable="false" header="Selecione o Carro" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-<<<<<<< HEAD
-
-		<h:form id="selectionCarSaleForm">
-				<p:outputLabel for="comboBrand" value="Seleciona a marca da pesquisa:" />
-				
-				<p:selectOneMenu id="comboBrand" converter="converterCombobox"
-					value="#{saleManagedBean.selectedBrand}"
-					valueChangeListener="#{saleManagedBean.deliveryCarByBrand}">
-					<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					
-					<f:selectItems value="#{saleManagedBean.listOfBrand}" var="brand"
-						itemLabel="#{brand.name}" itemValue="#{brand.id}" />
-					<p:ajax event="change" process="@this" update="tableCars" />					
-				</p:selectOneMenu>
-=======
 	
 	
 		<p:dataTable selection="#{stockManagedBean.stock.car}"
@@ -52,55 +38,14 @@
 			<p:column headerText="Cor">
 				<h:outputText value="#{car.color}" />
 			</p:column>
->>>>>>> 09f4899c3aafba46d45ebeed56b7594fa44a200b
 			
-			<p:dataTable selection="#{saleManagedBean.carShow}"
-				rowKey="#{car.price}" id="tableCars" var="car"
-				value="#{saleManagedBean.listOfCarWhereBrandSelected}"
-				emptyMessage="Não existem carros no estoque com a marca selecionada"
-				style="padding-top:20px;">
 
-				<f:facet name="header" />
-				<p:column selectionMode="single"
-					style="width:16px;text-align:center" />
-
-				<p:column headerText="Categoria">
-					<h:outputText value="#{car.type}" />
-				</p:column>
-				<p:column headerText="Model">
-					<h:outputText value="#{car.model}" />
-				</p:column>
-				<p:column headerText="Versão">
-					<h:outputText value="#{car.version}" />
-				</p:column>
-				<p:column headerText="Cor">
-					<h:outputText value="#{car.color}" />
-				</p:column>
-				<p:column headerText="Ano">
-					<h:outputText value="#{car.year}" />
-				</p:column>
-				<p:column headerText="Valor">
-					<h:outputText value="#{car.price}" />
-				</p:column>
-
-
-				<f:facet name="footer">
-					<p:commandButton value="Selecionar"
-						oncomplete="PF('dialogCar').close" update="saleForm"
-						icon="ui-icon-search" process="tableCars" />
-				</f:facet>
-			</p:dataTable>
-
-<<<<<<< HEAD
-		</h:form>
-=======
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
 					oncomplete="PF('dialogCar').close" update="stockForm"
 					icon="ui-icon-search" process="tableCars" />
 			</f:facet>
 		</p:dataTable>
->>>>>>> 09f4899c3aafba46d45ebeed56b7594fa44a200b
 
 	</div>
 

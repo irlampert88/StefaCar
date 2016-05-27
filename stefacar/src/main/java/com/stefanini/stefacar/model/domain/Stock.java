@@ -12,6 +12,10 @@ import javax.persistence.OneToOne;
 public class Stock implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column(nullable=false)
 	private Integer quantity;
 	@OneToOne
@@ -41,9 +45,4 @@ public class Stock implements Serializable{
 	public String toString() {
 		return "Stock [quantity=" + quantity + ", stockCar=" + car + "]";
 	}
-
-	
-	
-	
-
 }
