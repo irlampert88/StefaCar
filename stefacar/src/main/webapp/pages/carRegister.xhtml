@@ -15,14 +15,14 @@
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
 				<p:panelGrid columns="3">
-					<p:outputLabel for="price" value="Preço" />
+					<p:outputLabel for="price" value="Preço :" />
 
 					<p:inputText id="price" requiredMessage="Campo obrigatório"
 						required="true" value="#{carManagedBean.car.price}"
 						placeholder="preço" />
 					<p:message for="price" />
 
-					<p:outputLabel for="color" value="Cor do carro:" />
+					<p:outputLabel for="color" value="Cor :" />
 					<p:inputText id="color" requiredMessage="Campo obrigatório"
 						required="true" value="#{carManagedBean.car.color}"
 						placeholder="cor" />
