@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class BrandCar {
@@ -20,9 +20,9 @@ public class BrandCar {
 	private String name;
 	@Column(nullable=false)
 	private String nationality;
-	@OneToOne(cascade=CascadeType.REFRESH)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idModelCar")
-	private ModelCar modelCarList;
+	private ModelCar modelList;
 
 	
 	public BrandCar() {}
@@ -46,12 +46,12 @@ public class BrandCar {
 		this.nationality = nationality;
 	}
 
-	public ModelCar getModelCarList() {
-		return modelCarList;
+	public ModelCar getModelList() {
+		return modelList;
 	}
 
-	public void setModelCarList(ModelCar modelCarList) {
-		this.modelCarList = modelCarList;
+	public void setModelList(ModelCar modelList) {
+		this.modelList = modelList;
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class BrandCar {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((modelCarList == null) ? 0 : modelCarList.hashCode());
+		result = prime * result + ((modelList == null) ? 0 : modelList.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((nationality == null) ? 0 : nationality.hashCode());
 		return result;
@@ -79,10 +79,10 @@ public class BrandCar {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (modelCarList == null) {
-			if (other.modelCarList != null)
+		if (modelList == null) {
+			if (other.modelList != null)
 				return false;
-		} else if (!modelCarList.equals(other.modelCarList))
+		} else if (!modelList.equals(other.modelList))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -100,7 +100,7 @@ public class BrandCar {
 	@Override
 	public String toString() {
 		return "BrandCar [id=" + id + ", name=" + name + ", nationality=" + nationality
-				+ ", modelCarList=" + modelCarList + "]";
+				+ ", modelCarList=" + modelList + "]";
 	}
 	
 	

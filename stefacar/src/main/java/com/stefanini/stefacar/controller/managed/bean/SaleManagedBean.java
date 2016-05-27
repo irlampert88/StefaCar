@@ -18,15 +18,16 @@ import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.ModelCar;
 import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.domain.SaleCarShow;
-import com.stefanini.stefacar.model.repository.impl.BrandCarRepository;
+import com.stefanini.stefacar.model.domain.Stock;
+import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ModelCarRepository;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
+import com.stefanini.stefacar.model.repository.impl.StockRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
-//@SessionScoped nÃ£o consegui usar o Session nÃ£o subia o servidor
 @ManagedBean
 @ViewScoped
 public class SaleManagedBean implements Serializable {
@@ -48,12 +49,16 @@ public class SaleManagedBean implements Serializable {
 	private ClientRepositoryImpl repositoryClient;
 	
 	@Inject
-	private BrandCarRepository repositoryBrand;
+
+	private BrandCarRepositoryImpl repositoryBrand;
 	
 	@Inject
 	private ModelCarRepository repositoryModelCar;
 	
 	private ModelCar modelCar;
+
+	private StockRepositoryImpl repositoryStock;
+
 	private Sale sale;
 	private SaleCarShow carShow;
 	private List<Sale> listOfSales;
@@ -63,6 +68,7 @@ public class SaleManagedBean implements Serializable {
 	private List<BrandCar> listOfBrand;
 	private Integer selectedBrand;
 	private List<SaleCarShow> listOfCarWhereBrandSelected;
+	private List<Stock> listFromStock;
 
 	@PostConstruct
 	public void init() {
@@ -75,19 +81,20 @@ public class SaleManagedBean implements Serializable {
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
+		listFromStock = repositoryStock.listAllRecords();
 	}
 
 	public void save() {
 		sale.getCar().changeAvailability();
 		changeCarShowToCarAndSetCarInSale();
 		service.save(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salva com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Sale sale) {
 		service.delete(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de venda de carro salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro excluido com sucesso");
 	}
 
 	public void clean() {
@@ -181,5 +188,11 @@ public class SaleManagedBean implements Serializable {
 		this.carShow = carShow;
 	}
 	
-	
+	public List<Stock> getListFromStock() {
+		return listFromStock;
+	}
+
+	public void setListFromStock(List<Stock> listFromStock) {
+		this.listFromStock = listFromStock;
+	}	
 }

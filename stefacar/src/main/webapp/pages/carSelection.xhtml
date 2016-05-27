@@ -8,6 +8,7 @@
 	resizable="false" header="Selecione o Carro" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
+<<<<<<< HEAD
 
 		<h:form id="selectionCarSaleForm">
 				<p:outputLabel for="comboBrand" value="Seleciona a marca da pesquisa:" />
@@ -20,6 +21,38 @@
 						itemLabel="#{brand.name}" itemValue="#{brand.id}" />
 					<p:ajax event="change" process="@this" update="tableCars" />					
 				</p:selectOneMenu>
+=======
+	
+	
+		<p:dataTable selection="#{stockManagedBean.stock.car}"
+			rowKey="#{car.id}" id="tableCars" var="car"
+			value="#{carManagedBean.listAllCars}"
+			emptyMessage="Não existem carros cadastrados"
+			style="padding-top:20px;">
+
+			<f:facet name="header" />
+			<p:column selectionMode="single"
+				style="width:16px;text-align:center" />
+
+			<p:column headerText="Id">
+				<h:outputText value="#{car.id}" />
+			</p:column>
+			<p:column headerText="Marca">
+				<h:outputText value="#{car.model.brand.name}" />
+			</p:column>
+			<p:column headerText="Modelo">
+				<h:outputText value="#{car.model.name}" />
+			</p:column>			
+			<p:column headerText="Ano do carro">
+				<h:outputText value="#{car.model.year}" />
+			</p:column>
+			<p:column headerText="Preço">
+				<h:outputText value="#{car.price}" />
+			</p:column>
+			<p:column headerText="Cor">
+				<h:outputText value="#{car.color}" />
+			</p:column>
+>>>>>>> 09f4899c3aafba46d45ebeed56b7594fa44a200b
 			
 			<p:dataTable selection="#{saleManagedBean.carShow}"
 				rowKey="#{car.price}" id="tableCars" var="car"
@@ -58,7 +91,16 @@
 				</f:facet>
 			</p:dataTable>
 
+<<<<<<< HEAD
 		</h:form>
+=======
+			<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogCar').close" update="stockForm"
+					icon="ui-icon-search" process="tableCars" />
+			</f:facet>
+		</p:dataTable>
+>>>>>>> 09f4899c3aafba46d45ebeed56b7594fa44a200b
 
 	</div>
 
