@@ -9,7 +9,7 @@
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
+			<p:outputLabel style="font-size: 30px;" value="Lista de fornecedores" />
 			<p:dataTable id="outfitterTable" var="outfitter"
 				value="#{outfitterManagedBean.dataList}"
 				emptyMessage="Não existem fornecedores cadastrados"
