@@ -12,29 +12,34 @@
 
 			
 
-			<p:dataTable id="modelCarTable" var="modelCar"
+			<p:dataTable id="modelCarTable" var="model"
 				value="#{modelCarManagedBean.dataList}"
 				emptyMessage="Não existem Modelos Cadastrados"
 				style="padding-top:20px;">
 
 
+<<<<<<< HEAD
 				<p:column headerText="Modelo">
 					<h:outputText value="#{modelCar.name}" />
+=======
+				<p:column headerText="Nome do Modelo">
+					<h:outputText value="#{model.name}" />
+>>>>>>> 09f4899c3aafba46d45ebeed56b7594fa44a200b
 				</p:column>
 				<p:column headerText="Categoria">
-					<h:outputText value="#{modelCar.type}" />
+					<h:outputText value="#{model.type}" />
 				</p:column>
 				<p:column headerText="Versão">
-					<h:outputText value="#{modelCar.version}" />
+					<h:outputText value="#{model.version}" />
 				</p:column>
 				<p:column headerText="Ano">
-					<h:outputText value="#{modelCar.year}" />
+					<h:outputText value="#{model.year}" />
 				</p:column>
 				<p:column headerText="Cilindrada">
-					<h:outputText value="#{modelCar.cid}" />
+					<h:outputText value="#{model.cid}" />
 				</p:column>
 				<p:column headerText="Marca">
-					<h:outputText value="#{modelCar.brandCar.name}" />
+					<h:outputText value="#{model.brand.name}" />
 				</p:column>
 				
 
@@ -42,7 +47,7 @@
 				<p:column headerText="Ações" style="text-align: center">
 				
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar o Modelo"
-						action="#{modelCarManagedBean.delete(modelCar)}">
+						action="#{modelCarManagedBean.delete(model)}">
 						<p:confirm header="Confirmação" message="Deseja deletar o Modelo?"
 							icon="ui-icon-alert" />
 					</p:commandButton>

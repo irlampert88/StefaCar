@@ -10,9 +10,9 @@
 	<div style="height: 200px; width: 550px; overflow: auto;">
 	
 	
-		<p:dataTable selection="#{stockManagedBean.stock.car}"
-			rowKey="#{car.id}" id="tableCars" var="car"
-			value="#{carManagedBean.listAllCars}"
+		<p:dataTable selection="#{saleManagedBean.sale.car}"
+			rowKey="#{stock.car.id}" id="tableCars" var="stock"
+			value="#{stockManagedBean.listAllCarsFromStock}"
 			emptyMessage="Não existem carros cadastrados"
 			style="padding-top:20px;">
 
@@ -21,28 +21,30 @@
 				style="width:16px;text-align:center" />
 
 			<p:column headerText="Id">
-				<h:outputText value="#{car.id}" />
+				<h:outputText value="#{stock.car.id}" />
 			</p:column>
 			<p:column headerText="Marca">
-				<h:outputText value="#{car.model.brand.name}" />
+				<h:outputText value="#{stock.car.model.brand.name}" />
 			</p:column>
 			<p:column headerText="Modelo">
-				<h:outputText value="#{car.model.name}" />
+				<h:outputText value="#{stock.car.model.name}" />
 			</p:column>			
 			<p:column headerText="Ano do carro">
-				<h:outputText value="#{car.model.year}" />
+				<h:outputText value="#{stock.car.model.year}" />
 			</p:column>
 			<p:column headerText="Preço">
-				<h:outputText value="#{car.price}" />
+				<h:outputText value="#{stock.car.price}" />
 			</p:column>
 			<p:column headerText="Cor">
-				<h:outputText value="#{car.color}" />
+				<h:outputText value="#{stock.car.carColor}" />
 			</p:column>
-			
+			<p:column headerText="Quantidade">
+				<h:outputText value="#{stock.quantity}" />
+			</p:column>
 
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
-					oncomplete="PF('dialogCar').close" update="stockForm"
+					oncomplete="PF('dialogCar').close" update="saleForm"
 					icon="ui-icon-search" process="tableCars" />
 			</f:facet>
 		</p:dataTable>
