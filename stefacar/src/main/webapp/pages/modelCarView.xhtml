@@ -10,7 +10,7 @@
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
 
-			
+
 
 			<p:dataTable id="modelCarTable" var="model"
 				value="#{modelCarManagedBean.dataList}"
@@ -18,13 +18,10 @@
 				style="padding-top:20px;">
 
 
-<<<<<<< HEAD
+
 				<p:column headerText="Modelo">
 					<h:outputText value="#{modelCar.name}" />
-=======
-				<p:column headerText="Nome do Modelo">
-					<h:outputText value="#{model.name}" />
->>>>>>> 09f4899c3aafba46d45ebeed56b7594fa44a200b
+
 				</p:column>
 				<p:column headerText="Categoria">
 					<h:outputText value="#{model.type}" />
@@ -41,11 +38,11 @@
 				<p:column headerText="Marca">
 					<h:outputText value="#{model.brand.name}" />
 				</p:column>
-				
+
 
 
 				<p:column headerText="Ações" style="text-align: center">
-				
+
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar o Modelo"
 						action="#{modelCarManagedBean.delete(model)}">
 						<p:confirm header="Confirmação" message="Deseja deletar o Modelo?"
