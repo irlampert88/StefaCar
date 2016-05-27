@@ -9,6 +9,7 @@
 <h:body>
 	<ui:decorate template="../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;" value="Lista de vendas" />
 			<p:dataTable id="saleTable" var="sale"
 				value="#{saleManagedBean.listOfSales}"
 				emptyMessage="Não existem vendas cadastrados"
@@ -22,7 +23,7 @@
 				<p:column headerText="Carro">
 					<h:outputText value="#{sale.car.id}" />
 				</p:column>
-				<p:column headerText="Ações" style="text-align: center">					
+				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
 						update="saleTable " action="#{saleManagedBean.delete(sale)}">
 						<p:confirm header="Confirmação" message="Deseja deletar a venda?"
