@@ -13,7 +13,7 @@ public class Sale {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idSale;
+	private Integer id;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Client client;
@@ -43,11 +43,11 @@ public class Sale {
 	public void setCar(Car car) {
 		this.car = car;
 	}
-	public Integer getIdSale() {
-		return idSale;
+	public Integer getId() {
+		return id;
 	}
-	public void setIdSale(Integer idSale) {
-		this.idSale = idSale;
+	public void setId(Integer idSale) {
+		this.id = idSale;
 	}
 	@Override
 	public int hashCode() {
@@ -56,7 +56,7 @@ public class Sale {
 		result = prime * result + ((car == null) ? 0 : car.hashCode());
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
-		result = prime * result + ((idSale == null) ? 0 : idSale.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 	@Override
@@ -83,10 +83,10 @@ public class Sale {
 				return false;
 		} else if (!employee.equals(other.employee))
 			return false;
-		if (idSale == null) {
-			if (other.idSale != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idSale.equals(other.idSale))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}	
