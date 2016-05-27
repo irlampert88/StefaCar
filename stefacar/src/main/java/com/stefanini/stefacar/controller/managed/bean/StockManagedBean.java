@@ -41,14 +41,14 @@ public class StockManagedBean {
 	public void save() {
 		getStock();
 		service.save(getStock());
-		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro salvo com sucesso!");
+		SystemMesenger.notificaInformacao("Parabens!", "Cadastro salvo com sucesso!");
 		loadAllCarsFromDataBase();		
 		clean();
 	}
 
 	public void delete(Stock Stock) {
 		service.delete(Stock);
-		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro excluido com sucesso!");
+		SystemMesenger.notificaInformacao("Parabens!", "Cadastro excluido com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}

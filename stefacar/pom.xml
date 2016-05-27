@@ -20,18 +20,24 @@
 		</dependency>
 
 		<dependency>
+			<groupId>net.bootsfaces</groupId>
+			<artifactId>bootsfaces</artifactId>
+			<version>0.8.5</version>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
-		
+
 		<dependency>
-		  	<groupId>org.mockito</groupId>
-		  	<artifactId>mockito-all</artifactId>
-		  	<version>1.10.19</version>
-		  	<scope>test</scope>
-  		</dependency>
-  
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

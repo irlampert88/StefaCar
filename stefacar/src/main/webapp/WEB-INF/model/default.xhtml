@@ -3,140 +3,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Stefa Car</title>
 	<style type="text/css">
-body {
-	background-color: #BAC1D3;
-	font-size: 15px
-}
 </style>
-<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="js" name="bootstrap.js" />
+	<h:outputStylesheet library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="js" name="default.js" />
 
 </h:head>
 
-<h:body>
-	
-	<div align="center" class="ui-grid ui-grid-responsive">
-		<p:layout style="min-height:710px; background-color: #BAC1D3;">
-			<p:layoutUnit position="north" size="100">
-				<h:graphicImage url="/resources/imagens/stefanini.png" width="240px" />
-			</p:layoutUnit>
 
-			<p:layoutUnit position="west" size="220" style="">
-				<ui:insert name="menu">
+<h:body style="font-size: 15px;">
 
-					<h:form>
-						<p:panelMenu style="width:200px">
-							<p:submenu label="Menu Cadastro">
-								<p:menuitem value="Cliente" icon="fa fa-arrow-right"
-									url="/pages/clientRegister.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Funcionário" icon="fa fa-arrow-right"
-									url="/pages/employeeRegister.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Carro" icon="fa fa-arrow-right"
-									url="/pages/carRegister.xhtml" />
-	
-								<p:separator />
-								
-								<p:menuitem value="Fabricante" icon="fa fa-arrow-right"
-									url="/pages/manufacturerRegister.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Fornecedor" icon="fa fa-arrow-right"
-									url="/pages/outfitterRegister.xhtml" />
-										
-								<p:separator />
-								
-								<p:menuitem value="Estoque" icon="fa fa-arrow-right"
-									url="/pages/stockRegister.xhtml" />
-	
-								<p:separator />
-								
-								<p:menuitem value="Venda de Carro" icon="fa fa-arrow-right"
-									url="/pages/saleRegister.xhtml" />
-	
-								<p:separator />
-								
-								<p:menuitem value="Marca do Carro" icon="fa fa-arrow-right"
-									url="/pages/brandCarRegister.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Modelo do  Carro" icon="fa fa-arrow-right"
-									url="/pages/modelCarRegister.xhtml" />
+	<p:layoutUnit position="top" height="50" >
+		<ui:insert name="header" >
+			<ui:include src="header.xhtml" />
+		</ui:insert>
+	</p:layoutUnit>
 
 
+	<p:layoutUnit position="left" width="180">
+		<ui:insert name="sidebar" >
+			<ui:include src="sidebar.xhtml" />
+		</ui:insert>
+	</p:layoutUnit>
 
-							</p:submenu>
-							<p:submenu label="Menu Visualização">
-								<p:menuitem value="Cliente" icon="fa fa-arrows"
-									url="/pages/clientView.xhtml" />
-								<p:menuitem value="Funcionario" icon="fa fa-arrows"
-									url="/pages/employeeView.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Carros" icon="fa fa-arrows"
-									url="/pages/carView.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Estoque" icon="fa fa-arrows"
-									url="/pages/stockView.xhtml" />
-									
-								<p:separator />
-								<p:menuitem value="Vendas" icon="fa fa-arrows"
-									url="/pages/saleView.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Marcas" icon="fa fa-arrows"
-									url="/pages/brandCarView.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Modelos" icon="fa fa-arrows"
-									url="/pages/modelCarView.xhtml" />
-									
-								<p:separator />
-								
-									
-									<p:menuitem value="Fabricante" icon="fa fa-arrows"
-									url="/pages/manufacturerView.xhtml" />
-									
-								<p:separator />
-								
-								<p:menuitem value="Fornecedor" icon="fa fa-arrows"
-									url="/pages/outfitterView.xhtml" />
-							</p:submenu>
-
-						</p:panelMenu>
-
-					</h:form>
-				</ui:insert>
-			</p:layoutUnit>
-			<p:layoutUnit position="center">
-				<ui:insert name="center">
+	<p:layoutUnit position="center" style="padding-left:250px; padding-top:80px; font-size:17px;">
+		<ui:insert name="center">
                         O que estiver aqui será substituido!
-                    </ui:insert>
-			</p:layoutUnit>
-		</p:layout>
-	</div>
-	
-	<div position="absolute">
-	<p align="center">
-	 Versão de Teste. Copyright 2016. Todos os Direitos reservados a equipe de desenvolvimento</p>
-	</div>
+                </ui:insert>
+	</p:layoutUnit>
+
+
+	<p:layoutUnit position="south" style=" padding-top:500px;">
+		<ui:insert name="footer">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</p:layoutUnit>
+
+
+
 </h:body>
 </html>
