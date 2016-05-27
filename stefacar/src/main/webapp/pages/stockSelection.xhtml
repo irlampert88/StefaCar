@@ -10,7 +10,7 @@
 	<div style="height: 200px; width: 550px; overflow: auto;">
 	
 	
-		<p:dataTable selection="#{saleManagedBean.sale.car}"
+		<p:dataTable selection="#{saleManagedBean.sale.stock}"
 			rowKey="#{stock.car.id}" id="tableCars" var="stock"
 			value="#{stockManagedBean.listAllCarsFromStock}"
 			emptyMessage="Não existem carros cadastrados"
@@ -36,7 +36,7 @@
 				<h:outputText value="#{stock.car.price}" />
 			</p:column>
 			<p:column headerText="Cor">
-				<h:outputText value="#{stock.car.carColor}" />
+				<h:outputText value="#{stock.car.color}" />
 			</p:column>
 			<p:column headerText="Quantidade">
 				<h:outputText value="#{stock.quantity}" />

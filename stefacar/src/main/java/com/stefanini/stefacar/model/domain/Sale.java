@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity 
 public class Sale {
@@ -20,9 +21,9 @@ public class Sale {
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idFuncionário", nullable = false)
 	private Employee employee;
-	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idCarro", nullable = false)
-	private Car car;
+	@OneToOne
+	@JoinColumn(name = "idStock", nullable = false)
+	private Stock stock;
 	
 	
 	public Client getClient() {
@@ -37,26 +38,26 @@ public class Sale {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	public Car getCar() {
-		return car;
-	}
-	public void setCar(Car car) {
-		this.car = car;
-	}
 	public Integer getIdSale() {
 		return idSale;
 	}
 	public void setIdSale(Integer idSale) {
 		this.idSale = idSale;
 	}
+	public Stock getStock() {
+		return stock;
+	}
+	public void setStock(Stock stock) {
+		this.stock = stock;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((car == null) ? 0 : car.hashCode());
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
 		result = prime * result + ((idSale == null) ? 0 : idSale.hashCode());
+		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
 		return result;
 	}
 	@Override
@@ -68,11 +69,6 @@ public class Sale {
 		if (getClass() != obj.getClass())
 			return false;
 		Sale other = (Sale) obj;
-		if (car == null) {
-			if (other.car != null)
-				return false;
-		} else if (!car.equals(other.car))
-			return false;
 		if (client == null) {
 			if (other.client != null)
 				return false;
@@ -88,6 +84,16 @@ public class Sale {
 				return false;
 		} else if (!idSale.equals(other.idSale))
 			return false;
+		if (stock == null) {
+			if (other.stock != null)
+				return false;
+		} else if (!stock.equals(other.stock))
+			return false;
 		return true;
-	}	
+	}
+	@Override
+	public String toString() {
+		return "Sale [idSale=" + idSale + ", client=" + client + ", employee=" + employee + ", stock=" + stock + "]";
+	}
+	
 }

@@ -9,12 +9,10 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.converter.MessengerSystem;
-import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.domain.Stock;
-import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
@@ -36,9 +34,6 @@ public class SaleManagedBean implements Serializable {
 	private EmployeeRepositoryImpl repositoryEmployee;
 
 	@Inject
-	private CarRepositoryImpl repositoryCar;
-
-	@Inject
 	private ClientRepositoryImpl repositoryClient;
 	
 	@Inject
@@ -47,7 +42,6 @@ public class SaleManagedBean implements Serializable {
 	private Sale sale;
 	private List<Sale> listOfSales;
 	private List<Employee> listOfEmployee;
-	private List<Car> listOfCar;
 	private List<Client> listOfClient;
 	private List<Stock> listFromStock;
 
@@ -56,19 +50,11 @@ public class SaleManagedBean implements Serializable {
 		sale = new Sale();
 		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
-		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
 		listFromStock = repositoryStock.listAllRecords();
-
-		// listOfSales = new ArrayList<>();
-		// listOfEmployee = new ArrayList<>();
-		// listOfCar = new ArrayList<>();
-		// listOfClient = new ArrayList<>();
 	}
 
 	public void save() {
-		sale.getCar().changeAvailability();
-//		sale.getCar().setAvaliable(false);
 		service.save(sale);
 		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro salvo com sucesso");
 		clean();
@@ -83,7 +69,6 @@ public class SaleManagedBean implements Serializable {
 		sale = new Sale();
 	}
 
-	// --[GETTES AND SETTERS]
 	public Sale getSale() {
 		return sale;
 	}
@@ -106,14 +91,6 @@ public class SaleManagedBean implements Serializable {
 
 	public void setListOfEmployee(List<Employee> listOfEmployee) {
 		this.listOfEmployee = listOfEmployee;
-	}
-
-	public List<Car> getListOfCar() {
-		return listOfCar;
-	}
-
-	public void setListOfCar(List<Car> listOfCar) {
-		this.listOfCar = listOfCar;
 	}
 
 	public List<Client> getListOfClient() {
