@@ -31,13 +31,13 @@ public class ManufacturerManagedBean {
 
 	public void save() {
 		service.save(getManufacturer());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Fabricante salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Manufacturer manufacturer) {
 		service.delete(manufacturer);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Client excluido com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Fabricante excluido com sucesso!");
 	}
 
 	public void setList(List<Manufacturer> dataList) {

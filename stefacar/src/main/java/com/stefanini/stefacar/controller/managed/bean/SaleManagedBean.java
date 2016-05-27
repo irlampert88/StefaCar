@@ -13,13 +13,14 @@ import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.Sale;
+import com.stefanini.stefacar.model.domain.Stock;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
+import com.stefanini.stefacar.model.repository.impl.StockRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
-//@SessionScoped não consegui usar o Session não subia o servidor
 @ManagedBean
 @ViewScoped
 public class SaleManagedBean implements Serializable {
@@ -39,12 +40,16 @@ public class SaleManagedBean implements Serializable {
 
 	@Inject
 	private ClientRepositoryImpl repositoryClient;
+	
+	@Inject
+	private StockRepositoryImpl repositoryStock;
 
 	private Sale sale;
 	private List<Sale> listOfSales;
 	private List<Employee> listOfEmployee;
 	private List<Car> listOfCar;
 	private List<Client> listOfClient;
+	private List<Stock> listFromStock;
 
 	@PostConstruct
 	public void init() {
@@ -53,6 +58,7 @@ public class SaleManagedBean implements Serializable {
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
+		listFromStock = repositoryStock.listAllRecords();
 
 		// listOfSales = new ArrayList<>();
 		// listOfEmployee = new ArrayList<>();
@@ -117,4 +123,13 @@ public class SaleManagedBean implements Serializable {
 	public void setListOfClient(List<Client> listOfClient) {
 		this.listOfClient = listOfClient;
 	}
+
+	public List<Stock> getListFromStock() {
+		return listFromStock;
+	}
+
+	public void setListFromStock(List<Stock> listFromStock) {
+		this.listFromStock = listFromStock;
+	}
+	
 }

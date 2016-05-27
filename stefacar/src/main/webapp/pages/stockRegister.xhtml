@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastrar Estoque</title>
+</h:head>
+<h:body>
+	<ui:decorate template="../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
+
+			<h:form id="stockForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+				<p:panelGrid columns="3">
+					<p:outputLabel for="btnModalStock" value="Seleção do Carro: " />
+					<p:commandButton value="Selecionar Carro" id="btnModalStock"
+						oncomplete="PF('dialogCar').show();" />
+						<p:panelGrid columns="5" for="btnModalStock">
+							<p:outputLabel value="#{stockManagedBean.stock.car.model.brand.name}"/>
+							<p:outputLabel value="#{stockManagedBean.stock.car.model.name}"/>	
+							<p:outputLabel value="#{stockManagedBean.stock.car.model.version}"/>
+							<p:outputLabel value="#{stockManagedBean.stock.car.model.year}"/>
+							<p:inputText id="quantity" requiredMessage="Campo obrigatório"
+								required="true" value="#{stockManagedBean.stock.quantity}" placeholder="quantidade"/>
+						</p:panelGrid>		
+				</p:panelGrid>
+				<ui:include src="carSelection.xhtml" />
+
+				
+
+				<p:commandButton value="Salvar" process="@form" update="@form"
+					action="#{stockManagedBean.save}" icon="fa fa-fw fa-save" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{stockManagedBean.clean}" icon="fa fa-fw fa-eraser" /> 
+			</h:form>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+</html>

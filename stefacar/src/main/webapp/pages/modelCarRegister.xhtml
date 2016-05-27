@@ -18,24 +18,24 @@
 
 						<p:panelGrid columns="3">
 
-							<p:outputLabel for="name" value="Nome da Modelo" />
+							<p:outputLabel for="name" value="Modelo" />
 							<p:inputText id="name" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.name}" placeholder="nome" />
+								required="true" value="#{modelCarManagedBean.model.name}" placeholder="nome" />
 							<p:message for="name" />
 
 							<p:outputLabel for="version" value="Versão:" />
 							<p:inputText id="version" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.version}" placeholder="versão"/>
+								required="true" value="#{modelCarManagedBean.model.version}" placeholder="versão"/>
 							<p:message for="version" />
 
 							<p:outputLabel for="year" value="Ano do Modelo" />
 							<p:inputText id="year" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.year}" placeholder="ano"/>
+								required="true" value="#{modelCarManagedBean.model.year}" placeholder="ano"/>
 							<p:message for="year" />
 
 							<p:outputLabel for="cid" value="Cilindrada:" />
 							<p:inputText id="cid" requiredMessage="Campo obrigatório"
-								required="true" value="#{modelCarManagedBean.modelCar.cid}" placeholder="cilindradas"/>
+								required="true" value="#{modelCarManagedBean.model.cid}" placeholder="cilindradas"/>
 							<p:message for="cid" />
 
 							
@@ -43,12 +43,12 @@
 							
 							<p:selectOneMenu id="brandCarSelect"
 								converter="converterCombobox"
-								value="#{modelCarManagedBean.modelCar.brandCar}"
+								value="#{modelCarManagedBean.model.brand}"
 								requiredMessage="Campo obrigatório">
 								<f:selectItem itemLabel="selecione uma Marca" itemValue="" />
 								<f:selectItems value="#{brandCarManagedBean.dataList}"
-									var="brandCar" itemLabel="#{brandCar.name}"
-									itemValue="#{brandCar}" />
+									var="brand" itemLabel="#{brand.name}"
+									itemValue="#{brand}" />
 							</p:selectOneMenu>
 							<p:message for="brandCarSelect" />
 							
@@ -56,7 +56,7 @@
 							
 							<p:selectOneMenu id="id" converter="comboBoxConverter"
 							requiredMessage="Campo obrigatório" required="true"
-							value="#{modelCarManagedBean.modelCar.type}" effect="fold">
+							value="#{modelCarManagedBean.model.type}" effect="fold">
 							<f:selectItem itemLabel="Selecione uma Categoria" itemValue="" />
 							<f:selectItems value="#{modelCarManagedBean.categoryType}"
 								var="categoryType" itemLabel="#{categoryType.label}"
