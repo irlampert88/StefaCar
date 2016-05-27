@@ -15,7 +15,7 @@ public class SaleServiceImpl {
 	
 	@Transactional
 	public void save(Sale sale){
-		if (sale.getIdSale() == null) {
+		if (sale.getId() == null) {
 			repository.insert(sale);
 		} else {
 			repository.update(sale);

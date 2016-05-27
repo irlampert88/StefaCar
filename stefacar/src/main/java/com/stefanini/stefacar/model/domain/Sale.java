@@ -7,22 +7,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity 
 public class Sale {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idSale;
+	private Integer id;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Client client;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idFuncionário", nullable = false)
 	private Employee employee;
-	@ManyToOne(cascade = CascadeType.REFRESH)
+	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idCarro", nullable = false)
-	private Car car;
+	private Stock stock;
 	
 	
 	public Client getClient() {
@@ -37,26 +38,26 @@ public class Sale {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	public Car getCar() {
-		return car;
+	public Stock getStock() {
+		return stock;
 	}
-	public void setCar(Car car) {
-		this.car = car;
+	public void setStock(Stock car) {
+		this.stock = car;
 	}
-	public Integer getIdSale() {
-		return idSale;
+	public Integer getId() {
+		return id;
 	}
-	public void setIdSale(Integer idSale) {
-		this.idSale = idSale;
+	public void setId(Integer idSale) {
+		this.id = idSale;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((car == null) ? 0 : car.hashCode());
+		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
-		result = prime * result + ((idSale == null) ? 0 : idSale.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 	@Override
@@ -68,10 +69,10 @@ public class Sale {
 		if (getClass() != obj.getClass())
 			return false;
 		Sale other = (Sale) obj;
-		if (car == null) {
-			if (other.car != null)
+		if (stock == null) {
+			if (other.stock != null)
 				return false;
-		} else if (!car.equals(other.car))
+		} else if (!stock.equals(other.stock))
 			return false;
 		if (client == null) {
 			if (other.client != null)
@@ -83,10 +84,10 @@ public class Sale {
 				return false;
 		} else if (!employee.equals(other.employee))
 			return false;
-		if (idSale == null) {
-			if (other.idSale != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idSale.equals(other.idSale))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}	

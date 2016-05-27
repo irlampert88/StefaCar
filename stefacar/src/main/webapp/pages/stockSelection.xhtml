@@ -8,47 +8,53 @@
 	resizable="false" header="Selecione o Carro" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-	
-	
-		<p:dataTable selection="#{saleManagedBean.sale.car}"
-			rowKey="#{stock.car.id}" id="tableCars" var="stock"
-			value="#{stockManagedBean.listAllCarsFromStock}"
-			emptyMessage="Não existem carros cadastrados"
-			style="padding-top:20px;">
+		<h:form id="selectionCarSaleForm">
+				<p:outputLabel for="comboBrand" value="Seleciona a marca da pesquisa:" />
+				
+				<p:selectOneMenu id="comboBrand" converter="converterCombobox"
+					value="#{saleManagedBean.selectedBrand}"
+					valueChangeListener="#{saleManagedBean.deliveryCarByBrand}">
+					<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					
+					<f:selectItems value="#{saleManagedBean.listOfBrand}" var="brand"
+						itemLabel="#{brand.name}" itemValue="#{brand.id}" />
+					<p:ajax event="change" process="@this" update="tableStockCars" />					
+				</p:selectOneMenu>
+			
+			<p:dataTable selection="#{saleManagedBean.carShow}"
+				rowKey="#{car.price}" id="tableStockCars" var="car"
+				value="#{saleManagedBean.listOfCarWhereBrandSelected}"
+				emptyMessage="Não existem carros no estoque com a marca selecionada"
+				style="padding-top:20px;">
 
-			<f:facet name="header" />
-			<p:column selectionMode="single"
-				style="width:16px;text-align:center" />
+				<f:facet name="header" />
+				<p:column selectionMode="single"
+					style="width:16px;text-align:center" />
 
-			<p:column headerText="Id">
-				<h:outputText value="#{stock.car.id}" />
-			</p:column>
-			<p:column headerText="Marca">
-				<h:outputText value="#{stock.car.model.brand.name}" />
-			</p:column>
-			<p:column headerText="Modelo">
-				<h:outputText value="#{stock.car.model.name}" />
-			</p:column>			
-			<p:column headerText="Ano do carro">
-				<h:outputText value="#{stock.car.model.year}" />
-			</p:column>
-			<p:column headerText="Preço">
-				<h:outputText value="#{stock.car.price}" />
-			</p:column>
-			<p:column headerText="Cor">
-				<h:outputText value="#{stock.car.carColor}" />
-			</p:column>
-			<p:column headerText="Quantidade">
-				<h:outputText value="#{stock.quantity}" />
-			</p:column>
+				<p:column headerText="Categoria">
+					<h:outputText value="#{car.type}" />
+				</p:column>
+				<p:column headerText="Model">
+					<h:outputText value="#{car.model}" />
+				</p:column>
+				<p:column headerText="Versão">
+					<h:outputText value="#{car.version}" />
+				</p:column>
+				<p:column headerText="Cor">
+					<h:outputText value="#{car.color}" />
+				</p:column>
+				<p:column headerText="Ano">
+					<h:outputText value="#{car.year}" />
+				</p:column>
+				<p:column headerText="Valor">
+					<h:outputText value="#{car.price}" />
+				</p:column>
 
-			<f:facet name="footer">
-				<p:commandButton value="Selecionar"
-					oncomplete="PF('dialogCar').close" update="saleForm"
-					icon="ui-icon-search" process="tableCars" />
-			</f:facet>
-		</p:dataTable>
-
+				<f:facet name="footer">
+					<p:commandButton value="Selecionar"
+						oncomplete="PF('dialogCar').close" update="saleForm"
+						icon="ui-icon-search" process="tableStockCars" />
+				</f:facet>
+			</p:dataTable>
+		</h:form>
 	</div>
-
 </p:dialog>
