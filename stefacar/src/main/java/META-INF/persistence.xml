@@ -17,14 +17,13 @@
 		<class>com.stefanini.stefacar.model.domain.Employee</class>
 		<class>com.stefanini.stefacar.model.domain.Sale</class>		
 		<class>com.stefanini.stefacar.model.domain.Manufacturer</class>
-		<class>com.stefanini.stefacar.model.domain.Outfitter</class>
-		<class>com.stefanini.stefacar.model.domain.Stock</class>
+		<class>com.stefanini.stefacar.model.domain.Outfitter</class>		
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 
 		</properties>
 	</persistence-unit>

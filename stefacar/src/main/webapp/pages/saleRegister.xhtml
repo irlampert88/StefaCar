@@ -19,33 +19,36 @@
 
 				<p:panelGrid columns="3">
 
-					<p:outputLabel for="btnModalEmployee" value="Seleção de Funcionário: " />
-					<p:commandButton value="Selecionar Funcionário" id="btnModalEmployee"
-						oncomplete="PF('dialogEmployee').show();" />
-					<p:outputLabel for="btnModalEmployee" value="#{saleManagedBean.sale.employee.registration}"/>					
-					
+					<p:outputLabel for="btnModalEmployee"
+						value="Seleção de Funcionário: " />
+					<p:commandButton value="Selecionar Funcionário"
+						id="btnModalEmployee" oncomplete="PF('dialogEmployee').show();" />
+					<p:outputLabel for="btnModalEmployee"
+						value="#{saleManagedBean.sale.employee.registration}" />
+
 					<p:outputLabel for="btnModalClient" value="Seleção de Cliente: " />
 					<p:commandButton value="Selecionar Cliente" id="btnModalClient"
 						oncomplete="PF('dialogClient').show();" />
-					<p:outputLabel for="btnModalClient" value="#{saleManagedBean.sale.client.cpf}"/>									
-				
+					<p:outputLabel for="btnModalClient"
+						value="#{saleManagedBean.sale.client.cpf}" />
+
 					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
 					<p:commandButton value="Selecionar Carro" id="btnModalCar"
 						oncomplete="PF('dialogCar').show();" />
-					<p:outputLabel for="btnModalCar" value="#{saleManagedBean.sale.stock.car.model}"/>	
-										
+					<p:outputLabel for="btnModalCar"
+						value="#{saleManagedBean.carShow.model}" />
+						
+					<ui:include src="clientSelection.xhtml" />
+					<ui:include src="employeeSelection.xhtml" />
+					<ui:include src="stockSelection.xhtml" />
 				</p:panelGrid>
-				
-				<ui:include src="stockSelection.xhtml" />
-				<ui:include src="clientSelection.xhtml" />	
-				<ui:include src="employeeSelection.xhtml" />
 
 				
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" /> 
+					action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
 			</h:form>
 		</ui:define>
 	</ui:decorate>
