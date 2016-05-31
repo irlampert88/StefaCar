@@ -17,7 +17,7 @@ public class Car {
 	@Column(name = "idCar")
 	private Integer id;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idCarModel")
+	@JoinColumn(name = "idModel")
 	private ModelCar model;
 	@Column(nullable = false)
 	private Double price;

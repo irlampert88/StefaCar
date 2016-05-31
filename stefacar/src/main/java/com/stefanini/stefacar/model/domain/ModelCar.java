@@ -28,7 +28,7 @@ public class ModelCar {
 	@Column(nullable=false)
 	private String cid;
 	@ManyToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="idBrandCar")
+	@JoinColumn(name="idBrand")
 	private BrandCar brand;
 	@Enumerated(EnumType.STRING)
 	private CategoryType type;

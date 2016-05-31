@@ -18,7 +18,7 @@ public class Stock{
 	@Column(nullable=false)
 	private Integer quantity;
 	@OneToOne
-	@JoinColumn(name = "idCar", nullable = false)
+	@JoinColumn(name = "idModel", nullable = false)
 	private Car car;
 	
 	
