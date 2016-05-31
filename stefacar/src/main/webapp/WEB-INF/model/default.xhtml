@@ -12,6 +12,7 @@
 	<style type="text/css">
 </style>
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="style.css" />
 	<h:outputStylesheet library="js" name="bootstrap.js" />
 	<h:outputStylesheet library="js" name="bootstrap.min.js" />
 	<h:outputStylesheet library="js" name="default.js" />
@@ -19,7 +20,7 @@
 </h:head>
 
 
-<h:body style="font-size: 160% !important; height:100%;">
+<!-- <h:body style="font-size: 160% !important; height:100%;">
 
 	<p:layoutUnit position="top" height="10%" >
 		<ui:insert name="header" >
@@ -45,9 +46,73 @@
 		<ui:insert name="footer">
 			<ui:include src="footer.xhtml" />
 		</ui:insert>
-	</p:layoutUnit>
+	</p:layoutUnit> -->
 
 
+<h:body >
+
+	<div class="ct-top">
+			<div class="container--topmenu ">
+				<div class="cabecalho">
+					<a href="#">
+						<h:graphicImage styleClass="img-logo" value="/resources/imagens/logo.jpg" /> 
+					</a>
+					<div class="calendario-data">
+						<h:graphicImage value="/resources/imagens/calendar.png"
+							styleClass="date-time-icon" />
+						<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
+					</div>
+					<div class="relogio-hora">
+						<h:graphicImage value="/resources/imagens/clock.png"
+							styleClass="date-time-icon" />
+						<p:clock id="horario" pattern="HH:mm:ss" mode="server" />
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+	<b:container>
+		<b:row>
+			<b:column col-md="6">
+			
+				<p:layoutUnit position="center"
+					style="padding-left:16%; padding-top:6%;">
+					<ui:insert name="center">
+                        O que estiver aqui será substituido!
+                </ui:insert>
+				</p:layoutUnit>
+				
+			</b:column>
+			<b:column col-md="3">
+			
+				<h2>Heading</h2>
+				
+				<p>
+					<b:button outcome="" value="View details »" />
+				</p>
+			</b:column>
+			<b:column col-md="3">
+			
+				<h2>Heading</h2>
+				
+				<p>
+					<b:button outcome="" value="View details »" />
+				</p>
+				
+			</b:column>
+		</b:row>
+
+
+		<hr />
+		<footer>
+		<p>© Company 2014</p>
+		</footer>
+	</b:container>
 
 </h:body>
+
+
+
+
 </html>
