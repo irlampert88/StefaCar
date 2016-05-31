@@ -28,19 +28,12 @@
 						placeholder="cor" />
 					<p:message for="color" />
 
-					<p:outputLabel for="modelCarSelect" value="Modelo do Carro:" />
-
-					<p:selectOneMenu id="modelCarSelect" converter="converterCombobox"
-						value="#{carManagedBean.car.model}"
-						requiredMessage="Campo obrigatório">
-						<f:selectItem itemLabel="selecione um Modelo" itemValue="" />
-						<f:selectItems value="#{modelCarManagedBean.dataList}"
-							var="modelCar" itemLabel="#{modelCar.name}"
-							itemValue="#{modelCar}" />
-					</p:selectOneMenu>
-					<p:message for="modelCarSelect" />
+					<p:outputLabel for="btnModalModel" value="Seleção de Modelo: " />
+					<p:commandButton value="Selecionar Modelo" id="btnModalModel"
+						oncomplete="PF('dialogModel').show();" />
 
 				</p:panelGrid>
+				<ui:include src="popups/popup-selectModel.xhtml" />
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{carManagedBean.save()}" icon="fa fa-fw fa-save" />
