@@ -234,8 +234,14 @@ html, body {
 
 .img-logo {
 	float: left;
-	margin-top: 30px;
-	width: 35%;
+	margin-top: 3%;
+	width: 15%;
+}
+
+.img-car {
+	float: left;
+	margin-top: 1%;
+	width: 15%;
 }
 
 .img-sistema {

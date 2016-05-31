@@ -16,10 +16,3 @@
 }
 
 
-.gradiente {
-background: #7dce21;
-background: -moz-linear-gradient(left, #7dce21 1%, #24c1c1 20%, #1e5799 94%);
-background: -webkit-linear-gradient(left, #7dce21 1%,#24c1c1 20%,#1e5799 94%);
-background: linear-gradient(to right, #7dce21 1%,#24c1c1 20%,#1e5799 94%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dce21', endColorstr='#1e5799',GradientType=1 );
-}
