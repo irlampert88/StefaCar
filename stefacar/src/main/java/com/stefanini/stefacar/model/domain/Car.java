@@ -20,17 +20,25 @@ public class Car {
 	private Integer id;
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idCarModel")
-	private ModelCar carModel;
+	private ModelCar model;
 	@Column(nullable = false)
 	private Double price;
 	@Column(nullable = false)
-	private String carColor;
+	private String color;
 	@Column(nullable = false)
 	private boolean avaliable;
 
 	public Car() {
 	}
-
+	
+	public Car(ModelCar carModel, Double price, String color, Integer id){
+		this.model = carModel;
+		this.price = price;
+		this.color = color;
+		this.id = id;
+		this.avaliable = false;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -39,8 +47,8 @@ public class Car {
 		this.id = id;
 	}
 
-	public ModelCar getCarModel() {
-		return carModel;
+	public ModelCar getModel() {
+		return model;
 	}
 
 	public String getCarStatusString() {
@@ -50,8 +58,8 @@ public class Car {
 			return "Vendido";
 	}
 
-	public void setCarModel(ModelCar carModel) {
-		this.carModel = carModel;
+	public void setModel(ModelCar model) {
+		this.model = model;
 	}
 
 	public Double getPrice() {
@@ -62,12 +70,12 @@ public class Car {
 		this.price = price;
 	}
 
-	public String getCarColor() {
-		return carColor;
+	public String getColor() {
+		return color;
 	}
 
-	public void setCarColor(String carColor) {
-		this.carColor = carColor;
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 	public boolean isAvaliable() {
@@ -97,8 +105,8 @@ public class Car {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((carColor == null) ? 0 : carColor.hashCode());
-		result = prime * result + ((carModel == null) ? 0 : carModel.hashCode());
+		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		result = prime * result + ((model == null) ? 0 : model.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + (avaliable ? 1231 : 1237);
@@ -114,15 +122,15 @@ public class Car {
 		if (getClass() != obj.getClass())
 			return false;
 		Car other = (Car) obj;
-		if (carColor == null) {
-			if (other.carColor != null)
+		if (color == null) {
+			if (other.color != null)
 				return false;
-		} else if (!carColor.equals(other.carColor))
+		} else if (!color.equals(other.color))
 			return false;
-		if (carModel == null) {
-			if (other.carModel != null)
+		if (model == null) {
+			if (other.model != null)
 				return false;
-		} else if (!carModel.equals(other.carModel))
+		} else if (!model.equals(other.model))
 			return false;
 		if (id == null) {
 			if (other.id != null)

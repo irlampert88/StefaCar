@@ -17,15 +17,15 @@
 
 				<p:panelGrid columns="3">
 
-					<p:outputLabel for="name" value="Nome da Marca" />
+					<p:outputLabel for="name" value="Marca" />
 					<p:inputText id="name" requiredMessage="Campo obrigatório"
-						required="true" value="#{brandCarManagedBean.brandCar.name}" placeholder="nome"/>
+						required="true" value="#{brandCarManagedBean.brand.name}" placeholder="nome"/>
 					<p:message for="name" />
 
 					<p:outputLabel for="nationality" value="Nacionalidade:" />
 					<p:inputText id="nationality" requiredMessage="Campo obrigatório"
 						required="true"
-						value="#{brandCarManagedBean.brandCar.nationality}" placeholder="nacionalidade"/>
+						value="#{brandCarManagedBean.brand.nationality}" placeholder="nacionalidade"/>
 					<p:message for="nationality" />
 				</p:panelGrid>
 
