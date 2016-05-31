@@ -11,10 +11,17 @@ import javax.persistence.OneToOne;
 @Entity
 public class Stock{
 	
+<<<<<<< HEAD
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idStock")
 	private Integer id;
+=======
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+>>>>>>> fc9b014bcef8652d2d8fb2ecf43d22430590a44e
 	@Column(nullable=false)
 	private Integer quantity;
 	@OneToOne
@@ -80,6 +87,9 @@ public class Stock{
 	public String toString() {
 		return "Stock [id=" + id + ", quantity=" + quantity + ", car=" + car + "]";
 	}
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> fc9b014bcef8652d2d8fb2ecf43d22430590a44e
 }
