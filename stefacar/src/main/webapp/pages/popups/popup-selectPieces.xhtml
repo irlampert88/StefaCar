@@ -12,12 +12,11 @@
 		<p:dataTable id="piecesTable" var="pieces"
 			value="#{piecesManagedBean.dataList}"
 			selection="#{piecesSaleManagedBean.piecesSale.pieces}"
-			rowKey="#{pieces.id}"
-			emptyMessage="Não existem peças cadastradas"
+			rowKey="#{pieces.id}" emptyMessage="Não existem peças cadastradas"
 			style=" padding-top:20px;">
-            <f:facet name="header" />
+			<f:facet name="header" />
 			<p:column selectionMode="multiple"
-				style="width:16px;text-align:center" />
+				style="text-align:center; width:40px" />
 			<p:column headerText="Nº série">
 				<h:outputText value="#{pieces.serialNumber}" />
 			</p:column>
@@ -33,14 +32,13 @@
 			<p:column headerText="Fabricante">
 				<h:outputText value="#{pieces.manufacturer.name}" />
 			</p:column>
-			
-				<f:facet name="footer">
+
+			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
-					oncomplete="PF('dialogPieces').close" 
-					update="saleForm"
+					oncomplete="PF('dialogPieces').close" update="saleForm"
 					icon="ui-icon-search" process="piecesTable" />
 			</f:facet>
-			
+
 		</p:dataTable>
 	</div>
 
