@@ -24,18 +24,50 @@
 	<ui:decorate template="WEB-INF/model/default.xhtml">
 		<ui:define name="center">
 
-			<b:row styleClass="show-grid">
-				<b:column col-xs="6" col-md="4">
-					<h:graphicImage styleClass="img-logo"
-						value="/resources/imagens/car-icon.png" />
+			<b:row>
+				<b:column col-sm="6" col-md="4">
+					<ul class="gridder">
+						<li class="gridder-list" data-color="#668c07"
+							data-griddercontent="#category-1">
+							<div
+								style="border: 2px solid #668c07; padding: 15px 12px; height: 100%;">
+								<span class="fa fa-car"
+									style="display: block; font-size: 80px; color: #668c07"></span>
+								<p class="cll-category-name" style="color: #668c07">Carros</p>
+							</div>
+						</li>
+					</ul>
 
 				</b:column>
-				<b:column col-xs="6" col-md="4">
-					<h:outputText value="col-xs=6 col-md=4" />
+
+				<b:column col-sm="6" col-md="4">
+					<ul class="gridder">
+						<li class="gridder-list" data-color="#251fc6"
+							data-griddercontent="#category-3">
+							<div
+								style="border: 2px solid #251fc6; padding: 15px 12px; height: 100%;">
+								<span class="fa fa-code"
+									style="display: block; font-size: 80px; color: #251fc6"></span>
+								<p class="cll-category-name" style="color: #251fc6">Ordem de serviço</p>
+							</div>
+						</li>
+					</ul>
 				</b:column>
-				<b:column col-xs="6" col-md="4">
-					<h:outputText value="col-xs=6 col-md=4" />
+
+				<b:column col-sm="6" col-md="4">
+					<ul class="gridder">
+						<li class="gridder-list" data-color="#1da0ba"
+							data-griddercontent="#category-5">
+							<div
+								style="border: 2px solid #1da0ba; padding: 15px 12px; height: 100%;">
+								<span class="fa fa-wrench"
+									style="display: block; font-size: 80px; color: #1da0ba"></span>
+								<p class="cll-category-name" style="color: #1da0ba">Peças</p>
+							</div>
+						</li>
+					</ul>
 				</b:column>
+
 			</b:row>
 
 

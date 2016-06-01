@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:b="http://bootsfaces.net/ui" 
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -23,23 +22,20 @@
 
 <!-- <h:body style="font-size: 160% !important; height:100%;">
 
-	<p:layoutUnit position="top" height="10%">
-		<ui:insert name="header">
+	<p:layoutUnit position="top" height="10%" >
+		<ui:insert name="header" >
 			<ui:include src="header.xhtml" />
 		</ui:insert>
 	</p:layoutUnit>
 
 
-
 	<p:layoutUnit position="left" width="12%">
-		<ui:insert name="sidebar">
+		<ui:insert name="sidebar" >
 			<ui:include src="sidebar.xhtml" />
 		</ui:insert>
 	</p:layoutUnit>
 
-
-	<p:layoutUnit position="center"
-		style="padding-left:16%; padding-top:6%;">
+	<p:layoutUnit position="center" style="padding-left:16%; padding-top:6%;">
 		<ui:insert name="center">
                         O que estiver aqui será substituido!
                 </ui:insert>
@@ -53,47 +49,67 @@
 	</p:layoutUnit> -->
 
 
-<h:body >
+<h:body>
 
 	<div class="ct-top">
-			<div class="container--topmenu ">
-				<div class="cabecalho">
-					<a href="#">
-					<h:graphicImage styleClass="img-logo" value="/resources/imagens/stefanini.png"/>
-						<h:graphicImage styleClass="img-car" value="/resources/imagens/audi-car.png"/> 
-					</a>
-					<div class="calendario-data">
-						<h:graphicImage value="/resources/imagens/calendar.png"
-							styleClass="date-time-icon" />
-						<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
+		<div class="container--topmenu ">
+			<div class="cabecalho">
+				<a href="#">
+					<div>
+						<h:graphicImage styleClass="img-logo img-responsive"
+							value="/resources/imagens/stefanini.png" />
+
+						<h:graphicImage styleClass="img-car img-responsive" alt="Responsive image"
+							value="/resources/imagens/audi-car.png" />
 					</div>
-					<div class="relogio-hora">
-						<h:graphicImage value="/resources/imagens/clock.png"
-							styleClass="date-time-icon" />
-						<p:clock id="horario" pattern="HH:mm:ss" mode="server" />
-					</div>
+				</a>
+				<div class="calendario-data">
+					<h:graphicImage value="/resources/imagens/calendar.png"
+						styleClass="date-time-icon" />
+					<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
+				</div>
+				<div class="relogio-hora">
+					<h:graphicImage value="/resources/imagens/clock.png"
+						styleClass="date-time-icon" />
+					<p:clock id="horario" pattern="HH:mm:ss" mode="server" />
 				</div>
 			</div>
 		</div>
-	
-	<p:layoutUnit position="center"
-		style="padding-left:16%; padding-top:6%;">
-		<ui:insert name="center">
-                        O que estiver aqui será substituido!
-                </ui:insert>
-	</p:layoutUnit>
+	</div>
+
 
 	<b:container>
-	
+		<b:row>
+
+			<b:column col-md="12">
+				<p:layoutUnit position="center"
+					style="padding-left:16%; padding-top:6%;">
+					<ui:insert name="center">
+                        O que estiver aqui será substituido!
+                </ui:insert>
+				</p:layoutUnit>
+
+			</b:column>
+
+			
+
+		</b:row>
+
 
 		<hr />
+
 		<div class="rodape">
 			<span style="padding-left: 25%; color: white">Versão de
 				Teste. Copyright 2016. Todos os Direitos reservados a equipe de
 				desenvolvimento</span>
 		</div>
+
+
 	</b:container>
 
 </h:body>
+
+
+
 
 </html>
