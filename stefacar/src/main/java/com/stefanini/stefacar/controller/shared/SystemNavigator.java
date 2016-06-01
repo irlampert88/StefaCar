@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.controller.converter.jsf;
+package com.stefanini.stefacar.controller.shared;
 
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;

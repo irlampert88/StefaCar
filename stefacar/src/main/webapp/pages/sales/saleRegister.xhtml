@@ -7,47 +7,48 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Venda de peça</title>
+	<title>Venda de Carro</title>
 </h:head>
 <h:body>
-	<ui:decorate template="../WEB-INF/model/default.xhtml">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Venda de Peça" />
+			<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
 
 			<h:form id="saleForm">
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
 				<p:panelGrid columns="3">
 
-
-
-					<!-- popup cliente -->
 					<p:outputLabel for="btnModalEmployee"
 						value="Seleção de Funcionário: " />
 					<p:commandButton value="Selecionar Funcionário"
 						id="btnModalEmployee" oncomplete="PF('dialogEmployee').show();" />
-					
+					<p:outputLabel for="btnModalEmployee"
+						value="#{saleManagedBean.sale.employee.registration}" />
 
-					<!-- popup Funcionario -->
 					<p:outputLabel for="btnModalClient" value="Seleção de Cliente: " />
 					<p:commandButton value="Selecionar Cliente" id="btnModalClient"
-						oncomplete="PF('dialogClient').show();" />				
+						oncomplete="PF('dialogClient').show();" />
+					<p:outputLabel for="btnModalClient"
+						value="#{saleManagedBean.sale.client.cpf}" />
 
-					<!-- popup Peças -->
-					<p:outputLabel for="btnModalEmployee" value="Seleção de peças: " />
-					<p:commandButton value="Selecionar Peças" id="btnModalPieces"
-						oncomplete="PF('dialogPieces').show();" />
+					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
+					<p:commandButton value="Selecionar Carro" id="btnModalCar"
+						oncomplete="PF('dialogCar').show();" />
+					<p:outputLabel for="btnModalCar"
+						value="#{saleManagedBean.carShow.model}" />
 
-
+					<ui:include src="../client/clientSelection.xhtml" />
+					<ui:include src="../employee/employeeSelection.xhtml" />
+					<ui:include src="../car/carSelection.xhtml" />
 				</p:panelGrid>
 
-				<ui:include src="popups/popup-selectPieces.xhtml" />
-				<ui:include src="popups/popup-selectClient.xhtml" />
-				<ui:include src="popups/popup-selectEmployee.xhtml" />
+
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
-					action="#{piecesSaleManagedBean.save}" icon="fa fa-fw fa-save" />
+					action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{piecesSaleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
+					action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
 			</h:form>
 		</ui:define>
 	</ui:decorate>

@@ -6,17 +6,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head>
-	<title>StefaCar</title>
-</h:head>
 
 <h:body>
-	<ui:decorate template="../WEB-INF/model/default.xhtml">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Cadastro de Clientes" />
+			<p:outputLabel style="font-size: 30px;" value="Cadastro de peças" />
 			<h:form id="piecesForm">
-
-
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="Name" value="Nome:" />
@@ -37,29 +33,30 @@
 						value="#{piecesManagedBean.pieces.value}" />
 					<p:message for="value" />
 
-					<p:outputLabel for="btnModalOutfitter"
-						value="Fornecedor: " />
+					<p:outputLabel for="btnModalOutfitter" value="Fornecedor: " />
 					<p:commandButton value="Selecionar Fornecedor"
 						id="btnModalOutfitter" oncomplete="PF('dialogOutfitter').show();" />
-				<p:outputLabel for="btnModalOutfitter" value="#{piecesManagedBean.pieces.outfitter.name}"/>
+					<p:outputLabel for="btnModalOutfitter"
+						value="#{piecesManagedBean.pieces.outfitter.name}" />
 
-					<p:outputLabel for="btnModalManufacturer"
-						value="Fabricante: " />
+					<p:outputLabel for="btnModalManufacturer" value="Fabricante: " />
 					<p:commandButton value="Selecionar Fabricante"
 						id="btnModalManufacturer"
 						oncomplete="PF('dialogManufacturer').show();" />
-							<p:outputLabel for="btnModalManufacturer" value="#{piecesManagedBean.pieces.manufacturer.name}"/>
+					<p:outputLabel for="btnModalManufacturer"
+						value="#{piecesManagedBean.pieces.manufacturer.name}" />
 
 					<p:outputLabel for="btnModalModel" value="Modelo: " />
 					<p:commandButton value="Selecionar Modelo" id="btnModalModel"
 						oncomplete="PF('dialogModelPieces').show();" />
-							<p:outputLabel for="btnModalModel" value="#{piecesManagedBean.pieces.model.name}"/>
+					<p:outputLabel for="btnModalModel"
+						value="#{piecesManagedBean.pieces.model.name}" />
 
 
 				</p:panelGrid>
-				<ui:include src="popups/popup-selectOutfitter.xhtml" />
-				<ui:include src="popups/popup-selectManufacturer.xhtml" />
-				<ui:include src="popups/popup-selectModelPieces.xhtml" />
+				<ui:include src="../popups/popup-selectOutfitter.xhtml" />
+				<ui:include src="../popups/popup-selectManufacturer.xhtml" />
+				<ui:include src="../popups/popup-selectModelPieces.xhtml" />
 
 
 				<p:commandButton value="Salvar" process="@form"

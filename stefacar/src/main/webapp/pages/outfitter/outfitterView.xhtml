@@ -7,25 +7,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../WEB-INF/model/default.xhtml">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
-			<p:dataTable id="clientTable" var="client"
-				value="#{clientManagedBean.dataList}"
-				emptyMessage="Não existem clientes cadastrados"
+			<p:outputLabel style="font-size: 30px;" value="Lista de fornecedores" />
+			<p:dataTable id="outfitterTable" var="outfitter"
+				value="#{outfitterManagedBean.dataList}"
+				emptyMessage="Não existem fornecedores cadastrados"
 				style="padding-top:20px;">
 				<p:column headerText="Name" style="text-align: center">
-					<h:outputText value="#{client.name}" />
+					<h:outputText value="#{outfitter.name}" />
 				</p:column>
-				<p:column headerText="Cpf" style="text-align: center">
-					<h:outputText value="#{client.cpf}" />
+				<p:column headerText="Cnpj" style="text-align: center">
+					<h:outputText value="#{outfitter.cnpj}" />
 				</p:column>
-				<p:column headerText="email" style="text-align: center">
-					<h:outputText value="#{client.mail}" />
+				<p:column headerText="telefone" style="text-align: center">
+					<h:outputText value="#{outfitter.phone}" />
 				</p:column>
+
 				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
-						update="clientTable" action="#{clientManagedBean.delete(client)}">
+						update="outfitterTable"
+						action="#{outfitterManagedBean.delete(outfitter)}">
 						<p:confirm header="Confirmação"
 							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 					</p:commandButton>
