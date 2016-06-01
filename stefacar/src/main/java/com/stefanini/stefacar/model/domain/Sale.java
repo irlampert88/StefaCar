@@ -19,13 +19,20 @@ public class Sale {
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Client client;
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idFuncionário", nullable = false)
+	@JoinColumn(name = "idFuncionario", nullable = false)
 	private Employee employee;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idCarro", nullable = false)
-	private Stock stock;
+	@JoinColumn(name = "Carro", nullable = false)
+	private Car car;
+	
+	public Sale() {
+		this.client = new Client();
+		this.car = new Car();
+		this.employee = new Employee();
+	}
 	
 	
+	//GETERS & SETERS
 	public Client getClient() {
 		return client;
 	}
@@ -38,11 +45,11 @@ public class Sale {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	public Stock getStock() {
-		return stock;
+	public Car getCar() {
+		return car;
 	}
-	public void setStock(Stock car) {
-		this.stock = car;
+	public void setCar(Car car) {
+		this.car = car;
 	}
 	public Integer getId() {
 		return id;
@@ -54,7 +61,7 @@ public class Sale {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
+		result = prime * result + ((car == null) ? 0 : car.hashCode());
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -69,10 +76,10 @@ public class Sale {
 		if (getClass() != obj.getClass())
 			return false;
 		Sale other = (Sale) obj;
-		if (stock == null) {
-			if (other.stock != null)
+		if (car == null) {
+			if (other.car != null)
 				return false;
-		} else if (!stock.equals(other.stock))
+		} else if (!car.equals(other.car))
 			return false;
 		if (client == null) {
 			if (other.client != null)
