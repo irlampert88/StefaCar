@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<title>StefaCar</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Stefa Car</title>
+	<style type="text/css">
+</style>
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="style.css" />
+	<h:outputStylesheet library="js" name="bootstrap.js" />
+	<h:outputStylesheet library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="js" name="default.js" />
+
 </h:head>
 
 <h:body>
 	<ui:decorate template="WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+
+			<b:row styleClass="show-grid">
+				<b:column col-xs="6" col-md="4">
+					<h:graphicImage styleClass="img-logo"
+						value="/resources/imagens/car-icon.png" />
+
+				</b:column>
+				<b:column col-xs="6" col-md="4">
+					<h:outputText value="col-xs=6 col-md=4" />
+				</b:column>
+				<b:column col-xs="6" col-md="4">
+					<h:outputText value="col-xs=6 col-md=4" />
+				</b:column>
+			</b:row>
+
+
 		</ui:define>
 	</ui:decorate>
 </h:body>

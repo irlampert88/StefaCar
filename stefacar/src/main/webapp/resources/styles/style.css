@@ -430,28 +430,14 @@ input[type=text] {
 }
 
 .rodape {
-	margin: auto;
-	width: 86%;
+	position: fixed;
+	width: 120%;
+	height:5%;
+	margin-left:-2%;
+	background-color:#201B55;
+	bottom: 0px;
 }
 
-.rodape p, .rodape h2 {
-	display: inline;
-	margin-left: 30%;
-}
-
-.rodape p {
-	font-size: 12px;
-}
-
-.rodape h2 {
-	margin-left: 100px;
-}
-
-.rodape .btn-return {
-	display: inline;
-	float: right;
-	bottom: 20px;
-}
 
 .btn-acao {
 	width: 25px;
