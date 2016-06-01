@@ -7,38 +7,25 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../WEB-INF/model/default.xhtml">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
-			<p:dataTable id="piecesTable" var="pieces"
-				value="#{piecesManagedBean.dataList}"
-				emptyMessage="Não existem peças cadastrados"
+			<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
+			<p:dataTable id="clientTable" var="client"
+				value="#{clientManagedBean.dataList}"
+				emptyMessage="Não existem clientes cadastrados"
 				style="padding-top:20px;">
 				<p:column headerText="Name" style="text-align: center">
-					<h:outputText value="#{pieces.name}" />
+					<h:outputText value="#{client.name}" />
 				</p:column>
-				<p:column headerText="Valor" style="text-align: center">
-					<h:outputText value="#{pieces.value}" />
+				<p:column headerText="Cpf" style="text-align: center">
+					<h:outputText value="#{client.cpf}" />
 				</p:column>
-				<p:column headerText="Nº de série" style="text-align: center">
-					<h:outputText value="#{pieces.serialNumber}" />
+				<p:column headerText="email" style="text-align: center">
+					<h:outputText value="#{client.mail}" />
 				</p:column>
-				<p:column headerText="Modelo" style="text-align: center">
-					<h:outputText value="#{pieces.model.name}" />
-				</p:column>
-					<p:column headerText="Fabricante" style="text-align: center">
-					<h:outputText value="#{pieces.manufacturer.name}" />
-				</p:column>
-					<p:column headerText="Fornecedor" style="text-align: center">
-					<h:outputText value="#{pieces.outfitter.name}" />
-				</p:column>
-				
-				<!--  ######   -->
-				
 				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
-						update="piecesTable"
-						action="#{piecesManagedBean.delete(pieces)}">
+						update="clientTable" action="#{clientManagedBean.delete(client)}">
 						<p:confirm header="Confirmação"
 							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 					</p:commandButton>

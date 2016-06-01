@@ -7,7 +7,7 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-import com.stefanini.stefacar.controller.converter.MessengerSystem;
+import com.stefanini.stefacar.controller.shared.MessengerSystem;
 
 @FacesValidator(value = "cpfValidator")
 public class CpfValidator implements Validator {

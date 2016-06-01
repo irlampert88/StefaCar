@@ -7,26 +7,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../WEB-INF/model/default.xhtml">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Lista de funcionários" />
-			<p:dataTable id="employeeTable" var="employee"
-				value="#{employeeManagedBean.dataList}"
-				emptyMessage="Não existem funcionários cadastrados"
+			<p:outputLabel style="font-size: 30px;" value="Lista de fabricantes" />
+			<p:dataTable id="manufacturerTable" var="manufacturer"
+				value="#{manufacturerManagedBean.dataList}"
+				emptyMessage="Não existem fabricantes cadastrados"
 				style="padding-top:20px;">
-				<p:column headerText="Name">
-					<h:outputText value="#{employee.name}" />
+				<p:column headerText="Name" style="text-align: center">
+					<h:outputText value="#{manufacturer.name}" />
 				</p:column>
-				<p:column headerText="Cpf">
-					<h:outputText value="#{employee.cpf}" />
+				<p:column headerText="Cnpj" style="text-align: center">
+					<h:outputText value="#{manufacturer.cnpj}" />
 				</p:column>
-				<p:column headerText="email">
-					<h:outputText value="#{employee.email}" />
+				<p:column headerText="telefone" style="text-align: center">
+					<h:outputText value="#{manufacturer.phone}" />
 				</p:column>
+
 				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
-						update="employeeTable"
-						action="#{employeeManagedBean.delete(employee)}">
+						update="manufacturerTable"
+						action="#{manufacturerManagedBean.delete(manufacturer)}">
 						<p:confirm header="Confirmação"
 							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 					</p:commandButton>

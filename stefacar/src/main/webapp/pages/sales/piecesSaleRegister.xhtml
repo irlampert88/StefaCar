@@ -1,22 +1,18 @@
-?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Venda de Carro</title>
-</h:head>
+
 <h:body>
-	<ui:decorate template="../WEB-INF/model/default.xhtml">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
+			<p:outputLabel style="font-size: 30px;" value="Venda de Peça" />
 
 			<h:form id="saleForm">
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
-
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="btnModalEmployee"
@@ -24,31 +20,29 @@
 					<p:commandButton value="Selecionar Funcionário"
 						id="btnModalEmployee" oncomplete="PF('dialogEmployee').show();" />
 					<p:outputLabel for="btnModalEmployee"
-						value="#{saleManagedBean.sale.employee.registration}" />
+						value="#{piecesSaleManagedBean.piecesSale.employee.name}" />
 
 					<p:outputLabel for="btnModalClient" value="Seleção de Cliente: " />
 					<p:commandButton value="Selecionar Cliente" id="btnModalClient"
 						oncomplete="PF('dialogClient').show();" />
 					<p:outputLabel for="btnModalClient"
-						value="#{saleManagedBean.sale.client.cpf}" />
+						value="#{piecesSaleManagedBean.piecesSale.client.name}" />
 
-					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
-					<p:commandButton value="Selecionar Carro" id="btnModalCar"
-						oncomplete="PF('dialogCar').show();" />
-					<p:outputLabel for="btnModalCar"
-						value="#{saleManagedBean.carShow.model}" />
 
-					<ui:include src="clientSelection.xhtml" />
-					<ui:include src="employeeSelection.xhtml" />
-					<ui:include src="stockSelection.xhtml" />
+					<p:outputLabel for="btnModalPieces" value="Seleção de peças: " />
+					<p:commandButton value="Selecionar Peças" id="btnModalPieces"
+						oncomplete="PF('dialogPieces').show();" />
+
 				</p:panelGrid>
 
-
+				<ui:include src="../popups/popup-selectPieces.xhtml" />
+				<ui:include src="../popups/popup-selectClient.xhtml" />
+				<ui:include src="../popups/popup-selectEmployee.xhtml" />
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
-					action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
+					action="#{piecesSaleManagedBean.save}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
+					action="#{piecesSaleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
 			</h:form>
 		</ui:define>
 	</ui:decorate>
