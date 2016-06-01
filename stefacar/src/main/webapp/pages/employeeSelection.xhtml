@@ -7,34 +7,32 @@
 	widgetVar="dialogEmployee" modal="false" appendToBody="true"
 	resizable="false" header="Selecione o Funcionário" closable="true">
 
-	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{saleManagedBean.sale.employee}"
-			rowKey="#{employee.id}" id="tableEmployes" var="employee"
-			value="#{saleManagedBean.listOfEmployee}"
-			emptyMessage="Não existem funcionários cadastrados"
-			style="padding-top:20px;">
+	<div style="height: 200px; width: 550px; overflow: auto;">		
+			<p:dataTable selection="#{saleManagedBean.sale.employee}"
+				rowKey="#{employee.id}" id="tableEmployes" var="employee"
+				value="#{saleManagedBean.listOfEmployee}"
+				emptyMessage="Não existem funcionários cadastrados"
+				style="padding-top:20px;">
 
-			<f:facet name="header" />
-			<p:column selectionMode="single"
-				style="width:16px;text-align:center" />
+				<f:facet name="header" />
+				<p:column selectionMode="single"
+					style="width:16px;text-align:center" />
 
-			<p:column headerText="Matrícula">
-				<h:outputText value="#{employee.registration}" />
-			</p:column>
-			<p:column headerText="Nome">
-				<h:outputText value="#{employee.name}" />
-			</p:column>
-			<p:column headerText="Cargo">
-				<h:outputText value="#{employee.type}" />
-			</p:column>
+				<p:column headerText="Matrícula">
+					<h:outputText value="#{employee.registration}" />
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{employee.name}" />
+				</p:column>
+				<p:column headerText="Cargo">
+					<h:outputText value="#{employee.type}" />
+				</p:column>
 
-			<f:facet name="footer">
-				<p:commandButton value="Selecionar"
-					oncomplete="PF('dialogEmployee').close" update="saleForm"
-					icon="ui-icon-search" process="tableEmployes" />
-			</f:facet>
-		</p:dataTable>
-
+				<f:facet name="footer">
+					<p:commandButton value="Selecionar"
+						oncomplete="PF('dialogEmployee').close" update="saleForm"
+						icon="ui-icon-search" process="tableEmployes" />
+				</f:facet>
+			</p:dataTable>		
 	</div>
-
 </p:dialog>

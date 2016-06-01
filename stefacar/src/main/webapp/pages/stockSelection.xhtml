@@ -18,7 +18,7 @@
 					<f:selectItems value="#{saleManagedBean.listOfBrand}" var="brand"
 						itemLabel="#{brand.name}" itemValue="#{brand.id}" />
 					<p:ajax event="change" process="@this" update="tableStockCars" />					
-				</p:selectOneMenu>
+				</p:selectOneMenu>		
 			
 			<p:dataTable selection="#{saleManagedBean.carShow}"
 				rowKey="#{car.price}" id="tableStockCars" var="car"
@@ -55,6 +55,6 @@
 						icon="ui-icon-search" process="tableStockCars" />
 				</f:facet>
 			</p:dataTable>
-		</h:form>
+		</h:form>		
 	</div>
 </p:dialog>

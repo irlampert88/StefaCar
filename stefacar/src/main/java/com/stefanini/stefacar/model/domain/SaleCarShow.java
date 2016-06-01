@@ -1,6 +1,13 @@
 package com.stefanini.stefacar.model.domain;
 
-public class SaleCarShow {
+import java.io.Serializable;
+
+public class SaleCarShow implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Integer idModel, idCar;//Preciso para montar o Carro
 	private double price;
 	private String color, type, model, version, year;
@@ -18,7 +25,7 @@ public class SaleCarShow {
 	
 	public SaleCarShow() {
 		
-	}
+	}	
 	
 	//GETERS & SETERS
 
