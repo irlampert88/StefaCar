@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -13,6 +14,7 @@
 </style>
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
 	<h:outputStylesheet library="styles" name="style.css" />
+	<h:outputStylesheet library="styles" name="animate.css" />
 	<h:outputStylesheet library="js" name="bootstrap.js" />
 	<h:outputStylesheet library="js" name="bootstrap.min.js" />
 	<h:outputStylesheet library="js" name="default.js" />
@@ -25,10 +27,11 @@
 
 			<b:row>
 				<b:column col-sm="6" col-md="4">
-					<ul class="gridder">
-						<li class="gridder-list" data-color="#668c07"
+					<ul class="gridder a-green">
+						<li class="gridder-list cmn-t-scale" data-color="#668c07"
 							data-griddercontent="#category-1">
-							<div
+							<a href="/stefacar/pages/sales/saleView.xhtml">
+							<div class="animated fadeInLeftBig"
 								style="border: 2px solid #44AA00; padding: 15px 12px; height: 100%;">
 								<div style="padding-left: 30%;">
 									<h:graphicImage 
@@ -39,6 +42,7 @@
 										style="color: #44AA00; font-size: 20px;">Carros</p>
 								</div>
 							</div>
+							</a>
 						</li>
 					</ul>
 
@@ -46,9 +50,10 @@
 
 				<b:column col-sm="6" col-md="4">
 					<ul class="gridder">
-						<li class="gridder-list" data-color="#251fc6"
+						<li class="gridder-list cmn-t-scale" data-color="#251fc6"
 							data-griddercontent="#category-3">
-							<div
+							<a href="/stefacar/pages/sales/saleView.xhtml">
+							<div class="animated fadeInUpBig"
 								style="border: 2px solid #004E9E; padding: 15px 12px; height: 100%;">
 								<div style="padding-left: 35%;">
 									<h:graphicImage style=" padding-top:17%; padding-bottom:4%;"
@@ -59,15 +64,17 @@
 										style="color: #004E9E; font-size: 20px;">Serviço</p>
 								</div>
 							</div>
+							</a>
 						</li>
 					</ul>
 				</b:column>
 
 				<b:column col-sm="6" col-md="4">
 					<ul class="gridder">
-						<li class="gridder-list" data-color="#1da0ba"
+						<li class="gridder-list cmn-t-scale" data-color="#1da0ba"
 							data-griddercontent="#category-5">
-							<div
+							<a href="/stefacar/pages/pieces/piecesView.xhtml">
+							<div class="animated fadeInRightBig"
 								style="border: 2px solid #377EF0; padding: 15px 12px; height: 100%;">
 								<div style="padding-left: 35%;">
 									<h:graphicImage style=" padding-top:20%;"
@@ -78,12 +85,12 @@
 										style="color: #377EF0; font-size: 20px;">Peças</p>
 								</div>
 							</div>
+							</a>
 						</li>
 					</ul>
 				</b:column>
 
 			</b:row>
-
 
 		</ui:define>
 	</ui:decorate>
