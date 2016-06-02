@@ -1,6 +1,7 @@
 package com.stefanini.stefacar.model.domain;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,11 +25,14 @@ public class Sale {
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "Carro", nullable = false)
 	private Car car;
+	@Column
+	private boolean status;//true = venda ativa & false = venda finalizada
 	
 	public Sale() {
 		this.client = new Client();
 		this.car = new Car();
 		this.employee = new Employee();
+		this.status = true;
 	}
 	
 	
@@ -56,7 +60,21 @@ public class Sale {
 	}
 	public void setId(Integer idSale) {
 		this.id = idSale;
+	}	
+	public boolean isStatus() {
+		return status;
 	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public String getStatusString(){
+		if(isStatus())
+			return "Venda Ativa";
+		else 
+			return "Venda Finalizada";
+	}
+
+	//HASH & EQUALS
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -16,9 +16,9 @@ public class CarRepositoryImpl extends AbstractRepository<Car>{
 				+ "on m.idbrandcar = b.id " + "where m.idbrandcar = " + idBrand;
 
 		List<SaleCarShow> listOfCarShow = new ArrayList<>();
-		List<Object[]> listResultado = entityManager.createNativeQuery(sql).getResultList();
-		if (listResultado != null) {
-			for (Object[] objectArray : listResultado) {
+		List<Object[]> resultList = entityManager.createNativeQuery(sql).getResultList();
+		if (resultList != null) {
+			for (Object[] objectArray : resultList) {
 				SaleCarShow carShow = new SaleCarShow((Double) objectArray[0], (String) objectArray[1],
 						(String) objectArray[2], (String) objectArray[3], (String) objectArray[4],
 						(String) objectArray[5], (Integer) objectArray[6], (Integer) objectArray[7]);
