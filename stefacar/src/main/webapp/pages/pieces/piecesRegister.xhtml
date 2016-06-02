@@ -26,6 +26,12 @@
 						required="true" placeholder="serial"
 						value="#{piecesManagedBean.pieces.serialNumber}" />
 					<p:message for="serial" />
+					
+					<p:outputLabel for="quantity" value="Quantidade:" />
+					<p:inputText id="quantity" requiredMessage="Campo obrigatório"
+						required="true" placeholder="quantidade"
+						value="#{piecesManagedBean.pieces.quantity}" />
+					<p:message for="quantity" />
 
 					<p:outputLabel for="value" value="Valor:" />
 					<p:inputText id="value" requiredMessage="Campo obrigatório"

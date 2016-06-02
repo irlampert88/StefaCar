@@ -46,7 +46,7 @@
 					<h:outputText value="#{car.year}" />
 				</p:column>
 				<p:column headerText="Valor">
-					<h:outputText value="#{car.price}" />
+					<h:outputText value="#{car.price}" converter="money"/>
 				</p:column>
 
 				<f:facet name="footer">

@@ -2,7 +2,7 @@
 
 /* Componentes tinham borda */
 .ui-widget-content {
-	border: 0px white !important;
+	border: 10px #000000!important;
 	color: #5d5d5d;
 }
 

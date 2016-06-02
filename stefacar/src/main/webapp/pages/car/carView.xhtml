@@ -19,7 +19,7 @@
 					<h:outputText value="#{car.model.name}" />
 				</p:column>
 				<p:column headerText="Preço" style="text-align: center">
-					<h:outputText value="#{car.price}" />
+					<h:outputText converter="money" value="#{car.price}"/>
 				</p:column>
 				<p:column headerText="Cor" style="text-align: center">
 					<h:outputText value="#{car.color}" />
