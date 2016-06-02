@@ -65,7 +65,7 @@ html, body {
 .ct-top, gradiente{
 	float: left;
 	width: 100%;
-	height: 170px;
+	height: 190px;
 	
 	background: #7dce21;
 	background: -moz-linear-gradient(left, #7dce21 1%, #24c1c1 20%, #1e5799 94%);
