@@ -1,44 +1,28 @@
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
+(function(window){
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-}
+	// get vars
+	var searchEl = document.querySelector("#input");
+	var labelEl = document.querySelector("#label");
 
-
-
-
-
-
-$(document).ready(function () {
-	  var trigger = $('.hamburger'),
-	      overlay = $('.overlay'),
-	     isClosed = false;
-
-	    trigger.click(function () {
-	      hamburger_cross();      
-	    });
-
-	    function hamburger_cross() {
-
-	      if (isClosed == true) {          
-	        overlay.hide();
-	        trigger.removeClass('is-open');
-	        trigger.addClass('is-closed');
-	        isClosed = false;
-	      } else {   
-	        overlay.show();
-	        trigger.removeClass('is-closed');
-	        trigger.addClass('is-open');
-	        isClosed = true;
-	      }
-	  }
-	  
-	  $('[data-toggle="offcanvas"]').click(function () {
-	        $('#wrapper').toggleClass('toggled');
-	  });  
+	// register clicks and toggle classes
+	labelEl.addEventListener("click",function(){
+		if (classie.has(searchEl,"focus")) {
+			classie.remove(searchEl,"focus");
+			classie.remove(labelEl,"active");
+		} else {
+			classie.add(searchEl,"focus");
+			classie.add(labelEl,"active");
+		}
 	});
+
+	// register clicks outisde search box, and toggle correct classes
+	document.addEventListener("click",function(e){
+		var clickedID = e.target.id;
+		if (clickedID != "search-terms" && clickedID != "search-label") {
+			if (classie.has(searchEl,"focus")) {
+				classie.remove(searchEl,"focus");
+				classie.remove(labelEl,"active");
+			}
+		}
+	});
+}(window));
