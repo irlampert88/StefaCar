@@ -94,10 +94,10 @@ html, body {
 #primary_nav_wrap ul a
 {
 	display:block;
-	color:#808080;
+	color:#1a54b5;
 	text-decoration:none;
 	font-weight:700;
-	font-size:16px;
+	font-size:17px;
 	line-height:32px;
 	padding:0 15px;
 	font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
@@ -179,7 +179,7 @@ html, body {
     display:none;
     z-index:900;
     width:16em;
-    border: 2px solid green;
+    border: 2px solid #97faff;
     position: relative;
 }
 
@@ -222,7 +222,7 @@ html, body {
 
 .dropdown li a:focus,
 .dropdown li a:hover {
-    background:#ffffff;
+    background:#d2fdff;
     
 }
 
