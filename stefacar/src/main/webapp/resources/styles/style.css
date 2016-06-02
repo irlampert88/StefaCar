@@ -75,6 +75,165 @@ html, body {
 		endColorstr='#1e5799', GradientType=1);
 }
 
+=================================================
+
+#primary_nav_wrap
+{
+	margin-top:15px
+}
+
+#primary_nav_wrap ul
+{
+	list-style:none;
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul a
+{
+	display:block;
+	color:#808080;
+	text-decoration:none;
+	font-weight:700;
+	font-size:16px;
+	line-height:32px;
+	padding:0 15px;
+	font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul li.current-menu-item
+{
+	background:#ffffff
+}
+
+#primary_nav_wrap ul li:hover
+{
+	background:#ffffff
+}
+
+#primary_nav_wrap ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#fff;
+	padding:0
+}
+
+#primary_nav_wrap ul ul li
+{
+	float:none;
+	width:200px
+}
+
+#primary_nav_wrap ul ul a
+{
+	line-height:120%;
+	padding:10px 15px
+}
+
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{
+	display:block;
+	
+}
+
+.dropdown,
+.dropdown li,
+.dropdown ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    
+}
+
+.dropdown {
+    position:relative;
+    z-index:10000;
+    float:left;
+    width:100%;
+    
+}
+
+.dropdown ul {
+    position:absolute;
+    top:100%;
+    visibility:hidden;
+    display:none;
+    z-index:900;
+    width:16em;
+    border: 2px solid green;
+    position: relative;
+}
+
+.dropdown ul ul {
+    top:0;
+    left:100%;
+    
+}
+
+
+.dropdown li {
+    position:relative;
+    float:left;
+}
+.dropdown li:hover{
+    z-index:910;
+}
+
+.dropdown ul:hover,
+.dropdown li:hover > ul,
+.dropdown a:hover + ul,
+.dropdown a:focus + ul {
+    visibility:visible;
+    display:block;
+}
+.dropdown a {
+    display:block;
+    padding:1em 2em;
+    
+}
+.dropdown ul li {
+    width:100%;
+}
+
+.dropdown li:hover a {
+    background:#ffffff;
+    
+    
+}
+
+.dropdown li a:focus,
+.dropdown li a:hover {
+    background:#ffffff;
+    
+}
+
+
+.dropdown .edge ul {
+    right:0;
+}
+
+
+==================================================
+
 .ct-top h1 {
 	font-size: 18px;
 	color: #FFF;

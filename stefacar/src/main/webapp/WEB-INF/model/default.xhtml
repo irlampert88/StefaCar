@@ -17,6 +17,7 @@
 	<h:outputStylesheet library="js" name="bootstrap.min.js" />
 	<h:outputStylesheet library="js" name="default.js" />
 
+
 </h:head>
 
 <h:body>
@@ -45,39 +46,85 @@
 				</div>
 			</div>
 
-			<div style="float:left;">
+			<div style="float: left;">
 				<b:navbarLinks
-					style="padding-left:8%; position:fixed; padding-top:1.5%;"
+					style="margin-left:8%; position:fixed; padding-top:1.5%;"
 					class="gradiente">
 
-					<b:column col-md="4">
-						<b:navLink value="Carros" href="#"></b:navLink>
-					</b:column>
+					<b:column col-md="12">
 
-					<b:column col-md="4">
-						<b:navLink value="Link" href="#"></b:navLink>
-					</b:column>
+						<nav id="primary_nav_wrap">
+						<ul class="dropdown">
+							<li><a href="#">Cadastros</a>
+								<ul>
+									<li><a href="/stefacar/pages/client/clientRegister.xhtml">Cliente</a></li>
+									<li><a
+										href="/stefacar/pages/employee/employeeRegister.xhtml">Funcionário</a></li>
+									<li><a href="/stefacar/pages/pieces/piecesRegister.xhtml">Peça</a></li>
+									<li><a href="/stefacar/pages/car/carRegister.xhtml">Carro</a>
+										<ul>
+											<li><a
+												href="/stefacar/pages/brandCar/brandcarRegister.xhtml">Marca</a></li>
+											<li><a
+												href="/stefacar/pages/modelCar/modelCarRegister.xhtml">Modelo</a></li>
+										</ul></li>
+									<li><a
+										href="/stefacar/pages/outfitter/outfitterRegister.xhtml">Fornecedor</a></li>
+									<li><a
+										href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml">Fabricante</a></li>
+								</ul></li>
+							<li><a href="#">Vendas</a>
+								<ul>
+									<li><a href="/stefacar/pages/sales/saleRegister.xhtml">Venda
+											de carros</a></li>
+									<li><a
+										href="/stefacar/pages/sales/piecesSaleRegister.xhtml">Venda
+											de peças</a></li>
+								</ul></li>
+							<li><a href="#">Visualizações</a>
+								<ul>
+									<li><a href="#">Cliente</a></li>
+									<li><a href="/stefacar/pages/employee/employeeView.xhtml">Funcionário</a></li>
+									<li><a href="/stefacar/pages/pieces/piecesView.xhtml">Peça</a></li>
+									<li><a href="/stefacar/pages/car/carView.xhtml">Carro</a>
+										<ul>
+											<li><a
+												href="/stefacar/pages/brandCar/brandCarView.xhtml">Marca</a></li>
+											<li><a
+												href="/stefacar/pages/modelCar/modelCarView.xhtml">Modelo</a></li>
+										</ul></li>
+									<li><a href="#">Vendas</a>
+										<ul>
+											<li><a href="/stefacar/pages/sales/saleView.xhtml">Venda
+													de carros</a></li>
+											<li><a href="/stefacar/pages/sales/piecesSaleView.xhtml">Venda
+													de peças</a></li>
+										</ul></li>
+									<li><a href="#">Fornecedor</a></li>
+									<li><a
+										href="/stefacar/pages/manufacturer/manufacturerView.xhtml">Fabricante</a></li>
 
-					<b:column col-md="4">
-						<b:navLink value="Link" href="#"></b:navLink>
+								</ul></li>
+
+						</ul>
+						</nav>
 					</b:column>
 
 				</b:navbarLinks>
 			</div>
 
-			<div style="float:right; padding-right:8%; padding-top:1%;">
+			<div style="float: right; padding-right: 8%; padding-top: 1%;">
 				<b:column col-md="12">
-					<form class="navbar-form" role="search">
+					<form class="navbar-form">
+						<div class="form-group" style="display: inline;">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search"
-									name="q" />
-								<div class="input-group-btn">
-									<button class="btn btn-default" type="submit">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</div>
+								<input class="form-control" type="text" /> <span
+									class="input-group-addon"><span
+									class="glyphicon glyphicon-search"></span></span>
 							</div>
-						</form>
+						</div>
+					</form>
+
 				</b:column>
 			</div>
 
@@ -86,7 +133,7 @@
 	</div>
 
 
-	<b:container style="padding-top:3%;">
+	<b:container style="padding-top:2%;">
 		<b:row>
 
 			<b:column col-md="12">
