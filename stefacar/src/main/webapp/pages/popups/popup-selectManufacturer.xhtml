@@ -8,7 +8,7 @@
 	resizable="false" header="Selecione um Fornecedor" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{piecesManagedBean.pieces.outfitter}"
+		<p:dataTable selection="#{piecesManagedBean.pieces.manufacturer}"
 			rowKey="#{manufacturer.id}" id="tableManufacturer" var="manufacturer"
 			value="#{piecesManagedBean.listOfManufacturer}"
 			emptyMessage="Não existem fornecedores  cadastrados"

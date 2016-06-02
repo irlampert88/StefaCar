@@ -12,46 +12,152 @@
 	<style type="text/css">
 </style>
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="style.css" />
 	<h:outputStylesheet library="js" name="bootstrap.js" />
 	<h:outputStylesheet library="js" name="bootstrap.min.js" />
 	<h:outputStylesheet library="js" name="default.js" />
 
+
 </h:head>
 
+<h:body>
 
-<h:body style="font-size: 160% !important; height:100%;">
+	<div class="ct-top">
+		<div class="container--topmenu ">
+			<div class="cabecalho">
+				<a href="#">
+					<div>
+						<h:graphicImage styleClass="img-logo img-responsive"
+							value="/resources/imagens/stefanini.png" />
 
-	<p:layoutUnit position="top" height="10%">
-		<ui:insert name="header">
-			<ui:include src="header.xhtml" />
-		</ui:insert>
-	</p:layoutUnit>
+						<h:graphicImage styleClass="img-car img-responsive"
+							alt="Responsive image" value="/resources/imagens/audi-car.png" />
+					</div>
+				</a>
+				<div class="calendario-data">
+					<h:graphicImage value="/resources/imagens/calendar.png"
+						styleClass="date-time-icon" />
+					<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
+				</div>
+				<div class="relogio-hora">
+					<h:graphicImage value="/resources/imagens/clock.png"
+						styleClass="date-time-icon" />
+					<p:clock id="horario" pattern="HH:mm:ss" mode="server" />
+				</div>
+			</div>
+
+			<div style="float: left;">
+				<b:navbarLinks
+					style="margin-left:8%; position:fixed; padding-top:1.5%;"
+					class="gradiente">
+
+					<b:column col-md="12">
+
+						<nav id="primary_nav_wrap">
+						<ul class="dropdown">
+							<li><a href="#">Cadastros</a>
+								<ul>
+									<li><a href="/stefacar/pages/client/clientRegister.xhtml">Cliente</a></li>
+									<li><a
+										href="/stefacar/pages/employee/employeeRegister.xhtml">Funcionário</a></li>
+									<li><a href="/stefacar/pages/pieces/piecesRegister.xhtml">Peça</a></li>
+									<li><a href="/stefacar/pages/car/carRegister.xhtml">Carro</a>
+										<ul>
+											<li><a
+												href="/stefacar/pages/brandCar/brandcarRegister.xhtml">Marca</a></li>
+											<li><a
+												href="/stefacar/pages/modelCar/modelCarRegister.xhtml">Modelo</a></li>
+										</ul></li>
+									<li><a
+										href="/stefacar/pages/outfitter/outfitterRegister.xhtml">Fornecedor</a></li>
+									<li><a
+										href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml">Fabricante</a></li>
+								</ul></li>
+							<li><a href="#">Vendas</a>
+								<ul>
+									<li><a href="/stefacar/pages/sales/saleRegister.xhtml">Venda
+											de carros</a></li>
+									<li><a
+										href="/stefacar/pages/sales/piecesSaleRegister.xhtml">Venda
+											de peças</a></li>
+								</ul></li>
+							<li><a href="#">Visualizações</a>
+								<ul>
+									<li><a href="#">Cliente</a></li>
+									<li><a href="/stefacar/pages/employee/employeeView.xhtml">Funcionário</a></li>
+									<li><a href="/stefacar/pages/pieces/piecesView.xhtml">Peça</a></li>
+									<li><a href="/stefacar/pages/car/carView.xhtml">Carro</a>
+										<ul>
+											<li><a
+												href="/stefacar/pages/brandCar/brandCarView.xhtml">Marca</a></li>
+											<li><a
+												href="/stefacar/pages/modelCar/modelCarView.xhtml">Modelo</a></li>
+										</ul></li>
+									<li><a href="#">Vendas</a>
+										<ul>
+											<li><a href="/stefacar/pages/sales/saleView.xhtml">Venda
+													de carros</a></li>
+											<li><a href="/stefacar/pages/sales/piecesSaleView.xhtml">Venda
+													de peças</a></li>
+										</ul></li>
+									<li><a href="#">Fornecedor</a></li>
+									<li><a
+										href="/stefacar/pages/manufacturer/manufacturerView.xhtml">Fabricante</a></li>
+
+								</ul></li>
+
+						</ul>
+						</nav>
+					</b:column>
+
+				</b:navbarLinks>
+			</div>
+
+			<div style="float: right; padding-right: 8%; padding-top: 1%;">
+				<b:column col-md="12">
+					<form class="navbar-form">
+						<div class="form-group" style="display: inline;">
+							<div class="input-group">
+								<input class="form-control" type="text" /> <span
+									class="input-group-addon"><span
+									class="glyphicon glyphicon-search"></span></span>
+							</div>
+						</div>
+					</form>
+
+				</b:column>
+			</div>
 
 
-
-	<p:layoutUnit position="left" width="12%">
-		<ui:insert name="sidebar">
-			<ui:include src="sidebar.xhtml" />
-		</ui:insert>
-	</p:layoutUnit>
+		</div>
+	</div>
 
 
-	<p:layoutUnit position="center"
-		style="padding-left:16%; padding-top:6%;">
-		<ui:insert name="center">
+	<b:container style="padding-top:2%;">
+		<b:row>
+
+			<b:column col-md="12">
+				<p:layoutUnit position="center"
+					style="padding-left:16%; padding-top:6%;">
+					<ui:insert name="center">
                         O que estiver aqui será substituido!
                 </ui:insert>
-	</p:layoutUnit>
+				</p:layoutUnit>
 
+			</b:column>
 
-	<p:layoutUnit position="south" style=" padding-top:80%;">
-		<ui:insert name="footer">
-			<ui:include src="footer.xhtml" />
-		</ui:insert>
-	</p:layoutUnit>
+		</b:row>
 
+		<hr />
 
+		<div class="rodape">
+			<span style="padding-left: 25%; color: white">Versão de Teste.
+				Copyright 2016. Todos os Direitos reservados a equipe de
+				desenvolvimento</span>
+		</div>
 
+	</b:container>
 
 </h:body>
+
 </html>

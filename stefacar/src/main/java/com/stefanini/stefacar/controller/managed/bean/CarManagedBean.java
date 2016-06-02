@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
-import com.stefanini.stefacar.controller.converter.jsf.SystemMesenger;
+import com.stefanini.stefacar.controller.shared.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.CarServiceImpl;
@@ -33,16 +33,16 @@ public class CarManagedBean {
 
 	public void save() {
 		getCar().changeAvailability();
-//		getCar().setAvaliable(true);
+		// getCar().setAvaliable(true);
 		service.save(getCar());
-		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro salvo com sucesso!");
-		loadAllCarsFromDataBase();		
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Carro salvo com sucesso!");
+		loadAllCarsFromDataBase();
 		clean();
 	}
 
 	public void delete(Car Car) {
 		service.delete(Car);
-		SystemMesenger.notificaInformacao("Parabens!", "Cadastro de Carro excluido com sucesso!");
+		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Carro excluido com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}

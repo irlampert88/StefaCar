@@ -8,7 +8,7 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 
-import com.stefanini.stefacar.controller.converter.MessengerSystem;
+import com.stefanini.stefacar.controller.shared.MessengerSystem;
 
 @Interceptor 
 @Transactional

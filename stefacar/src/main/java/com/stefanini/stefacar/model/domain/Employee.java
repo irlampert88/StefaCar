@@ -12,33 +12,33 @@ import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 
 @Entity
 public class Employee {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String name;
-	
-	@Column(nullable=false, unique=true)
+
+	@Column(nullable = false, unique = true)
 	private String cpf;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String phone;
-	
-	@Column(nullable=false, unique=true)
+
+	@Column(nullable = false, unique = true)
 	private String email;
-	
-	@Column(nullable=false, unique=true)
+
+	@Column(nullable = false, unique = true)
 	private Integer registration;
-	
+
 	@Enumerated(EnumType.STRING)
 	private EmployeeType type;
 
-	public Employee () {
-		
+	public Employee() {
+
 	}
-	
+
 	public Employee(Integer id, String name, String cpf, String phone, String email, Integer registration,
 			EmployeeType type) {
 		this.id = id;
@@ -49,8 +49,6 @@ public class Employee {
 		this.registration = registration;
 		this.type = type;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -164,5 +162,5 @@ public class Employee {
 		if (type != other.type)
 			return false;
 		return true;
-	}	
+	}
 }
