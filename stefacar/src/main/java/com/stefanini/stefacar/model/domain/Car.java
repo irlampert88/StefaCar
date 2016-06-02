@@ -30,7 +30,17 @@ public class Car {
 
 	public Car() {
 	}
-
+	
+	public Car(ModelCar carModel, Double price, String color, Integer id){
+		this.model = carModel;
+		this.price = price;
+		this.color = color;
+		this.id = id;
+		this.avaliable = false;
+	}
+	
+	//GETERS & SETERS
+	
 	public Integer getId() {
 		return id;
 	}
@@ -92,6 +102,8 @@ public class Car {
 		else 
 			this.avaliable = true;
 	}
+	
+	//HASH & EQUALS
 
 	@Override
 	public int hashCode() {

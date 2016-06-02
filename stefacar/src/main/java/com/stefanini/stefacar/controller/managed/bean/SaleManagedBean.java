@@ -1,24 +1,29 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 
-import com.stefanini.stefacar.controller.converter.MessengerSystem;
+import com.stefanini.stefacar.controller.shared.MessengerSystem;
+import com.stefanini.stefacar.model.domain.BrandCar;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
 import com.stefanini.stefacar.model.domain.Employee;
+import com.stefanini.stefacar.model.domain.ModelCar;
 import com.stefanini.stefacar.model.domain.Sale;
-import com.stefanini.stefacar.model.domain.Stock;
+import com.stefanini.stefacar.model.domain.SaleCarShow;
+import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
+import com.stefanini.stefacar.model.repository.impl.ModelCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.StockRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
 @ManagedBean
@@ -42,45 +47,63 @@ public class SaleManagedBean implements Serializable {
 	private ClientRepositoryImpl repositoryClient;
 	
 	@Inject
-	private StockRepositoryImpl repositoryStock;
-
+	private BrandCarRepositoryImpl repositoryBrand;
+	
+	@Inject
+	private ModelCarRepositoryImpl repositoryModelCar;	
+	
+	private ModelCar modelCar;
 	private Sale sale;
+	private SaleCarShow carShow;
 	private List<Sale> listOfSales;
 	private List<Employee> listOfEmployee;
 	private List<Car> listOfCar;
 	private List<Client> listOfClient;
-	private List<Stock> listFromStock;
+	private List<BrandCar> listOfBrand;
+	private Integer selectedBrand;
+	private List<SaleCarShow> listOfCarWhereBrandSelected;
 
 	@PostConstruct
 	public void init() {
+		modelCar = new ModelCar();
 		sale = new Sale();
+		carShow = new SaleCarShow();
+		listOfCarWhereBrandSelected = new ArrayList<>();
+		listOfBrand = repositoryBrand.listAllRecords();
 		listOfSales = repositorySale.listAllRecords();
 		listOfEmployee = repositoryEmployee.listAllRecords();
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
-		listFromStock = repositoryStock.listAllRecords();
-
-		// listOfSales = new ArrayList<>();
-		// listOfEmployee = new ArrayList<>();
-		// listOfCar = new ArrayList<>();
-		// listOfClient = new ArrayList<>();
 	}
 
 	public void save() {
-		sale.getCar().changeAvailability();
-//		sale.getCar().setAvaliable(false);
-		service.save(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro salvo com sucesso");
+		changeCarShowToCarAndSetCarInSale();
+		sale.getCar().changeAvailability();		
+		service.save(getSale());
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de Venda de Carro salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Sale sale) {
 		service.delete(sale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro excluido com sucesso");
+		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de Venda de Carro excluido com sucesso");
 	}
 
 	public void clean() {
+		modelCar = new ModelCar();
 		sale = new Sale();
+		carShow = new SaleCarShow();
+	}
+	
+	public void deliveryCarByBrand(ValueChangeEvent event){
+		String teste = event.getNewValue().toString();
+		selectedBrand = Integer.parseInt(teste); 
+		listOfCarWhereBrandSelected = repositoryCar.listAllRecordsByBrand(selectedBrand);
+	}
+	
+	public void changeCarShowToCarAndSetCarInSale(){
+		modelCar = repositoryModelCar.deliveryModelCar(carShow.getIdModel());		
+		sale.setCar(new Car(modelCar, carShow.getPrice(), carShow.getColor(), carShow.getIdCar()));
 	}
 
 	// --[GETTES AND SETTERS]
@@ -106,15 +129,7 @@ public class SaleManagedBean implements Serializable {
 
 	public void setListOfEmployee(List<Employee> listOfEmployee) {
 		this.listOfEmployee = listOfEmployee;
-	}
-
-	public List<Car> getListOfCar() {
-		return listOfCar;
-	}
-
-	public void setListOfCar(List<Car> listOfCar) {
-		this.listOfCar = listOfCar;
-	}
+	}	
 
 	public List<Client> getListOfClient() {
 		return listOfClient;
@@ -124,12 +139,43 @@ public class SaleManagedBean implements Serializable {
 		this.listOfClient = listOfClient;
 	}
 
-	public List<Stock> getListFromStock() {
-		return listFromStock;
+	public List<BrandCar> getListOfBrand() {
+		return listOfBrand;
 	}
 
-	public void setListFromStock(List<Stock> listFromStock) {
-		this.listFromStock = listFromStock;
+	public void setListOfBrand(List<BrandCar> listOfBrand) {
+		this.listOfBrand = listOfBrand;
 	}
-	
+
+	public Integer getSelectedBrand() {
+		return selectedBrand;
+	}
+
+	public void setSelectedBrand(Integer selectedBrand) {
+		this.selectedBrand = selectedBrand;
+	}
+
+	public List<SaleCarShow> getListOfCarWhereBrandSelected() {
+		return listOfCarWhereBrandSelected;
+	}
+
+	public void setListOfCarWhereBrandSelected(List<SaleCarShow> listOfCarWhereBrandSelected) {
+		this.listOfCarWhereBrandSelected = listOfCarWhereBrandSelected;
+	}
+
+	public SaleCarShow getCarShow() {
+		return carShow;
+	}
+
+	public void setCarShow(SaleCarShow carShow) {
+		this.carShow = carShow;
+	}
+
+	public List<Car> getListOfCar() {
+		return listOfCar;
+	}
+
+	public void setListOfCar(List<Car> listOfCar) {
+		this.listOfCar = listOfCar;
+	}	
 }

@@ -1,44 +1,17 @@
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
+$(".dropdown li").on('mouseenter mouseleave', function (e) {
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-}
+        // Get the computed style of the body element
+        var cStyle = document.body.currentStyle||window.getComputedStyle(document.body, "");
 
-
-
-
-
-
-$(document).ready(function () {
-	  var trigger = $('.hamburger'),
-	      overlay = $('.overlay'),
-	     isClosed = false;
-
-	    trigger.click(function () {
-	      hamburger_cross();      
-	    });
-
-	    function hamburger_cross() {
-
-	      if (isClosed == true) {          
-	        overlay.hide();
-	        trigger.removeClass('is-open');
-	        trigger.addClass('is-closed');
-	        isClosed = false;
-	      } else {   
-	        overlay.show();
-	        trigger.removeClass('is-closed');
-	        trigger.addClass('is-open');
-	        isClosed = true;
-	      }
-	  }
-	  
-	  $('[data-toggle="offcanvas"]').click(function () {
-	        $('#wrapper').toggleClass('toggled');
-	  });  
-	});
+        // Check the overflow and overflowY properties for "auto" and "visible" values
+        var hasVScroll = cStyle.overflow == "visible" 
+                 || cStyle.overflowY == "visible"
+                 || (hasVScroll && cStyle.overflow == "auto")
+                 || (hasVScroll && cStyle.overflowY == "auto");
+                 
+        if (hasVScroll) {
+            $(this).addClass('edge');
+        } else {
+            $(this).removeClass('edge');
+        }
+    });

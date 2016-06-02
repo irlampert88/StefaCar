@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;"
+				value="Cadastro de Fornecedor" />
+			<h:form id="outfitterForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+
+				<p:panelGrid columns="3">
+
+					<p:outputLabel for="Name" value="Nome:" />
+					<p:inputText id="Name" requiredMessage="Campo obrigatório"
+						required="true" placeholder="nome"
+						value="#{outfitterManagedBean.outfitter.name}" />
+					<p:message for="Name" />
+
+					<p:outputLabel for="Cnpj" value="Cnpj :" />
+					<p:inputMask maxlength="11" id="Cnpj" mask="99999999999999"
+						requiredMessage="Campo obrigatório" required="true"
+						placeholder="Cnpj" value="#{outfitterManagedBean.outfitter.cnpj}">
+						<!-- <f:validator validatorId="cpfValidator" /> -->
+					</p:inputMask>
+					<p:message for="Cnpj" />
+
+
+
+					<p:outputLabel for="Phone" value="Telefone: " />
+					<p:inputText id="Phone" requiredMessage="Campo obrigatório"
+						required="true" placeholder="telefone"
+						value="#{outfitterManagedBean.outfitter.phone}" />
+					<p:message for="Phone" />
+
+					<p:outputLabel for="address" value="Endereço: " />
+					<p:inputText id="address" requiredMessage="Campo obrigatório"
+						required="true" value="#{outfitterManagedBean.outfitter.address}" />
+					<p:message for="address" />
+
+				</p:panelGrid>
+
+				<p:commandButton value="Salvar" process="@form"
+					action="#{outfitterManagedBean.save()}" icon="fa fa-fw fa-save"
+					update="@form" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{outfitterManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+			</h:form>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+
+</html>
