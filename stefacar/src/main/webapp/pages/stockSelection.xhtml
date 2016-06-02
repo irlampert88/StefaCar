@@ -11,7 +11,7 @@
 		<h:form id="selectionCarSaleForm">
 				<p:outputLabel for="comboBrand" value="Seleciona a marca da pesquisa:" />
 				
-				<p:selectOneMenu id="comboBrand" converter="converterCombobox"
+				<p:selectOneMenu id="comboBrand" converter="comboBoxConverter"
 					value="#{saleManagedBean.selectedBrand}"
 					valueChangeListener="#{saleManagedBean.deliveryCarByBrand}">
 					<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					

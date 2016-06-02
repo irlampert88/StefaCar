@@ -22,7 +22,7 @@ import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.ModelCarRepository;
+import com.stefanini.stefacar.model.repository.impl.ModelCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
 
@@ -50,7 +50,7 @@ public class SaleManagedBean implements Serializable {
 	private BrandCarRepositoryImpl repositoryBrand;
 	
 	@Inject
-	private ModelCarRepository repositoryModelCar;	
+	private ModelCarRepositoryImpl repositoryModelCar;	
 	
 	private ModelCar modelCar;
 	private Sale sale;
