@@ -39,6 +39,8 @@ public class Car {
 		this.avaliable = false;
 	}
 	
+	//GETERS & SETERS
+	
 	public Integer getId() {
 		return id;
 	}
@@ -100,6 +102,8 @@ public class Car {
 		else 
 			this.avaliable = true;
 	}
+	
+	//HASH & EQUALS
 
 	@Override
 	public int hashCode() {
