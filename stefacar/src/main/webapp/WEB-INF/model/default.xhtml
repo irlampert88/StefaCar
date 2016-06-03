@@ -5,159 +5,107 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Stefa Car</title>
+		<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+		<h:outputStylesheet library="styles" name="style-nav.css" />
+	</h:head>
 
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Stefa Car</title>
-	<style type="text/css">
-</style>
-	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
-	<h:outputStylesheet library="styles" name="style.css" />
-	<h:outputStylesheet library="js" name="bootstrap.js" />
-	<h:outputStylesheet library="js" name="bootstrap.min.js" />
-	<h:outputStylesheet library="js" name="default.js" />
-
-
-</h:head>
-
-<h:body>
-
-	<div class="ct-top">
-		<div class="container--topmenu ">
-			<div class="cabecalho">
-				<a href="#">
-					<div>
-						<h:graphicImage styleClass="img-logo img-responsive"
-							value="/resources/imagens/stefanini.png" />
-
-						<h:graphicImage styleClass="img-car img-responsive"
-							alt="Responsive image" value="/resources/imagens/audi-car.png" />
-					</div>
-				</a>
-				<div class="calendario-data">
-					<h:graphicImage value="/resources/imagens/calendar.png"
-						styleClass="date-time-icon" />
-					<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
-				</div>
-				<div class="relogio-hora">
-					<h:graphicImage value="/resources/imagens/clock.png"
-						styleClass="date-time-icon" />
-					<p:clock id="horario" pattern="HH:mm:ss" mode="server" />
-				</div>
-			</div>
-
-			<div style="float: left;">
-				<b:navbarLinks
-					style="margin-left:18%; padding-top:3%;"
-					class="gradiente">
-
-					<b:column col-md="12">
-
-						<nav id="primary_nav_wrap">
-						<ul class="dropdown">
-							<li><a href="#">Cadastros</a>
-								<ul>
-									<li><a href="/stefacar/pages/client/clientRegister.xhtml">Cliente</a></li>
-									<li><a
-										href="/stefacar/pages/employee/employeeRegister.xhtml">Funcionário</a></li>
-									<li><a href="/stefacar/pages/pieces/piecesRegister.xhtml">Peça</a></li>
-									<li><a href="/stefacar/pages/car/carRegister.xhtml">Carro</a>
-										<ul>
-											<li><a
-												href="/stefacar/pages/brandCar/brandcarRegister.xhtml">Marca</a></li>
-											<li><a
-												href="/stefacar/pages/modelCar/modelCarRegister.xhtml">Modelo</a></li>
-										</ul></li>
-									<li><a
-										href="/stefacar/pages/outfitter/outfitterRegister.xhtml">Fornecedor</a></li>
-									<li><a
-										href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml">Fabricante</a></li>
-								</ul></li>
-							<li><a href="#">Vendas</a>
-								<ul>
-									<li><a href="/stefacar/pages/sales/saleRegister.xhtml">Venda
-											de carros</a></li>
-									<li><a
-										href="/stefacar/pages/sales/piecesSaleRegister.xhtml">Venda
-											de peças</a></li>
-								</ul></li>
-							<li><a href="#">Visualizações</a>
-								<ul>
-									<li><a href="/stefacar/pages/client/clientView.xhtml">Cliente</a></li>
-									<li><a href="/stefacar/pages/employee/employeeView.xhtml">Funcionário</a></li>
-									<li><a href="/stefacar/pages/pieces/piecesView.xhtml">Peça</a></li>
-									<li><a href="/stefacar/pages/car/carView.xhtml">Carro</a>
-										<ul>
-											<li><a
-												href="/stefacar/pages/brandCar/brandCarView.xhtml">Marca</a></li>
-											<li><a
-												href="/stefacar/pages/modelCar/modelCarView.xhtml">Modelo</a></li>
-										</ul></li>
-									<li><a href="#">Vendas</a>
-										<ul>
-											<li><a href="/stefacar/pages/sales/saleView.xhtml">Venda
-													de carros</a></li>
-											<li><a href="/stefacar/pages/sales/piecesSaleView.xhtml">Venda
-													de peças</a></li>
-										</ul></li>
-									<li><a href="/stefacar/pages/outfitter/outfitterView.xhtml">Fornecedor</a></li>
-									<li><a
-										href="/stefacar/pages/manufacturer/manufacturerView.xhtml">Fabricante</a></li>
-
-								</ul></li>
-
-						</ul>
-						</nav>
-					</b:column>
-
-				</b:navbarLinks>
-			</div>
-
-			<div style="float: right; padding-right: 8%; padding-top: 1%;">
-				<b:column col-md="12">
-					<form class="navbar-form">
-						<div class="form-group" style="display: inline;">
-							<div class="input-group">
-								<input class="form-control" type="text" /> <span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-search"></span></span>
+<h:body styleClass="posicaoHeader">
+	    <div class="topperBackground">
+	           <div class="headerBackgound">
+	           		<b:row>
+	           			<b:column col-md="2">
+	           				
+	           			</b:column>
+	           			<b:column col-md="2">
+	           				<div>
+	           					<h:graphicImage styleClass="img-logo"
+								value="/resources/imagens/stefanini.png" />
+	           				</div>
+	           			</b:column>
+	           			<b:column col-md="2">
+	           				<div>
+	           					<h:graphicImage styleClass="img-car"
+								alt="Responsive image" value="/resources/imagens/audi-car.png" />
+	           				</div>
+	           			</b:column>
+	           			<b:column col-md="2">
+	           				<div class="calendario-data">
+								<h:graphicImage value="/resources/imagens/calendar.png"
+									styleClass="date-time-icon" />
+								<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
 							</div>
-						</div>
-					</form>
-
-				</b:column>
+	           			</b:column>
+	           			<b:column col-md="2">
+	           				
+	           			</b:column>
+					</b:row>
+	           </div>
+	      </div>  
+	      <div>
+				<b:navBar>
+				    <b:navbarLinks>
+				        <b:dropMenu value="Cadastros" >
+							<b:navLink value="Clientes" href="/stefacar/pages/client/clientRegister.xhtml"></b:navLink>
+							<b:navLink value="Funcionários" href="/stefacar/pages/employee/employeeRegister.xhtml"></b:navLink>
+							<b:navLink value="Peças" href="/stefacar/pages/pieces/piecesRegister.xhtml"></b:navLink>
+							<b:dropMenu value="Carros">
+								<b:navLink value="Marcas" href="/stefacar/pages/brandCar/brandcarRegister.xhtml"></b:navLink>
+								<b:navLink value="Modelos" href="/stefacar/pages/modelCar/modelCarRegister.xhtml"></b:navLink>
+							</b:dropMenu>
+							<b:navLink value="Fornecedores" href="/stefacar/pages/outfitter/outfitterRegister.xhtml"></b:navLink>
+							<b:navLink value="Fabricantes" href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml"></b:navLink>
+						</b:dropMenu>
+				        <b:dropMenu value="Vendas">
+							<b:navLink value="Venda de carro" href="/stefacar/pages/sales/saleRegister.xhtml"></b:navLink>
+							<b:navLink value="Venda de peças" href="/stefacar/pages/sales/piecesSaleRegister.xhtml"></b:navLink>
+						</b:dropMenu>
+						<b:dropMenu value="Consultas">
+							<b:navLink value="Clientes" href="/stefacar/pages/client/clientView.xhtml"></b:navLink>
+							<b:navLink value="Funcionários" href="/stefacar/pages/employee/employeeView.xhtml"></b:navLink>
+							<b:navLink value="Peças" href="/stefacar/pages/pieces/piecesView.xhtml"></b:navLink>
+							<b:dropMenu value="Carros">
+								<b:navLink value="Marcas" href="/stefacar/pages/brandCar/brandCarView.xhtml"></b:navLink>
+								<b:navLink value="Modelos" href="/stefacar/pages/modelCar/modelCarView.xhtml"></b:navLink>
+							</b:dropMenu>
+							<b:dropMenu value="Vendas">
+								<b:navLink value="Venda de carro" href="/stefacar/pages/sales/saleView.xhtml"></b:navLink>
+								<b:navLink value="Venda de peças" href="/stefacar/pages/sales/piecesSaleView.xhtml"></b:navLink>
+							</b:dropMenu>
+							<b:navLink value="Fornecedores" href="/stefacar/pages/outfitter/outfitterView.xhtml"></b:navLink>
+							<b:navLink value="Fabricantes" href="/stefacar/pages/manufacturer/manufacturerView.xhtml"></b:navLink>
+						</b:dropMenu>
+				    </b:navbarLinks>
+				</b:navBar>
+	       </div>
+	       
+	       <b:container>
+       
+			<div class="contentContainer">
+				<b:row>
+					<b:column col-md="12">
+						<p:layoutUnit>
+							<ui:insert name="center">
+		                        O que estiver aqui será substituido!
+		                	</ui:insert>
+						</p:layoutUnit>
+		
+					</b:column>
+				</b:row>
 			</div>
-
-
-		</div>
-	</div>
-
-
-	<b:container style="padding-top:2%;">
-		<b:row>
-
-			<b:column col-md="12">
-				<p:layoutUnit position="center"
-					style="padding-left:16%; padding-top:6%;">
-					<ui:insert name="center">
-                        O que estiver aqui será substituido!
-                </ui:insert>
-				</p:layoutUnit>
-
-			</b:column>
-
-		</b:row>
-
-		<hr />
-
-		<div class="rodape">
-			<span style="padding-left: 25%; color: white">Versão de Teste.
-				Copyright 2016. Todos os Direitos reservados a equipe de
-				desenvolvimento</span>
-		</div>
-
-	</b:container>
-
+			</b:container>
+			
+			
+			<div>
+				
+			</div>
+			<div class="rodape">
+				<h5>Versão de Teste.
+					Copyright 2016. Todos os Direitos reservados a equipe de
+					desenvolvimento</h5>
+			</div>
 </h:body>
 
 </html>
