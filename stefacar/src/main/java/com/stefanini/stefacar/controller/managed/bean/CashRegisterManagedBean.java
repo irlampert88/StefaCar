@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.controller.warehouse.TypeOfPayment;
 import com.stefanini.stefacar.model.domain.CashRegister;
 import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.repository.impl.CashRegisterRepositoryImpl;
@@ -27,8 +28,8 @@ public class CashRegisterManagedBean implements Serializable {
 	@Inject
 	SaleRepositoryImpl repositorySale;
 		
-	CashRegister cashregister;
-	
+	private CashRegister cashregister;
+	private Sale saleSelected;
 	@PostConstruct
 	public void init(){
 		cashregister = new CashRegister();
@@ -39,6 +40,30 @@ public class CashRegisterManagedBean implements Serializable {
 		sale.setStatus(false);//venda finalizada		
 	}
 	
+	public void selectSale(Sale sale){
+		saleSelected = sale;
+	}
+		
+	//GETERS & SETERS
 	
+	public CashRegister getCashregister() {
+		return cashregister;
+	}
+
+	public void setCashregister(CashRegister cashregister) {
+		this.cashregister = cashregister;
+	}
+
+	public Sale getSaleSelected() {
+		return saleSelected;
+	}
+
+	public void setSaleSelected(Sale saleSelected) {
+		this.saleSelected = saleSelected;
+	}
+	
+	public TypeOfPayment[] getTypeOfPayMent(){
+		return TypeOfPayment.values();
+	}
 
 }

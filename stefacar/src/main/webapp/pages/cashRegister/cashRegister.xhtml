@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+</h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
+		
+		<p:dataTable id="cashTable" var="receipt"
+				value="#{cashRegisterManagedBean.cashregister.sales}"
+				emptyMessage="Não existem Vendas Pendendentes de Pagamento"
+				style="padding-top:20px;">
+				<p:column headerText="Id da Venda" style="text-align: center">
+					<h:outputText value="#{receipt.id}" />
+				</p:column>
+				<p:column headerText="Cliente" style="text-align: center">
+					<h:outputText value="#{receipt.client.name}" />
+				</p:column>
+				<p:column headerText="Vendedor" style="text-align: center">
+					<h:outputText value="#{receipt.employee.name}" />
+				</p:column>
+				<p:column headerText="Modelo do Carro" style="text-align: center">
+					<h:outputText value="#{receipt.car.model.name}" />
+				</p:column>
+				<p:column headerText="Pagar a Venda" style="text-align: center">
+					<p:commandButton icon="fa fa-fw fa-money" title="Pagar o carro"
+						update="cashTable " oncomplete="PF('dialogCloseSales').show();"
+						action="#{cashRegisterManagedBean.selectSale(receipt)}">						
+					</p:commandButton>					
+				</p:column>
+			</p:dataTable>
+			<ui:include src="closeSales.xhtml"></ui:include>		
+	</ui:decorate>
+</html>
