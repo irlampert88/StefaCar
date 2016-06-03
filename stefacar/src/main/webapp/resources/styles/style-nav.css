@@ -57,6 +57,49 @@ html, body {
 	color: #333;
 }
 
+.dropdown a {
+    display:block;
+    padding:1em 2em;
+}
+
+.dropdown li:hover{
+    z-index:910;
+}
+
+.dropdown li a:focus,
+.dropdown li a:hover {
+    background:#d2fdff;
+    
+}
+
+.dropdown li:hover a {
+    background:#ffffff;
+}
+
+.dropdown ul:hover,
+.dropdown li:hover > ul,
+.dropdown a:hover + ul,
+.dropdown a:focus + ul {
+    visibility:visible;
+    display:block;
+}
+.dropdown a {
+    display:block;
+    padding:1em 2em;
+    
+}
+
+.dropdown li a:focus,
+.dropdown li a:hover {
+    background:#aaffaa;
+    
+}
+
+.dropdown li:hover{
+    z-index:910;
+}
+
+
 ======================================
 
 .ct-top, gradiente{
