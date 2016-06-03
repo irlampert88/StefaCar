@@ -1,6 +1,7 @@
 package com.stefanini.stefacar.model.domain;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,18 +20,33 @@ public class Sale {
 	@JoinColumn(name = "idCliente", nullable = false)
 	private Client client;
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idFuncionário", nullable = false)
+	@JoinColumn(name = "idFuncionario", nullable = false)
 	private Employee employee;
 <<<<<<< HEAD
 	@OneToOne
 	@JoinColumn(name = "idStock", nullable = false)
 =======
 	@OneToOne(cascade = CascadeType.REFRESH)
+<<<<<<< HEAD
 	@JoinColumn(name = "idCarro", nullable = false)
 >>>>>>> fc9b014bcef8652d2d8fb2ecf43d22430590a44e
 	private Stock stock;
+=======
+	@JoinColumn(name = "Carro", nullable = false)
+	private Car car;
+	@Column
+	private boolean status;//true = venda ativa & false = venda finalizada
+	
+	public Sale() {
+		this.client = new Client();
+		this.car = new Car();
+		this.employee = new Employee();
+		this.status = true;
+	}
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 	
 	
+	//GETERS & SETERS
 	public Client getClient() {
 		return client;
 	}
@@ -44,14 +60,19 @@ public class Sale {
 		this.employee = employee;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Integer getIdSale() {
 		return idSale;
 =======
 	public Stock getStock() {
 		return stock;
+=======
+	public Car getCar() {
+		return car;
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 	}
-	public void setStock(Stock car) {
-		this.stock = car;
+	public void setCar(Car car) {
+		this.car = car;
 	}
 	public Integer getId() {
 		return id;
@@ -59,17 +80,35 @@ public class Sale {
 	}
 	public void setId(Integer idSale) {
 		this.id = idSale;
+	}	
+	public boolean isStatus() {
+		return status;
 	}
+<<<<<<< HEAD
 	public Stock getStock() {
 		return stock;
 	}
 	public void setStock(Stock stock) {
 		this.stock = stock;
 	}
+=======
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public String getStatusString(){
+		if(isStatus())
+			return "Venda Ativa";
+		else 
+			return "Venda Finalizada";
+	}
+
+	//HASH & EQUALS
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+<<<<<<< HEAD
 <<<<<<< HEAD
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
@@ -77,6 +116,9 @@ public class Sale {
 		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
 =======
 		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
+=======
+		result = prime * result + ((car == null) ? 0 : car.hashCode());
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -93,11 +135,16 @@ public class Sale {
 			return false;
 		Sale other = (Sale) obj;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		if (stock == null) {
 			if (other.stock != null)
+=======
+		if (car == null) {
+			if (other.car != null)
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 				return false;
-		} else if (!stock.equals(other.stock))
+		} else if (!car.equals(other.car))
 			return false;
 >>>>>>> fc9b014bcef8652d2d8fb2ecf43d22430590a44e
 		if (client == null) {

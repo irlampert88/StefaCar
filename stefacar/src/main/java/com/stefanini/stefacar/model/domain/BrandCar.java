@@ -12,36 +12,45 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BrandCar {
 
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String name;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String nationality;
+<<<<<<< HEAD
 	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="idModel")
+=======
+	@ManyToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "idModelCar")
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 	private ModelCar modelList;
 
-	
-	public BrandCar() {}
+	public BrandCar() {
+	}
 
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getNationality() {
 		return nationality;
 	}
+
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
@@ -99,9 +108,8 @@ public class BrandCar {
 
 	@Override
 	public String toString() {
-		return "BrandCar [id=" + id + ", name=" + name + ", nationality=" + nationality
-				+ ", modelCarList=" + modelList + "]";
+		return "BrandCar [id=" + id + ", name=" + name + ", nationality=" + nationality + ", modelCarList=" + modelList
+				+ "]";
 	}
-	
-	
+
 }

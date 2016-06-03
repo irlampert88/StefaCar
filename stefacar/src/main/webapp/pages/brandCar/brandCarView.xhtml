@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;" value="Lista de marcas" />
+			<p:dataTable id="brandCarTable" var="brand"
+				value="#{brandCarManagedBean.dataList}"
+				emptyMessage="Não existem Marcas Cadastrados"
+				style="padding-top:20px;">
+
+				<p:column headerText="Marca" style="text-align: center">
+					<h:outputText value="#{brand.name}" />
+
+				</p:column>
+				<p:column headerText="Nacionalidade" style="text-align: center">
+					<h:outputText value="#{brand.nationality}" />
+				</p:column>
+
+				<p:column headerText="Ações" style="text-align: center">
+
+					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar a Marca"
+						action="#{brandCarManagedBean.delete(brand)}">
+						<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
+
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Sim" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="Não" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+
+					</p:confirmDialog>
+				</p:column>
+			</p:dataTable>
+
+
+		</ui:define>
+	</ui:decorate>
+</h:body>
+</html>

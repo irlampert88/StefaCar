@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+<<<<<<< HEAD
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
@@ -73,6 +74,102 @@
             <p>© Company 2014</p>
             </footer>
         </b:container>
+=======
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Stefa Car</title>
+	<style type="text/css">
+</style>
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="style.css" />
+	<h:outputStylesheet library="styles" name="animate.css" />
+	<h:outputStylesheet library="js" name="bootstrap.js" />
+	<h:outputStylesheet library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="js" name="default.js" />
+
+</h:head>
+
+<h:body>
+	<ui:decorate template="WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+
+			<b:row>
+				<b:column col-sm="6" col-md="4">
+					<ul class="gridder a-green">
+						<li class="gridder-list cmn-t-scale" data-color="#668c07"
+							data-griddercontent="#category-1">
+							<a href="/stefacar/pages/sales/saleView.xhtml">
+							<div class="animated fadeInLeftBig"
+								style="border: 2px solid #44AA00; padding: 15px 12px; height: 100%;">
+								<div style="padding-left: 30%;">
+									<h:graphicImage 
+										value="/resources/imagens/green-car.png" />
+								</div>
+								<div style="padding-left: 35%;">
+									<p class="cll-category-name"
+										style="color: #44AA00; font-size: 20px;">Carros</p>
+								</div>
+							</div>
+							</a>
+						</li>
+					</ul>
+
+				</b:column>
+
+				<b:column col-sm="6" col-md="4">
+					<ul class="gridder">
+						<li class="gridder-list cmn-t-scale" data-color="#251fc6"
+							data-griddercontent="#category-3">
+							<a href="/stefacar/pages/sales/saleView.xhtml">
+							<div class="animated fadeInUpBig"
+								style="border: 2px solid #004E9E; padding: 15px 12px; height: 100%;">
+								<div style="padding-left: 35%;">
+									<h:graphicImage style=" padding-top:17%; padding-bottom:4%;"
+										value="/resources/imagens/icon-paper-blue.png" />
+								</div>
+								<div style="padding-left: 38%;">
+									<p class="cll-category-name"
+										style="color: #004E9E; font-size: 20px;">Serviço</p>
+								</div>
+							</div>
+							</a>
+						</li>
+					</ul>
+				</b:column>
+
+				<b:column col-sm="6" col-md="4">
+					<ul class="gridder">
+						<li class="gridder-list cmn-t-scale" data-color="#1da0ba"
+							data-griddercontent="#category-5">
+							<a href="/stefacar/pages/pieces/piecesView.xhtml">
+							<div class="animated fadeInRightBig"
+								style="border: 2px solid #377EF0; padding: 15px 12px; height: 100%;">
+								<div style="padding-left: 35%;">
+									<h:graphicImage style=" padding-top:20%;"
+										value="/resources/imagens/tools-icon.png" />
+								</div>
+								<div style="padding-left: 38%;">
+									<p class="cll-category-name"
+										style="color: #377EF0; font-size: 20px;">Peças</p>
+								</div>
+							</div>
+							</a>
+						</li>
+					</ul>
+				</b:column>
+
+			</b:row>
+
+		</ui:define>
+	</ui:decorate>
+</h:body>
+>>>>>>> a2dbf77445d707f8bb240f1d3f8a7a08972e860a
 
     </h:body>
 </html>

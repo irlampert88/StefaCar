@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
-import com.stefanini.stefacar.controller.converter.MessengerSystem;
+import com.stefanini.stefacar.controller.shared.MessengerSystem;
 import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.service.impl.EmployeeServiceImpl;
