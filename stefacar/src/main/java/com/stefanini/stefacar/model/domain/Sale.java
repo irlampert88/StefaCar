@@ -34,7 +34,7 @@ public class Sale {
 		this.employee = new Employee();
 		this.status = true;
 	}
-	
+		
 	
 	//GETERS & SETERS
 	public Client getClient() {

@@ -71,7 +71,7 @@ public class SaleManagedBean implements Serializable {
 		listOfCarWhereBrandSelected = new ArrayList<>();
 		listOfBrand = repositoryBrand.listAllRecords();
 		listOfSales = repositorySale.listAllRecords();
-		listOfEmployee = repositoryEmployee.listAllRecords();
+		listOfEmployee = repositoryEmployee.listAllRecords();//aqui vai o método da classe EmployeeRepository que entrega somente vendedor método já esta pronto mas ta bugado
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
 	}
@@ -80,13 +80,13 @@ public class SaleManagedBean implements Serializable {
 		changeCarShowToCarAndSetCarInSale();
 		sale.getCar().changeAvailability();		
 		service.save(getSale());
-		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de Venda de Carro salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Sale sale) {
 		service.delete(sale);
-		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de Venda de Carro excluido com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro excluido com sucesso");
 	}
 
 	public void clean() {
