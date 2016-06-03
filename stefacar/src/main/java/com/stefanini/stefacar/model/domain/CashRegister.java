@@ -10,7 +10,6 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import com.stefanini.stefacar.controller.converter.LocalDateAttributeConverter;
@@ -31,7 +30,7 @@ public class CashRegister {
 	@Enumerated
 	private TypeOfPayment typePayment;
 	@OneToMany(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "Venda", nullable = false)
+	@Column(name = "Data Pagamento", nullable = true)
 	private List<Sale> sales;
 	
 	public CashRegister() {
