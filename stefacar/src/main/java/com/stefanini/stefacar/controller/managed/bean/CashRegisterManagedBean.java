@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.model.domain.CashRegister;
+import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.repository.impl.CashRegisterRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 
@@ -33,5 +34,11 @@ public class CashRegisterManagedBean implements Serializable {
 		cashregister = new CashRegister();
 		cashregister.setSales(repositorySale.listAllRecordsByActive());
 	}
+	
+	public void closeSales(Sale sale){
+		sale.setStatus(false);//venda finalizada		
+	}
+	
+	
 
 }
