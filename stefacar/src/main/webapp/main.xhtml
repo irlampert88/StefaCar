@@ -13,7 +13,7 @@
 	<style type="text/css">
 </style>
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
-	<h:outputStylesheet library="styles" name="style.css" />
+	<h:outputStylesheet library="styles" name="style-nav.css" />
 	<h:outputStylesheet library="styles" name="animate.css" />
 	<h:outputStylesheet library="js" name="bootstrap.js" />
 	<h:outputStylesheet library="js" name="bootstrap.min.js" />
@@ -24,7 +24,8 @@
 <h:body>
 	<ui:decorate template="WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
+		
+<b:container>
 			<b:row>
 				<b:column col-sm="6" col-md="4">
 					<ul class="gridder a-green">
@@ -91,8 +92,12 @@
 				</b:column>
 
 			</b:row>
+			
+			</b:container>
 
 		</ui:define>
+		
+		
 	</ui:decorate>
 </h:body>
 
