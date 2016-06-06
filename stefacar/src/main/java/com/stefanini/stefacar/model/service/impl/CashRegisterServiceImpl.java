@@ -22,14 +22,20 @@ public class CashRegisterServiceImpl {
 	public void save(CashRegister cash){					
 		if(cash.getDateOfSale() == LocalDate.now()){
 			repositoryCashRegister.update(cash);
-			finalizesSales(cash);			
+			finalizesCashRegister(cash);			
 		}else{
 			repositoryCashRegister.insert(cash);
-			finalizesSales(cash);
+			finalizesCashRegister(cash);
 		}
 	}
 	
-	private void finalizesSales(CashRegister cash){
+	@Transactional
+	public void closeSales(Sale sale){
+		repositorySale.update(sale);		
+	}
+	
+	@Transactional
+	private void finalizesCashRegister(CashRegister cash){ 
 		for (Sale sale : cash.getSales()) {				
 			if(sale.isStatus()){
 				sale.setStatus(false);
