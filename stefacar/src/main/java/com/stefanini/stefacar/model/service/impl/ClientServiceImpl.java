@@ -24,7 +24,6 @@ public class ClientServiceImpl {
 
 	@Transactional
 	public void delete(Client client) {
-		System.out.println("SERVICE");
 		repository.delete(client);
 	}
 

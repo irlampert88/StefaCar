@@ -34,8 +34,8 @@ public class ClientManagedBean {
 	}
 
 	public void delete(Client client) {
-		System.out.println("MB");
 		service.delete(client);
+		dataList.remove(client);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Cliente excluido com sucesso!");
 	}
 

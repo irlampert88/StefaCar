@@ -31,7 +31,6 @@ public abstract class AbstractRepository<T> implements Repository<T> {
 
 	@Override
 	public void delete(T data) {
-		System.out.println(data.getClass().getName());
 		entityManager.remove(entityManager.merge(data));
 	}
 
