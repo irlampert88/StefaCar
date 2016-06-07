@@ -55,13 +55,15 @@
 }
 
 .img-logo{
-	margin-top: 13%;
-	margin-left: -15%;
+	position: fixed;
+	margin-top: 30px;
+	margin-left: -35px;
 }
 
 .img-car{
-	margin-top: 5%;
-	margin-left: -15%;
+	position: fixed;
+	margin-top: 20px;
+	margin-left: -75px;;
 }
 
 .time-size{
@@ -93,6 +95,7 @@
 }
 
 .date-time-icon {
+	position: fixed;
 	height: 20px;
 	width: 20px;
 }
