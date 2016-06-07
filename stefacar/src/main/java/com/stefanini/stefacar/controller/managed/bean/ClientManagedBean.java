@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.shared.MessengerSystem;
 import com.stefanini.stefacar.model.domain.Client;
-
 import com.stefanini.stefacar.model.service.impl.ClientServiceImpl;
 
 @ManagedBean
@@ -35,6 +34,7 @@ public class ClientManagedBean {
 	}
 
 	public void delete(Client client) {
+		System.out.println("MB");
 		service.delete(client);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Cliente excluido com sucesso!");
 	}

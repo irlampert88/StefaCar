@@ -24,14 +24,18 @@ public class TransactionalInterceptor implements Serializable {
 		Object resultado = null;
 
 		try {
+			System.out.println("1");
 			entityManager.getTransaction().begin();
 
+			System.out.println(context.getTarget().toString());
 			resultado = context.proceed();
 
+			System.out.println("3");
 			entityManager.getTransaction().commit();
 
 		} catch (Exception e) {
 
+			System.out.println("FUDEU");
 			entityManager.getTransaction().rollback();
 
 			MessengerSystem.nootificaErro("Erro - ",

@@ -71,7 +71,7 @@ public class SaleManagedBean implements Serializable {
 		listOfCarWhereBrandSelected = new ArrayList<>();
 		listOfBrand = repositoryBrand.listAllRecords();
 		listOfSales = repositorySale.listAllRecords();
-		listOfEmployee = repositoryEmployee.listAllRecords();//aqui vai o método da classe EmployeeRepository que entrega somente vendedor método já esta pronto mas ta bugado
+		listOfEmployee = repositoryEmployee.listAllSalesMan();//aqui vai o método da classe EmployeeRepository que entrega somente vendedor método já esta pronto mas ta bugado
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
 	}
