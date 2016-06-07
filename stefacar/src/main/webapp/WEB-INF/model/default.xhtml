@@ -21,17 +21,17 @@
 	           				
 	           			</b:column>
 	           			<b:column col-md="2" col-sm="3" col-xs="12">
-	           				<div class="img-logo">
+	           				<div class="img-logo col-xs-push-2">
 	           					<img src="resources/imagens/stefanini.png"/>
 	           				</div>
 	           			</b:column>
 	           			<b:column col-md="2">
-	           				<div class="hidden-xs aling-data">
-		           				<div class="calendario-data">
+	           				<div class="hidden-xs hidden-sm hidden-md aling-data">
+		           				<div class="calendario-data col-xs-push-2">
 		           					<img src="resources/imagens/calendar.png" class="time-size"/>
 									<p:clock id="calendario" pattern="dd MMMM" mode="server"/>
 								</div>
-	           					<div class="relogio-hora">
+	           					<div class="relogio-hora col-xs-push-2">
 		           					<img src="resources/imagens/clock.png" class="time-size"/>
 									<p:clock id="relogio" pattern="HH:mm" mode="server" />
 								</div>
@@ -84,6 +84,9 @@
 							<b:navLink value="Fornecedores" href="/stefacar/pages/outfitter/outfitterView.xhtml"></b:navLink>
 							<b:navLink value="Fabricantes" href="/stefacar/pages/manufacturer/manufacturerView.xhtml"></b:navLink>
 						</b:dropMenu>
+						<b:dropMenu value="Caixa">
+							<b:navLink value="Registro de caixa" href="/stefacar/pages/cashRegister/cashRegister.xhtml"></b:navLink>
+						</b:dropMenu>
 				    </b:navbarLinks>
 				</b:navBar>
 	       </div>
@@ -95,7 +98,9 @@
 						<b:column col-md="12" >
 							<p:layoutUnit>
 								<ui:insert name="center">
-			                        O que estiver aqui será substituido!
+			                        <div id="container">
+			                        	<script type="text/javascript">$("#conteudo").load(pagina);</script>
+			                        </div>
 			                	</ui:insert>
 							</p:layoutUnit>
 			
