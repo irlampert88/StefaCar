@@ -13,7 +13,6 @@
 	<style type="text/css">
 </style>
 	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
-	<h:outputStylesheet library="styles" name="style-nav.css" />
 	<h:outputStylesheet library="styles" name="animate.css" />
 	<h:outputStylesheet library="js" name="bootstrap.js" />
 	<h:outputStylesheet library="js" name="bootstrap.min.js" />
@@ -24,80 +23,44 @@
 <h:body>
 	<ui:decorate template="WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-		
-<b:container>
-			<b:row>
-				<b:column col-sm="6" col-md="4">
-					<ul class="gridder a-green">
-						<li class="gridder-list cmn-t-scale" data-color="#668c07"
-							data-griddercontent="#category-1">
-							<a href="/stefacar/pages/sales/saleView.xhtml">
-							<div class="animated fadeInLeftBig"
-								style="border: 2px solid #44AA00; padding: 15px 12px; height: 100%;">
-								<div style="padding-left: 30%;">
-									<h:graphicImage style="padding-bottom:4%;"
-										value="/resources/imagens/green-car.png" />
-								</div>
-								<div style="padding-left: 35%;">
-									<p class="cll-category-name"
-										style="color: #44AA00; font-size: 20px;">Carros</p>
-								</div>
-							</div>
+			<b:column col-md="12">
+				<b:row>
+					<b:column col-xs="12" col-md="6" col-sm="6" col-lg="4">
+						<br />
+						<div class="animated fadeInLeftBig contentBoxCar color-car col-xs-offset-0">
+							<a href="/stefacar/pages/sales/saleView.xhtml" class="thumbnail ">
+								<img src="resources/imagens/green-car.png" alt="CarImage" class="img-inside-box"/>
 							</a>
-						</li>
-					</ul>
-
-				</b:column>
-
-				<b:column col-sm="6" col-md="4">
-					<ul class="gridder">
-						<li class="gridder-list cmn-t-scale" data-color="#251fc6"
-							data-griddercontent="#category-3">
-							<a href="/stefacar/pages/sales/saleView.xhtml">
-							<div class="animated fadeInUpBig"
-								style="border: 2px solid #004E9E; padding: 15px 12px; height: 100%;">
-								<div style="padding-left: 35%;">
-									<h:graphicImage style=" padding-top:17%; padding-bottom:4%;"
-										value="/resources/imagens/icon-paper-blue.png" />
-								</div>
-								<div style="padding-left: 38%;">
-									<p class="cll-category-name"
-										style="color: #004E9E; font-size: 20px;">Serviço</p>
-								</div>
+							<div class="contentText color-car">
+								<p class="cll-category-name">Carros</p>
 							</div>
+						</div>
+					</b:column>
+					<b:column col-xs="12" col-md="6" col-sm="6" col-lg="4">
+						<br />
+						<div class="animated fadeInUpBig contentBoxService color-service col-xs-offset-0">
+							<a href="/stefacar/pages/sales/saleView.xhtml" class="thumbnail">
+								<img src="resources/imagens/icon-paper-blue.png" alt="ServiceImage" class="img-inside-box"/>
 							</a>
-						</li>
-					</ul>
-				</b:column>
-
-				<b:column col-sm="6" col-md="4">
-					<ul class="gridder">
-						<li class="gridder-list cmn-t-scale" data-color="#1da0ba"
-							data-griddercontent="#category-5">
-							<a href="/stefacar/pages/pieces/piecesView.xhtml">
-							<div class="animated fadeInRightBig"
-								style="border: 2px solid #377EF0; padding: 15px 12px; height: 100%;">
-								<div style="padding-left: 35%;">
-									<h:graphicImage style=" padding-top:20%;"
-										value="/resources/imagens/tools-icon.png" />
-								</div>
-								<div style="padding-left: 38%;">
-									<p class="cll-category-name"
-										style="color: #377EF0; font-size: 20px;">Peças</p>
-								</div>
+							<div class="contentText color-service">
+								<p class="cll-category-name">Serviços</p>
 							</div>
+						</div>
+					</b:column>
+					<b:column col-xs="12" col-md="6" col-sm="6" col-lg="4">
+						<br />
+						<div class="animated fadeInRightBig contentBoxPart  color-part col-xs-offset-0">
+							<a href="/stefacar/pages/sales/saleView.xhtml" class="thumbnail">
+								<img src="resources/imagens/tools-icon.png" alt="PartImage" class="img-inside-box"/>
 							</a>
-						</li>
-					</ul>
-				</b:column>
-
-			</b:row>
-			
-			</b:container>
-
+							<div class="contentText color-part">
+								<p class="cll-category-name" >Peças</p>
+							</div>
+						</div>
+					</b:column>
+				</b:row>
+			</b:column>
 		</ui:define>
-		
-		
 	</ui:decorate>
 </h:body>
 
