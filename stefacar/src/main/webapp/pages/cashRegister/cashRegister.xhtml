@@ -6,12 +6,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-
-</h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
-		
-		<p:dataTable id="cashTable" var="receipt"
+		<ui:define name="center">
+
+			<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
+
+			<p:dataTable id="cashTable" var="receipt"
 				value="#{cashRegisterManagedBean.cashregister.sales}"
 				emptyMessage="Não existem Vendas Pendendentes de Pagamento"
 				style="padding-top:20px;">
@@ -28,12 +28,14 @@
 					<h:outputText value="#{receipt.car.model.name}" />
 				</p:column>
 				<p:column headerText="Pagar a Venda" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-money" title="Pagar o carro"
+					<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"
 						update="cashTable " oncomplete="PF('dialogCloseSales').show();"
-						action="#{cashRegisterManagedBean.selectSale(receipt)}">						
-					</p:commandButton>					
+						action="#{cashRegisterManagedBean.setSaleSelected(receipt)}">
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
-			<ui:include src="closeSales.xhtml"></ui:include>		
+			<ui:include src="closeSales.xhtml" />
+		</ui:define>
 	</ui:decorate>
+</h:body>
 </html>
