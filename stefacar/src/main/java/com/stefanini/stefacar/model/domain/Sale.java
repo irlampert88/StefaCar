@@ -65,6 +65,7 @@ public class Sale {
 		return status;
 	}
 	public void setStatus(boolean status) {
+		// FIXME NOME!
 		this.status = status;
 	}
 	public String getStatusString(){

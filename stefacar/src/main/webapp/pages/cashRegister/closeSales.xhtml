@@ -19,13 +19,13 @@
 			<p:spinner id="amountReceived" value="#{cashRegisterManagedBean.cashregister.amountPaid}" prefix="R$" min="0" stepFactor="100.0" />
 			<p:outputLabel for="typePayment" value="Forma de Pagamento: " />
 			<p:selectOneMenu id="typePayment" converter="comboBoxConverter"
-					value="#{cashRegisterManagedBean.cashregister.typePayment}"
-					valueChangeListener="#{cashRegisterManagedBean.calculatesDiscount}">
-					<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					
-					<f:selectItems value="#{cashRegisterManagedBean.typeOfPayMent}" var="type"
-						itemLabel="#{type.label}" itemValue="#{type.id}" />
-					<p:ajax event="change" process="@this" update="discountedValue" />					
-				</p:selectOneMenu>
+				value="#{cashRegisterManagedBean.cashregister.typePayment}"
+				valueChangeListener="#{cashRegisterManagedBean.calculatesDiscount()}">
+				<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					
+				<f:selectItems value="#{cashRegisterManagedBean.typeOfPayMent}" var="type"
+					itemLabel="#{type.label}" itemValue="#{type.id}" />
+				<p:ajax event="change" process="@this" update="discountedValue" />					
+			</p:selectOneMenu>
 			<p:separator/>
 			<p:separator/>
 			<p:outputLabel for="transshipment" value="Valor do Troco: " />

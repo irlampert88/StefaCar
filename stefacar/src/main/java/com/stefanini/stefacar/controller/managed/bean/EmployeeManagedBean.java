@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import com.stefanini.stefacar.controller.shared.MessengerSystem;
 import com.stefanini.stefacar.controller.warehouse.EmployeeType;
 import com.stefanini.stefacar.model.domain.Employee;
+import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.EmployeeServiceImpl;
 
 @ManagedBean
@@ -18,9 +19,14 @@ public class EmployeeManagedBean {
 
 	private Employee employee;
 	private List<Employee> dataList;
-	
+
+	private List<Employee> salesman;
+
 	@Inject
 	protected EmployeeServiceImpl service;
+
+	@Inject
+	private EmployeeRepositoryImpl repositoryEmployee;
 
 	@PostConstruct
 	public void init() {
@@ -53,6 +59,18 @@ public class EmployeeManagedBean {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	public List<Employee> getSalesman() {
+		if (salesman == null) {
+			//aqui vai o método da classe EmployeeRepository que entrega somente vendedor método já esta pronto mas ta bugado
+			salesman = repositoryEmployee.listAllSalesMan();
+		}
+		return salesman;
+	}
+
+	public void setSalesman(List<Employee> salesman) {
+		this.salesman = salesman;
 	}
 
 	public EmployeeType[] getEmployeeType() {

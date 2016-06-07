@@ -5,12 +5,12 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalEmployeeId"
 	widgetVar="dialogEmployee" modal="false" appendToBody="true"
-	resizable="false" header="Selecione o Funcionário" closable="true">
+	resizable="false" header="Selecione o #{title}" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">		
-			<p:dataTable selection="#{saleManagedBean.sale.employee}"
+			<p:dataTable selection="#{target}"
 				rowKey="#{employee.id}" id="tableEmployes" var="employee"
-				value="#{saleManagedBean.listOfEmployee}"
+				value="#{list}"
 				emptyMessage="Não existem funcionários cadastrados"
 				style="padding-top:20px;">
 

@@ -49,84 +49,16 @@ public class CashRegisterManagedBean implements Serializable {
 		service.closeSale(sale);
 	}
 	
-	public void calculatesDiscount(ValueChangeEvent event){	
-		String payment = event.getNewValue().toString();
-		if(payment.equals("1") || payment.equals("3")){
-			discountedOrInterest = saleSelected.getCar().getPrice() * 0.9;
-			calculatesTransshipment();
-		}
-		if(payment.equals("2")){
-			discountedOrInterest = saleSelected.getCar().getPrice() * 1.3;
-			calculatesTransshipment();
-		}
-		if(payment.equals("4")){
-			double valorTotal=0;
-			double parcela = saleSelected.getCar().getPrice()/24;
-			for (int i = 0; i < 23; i++) {
-				valorTotal += parcela * 1.3;
-			}
-			discountedOrInterest = valorTotal;
-			calculatesTransshipment();
-		}
-		if(payment.equals("5")){
-			double valorTotal=0;
-			double parcela = saleSelected.getCar().getPrice()/36;
-			for (int i = 0; i < 35; i++) {
-				valorTotal += parcela * 1.3;
-			}
-			discountedOrInterest = valorTotal;
-			calculatesTransshipment();
-		}
-		if(payment.equals("6")){
-			double valorTotal=0;
-			double parcela = saleSelected.getCar().getPrice()/48;
-			for (int i = 0; i < 47; i++) {
-				valorTotal += parcela * 1.3;
-			}
-			discountedOrInterest = valorTotal;
-			calculatesTransshipment();
-		}
+	public void calculatesDiscount(){
+		discountedOrInterest = cashregister.getTypePayment().calculateFinalValue(saleSelected.getCar().getPrice());
+		calculatesTransshipment();
 	}
 	
 	private void calculatesTransshipment(){
 		cashregister.setTransshipment(cashregister.getAmountPaid()-discountedOrInterest);						
 	}
 	
-//	public void calculatesDiscount(double value, ValueChangeEvent event){	
-//		String payment = event.getNewValue().toString();
-//		if(payment.equals("1") || payment.equals("3")){
-//			discountedOrInterest = value * 0.9; 
-//		}
-//		if(payment.equals("2")){
-//			discountedOrInterest = value * 1.3;			 
-//		}
-//		if(payment.equals("4")){
-//			double valorTotal=0;
-//			double parcela = value/24;
-//			for (int i = 0; i < 23; i++) {
-//				valorTotal += parcela * 1.3;
-//			}
-//			discountedOrInterest = valorTotal;		
-//		}
-//		if(payment.equals("5")){
-//			double valorTotal=0;
-//			double parcela = value/36;
-//			for (int i = 0; i < 35; i++) {
-//				valorTotal += parcela * 1.3;
-//			}
-//			discountedOrInterest = valorTotal;						
-//		}
-//		if(payment.equals("6")){
-//			double valorTotal=0;
-//			double parcela = value/48;
-//			for (int i = 0; i < 47; i++) {
-//				valorTotal += parcela * 1.3;
-//			}
-//			discountedOrInterest = valorTotal;			
-//		}
-//	}		
 	//GETERS & SETERS
-	
 	public double getDiscountedValue() {
 		return discountedOrInterest;
 	}
