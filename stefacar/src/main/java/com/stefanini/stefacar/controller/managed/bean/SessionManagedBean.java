@@ -27,19 +27,13 @@ public class SessionManagedBean {
 	public SessionManagedBean() {
 	}
 
-	
-
 	public String getUsername() {
 		return username;
 	}
 
-
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
 
 	public String getPassword() {
 		return password;
@@ -66,19 +60,19 @@ public class SessionManagedBean {
 				if (login.getROLE_ADM() == true) {
 					return "main.xhtml?faces-redirect=true";
 				}
-				if (login.getROLE_SALESMAN()== true) {
-					return "pessoa.xhtml?faces-redirect=true";
+				if (login.getROLE_SALESMAN() == true) {
+					return "saleRegister.xhtml?faces-redirect=true";
 				}
 				if (login.getROLE_MECHANIC() == true) {
-					return "emprestimo.xhtml?faces-redirect=true";
+					return "piecesSaleRegister.xhtml?faces-redirect=true";
 				} else {
-					return "livro.xhtml?faces-redirect=true";
+					return "main.xhtml?faces-redirect=true";
 				}
 			}
 		}
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário e/ou senha inválidos.", null));
-		return "main.xhtml?faces-redirect=true";
+		return "login.xhtml?faces-redirect=true";
 	}
 
 	public String logOut() {

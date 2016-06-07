@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.stefanini.stefacar.model.domain.Login;
 
-@WebFilter(filterName = "ADM_ROLE", urlPatterns = { "/pages/sales/saleView.xhtml,/pages/sales/saleRegister.xhtml,"
+@WebFilter(filterName = "SALESMAN_ROLE", urlPatterns = { "/pages/sales/saleView.xhtml,/pages/sales/saleRegister.xhtml,"
 		+ "/pages/sales/piecesSaleView.xhtml,/pages/sales/piecesSaleRegister.xhtml" })
 public class SALESMAN_ROLE implements Filter {
 
@@ -33,7 +33,7 @@ public class SALESMAN_ROLE implements Filter {
 		HttpServletResponse resp = (HttpServletResponse) response;
 
 		if (session == null) {
-			resp.sendRedirect(req.getServletContext().getContextPath() + "/main.xhtml");
+			resp.sendRedirect(req.getServletContext().getContextPath() + "/login.xhtml");
 		} else if (session.getLogin()) {
 			if (session.getROLE_SALESMAN() == true) {
 				chain.doFilter(request, response);

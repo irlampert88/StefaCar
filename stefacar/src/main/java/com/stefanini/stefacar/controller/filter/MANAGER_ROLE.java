@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.stefanini.stefacar.model.domain.Login;
 
-@WebFilter(filterName = "ADM_ROLE", urlPatterns = { "/pages/sales/saleView.xhtml,/pages/sales/saleRegister.xhtml,"
+@WebFilter(filterName = "MANAGER_ROLE", urlPatterns = { "/pages/sales/saleView.xhtml,/pages/sales/saleRegister.xhtml,"
 		+ "/pages/sales/piecesSaleView.xhtml,/pages/sales/piecesSaleRegister.xhtml" })
 public class MANAGER_ROLE implements Filter {
 
