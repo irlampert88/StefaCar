@@ -5,8 +5,6 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-
-
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
@@ -47,7 +45,9 @@
 
 					<p:outputLabel for="address" value="Endereço: " />
 					<p:inputText id="address" requiredMessage="Campo obrigatório"
-						required="true" value="#{clientManagedBean.client.address}" />
+						required="true" value="#{clientManagedBean.client.address}"
+						placeholder="Endereço" />
+
 					<p:message for="address" />
 
 				</p:panelGrid>

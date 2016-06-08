@@ -6,38 +6,41 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:body>
-	<ui:decorate template="WEB-INF/model/default.xhtml">
-		<ui:define name="center">
 
-			<p:outputLabel style="font-size: 30px;"
-				value="LOGIN" />
+<h:body style="background: #7dce21;
+	background: -moz-linear-gradient(left, #7dce21 1%, #24c1c1 20%, #1e5799 94%);
+	background: -webkit-linear-gradient(left, #7dce21 1%, #24c1c1 20%, #1e5799 94%);
+	background: linear-gradient(to right, #7dce21 1%, #24c1c1 20%, #1e5799 94%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dce21',
+		endColorstr='#1e5799', GradientType=1)">
+			<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+		
 
-			<h:form id="modelCarForm">
-				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+	<p:outputLabel style="font-size: 30px;" value="LOGIN" />
 
-				<p:panelGrid columns="3">
+	<h:form id="loginForm">
+		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-					<p:outputLabel for="username" value="USERNAME" />
-					<p:inputText id="username" requiredMessage="Campo obrigatório"
-						required="true" value="#{sessionManagedBean.username}"
-						placeholder="username" />
-					<p:message for="username" />
+		<p:panelGrid columns="3">
 
-					<p:outputLabel for="password" value="SENHA" />
-					<p:inputText id="password" requiredMessage="Campo obrigatório"
-						required="true" value="#{sessionManagedBean.password}"
-						placeholder="password" />
-					<p:message for="password" />
+			<p:outputLabel for="username" value="USERNAME" />
+			<p:inputText id="username" requiredMessage="Campo obrigatório"
+				required="true" value="#{sessionManagedBean.username}"
+				placeholder="username" />
+			<p:message for="username" />
+
+			<p:outputLabel for="password" value="SENHA" />
+			<h:inputSecret id="password" requiredMessage="Campo obrigatório"
+				required="true" value="#{sessionManagedBean.password}"
+				placeholder="password" />
+			<p:message for="password" />
 
 
-				</p:panelGrid>
+		</p:panelGrid>
 
-				<p:commandButton value="Log-in" process="@form" update="@form"
-					action="#{sessionManagedBean.login()}" icon="fa fa-fw fa-save" />
+		<p:commandButton value="Log-in" process="@form" update="@form"
+			action="#{sessionManagedBean.login()}" icon="fa fa-fw fa-save" />
 
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+	</h:form>
 </h:body>
 </html>

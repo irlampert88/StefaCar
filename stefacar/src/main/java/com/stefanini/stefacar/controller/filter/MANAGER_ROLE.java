@@ -33,7 +33,8 @@ public class MANAGER_ROLE implements Filter {
 		HttpServletResponse resp = (HttpServletResponse) response;
 
 		if (session == null) {
-			resp.sendRedirect(req.getServletContext().getContextPath() + "/main.xhtml");
+			resp.sendRedirect(req.getServletContext().getContextPath() + "/login.xhtml");
+			
 		} else if (session.getLogin()) {
 			if (session.getROLE_MANAGER() == true) {
 				chain.doFilter(request, response);

@@ -15,7 +15,6 @@
 			<h:form id="outfitterForm">
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="Name" value="Nome:" />
@@ -31,8 +30,6 @@
 						<!-- <f:validator validatorId="cpfValidator" /> -->
 					</p:inputMask>
 					<p:message for="Cnpj" />
-
-
 
 					<p:outputLabel for="Phone" value="Telefone: " />
 					<p:inputText id="Phone" requiredMessage="Campo obrigatório"
@@ -53,8 +50,9 @@
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{outfitterManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>
+			
 		</ui:define>
 	</ui:decorate>
+	
 </h:body>
-
 </html>
