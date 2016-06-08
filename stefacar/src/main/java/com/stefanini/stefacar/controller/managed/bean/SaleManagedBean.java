@@ -14,14 +14,12 @@ import com.stefanini.stefacar.controller.shared.MessengerSystem;
 import com.stefanini.stefacar.model.domain.BrandCar;
 import com.stefanini.stefacar.model.domain.Car;
 import com.stefanini.stefacar.model.domain.Client;
-import com.stefanini.stefacar.model.domain.Employee;
 import com.stefanini.stefacar.model.domain.ModelCar;
 import com.stefanini.stefacar.model.domain.Sale;
 import com.stefanini.stefacar.model.domain.SaleCarShow;
 import com.stefanini.stefacar.model.repository.impl.BrandCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.CarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.ModelCarRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.SaleServiceImpl;
@@ -36,9 +34,6 @@ public class SaleManagedBean implements Serializable {
 
 	@Inject
 	private SaleRepositoryImpl repositorySale;
-
-	@Inject
-	private EmployeeRepositoryImpl repositoryEmployee;
 
 	@Inject
 	private CarRepositoryImpl repositoryCar;
@@ -56,7 +51,6 @@ public class SaleManagedBean implements Serializable {
 	private Sale sale;
 	private SaleCarShow carShow;
 	private List<Sale> listOfSales;
-	private List<Employee> listOfEmployee;
 	private List<Car> listOfCar;
 	private List<Client> listOfClient;
 	private List<BrandCar> listOfBrand;
@@ -71,7 +65,6 @@ public class SaleManagedBean implements Serializable {
 		listOfCarWhereBrandSelected = new ArrayList<>();
 		listOfBrand = repositoryBrand.listAllRecords();
 		listOfSales = repositorySale.listAllRecords();
-		listOfEmployee = repositoryEmployee.listAllRecords();//aqui vai o método da classe EmployeeRepository que entrega somente vendedor método já esta pronto mas ta bugado
 		listOfCar = repositoryCar.listAllRecords();
 		listOfClient = repositoryClient.listAllRecords();
 	}
@@ -122,14 +115,6 @@ public class SaleManagedBean implements Serializable {
 	public void setListOfSales(List<Sale> listOfSales) {
 		this.listOfSales = listOfSales;
 	}
-
-	public List<Employee> getListOfEmployee() {
-		return listOfEmployee;
-	}
-
-	public void setListOfEmployee(List<Employee> listOfEmployee) {
-		this.listOfEmployee = listOfEmployee;
-	}	
 
 	public List<Client> getListOfClient() {
 		return listOfClient;

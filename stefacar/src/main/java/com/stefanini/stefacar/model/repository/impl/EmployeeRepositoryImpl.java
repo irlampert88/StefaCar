@@ -9,10 +9,8 @@ import com.stefanini.stefacar.model.domain.Employee;
 @SuppressWarnings("all")
 public class EmployeeRepositoryImpl extends AbstractRepository<Employee> {
 	
-	public List<Employee>listAllSalesMan(){
-		String sql = "select * from employee where employee.type = 'VENDEDOR'";	
-		List<Employee> listAllSalesMan = (List<Employee>)entityManager.createNativeQuery(sql).getResultList();
-		return listAllSalesMan;		
+	public List<Employee> listAllSalesMan(){
+		return entityManager.createQuery("select l from " + Employee.class.getSimpleName() + " l where type = 'VENDEDOR'").getResultList();
 	}
 	
 }

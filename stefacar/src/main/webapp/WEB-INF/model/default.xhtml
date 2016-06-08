@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xml:lang="pt-br" lang="pt-br"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
@@ -9,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Stefa Car</title>
 		<h:outputStylesheet library="styles" name="primefacesOverride.css" />
-		<h:outputStylesheet library="styles" name="style-nav.css" />
+		<h:outputStylesheet library="styles" name="style.css" />
 	</h:head>
 
 <h:body styleClass="posicaoHeader">
@@ -19,24 +20,30 @@
 	           			<b:column col-md="2">
 	           				
 	           			</b:column>
-	           			<b:column col-md="2">
-	           				<div>
-	           					<h:graphicImage styleClass="img-logo"
-								value="/resources/imagens/stefanini.png" />
+	           			<b:column col-md="2" col-sm="3" col-xs="12">
+	           				<div class="img-logo col-xs-push-2">
+	           					<img src="resources/imagens/stefanini.png"/>
 	           				</div>
 	           			</b:column>
 	           			<b:column col-md="2">
-	           				<div>
-	           					<h:graphicImage styleClass="img-car"
-								alt="Responsive image" value="/resources/imagens/audi-car.png" />
-	           				</div>
-	           			</b:column>
-	           			<b:column col-md="2">
-	           				<div class="calendario-data">
-								<h:graphicImage value="/resources/imagens/calendar.png"
-									styleClass="date-time-icon" />
-								<p:clock id="calendario" pattern="dd.MM.yyyy" mode="server" />
+	           				<div class="hidden-xs hidden-sm hidden-md aling-data">
+		           				<div class="calendario-data col-xs-push-2">
+		           					<img src="resources/imagens/calendar.png" class="time-size"/>
+									<p:clock id="calendario" pattern="dd MMMM" mode="server"/>
+								</div>
+	           					<div class="relogio-hora col-xs-push-2">
+		           					<img src="resources/imagens/clock.png" class="time-size"/>
+									<p:clock id="relogio" pattern="HH:mm" mode="server" />
+								</div>
 							</div>
+	           			</b:column>
+	           			<b:column col-md="2">
+	           				<div class="hidden-xs hidden-sm hidden-md img-car">
+	           					<img src="resources/imagens/audi-car.png"/>
+	           				</div>
+	           			</b:column>
+	           			<b:column col-md="2">
+	           				
 	           			</b:column>
 	           			<b:column col-md="2">
 	           				
@@ -77,25 +84,30 @@
 							<b:navLink value="Fornecedores" href="/stefacar/pages/outfitter/outfitterView.xhtml"></b:navLink>
 							<b:navLink value="Fabricantes" href="/stefacar/pages/manufacturer/manufacturerView.xhtml"></b:navLink>
 						</b:dropMenu>
+						<b:dropMenu value="Caixa">
+							<b:navLink value="Registro de caixa" href="/stefacar/pages/cashRegister/cashRegister.xhtml"></b:navLink>
+						</b:dropMenu>
 				    </b:navbarLinks>
 				</b:navBar>
 	       </div>
 	       
-	       <b:container>
        
 			<div class="contentContainer">
-				<b:row>
-					<b:column col-md="12">
-						<p:layoutUnit>
-							<ui:insert name="center">
-		                        O que estiver aqui será substituido!
-		                	</ui:insert>
-						</p:layoutUnit>
-		
-					</b:column>
-				</b:row>
+				<b:container>
+					<b:row>
+						<b:column col-md="12" >
+							<p:layoutUnit>
+								<ui:insert name="center">
+			                        <div id="container">
+			                        	<script type="text/javascript">$("#conteudo").load(pagina);</script>
+			                        </div>
+			                	</ui:insert>
+							</p:layoutUnit>
+			
+						</b:column>
+					</b:row>
+				</b:container>
 			</div>
-			</b:container>
 			
 			
 			<div>
