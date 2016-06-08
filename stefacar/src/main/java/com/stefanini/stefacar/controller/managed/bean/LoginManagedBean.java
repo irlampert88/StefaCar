@@ -66,5 +66,6 @@ public class LoginManagedBean {
 	public void setLogin(Login login) {
 		this.login = login;
 	}
+	
 
 }

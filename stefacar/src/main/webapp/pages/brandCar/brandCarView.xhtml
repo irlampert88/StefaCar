@@ -10,6 +10,7 @@
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
 			<p:outputLabel style="font-size: 30px;" value="Lista de marcas" />
+			<p:button href="brandcarRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
 			<p:dataTable id="brandCarTable" var="brand"
 				value="#{brandCarManagedBean.dataList}"
 				emptyMessage="Não existem Marcas Cadastrados"

@@ -46,6 +46,7 @@
 				<p:commandButton value="Salvar" process="@form"
 					action="#{manufacturerManagedBean.save()}" icon="fa fa-fw fa-save"
 					update="@form" />
+					<p:button href="manufacturerView.xhtml" value="Voltar"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{manufacturerManagedBean.clean()}"
 					icon="fa fa-fw fa-eraser" />

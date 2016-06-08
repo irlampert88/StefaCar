@@ -66,6 +66,7 @@
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" />
+					<p:button href="modelCarView.xhtml" value="Voltar"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>

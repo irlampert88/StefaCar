@@ -47,6 +47,8 @@ public class ADM_ROLE implements Filter {
 		} else if (session.getLogin()) {
 			if (session.getROLE_ADM() == true) {
 				chain.doFilter(request, response);
+			}else{
+				resp.sendRedirect(req.getContextPath()+"/login.xhtml	");
 			}
 		}
 	}

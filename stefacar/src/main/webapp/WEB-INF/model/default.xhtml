@@ -53,28 +53,6 @@
 	<div>
 		<b:navBar rendered="#{sessionManagedBean.login.login}">
 			<b:navbarLinks>
-				<b:dropMenu value="Cadastros"
-					rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
-
-					<b:navLink value="Clientes"
-						href="/stefacar/pages/client/clientRegister.xhtml"></b:navLink>
-					<b:navLink value="Funcionários"
-						href="/stefacar/pages/employee/employeeRegister.xhtml"></b:navLink>
-					<b:navLink value="Peças"
-						href="/stefacar/pages/pieces/piecesRegister.xhtml"></b:navLink>
-
-					<b:dropMenu value="Carros"
-						rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
-						<b:navLink value="Marcas"
-							href="/stefacar/pages/brandCar/brandcarRegister.xhtml"></b:navLink>
-						<b:navLink value="Modelos"
-							href="/stefacar/pages/modelCar/modelCarRegister.xhtml"></b:navLink>
-					</b:dropMenu>
-					<b:navLink value="Fornecedores"
-						href="/stefacar/pages/outfitter/outfitterRegister.xhtml"></b:navLink>
-					<b:navLink value="Fabricantes"
-						href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml"></b:navLink>
-				</b:dropMenu>
 				<b:dropMenu value="Vendas"
 					rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_SALESMAN ||sessionManagedBean.login.ROLE_MECHANIC}">
 					<b:navLink value="Venda de carro"

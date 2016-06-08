@@ -11,6 +11,7 @@
 		<ui:define name="center">
 			<h:form>
 				<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
+				<p:button href="clientRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
 				<p:dataTable id="clientTable" var="client"
 					value="#{clientManagedBean.dataList}"
 					emptyMessage="Não existem clientes cadastrados"

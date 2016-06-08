@@ -9,7 +9,8 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
+		<p:outputLabel style="font-size: 30px;" value="Lista de Peças" />
+<p:button href="piecesRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
 			<p:dataTable id="piecesTable" var="pieces"
 				value="#{piecesManagedBean.dataList}"
 				emptyMessage="Não existem peças cadastrados"

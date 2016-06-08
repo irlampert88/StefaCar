@@ -55,6 +55,7 @@
 				<p:commandButton value="Salvar" process="@form"
 					action="#{clientManagedBean.save()}" icon="fa fa-fw fa-save"
 					update="@form" />
+					<p:button href="clientView.xhtml" value="Voltar"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{clientManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>

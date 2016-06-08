@@ -47,6 +47,7 @@
 				<p:commandButton value="Salvar" process="@form"
 					action="#{outfitterManagedBean.save()}" icon="fa fa-fw fa-save"
 					update="@form" />
+					<p:button href="outfitterView.xhtml" value="Voltar"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{outfitterManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>
