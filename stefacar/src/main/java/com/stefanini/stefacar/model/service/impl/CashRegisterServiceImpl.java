@@ -30,7 +30,7 @@ public class CashRegisterServiceImpl {
 	}
 	
 	@Transactional
-	public void closeSales(Sale sale){
+	public void closeSale(Sale sale){
 		repositorySale.update(sale);		
 	}
 	

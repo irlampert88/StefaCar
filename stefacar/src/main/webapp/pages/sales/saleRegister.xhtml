@@ -39,8 +39,12 @@
 						value="#{saleManagedBean.carShow.model}" />
 
 					<ui:include src="../client/clientSelection.xhtml" />
-					<ui:include src="../employee/employeeSelection.xhtml" />
 					<ui:include src="../car/carSelection.xhtml" />
+					<ui:include src="../employee/employeeSelection.xhtml">
+						<ui:param name="title" value="Vendedores"/>
+						<ui:param name="target" value="#{saleManagedBean.sale.employee}"/>
+						<ui:param name="list" value="#{employeeManagedBean.salesman}"/>
+					</ui:include>
 				</p:panelGrid>
 
 
