@@ -1,123 +1,150 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xml:lang="pt-br" lang="pt-br"
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Stefa Car</title>
-		<h:outputStylesheet library="styles" name="primefacesOverride.css" />
-		<h:outputStylesheet library="styles" name="style.css" />
-	</h:head>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Stefa Car</title>
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="style.css" />
+</h:head>
 
 <h:body styleClass="posicaoHeader">
-	    <div class="topperBackground">
-	           <div class="headerBackgound">
-	           		<b:row>
-	           			<b:column col-md="2">
-	           				
-	           			</b:column>
-	           			<b:column col-md="2" col-sm="3" col-xs="12">
-	           				<div class="img-logo col-xs-push-2">
-	           					<img src="resources/imagens/stefanini.png"/>
-	           				</div>
-	           			</b:column>
-	           			<b:column col-md="2">
-	           				<div class="hidden-xs hidden-sm hidden-md aling-data">
-		           				<div class="calendario-data col-xs-push-2">
-		           					<img src="resources/imagens/calendar.png" class="time-size"/>
-									<p:clock id="calendario" pattern="dd MMMM" mode="server"/>
-								</div>
-	           					<div class="relogio-hora col-xs-push-2">
-		           					<img src="resources/imagens/clock.png" class="time-size"/>
-									<p:clock id="relogio" pattern="HH:mm" mode="server" />
-								</div>
+	<div class="topperBackground">
+		<div class="headerBackgound">
+			<b:row>
+				<b:column col-md="2">
+
+				</b:column>
+				<b:column col-md="2" col-sm="3" col-xs="12">
+					<div class="img-logo col-xs-push-2">
+						<img src="resources/imagens/stefanini.png" />
+					</div>
+				</b:column>
+				<b:column col-md="2">
+					<div class="hidden-xs hidden-sm hidden-md aling-data">
+						<div class="calendario-data col-xs-push-2">
+							<img src="resources/imagens/calendar.png" class="time-size" />
+							<p:clock id="calendario" pattern="dd MMMM" mode="server" />
+						</div>
+						<div class="relogio-hora col-xs-push-2">
+							<img src="resources/imagens/clock.png" class="time-size" />
+							<p:clock id="relogio" pattern="HH:mm" mode="server" />
+						</div>
+					</div>
+				</b:column>
+				<b:column col-md="2">
+					<div class="hidden-xs hidden-sm hidden-md img-car">
+						<img src="resources/imagens/audi-car.png" />
+					</div>
+				</b:column>
+				<b:column col-md="2">
+
+				</b:column>
+				<b:column col-md="2">
+
+				</b:column>
+			</b:row>
+		</div>
+	</div>
+	<div>
+		<b:navBar rendered="#{sessionManagedBean.login.login}">
+			<b:navbarLinks>
+				<b:dropMenu value="Cadastros"
+					rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
+
+					<b:navLink value="Clientes"
+						href="/stefacar/pages/client/clientRegister.xhtml"></b:navLink>
+					<b:navLink value="Funcionários"
+						href="/stefacar/pages/employee/employeeRegister.xhtml"></b:navLink>
+					<b:navLink value="Peças"
+						href="/stefacar/pages/pieces/piecesRegister.xhtml"></b:navLink>
+
+					<b:dropMenu value="Carros"
+						rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
+						<b:navLink value="Marcas"
+							href="/stefacar/pages/brandCar/brandcarRegister.xhtml"></b:navLink>
+						<b:navLink value="Modelos"
+							href="/stefacar/pages/modelCar/modelCarRegister.xhtml"></b:navLink>
+					</b:dropMenu>
+					<b:navLink value="Fornecedores"
+						href="/stefacar/pages/outfitter/outfitterRegister.xhtml"></b:navLink>
+					<b:navLink value="Fabricantes"
+						href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml"></b:navLink>
+				</b:dropMenu>
+				<b:dropMenu value="Vendas"
+					rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_SALESMAN ||sessionManagedBean.login.ROLE_MECHANIC}">
+					<b:navLink value="Venda de carro"
+						href="/stefacar/pages/sales/saleRegister.xhtml"
+						rendered="#{sessionManagedBean.login.ROLE_ADM||sessionManagedBean.login.ROLE_SALESMAN}"></b:navLink>
+						
+					<b:navLink value="Venda de peças"
+						href="/stefacar/pages/sales/piecesSaleRegister.xhtml"
+						rendered="#{sessionManagedBean.login.ROLE_ADM||sessionManagedBean.login.ROLE_MECHANIC}"></b:navLink>
+				</b:dropMenu>
+				<b:dropMenu value="Consultas"
+					rendered="#{sessionManagedBean.login.ROLE_ADM||sessionManagedBean.login.ROLE_SALESMAN||sessionManagedBean.login.ROLE_MECHANIC }">
+					<b:navLink value="Clientes"
+						href="/stefacar/pages/client/clientView.xhtml"></b:navLink>
+					<b:navLink value="Funcionários"
+						href="/stefacar/pages/employee/employeeView.xhtml"></b:navLink>
+					<b:navLink value="Peças"
+						href="/stefacar/pages/pieces/piecesView.xhtml"></b:navLink>
+					<b:dropMenu value="Carros">
+						<b:navLink value="Marcas"
+							href="/stefacar/pages/brandCar/brandCarView.xhtml"></b:navLink>
+						<b:navLink value="Modelos"
+							href="/stefacar/pages/modelCar/modelCarView.xhtml"></b:navLink>
+					</b:dropMenu>
+					<b:dropMenu value="Vendas"
+						rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
+						<b:navLink value="Venda de carro"
+							href="/stefacar/pages/sales/saleView.xhtml"></b:navLink>
+						<b:navLink value="Venda de peças"
+							href="/stefacar/pages/sales/piecesSaleView.xhtml"></b:navLink>
+					</b:dropMenu>
+					<b:navLink value="Fornecedores"
+						href="/stefacar/pages/outfitter/outfitterView.xhtml"></b:navLink>
+					<b:navLink value="Fabricantes"
+						href="/stefacar/pages/manufacturer/manufacturerView.xhtml"></b:navLink>
+				</b:dropMenu>
+				<b:dropMenu value="Caixa">
+					<b:navLink value="Registro de caixa"
+						href="/stefacar/pages/cashRegister/cashRegister.xhtml"></b:navLink>
+				</b:dropMenu>
+			</b:navbarLinks>
+		</b:navBar>
+	</div>
+
+
+	<div class="contentContainer">
+		<b:container>
+			<b:row>
+				<b:column col-md="12">
+					<p:layoutUnit>
+						<ui:insert name="center">
+							<div id="container">
+								<script type="text/javascript">
+									$("#conteudo").load(pagina);
+								</script>
 							</div>
-	           			</b:column>
-	           			<b:column col-md="2">
-	           				<div class="hidden-xs hidden-sm hidden-md img-car">
-	           					<img src="resources/imagens/audi-car.png"/>
-	           				</div>
-	           			</b:column>
-	           			<b:column col-md="2">
-	           				
-	           			</b:column>
-	           			<b:column col-md="2">
-	           				
-	           			</b:column>
-					</b:row>
-	           </div>
-	      </div>  
-	      <div>
-				<b:navBar>
-				    <b:navbarLinks>
-				        <b:dropMenu value="Cadastros" >
-							<b:navLink value="Clientes" href="/stefacar/pages/client/clientRegister.xhtml"></b:navLink>
-							<b:navLink value="Funcionários" href="/stefacar/pages/employee/employeeRegister.xhtml"></b:navLink>
-							<b:navLink value="Peças" href="/stefacar/pages/pieces/piecesRegister.xhtml"></b:navLink>
-							<b:dropMenu value="Carros">
-								<b:navLink value="Marcas" href="/stefacar/pages/brandCar/brandcarRegister.xhtml"></b:navLink>
-								<b:navLink value="Modelos" href="/stefacar/pages/modelCar/modelCarRegister.xhtml"></b:navLink>
-							</b:dropMenu>
-							<b:navLink value="Fornecedores" href="/stefacar/pages/outfitter/outfitterRegister.xhtml"></b:navLink>
-							<b:navLink value="Fabricantes" href="/stefacar/pages/manufacturer/manufacturerRegister.xhtml"></b:navLink>
-						</b:dropMenu>
-				        <b:dropMenu value="Vendas">
-							<b:navLink value="Venda de carro" href="/stefacar/pages/sales/saleRegister.xhtml"></b:navLink>
-							<b:navLink value="Venda de peças" href="/stefacar/pages/sales/piecesSaleRegister.xhtml"></b:navLink>
-						</b:dropMenu>
-						<b:dropMenu value="Consultas">
-							<b:navLink value="Clientes" href="/stefacar/pages/client/clientView.xhtml"></b:navLink>
-							<b:navLink value="Funcionários" href="/stefacar/pages/employee/employeeView.xhtml"></b:navLink>
-							<b:navLink value="Peças" href="/stefacar/pages/pieces/piecesView.xhtml"></b:navLink>
-							<b:dropMenu value="Carros">
-								<b:navLink value="Marcas" href="/stefacar/pages/brandCar/brandCarView.xhtml"></b:navLink>
-								<b:navLink value="Modelos" href="/stefacar/pages/modelCar/modelCarView.xhtml"></b:navLink>
-							</b:dropMenu>
-							<b:dropMenu value="Vendas">
-								<b:navLink value="Venda de carro" href="/stefacar/pages/sales/saleView.xhtml"></b:navLink>
-								<b:navLink value="Venda de peças" href="/stefacar/pages/sales/piecesSaleView.xhtml"></b:navLink>
-							</b:dropMenu>
-							<b:navLink value="Fornecedores" href="/stefacar/pages/outfitter/outfitterView.xhtml"></b:navLink>
-							<b:navLink value="Fabricantes" href="/stefacar/pages/manufacturer/manufacturerView.xhtml"></b:navLink>
-						</b:dropMenu>
-						<b:dropMenu value="Caixa">
-							<b:navLink value="Registro de caixa" href="/stefacar/pages/cashRegister/cashRegister.xhtml"></b:navLink>
-						</b:dropMenu>
-				    </b:navbarLinks>
-				</b:navBar>
-	       </div>
-	       
-       
-			<div class="contentContainer">
-				<b:container>
-					<b:row>
-						<b:column col-md="12" >
-							<p:layoutUnit>
-								<ui:insert name="center">
-			                        <div id="container">
-			                        	<script type="text/javascript">$("#conteudo").load(pagina);</script>
-			                        </div>
-			                	</ui:insert>
-							</p:layoutUnit>
-			
-						</b:column>
-					</b:row>
-				</b:container>
-			</div>
-			
-			
-			<div>
-				
-			</div>
-			<div class="rodape">
-				<h5>Versão de Teste.
-					Copyright 2016. Todos os Direitos reservados a equipe de
-					desenvolvimento</h5>
-			</div>
+						</ui:insert>
+					</p:layoutUnit>
+
+				</b:column>
+			</b:row>
+		</b:container>
+	</div>
+
+
+	<div></div>
+	<div class="rodape">
+		<h5>Versão de Teste. Copyright 2016. Todos os Direitos reservados
+			a equipe de desenvolvimento</h5>
+	</div>
 </h:body>
 
 </html>

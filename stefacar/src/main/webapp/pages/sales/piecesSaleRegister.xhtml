@@ -5,7 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
@@ -44,7 +43,9 @@
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{piecesSaleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
 			</h:form>
+			
 		</ui:define>
 	</ui:decorate>
+	
 </h:body>
 </html>

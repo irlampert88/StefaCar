@@ -15,15 +15,16 @@
 				emptyMessage="Não existem vendas cadastrados"
 				style="padding-top:20px;">
 				<p:column headerText="Funcionário">
-					<h:outputText value="#{piecesSales.employee.name}" />
+					<h:outputText value="#{piecesSale.employee.name}" />
 				</p:column>
 				<p:column headerText="Cliente">
-					<h:outputText value="#{piecesSales.client.name}" />
+					<h:outputText value="#{piecesSale.client.name}" />
 				</p:column>
-		
+
 				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
-						update="saleTable " action="#{piecesSaleManagedBean.delete(piecesSale)}">
+						update="saleTable "
+						action="#{piecesSaleManagedBean.delete(piecesSale)}">
 						<p:confirm header="Confirmação" message="Deseja deletar a venda?"
 							icon="ui-icon-alert" />
 					</p:commandButton>
