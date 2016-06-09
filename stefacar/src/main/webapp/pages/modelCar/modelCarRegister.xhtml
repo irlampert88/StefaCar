@@ -6,6 +6,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Modelos</title>
+</h:head>
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
@@ -44,9 +48,9 @@
 
 
 					<p:outputLabel for="btnModalBrand" value="Seleção de Marca: " />
-					<p:commandButton value="Selecionar Marca" id="btnModalBrand"
-						oncomplete="PF('dialogBrand').show();" />
-						<p:outputLabel/>
+					<p:commandButton id="btnModalBrand"
+						oncomplete="PF('dialogBrand').show();" icon="fa fa-fw fa-search" />
+					<p:outputLabel />
 
 					<p:outputLabel for="id" value="Categoria do Carro:" />
 

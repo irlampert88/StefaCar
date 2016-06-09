@@ -6,7 +6,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Peças</title>
+</h:head>
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
@@ -34,21 +37,20 @@
 					<p:message for="value" />
 
 					<p:outputLabel for="btnModalOutfitter" value="Fornecedor: " />
-					<p:commandButton value="Selecionar Fornecedor"
-						id="btnModalOutfitter" oncomplete="PF('dialogOutfitter').show();" />
+					<p:commandButton id="btnModalOutfitter" 
+					oncomplete="PF('dialogOutfitter').show();" icon="fa fa-fw fa-search"/>
 					<p:outputLabel for="btnModalOutfitter"
 						value="#{piecesManagedBean.pieces.outfitter.name}" />
 
 					<p:outputLabel for="btnModalManufacturer" value="Fabricante: " />
-					<p:commandButton value="Selecionar Fabricante"
-						id="btnModalManufacturer"
-						oncomplete="PF('dialogManufacturer').show();" />
+					<p:commandButton id="btnModalManufacturer"
+						oncomplete="PF('dialogManufacturer').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalManufacturer"
 						value="#{piecesManagedBean.pieces.manufacturer.name}" />
 
 					<p:outputLabel for="btnModalModel" value="Modelo: " />
-					<p:commandButton value="Selecionar Modelo" id="btnModalModel"
-						oncomplete="PF('dialogModelPieces').show();" />
+					<p:commandButton id="btnModalModel"
+						oncomplete="PF('dialogModelPieces').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalModel"
 						value="#{piecesManagedBean.pieces.model.name}" />
 
