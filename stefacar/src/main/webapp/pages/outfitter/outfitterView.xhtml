@@ -9,6 +9,7 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+		<h:form>
 			<p:outputLabel style="font-size: 30px;" value="Lista de fornecedores" />
 			<p:button href="outfitterRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
 			<p:dataTable id="outfitterTable" var="outfitter"
@@ -41,6 +42,7 @@
 					</p:confirmDialog>
 				</p:column>
 			</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>

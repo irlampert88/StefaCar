@@ -36,6 +36,7 @@ public class ManufacturerManagedBean {
 
 	public void delete(Manufacturer manufacturer) {
 		service.delete(manufacturer);
+		dataList.remove(manufacturer);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Fabricante excluido com sucesso!");
 	}
 

@@ -9,9 +9,10 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-
+		<h:form>
 			<p:outputLabel style="font-size: 30px;" value="Lista de modelos" />
-<p:button href="modelCarRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
+			<p:button href="modelCarRegister.xhtml" value="Novo Cadastro"
+				style="left:20px" />
 			<p:dataTable id="modelCarTable" var="model"
 				value="#{modelCarManagedBean.dataList}"
 				emptyMessage="Não existem Modelos Cadastrados"
@@ -57,7 +58,7 @@
 			</p:dataTable>
 
 
-
+		</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>

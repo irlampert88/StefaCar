@@ -36,6 +36,7 @@ public class ModelCarManagedBean {
 
 	public void delete(ModelCar model) {
 		service.delete(model);
+		dataList.remove(model);
 		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo excluido com sucesso!");
 	}
 

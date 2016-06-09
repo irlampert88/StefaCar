@@ -42,6 +42,7 @@ public class EmployeeManagedBean {
 
 	public void delete(Employee employee) {
 		service.delete(employee);
+		dataList.remove(employee);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Funcionario excluido com sucesso!");
 	}
 
@@ -63,7 +64,7 @@ public class EmployeeManagedBean {
 
 	public List<Employee> getSalesman() {
 		if (salesman == null) {
-			//aqui vai o método da classe EmployeeRepository que entrega somente vendedor método já esta pronto mas ta bugado
+			//aqui vai o mï¿½todo da classe EmployeeRepository que entrega somente vendedor mï¿½todo jï¿½ esta pronto mas ta bugado
 			salesman = repositoryEmployee.listAllSalesMan();
 		}
 		return salesman;

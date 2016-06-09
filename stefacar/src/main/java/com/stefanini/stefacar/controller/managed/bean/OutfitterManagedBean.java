@@ -35,6 +35,7 @@ public class OutfitterManagedBean {
 
 	public void delete(Outfitter outfitter) {
 		service.delete(outfitter);
+		dataList.remove(outfitter);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Fornecedor excluido com sucesso!");
 	}
 

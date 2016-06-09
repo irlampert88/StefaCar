@@ -35,6 +35,7 @@ public class BrandCarManagedBean {
 
 	public void delete(BrandCar brand) {
 		service.delete(brand);
+		dataList.remove(brand);
 		 MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Marca excluido com sucesso!");
 	}
 

@@ -56,6 +56,7 @@ public class PiecesManagedBean {
 
 	public void delete(Pieces pieces) {
 		service.delete(pieces);
+		dataList.remove(pieces);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro da Peça excluido com sucesso!");
 	}
 
