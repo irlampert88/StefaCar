@@ -10,26 +10,19 @@
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
 
-<<<<<<< HEAD
 
-=======
 			<p:outputLabel style="font-size: 30px;" value="Lista de modelos" />
->>>>>>> master
+
 
 			<p:dataTable id="modelCarTable" var="model"
 				value="#{modelCarManagedBean.dataList}"
 				emptyMessage="Não existem Modelos Cadastrados"
 				style="padding-top:20px;">
 
-<<<<<<< HEAD
 
-
-				<p:column headerText="Modelo">
-					<h:outputText value="#{modelCar.name}" />
-=======
 				<p:column headerText="Modelo">
 					<h:outputText value="#{model.name}" />
->>>>>>> master
+
 
 				</p:column>
 				<p:column headerText="Categoria">

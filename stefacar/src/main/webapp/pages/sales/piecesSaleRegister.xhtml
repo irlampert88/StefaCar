@@ -6,6 +6,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Venda de Peças</title>
+</h:head>
+
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
@@ -17,21 +22,23 @@
 
 					<p:outputLabel for="btnModalEmployee"
 						value="Seleção de Funcionário: " />
-					<p:commandButton value="Selecionar Funcionário"
-						id="btnModalEmployee" oncomplete="PF('dialogEmployee').show();" />
+					<p:commandButton id="btnModalEmployee"
+						oncomplete="PF('dialogEmployee').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalEmployee"
 						value="#{piecesSaleManagedBean.piecesSale.employee.name}" />
 
-					<p:outputLabel for="btnModalClient" value="Seleção de Cliente: " />
-					<p:commandButton value="Selecionar Cliente" id="btnModalClient"
-						oncomplete="PF('dialogClient').show();" />
+					<p:outputLabel for="btnModalClient" 
+						value="Seleção de Cliente: " />
+					<p:commandButton id="btnModalClient"
+						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalClient"
 						value="#{piecesSaleManagedBean.piecesSale.client.name}" />
 
+					<p:outputLabel for="btnModalPieces" 
+						value="Seleção de peças: " />
+					<p:commandButton  id="btnModalPieces"
+						oncomplete="PF('dialogPieces').show();" icon="fa fa-fw fa-search" />
 
-					<p:outputLabel for="btnModalPieces" value="Seleção de peças: " />
-					<p:commandButton value="Selecionar Peças" id="btnModalPieces"
-						oncomplete="PF('dialogPieces').show();" />
 
 				</p:panelGrid>
 

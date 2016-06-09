@@ -20,30 +20,32 @@
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="btnModalEmployee"
-						value="Seleção de Funcionário: " />
-					<p:commandButton value="Selecionar Funcionário"
-						id="btnModalEmployee" oncomplete="PF('dialogEmployee').show();" />
+						value=" Seleção de Funcionário: " />
+					<p:commandButton id="btnModalEmployee"
+						oncomplete="PF('dialogEmployee').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalEmployee"
 						value="#{saleManagedBean.sale.employee.registration}" />
 
-					<p:outputLabel for="btnModalClient" value="Seleção de Cliente: " />
-					<p:commandButton value="Selecionar Cliente" id="btnModalClient"
-						oncomplete="PF('dialogClient').show();" />
+					<p:outputLabel for="btnModalClient"
+						value=" Seleção    de   Cliente: " />
+					<p:commandButton id="btnModalClient"
+						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalClient"
 						value="#{saleManagedBean.sale.client.cpf}" />
 
-					<p:outputLabel for="btnModalCar" value="Seleção do Carro: " />
-					<p:commandButton value="Selecionar Carro" id="btnModalCar"
-						oncomplete="PF('dialogCar').show();" />
+					<p:outputLabel for="btnModalCar" 
+						value=" Seleção do Carro: " />
+					<p:commandButton id="btnModalCar"
+						oncomplete="PF('dialogCar').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalCar"
 						value="#{saleManagedBean.carShow.model}" />
 
 					<ui:include src="../client/clientSelection.xhtml" />
 					<ui:include src="../car/carSelection.xhtml" />
 					<ui:include src="../employee/employeeSelection.xhtml">
-						<ui:param name="title" value="Vendedores"/>
-						<ui:param name="target" value="#{saleManagedBean.sale.employee}"/>
-						<ui:param name="list" value="#{employeeManagedBean.salesman}"/>
+						<ui:param name="title" value="Vendedores" />
+						<ui:param name="target" value="#{saleManagedBean.sale.employee}" />
+						<ui:param name="list" value="#{employeeManagedBean.salesman}" />
 					</ui:include>
 				</p:panelGrid>
 
