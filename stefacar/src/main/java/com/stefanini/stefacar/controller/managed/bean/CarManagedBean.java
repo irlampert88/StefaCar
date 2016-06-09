@@ -52,6 +52,7 @@ public class CarManagedBean {
 
 	public void clean() {
 		setCar(new Car());
+		listAllCars = repositoryCar.listAllRecords();
 	}
 
 	private void loadAllCarsFromDataBase() {
@@ -63,6 +64,10 @@ public class CarManagedBean {
 	}
 
 	public void setCar(Car car) {
+		this.car = car;
+	}
+
+	public void setCarForEdit(Car car) {
 		this.car = car;
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("carRegister.xhtml");

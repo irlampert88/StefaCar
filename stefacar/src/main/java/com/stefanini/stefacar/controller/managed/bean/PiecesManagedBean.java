@@ -48,6 +48,7 @@ public class PiecesManagedBean {
 		listOfmodel = modelRepository.listAllRecords();
 		pieces = new Pieces();
 		dataList = service.loadAllPiecesFromDataBase();
+		
 	}
 
 	public void save() {
@@ -100,6 +101,10 @@ public class PiecesManagedBean {
 
 	public void setPieces(Pieces pieces) {
 		this.pieces = pieces;
+	}
+
+	public void setPiecesForEdit(Pieces pieces) {
+		this.pieces = pieces;
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("piecesRegister.xhtml");
 		} catch (IOException e) {
@@ -110,5 +115,6 @@ public class PiecesManagedBean {
 
 	public void clean() {
 		setPieces(new Pieces());
+		dataList = service.loadAllPiecesFromDataBase();
 	}
 }

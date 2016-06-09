@@ -55,6 +55,10 @@ public class ManufacturerManagedBean {
 
 	public void setManufacturer(Manufacturer manufacturer) {
 		this.manufacturer = manufacturer;
+		
+	}
+	public void setManufacturerForEdit(Manufacturer manufacturer) {
+		this.manufacturer = manufacturer;
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("manufacturerRegister.xhtml");
 		} catch (IOException e) {
@@ -65,5 +69,6 @@ public class ManufacturerManagedBean {
 
 	public void clean() {
 		setManufacturer(new Manufacturer());
+		dataList = service.loadAllManufacturerFromDataBase();
 	}
 }

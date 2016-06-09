@@ -64,7 +64,18 @@ public class BrandCarManagedBean {
 
 	}
 
+	public void setBrandForEdit(BrandCar brand) {
+		this.brand = brand;
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("brandcarRegister.xhtml");
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+
 	public void clean() {
 		setBrand(new BrandCar());
+		dataList = service.loadAllBrandCarFromDataBase();
 	}
 }

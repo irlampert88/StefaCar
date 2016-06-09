@@ -56,6 +56,9 @@ public class ModelCarManagedBean {
 
 	public void setModel(ModelCar model) {
 		this.model = model;
+	}
+	public void setModelForEdit(ModelCar model) {
+		this.model = model;
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("modelCarRegister.xhtml");
 		} catch (IOException e) {
@@ -70,5 +73,6 @@ public class ModelCarManagedBean {
 
 	public void clean() {
 		setModel(new ModelCar());
+		dataList = service.loadAllModelCarFromDataBase();
 	}
 }

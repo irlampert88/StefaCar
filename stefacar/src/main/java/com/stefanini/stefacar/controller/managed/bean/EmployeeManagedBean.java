@@ -62,6 +62,10 @@ public class EmployeeManagedBean {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	public void setEmployeeForEdit(Employee employee) {
+		this.employee = employee;
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("employeeRegister.xhtml");
 		} catch (IOException e) {
@@ -72,7 +76,6 @@ public class EmployeeManagedBean {
 
 	public List<Employee> getSalesman() {
 		if (salesman == null) {
-			//aqui vai o m�todo da classe EmployeeRepository que entrega somente vendedor m�todo j� esta pronto mas ta bugado
 			salesman = repositoryEmployee.listAllSalesMan();
 		}
 		return salesman;
@@ -88,5 +91,6 @@ public class EmployeeManagedBean {
 
 	public void clean() {
 		setEmployee(new Employee());
+		dataList = service.loadAllEmployeeFromDataBase();
 	}
 }

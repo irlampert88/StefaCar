@@ -55,16 +55,21 @@ public class ClientManagedBean {
 
 	public void setClient(Client client) {
 		this.client = client;
-	    try {
-			FacesContext.getCurrentInstance().getExternalContext()  
-			.redirect("clientRegister.xhtml");
+
+	}
+
+	public void setClientForEdit(Client client) {
+		this.client = client;
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("clientRegister.xhtml");
 		} catch (IOException e) {
-		
+
 			e.printStackTrace();
-		}  
+		}
 	}
 
 	public void clean() {
 		setClient(new Client());
+		dataList = service.loadAllClientFromDataBase();
 	}
 }

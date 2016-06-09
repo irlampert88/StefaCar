@@ -55,6 +55,9 @@ public class OutfitterManagedBean {
 
 	public void setOutfitter(Outfitter outfitter) {
 		this.outfitter = outfitter;
+	}
+	public void setOutfitterForEdit(Outfitter outfitter) {
+		this.outfitter = outfitter;
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("outfitterRegister.xhtml");
 		} catch (IOException e) {
@@ -65,5 +68,6 @@ public class OutfitterManagedBean {
 
 	public void clean() {
 		setOutfitter(new Outfitter());
+		dataList = service.loadAllOutfitterFromDataBase();
 	}
 }
