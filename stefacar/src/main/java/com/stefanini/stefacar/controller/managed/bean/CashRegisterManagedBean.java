@@ -87,7 +87,7 @@ public class CashRegisterManagedBean implements Serializable {
 
 	public void setSaleSelected(Sale saleSelected) {
 		this.saleSelected = saleSelected;
-		System.out.println("fhksdjabhvfsdbanmvgbsabjk" + saleSelected.getCar().getPrice());
+		System.out.println("fhksdjabhvfsdbanmvgbsabjk" +"  " + saleSelected.getCar().getPrice());
 	}
 
 	public TypeOfPayment[] getTypeOfPayMent() {
