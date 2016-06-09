@@ -5,8 +5,9 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
+
+import org.primefaces.context.RequestContext;
 
 import com.stefanini.stefacar.controller.warehouse.TypeOfPayment;
 import com.stefanini.stefacar.model.domain.CashRegister;
@@ -58,6 +59,11 @@ public class CashRegisterManagedBean implements Serializable {
 		cashregister.setTransshipment(cashregister.getAmountPaid()-discountedOrInterest);						
 	}
 	
+	public void selectedSale(Sale sale){
+		setSaleSelected(sale);
+		RequestContext.getCurrentInstance().execute("PF('dialogCloseSales').show()");
+	}
+	
 	//GETERS & SETERS
 	public double getDiscountedValue() {
 		return discountedOrInterest;
@@ -81,6 +87,7 @@ public class CashRegisterManagedBean implements Serializable {
 
 	public void setSaleSelected(Sale saleSelected) {
 		this.saleSelected = saleSelected;
+		System.out.println("fhksdjabhvfsdbanmvgbsabjk" + saleSelected.getCar().getPrice());
 	}
 	
 	public TypeOfPayment[] getTypeOfPayMent(){

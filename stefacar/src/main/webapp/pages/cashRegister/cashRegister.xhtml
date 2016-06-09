@@ -8,33 +8,34 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+			<h:form id="cashRegisterForm">
+				<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
 
-			<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
-
-			<p:dataTable id="cashTable" var="receipt"
-				value="#{cashRegisterManagedBean.cashregister.sales}"
-				emptyMessage="Não existem Vendas Pendendentes de Pagamento"
-				style="padding-top:20px;">
-				<p:column headerText="Id da Venda" style="text-align: center">
-					<h:outputText value="#{receipt.id}" />
-				</p:column>
-				<p:column headerText="Cliente" style="text-align: center">
-					<h:outputText value="#{receipt.client.name}" />
-				</p:column>
-				<p:column headerText="Vendedor" style="text-align: center">
-					<h:outputText value="#{receipt.employee.name}" />
-				</p:column>
-				<p:column headerText="Modelo do Carro" style="text-align: center">
-					<h:outputText value="#{receipt.car.model.name}" />
-				</p:column>
-				<p:column headerText="Pagar a Venda" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"
-						update="cashTable " oncomplete="PF('dialogCloseSales').show();"
-						action="#{cashRegisterManagedBean.setSaleSelected(receipt)}">
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
-			<ui:include src="closeSales.xhtml" />
+				<p:dataTable id="cashTable" var="receipt"
+					value="#{cashRegisterManagedBean.cashregister.sales}" 
+					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
+					style="padding-top:20px;">
+					<p:column headerText="Código da Venda" style="text-align: center">
+						<h:outputText value="#{receipt.id}" />
+					</p:column>
+					<p:column headerText="Cliente" style="text-align: center">
+						<h:outputText value="#{receipt.client.name}" />	
+					</p:column>
+					<p:column headerText="Vendedor" style="text-align: center">
+						<h:outputText value="#{receipt.employee.name}" />
+					</p:column>
+					<p:column headerText="Modelo do Carro" style="text-align: center">
+						<h:outputText value="#{receipt.car.model.name}" />
+					</p:column>
+					<p:column headerText="Pagar a Venda" style="text-align: center">
+						<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"  
+							update="cashTable" 
+							action="#{cashRegisterManagedBean.selectedSale(receipt)}">							 
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<ui:include src="closeSales.xhtml" />
+			</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>
