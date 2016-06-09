@@ -25,9 +25,9 @@
 						promptLabel="Use letras e números" weakLabel="Senha fraca"
 						goodLabel="Senha média" strongLabel="Senha forte"
 						match="password2" label="Senha: " required="true" feedback="true"
-						inline="true" />						
+						inline="true" />
 					<p:message for="password1" />
-					
+
 					<p:outputLabel for="password2" value="Repita a senha:" />
 					<p:password id="password2" placeholder="Repita a senha"
 						requiredMessage="Campo obrigatório"
@@ -37,14 +37,20 @@
 						label="Repita a senha: " required="true" feedback="true"
 						inline="true" />
 					<p:message for="password2" />
-					
-					<!-- <p:outputLabel for="btnModalEmployee"
+
+					<p:outputLabel for="btnModalEmployee"
 						value="Seleção de Funcionario: " />
 					<p:commandButton value="Selecionar" id="btnModalEmployee"
-						oncomplete="PF('dialogEmployee').show();" /> -->
+						oncomplete="PF('dialogEmployee').show();" />
 				</p:panelGrid>
-				
-		<!-- 		<ui:include src="../popups/popup-selectEmployee-login.xhtml" /> -->
+
+				<ui:include src="../employee/employeeSelection.xhtml">
+					<ui:param name="title" value="Funcionario" />
+					<ui:param name="target" value="#{loginManagedBean.login.employee}" />
+					<ui:param name="list" value="#{employeeManagedBean.dataList}" />
+					<ui:param name="form" value="loginForm" />
+				</ui:include>
+
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Permissões para ADM:" />
 					<p:selectBooleanCheckbox value="#{loginManagedBean.login.ROLE_ADM}" />
@@ -59,16 +65,16 @@
 						value="#{loginManagedBean.login.ROLE_MANAGER}" />
 
 				</p:panelGrid>
-				
+
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{loginManagedBean.save()}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{loginManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>
-			
+
 		</ui:define>
 	</ui:decorate>
-	
+
 </h:body>
 
 </html>

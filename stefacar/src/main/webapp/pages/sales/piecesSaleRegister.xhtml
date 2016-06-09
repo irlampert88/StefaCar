@@ -38,16 +38,19 @@
 					<ui:param name="title"  value="Peças" />
 					<ui:param name="target" value="#{piecesSaleManagedBean.piecesSale.pieces}" />
 					<ui:param name="list"   value="#{piecesManagedBean.dataList}" />
+					<ui:param name="form" value="saleForm" />
 				</ui:include>
 				<ui:include src="../client/clientSelection.xhtml">
 					<ui:param name="title"  value="Cliente" />
 					<ui:param name="target" value="#{piecesSaleManagedBean.piecesSale.client}" />
 					<ui:param name="list"   value="#{clientManagedBean.dataList}" />
+					<ui:param name="form" value="saleForm" />
 				</ui:include>
 				<ui:include src="../employee/employeeSelection.xhtml">
 					<ui:param name="title"  value="Funcionario" />
 					<ui:param name="target" value="#{piecesSaleManagedBean.piecesSale.employee}" />
 					<ui:param name="list"   value="#{employeeManagedBean.dataList}" />
+					<ui:param name="form" value="saleForm" />
 				</ui:include>
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
