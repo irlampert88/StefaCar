@@ -46,15 +46,28 @@
 
 					<p:outputLabel for="btnModalModel" value="Modelo: " />
 					<p:commandButton id="btnModalModel"
-						oncomplete="PF('dialogModelPieces').show();" icon="fa fa-fw fa-search" />
+						oncomplete="PF('dialogModel').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalModel"
 						value="#{piecesManagedBean.pieces.model.name}" />
 
 
 				</p:panelGrid>
-				<ui:include src="../popups/popup-selectOutfitter.xhtml" />
-				<ui:include src="../popups/popup-selectManufacturer.xhtml" />
-				<ui:include src="../popups/popup-selectModelPieces.xhtml" />
+				<ui:include src="../popups/popup-selectOutfitter.xhtml">
+					<ui:param name="title"  value="Fornecedores" />
+					<ui:param name="target" value="#{piecesManagedBean.pieces.outfitter}" />
+					<ui:param name="list"   value="#{outfitterManagedBean.dataList}" />
+				</ui:include>
+				<ui:include src="../popups/popup-selectManufacturer.xhtml" >
+					<ui:param name="title"  value="Produtores" />
+					<ui:param name="target" value="#{piecesManagedBean.pieces.manufacturer}" />
+					<ui:param name="list"   value="#{manufacturerManagedBean.dataList}" />
+				</ui:include>
+				<ui:include src="../popups/popup-selectModel.xhtml">
+					<ui:param name="title"  value="Modelos" />
+					<ui:param name="target" value="#{piecesManagedBean.pieces.model}" />
+					<ui:param name="list"   value="#{modelCarManagedBean.dataList}" />
+					<ui:param name="form" value="piecesForm"/>
+				</ui:include>
 
 
 				<p:commandButton value="Salvar" process="@form"

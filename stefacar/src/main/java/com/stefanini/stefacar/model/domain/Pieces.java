@@ -20,8 +20,6 @@ public class Pieces {
 	private String name;
 	@Column(nullable = false)
 	private Double value;
-	@Column(nullable = false)
-	private Integer quantity;
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idModelCar")
 	private ModelCar model;
@@ -64,14 +62,6 @@ public class Pieces {
 		this.value = value;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
 	public ModelCar getModel() {
 		return model;
 	}
@@ -105,7 +95,6 @@ public class Pieces {
 		result = prime * result + ((model == null) ? 0 : model.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((outfitter == null) ? 0 : outfitter.hashCode());
-		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
 		result = prime * result + ((serialNumber == null) ? 0 : serialNumber.hashCode());
 		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
@@ -144,11 +133,6 @@ public class Pieces {
 			if (other.outfitter != null)
 				return false;
 		} else if (!outfitter.equals(other.outfitter))
-			return false;
-		if (quantity == null) {
-			if (other.quantity != null)
-				return false;
-		} else if (!quantity.equals(other.quantity))
 			return false;
 		if (serialNumber == null) {
 			if (other.serialNumber != null)

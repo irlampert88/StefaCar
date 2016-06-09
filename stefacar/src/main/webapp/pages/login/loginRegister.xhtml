@@ -38,13 +38,13 @@
 						inline="true" />
 					<p:message for="password2" />
 					
-					<p:outputLabel for="btnModalEmployee"
+					<!-- <p:outputLabel for="btnModalEmployee"
 						value="Seleção de Funcionario: " />
 					<p:commandButton value="Selecionar" id="btnModalEmployee"
-						oncomplete="PF('dialogEmployee').show();" />
+						oncomplete="PF('dialogEmployee').show();" /> -->
 				</p:panelGrid>
 				
-				<ui:include src="../popups/popup-selectEmployee-login.xhtml" />
+		<!-- 		<ui:include src="../popups/popup-selectEmployee-login.xhtml" /> -->
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Permissões para ADM:" />
 					<p:selectBooleanCheckbox value="#{loginManagedBean.login.ROLE_ADM}" />

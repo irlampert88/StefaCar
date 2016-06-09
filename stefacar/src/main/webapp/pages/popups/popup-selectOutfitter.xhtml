@@ -5,14 +5,14 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalOutfitterId"
 	widgetVar="dialogOutfitter" modal="true" appendToBody="true"
-	resizable="false" header="Selecione um Fornecedor" closable="true">
+	resizable="false" header="Selecione o #{title}"  closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{piecesManagedBean.pieces.outfitter}"
-			rowKey="#{outfitter.id}" id="tableOutfitter" var="outfitter"
-			value="#{piecesManagedBean.listOfOutfitter}"
-			emptyMessage="Não existem fornecedores  cadastrados"
-			style="padding-top:20px;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{outfitter.id}" id="tableOutfitter" var="outfitter"
+				value="#{list}"
+				emptyMessage="Não existem fornecedores cadastrados"
+				style="padding-top:20px;">
 
 			<f:facet name="header" />
 			<p:column selectionMode="single"

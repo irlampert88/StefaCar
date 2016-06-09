@@ -21,7 +21,6 @@ public class EmployeeManagedBean {
 
 	private Employee employee;
 	private List<Employee> dataList;
-
 	private List<Employee> salesman;
 
 	@Inject

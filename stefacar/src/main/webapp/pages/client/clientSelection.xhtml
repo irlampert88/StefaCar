@@ -4,15 +4,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalClientId"
-	widgetVar="dialogClient" modal="false" appendToBody="true"
-	resizable="false" header="Selecione o Cliente" closable="true">
+	widgetVar="dialogClient" modal="true" appendToBody="true"
+	resizable="false" header="Selecione o #{title}" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{saleManagedBean.sale.client}"
-			rowKey="#{client.id}" id="tableClients" var="client"
-			value="#{saleManagedBean.listOfClient}"
-			emptyMessage="Não existem clientes cadastrados"
-			style="padding-top:20px;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{client.id}" id="tableClient" var="client"
+				value="#{list}"
+				emptyMessage="Não existem Clientes cadastrados"
+				style="padding-top:20px;">
 
 			<f:facet name="header" />
 			<p:column selectionMode="single"
@@ -28,7 +28,7 @@
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
 					oncomplete="PF('dialogClient').close" update="saleForm"
-					icon="ui-icon-search" process="tableClients" />
+					icon="ui-icon-search" process="tableClient" />
 			</f:facet>
 		</p:dataTable>
 

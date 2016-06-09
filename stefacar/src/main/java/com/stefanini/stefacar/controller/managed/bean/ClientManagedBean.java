@@ -46,6 +46,9 @@ public class ClientManagedBean {
 	}
 
 	public List<Client> getDataList() {
+		if (dataList == null) {
+			dataList = service.loadAllClientFromDataBase();
+		}
 		return dataList;
 	}
 
