@@ -9,6 +9,7 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+		<h:form>
 			<p:outputLabel style="font-size: 30px;" value="Lista de vendas:Peças" />
 			<p:dataTable id="saleTable" var="piecesSale"
 				value="#{piecesSaleManagedBean.listOfPiecesSales}"
@@ -37,6 +38,7 @@
 					</p:confirmDialog>
 				</p:column>
 			</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>

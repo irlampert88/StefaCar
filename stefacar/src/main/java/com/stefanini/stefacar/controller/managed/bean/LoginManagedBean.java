@@ -3,7 +3,7 @@ package com.stefanini.stefacar.controller.managed.bean;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.shared.MessengerSystem;
@@ -11,7 +11,7 @@ import com.stefanini.stefacar.model.domain.Login;
 import com.stefanini.stefacar.model.service.impl.LoginServiceImpl;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class LoginManagedBean {
 
 	private Login login;
@@ -66,6 +66,5 @@ public class LoginManagedBean {
 	public void setLogin(Login login) {
 		this.login = login;
 	}
-	
 
 }

@@ -9,38 +9,43 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Lista de fornecedores" />
-			<p:button href="outfitterRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
-			<p:dataTable id="outfitterTable" var="outfitter"
-				value="#{outfitterManagedBean.dataList}"
-				emptyMessage="Não existem fornecedores cadastrados"
-				style="padding-top:20px;">
-				<p:column headerText="Name" style="text-align: center">
-					<h:outputText value="#{outfitter.name}" />
-				</p:column>
-				<p:column headerText="Cnpj" style="text-align: center">
-					<h:outputText value="#{outfitter.cnpj}" />
-				</p:column>
-				<p:column headerText="telefone" style="text-align: center">
-					<h:outputText value="#{outfitter.phone}" />
-				</p:column>
+			<h:form>
+				<p:outputLabel style="font-size: 30px;"
+					value="Lista de fornecedores" />
+				<p:button href="outfitterRegister.xhtml" value="Novo Cadastro"
+					style="left:20px" />
+				<p:dataTable id="outfitterTable" var="outfitter"
+					value="#{outfitterManagedBean.dataList}"
+					emptyMessage="Não existem fornecedores cadastrados"
+					style="padding-top:20px;">
+					<p:column headerText="Name" style="text-align: center">
+						<h:outputText value="#{outfitter.name}" />
+					</p:column>
+					<p:column headerText="Cnpj" style="text-align: center">
+						<h:outputText value="#{outfitter.cnpj}" />
+					</p:column>
+					<p:column headerText="telefone" style="text-align: center">
+						<h:outputText value="#{outfitter.phone}" />
+					</p:column>
 
-				<p:column headerText="Ações" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
-						update="outfitterTable"
-						action="#{outfitterManagedBean.delete(outfitter)}">
-						<p:confirm header="Confirmação"
-							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
-					</p:commandButton>
-
-					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						<p:commandButton value="Sim" type="button"
-							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-						<p:commandButton value="Não" type="button"
-							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-					</p:confirmDialog>
-				</p:column>
-			</p:dataTable>
+					<p:column headerText="Ações" style="text-align: center">
+						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
+							update="outfitterTable"
+							action="#{outfitterManagedBean.delete(outfitter)}">
+							<p:confirm header="Confirmação"
+								message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
+						</p:commandButton>
+						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+							action="#{outfitterManagedBean.setOutfitter(outfitter)}" />
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+					</p:column>
+				</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>

@@ -9,6 +9,7 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+		<h:form>
 			<p:outputLabel style="font-size: 30px;" value="Lista de funcionários" />
 			<p:button href="employeeRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
 			<p:dataTable id="employeeTable" var="employee"
@@ -31,7 +32,8 @@
 						<p:confirm header="Confirmação"
 							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 					</p:commandButton>
-
+						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+							action="#{employeeManagedBean.setEmployee(employee)}" />
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 						<p:commandButton value="Sim" type="button"
 							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
@@ -40,6 +42,7 @@
 					</p:confirmDialog>
 				</p:column>
 			</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>

@@ -9,35 +9,54 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-		<p:outputLabel style="font-size: 30px;" value="Lista de Peças" />
-<p:button href="piecesRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
-			<p:dataTable id="piecesTable" var="pieces"
-				value="#{piecesManagedBean.dataList}"
-				emptyMessage="Não existem peças cadastrados"
-				style="padding-top:20px;">
-				<p:column headerText="Name" style="text-align: center">
-					<h:outputText value="#{pieces.name}" />
-				</p:column>
-				<p:column headerText="Valor" style="text-align: center">
-					<h:outputText value="#{pieces.value}" />
-				</p:column>
-				<p:column headerText="Nº de série" style="text-align: center">
-					<h:outputText value="#{pieces.serialNumber}" />
-				</p:column>
-				<p:column headerText="Modelo" style="text-align: center">
-					<h:outputText value="#{pieces.model.name}" />
-				</p:column>
-				<p:column headerText="Fabricante" style="text-align: center">
-					<h:outputText value="#{pieces.manufacturer.name}" />
-				</p:column>
-				<p:column headerText="Fornecedor" style="text-align: center">
-					<h:outputText value="#{pieces.outfitter.name}" />
-				</p:column>
-				<p:column headerText="Quantidade" style="text-align: center">
-					<h:outputText value="#{pieces.quantity}" />
-				</p:column>
+			<h:form>
+				<p:outputLabel style="font-size: 30px;" value="Lista de Peças" />
+				<p:button href="piecesRegister.xhtml" value="Novo Cadastro"
+					style="left:20px" />
+				<p:dataTable id="piecesTable" var="pieces"
+					value="#{piecesManagedBean.dataList}"
+					emptyMessage="Não existem peças cadastrados"
+					style="padding-top:20px;">
+					<p:column headerText="Name" style="text-align: center">
+						<h:outputText value="#{pieces.name}" />
+					</p:column>
+					<p:column headerText="Valor" style="text-align: center">
+						<h:outputText value="#{pieces.value}" />
+					</p:column>
+					<p:column headerText="Nº de série" style="text-align: center">
+						<h:outputText value="#{pieces.serialNumber}" />
+					</p:column>
+					<p:column headerText="Modelo" style="text-align: center">
+						<h:outputText value="#{pieces.model.name}" />
+					</p:column>
+					<p:column headerText="Fabricante" style="text-align: center">
+						<h:outputText value="#{pieces.manufacturer.name}" />
+					</p:column>
+					<p:column headerText="Fornecedor" style="text-align: center">
+						<h:outputText value="#{pieces.outfitter.name}" />
+					</p:column>
+					<p:column headerText="Quantidade" style="text-align: center">
+						<h:outputText value="#{pieces.quantity}" />
+					</p:column>
 
-			</p:dataTable>
+					<p:column headerText="Ações" style="text-align: center">
+						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
+							update="piecesTable"
+							action="#{piecesManagedBean.delete(pieces)}">
+							<p:confirm header="Confirmação"
+								message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
+						</p:commandButton>
+						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+							action="#{piecesManagedBean.setPieces(pieces)}" />
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+					</p:column>
+				</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:decorate>
 </h:body>

@@ -62,6 +62,7 @@ public class PiecesSaleManagedBean implements Serializable {
 
 	public void delete(PiecesSale piecesSale) {
 		service.delete(piecesSale);
+		listOfPiecesSales.remove(piecesSale);
 		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de peça excluido com sucesso");
 	}
 
