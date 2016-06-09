@@ -21,21 +21,21 @@
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="btnModalEmployee"
-						value="Seleção de Funcionário: " />
+						value="Funcionário : " />
 					<p:commandButton id="btnModalEmployee"
 						oncomplete="PF('dialogEmployee').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalEmployee"
 						value="#{piecesSaleManagedBean.piecesSale.employee.name}" />
 
 					<p:outputLabel for="btnModalClient" 
-						value="Seleção de Cliente: " />
+						value="Cliente : " />
 					<p:commandButton id="btnModalClient"
 						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalClient"
 						value="#{piecesSaleManagedBean.piecesSale.client.name}" />
 
 					<p:outputLabel for="btnModalPieces" 
-						value="Seleção de peças: " />
+						value="Peças : " />
 					<p:commandButton  id="btnModalPieces"
 						oncomplete="PF('dialogPieces').show();" icon="fa fa-fw fa-search" />
 

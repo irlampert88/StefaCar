@@ -20,21 +20,21 @@
 				<p:panelGrid columns="3">
 
 					<p:outputLabel for="btnModalEmployee"
-						value=" Seleção de Funcionário: " />
+						value="Funcionário : " />
 					<p:commandButton id="btnModalEmployee"
 						oncomplete="PF('dialogEmployee').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalEmployee"
 						value="#{saleManagedBean.sale.employee.registration}" />
 
 					<p:outputLabel for="btnModalClient"
-						value=" Seleção    de   Cliente: " />
+						value="Cliente : " />
 					<p:commandButton id="btnModalClient"
 						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalClient"
 						value="#{saleManagedBean.sale.client.cpf}" />
 
 					<p:outputLabel for="btnModalCar" 
-						value=" Seleção do Carro: " />
+						value="Carro : " />
 					<p:commandButton id="btnModalCar"
 						oncomplete="PF('dialogCar').show();" icon="fa fa-fw fa-search" />
 					<p:outputLabel for="btnModalCar"
