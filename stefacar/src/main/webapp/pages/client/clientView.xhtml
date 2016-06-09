@@ -11,6 +11,8 @@
 		<ui:define name="center">
 			<h:form>
 				<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
+				<p:button href="clientRegister.xhtml" value="Novo Cadastro"
+					style="left:20px" />
 				<p:dataTable id="clientTable" var="client"
 					value="#{clientManagedBean.dataList}"
 					emptyMessage="Não existem clientes cadastrados"
@@ -26,11 +28,16 @@
 					</p:column>
 					<p:column headerText="Ações" style="text-align: center">
 						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
-							update="@form" process="@this" action="#{clientManagedBean.delete(client)}">
+							update="@form" process="@this"
+							action="#{clientManagedBean.delete(client)}">
+
 							<p:confirm header="Confirmação"
 								message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 						</p:commandButton>
-	
+
+						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+							action="#{clientManagedBean.setClientForEdit(client)}" />
+
 						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 							<p:commandButton value="Sim" type="button"
 								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

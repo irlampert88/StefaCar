@@ -1,10 +1,12 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.shared.MessengerSystem;
@@ -18,7 +20,7 @@ import com.stefanini.stefacar.model.repository.impl.OutfitterRepository;
 import com.stefanini.stefacar.model.service.impl.PiecesServiceImpl;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class PiecesManagedBean {
 	private Pieces pieces;
 	private List<Pieces> dataList;
@@ -46,6 +48,7 @@ public class PiecesManagedBean {
 		listOfmodel = modelRepository.listAllRecords();
 		pieces = new Pieces();
 		dataList = service.loadAllPiecesFromDataBase();
+		
 	}
 
 	public void save() {
@@ -56,6 +59,7 @@ public class PiecesManagedBean {
 
 	public void delete(Pieces pieces) {
 		service.delete(pieces);
+		dataList.remove(pieces);
 		MessengerSystem.notificaInformacao("Parabens!", "Cadastro da Peça excluido com sucesso!");
 	}
 
@@ -99,7 +103,18 @@ public class PiecesManagedBean {
 		this.pieces = pieces;
 	}
 
+	public void setPiecesForEdit(Pieces pieces) {
+		this.pieces = pieces;
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("piecesRegister.xhtml");
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+
 	public void clean() {
 		setPieces(new Pieces());
+		dataList = service.loadAllPiecesFromDataBase();
 	}
 }

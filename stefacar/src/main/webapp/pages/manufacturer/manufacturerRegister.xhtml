@@ -5,8 +5,6 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-
-
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
@@ -14,7 +12,6 @@
 				value="Cadastro de Fabricante" />
 			<h:form id="manufacturerForm">
 				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
-
 
 				<p:panelGrid columns="3">
 
@@ -32,9 +29,7 @@
 						<!-- <f:validator validatorId="cpfValidator" /> -->
 					</p:inputMask>
 					<p:message for="Cnpj" />
-
-
-
+					
 					<p:outputLabel for="Phone" value="Telefone: " />
 					<p:inputText id="Phone" requiredMessage="Campo obrigatório"
 						required="true" placeholder="telefone"
@@ -44,14 +39,14 @@
 					<p:outputLabel for="address" value="Endereço: " />
 					<p:inputText id="address" requiredMessage="Campo obrigatório"
 						required="true"
-						value="#{manufacturerManagedBean.manufacturer.address}" />
+						value="#{manufacturerManagedBean.manufacturer.address}" placeholder="Endereço"/>
 					<p:message for="address" />
 
 				</p:panelGrid>
-
 				<p:commandButton value="Salvar" process="@form"
 					action="#{manufacturerManagedBean.save()}" icon="fa fa-fw fa-save"
 					update="@form" />
+					<p:button href="manufacturerView.xhtml" value="Voltar"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{manufacturerManagedBean.clean()}"
 					icon="fa fa-fw fa-eraser" />

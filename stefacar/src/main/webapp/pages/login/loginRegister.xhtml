@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;" value="Cadastro de Login" />
+			<h:form id="loginForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+				<p:panelGrid columns="3">
+					<p:outputLabel for="user" value="Usuário:" />
+					<p:inputText id="user" placeholder="Usuário"
+						requiredMessage="Campo obrigatório" required="true"
+						value="#{loginManagedBean.login.username}" />
+					<p:message for="user" />
+					<p:outputLabel for="password1" value="Senha:" />
+					<p:password id="password1" placeholder="Senha"
+						value="#{loginManagedBean.login.password}"
+						validatorMessage="Senhas devem ser iguais"
+						requiredMessage="Campo obrigatório"
+						promptLabel="Use letras e números" weakLabel="Senha fraca"
+						goodLabel="Senha média" strongLabel="Senha forte"
+						match="password2" label="Senha: " required="true" feedback="true"
+						inline="true" />						
+					<p:message for="password1" />
+					
+					<p:outputLabel for="password2" value="Repita a senha:" />
+					<p:password id="password2" placeholder="Repita a senha"
+						requiredMessage="Campo obrigatório"
+						value="#{loginManagedBean.login.password}"
+						validatorMessage="Senhas devem ser iguais" weakLabel="Senha fraca"
+						goodLabel="Senha média" strongLabel="Senha forte"
+						label="Repita a senha: " required="true" feedback="true"
+						inline="true" />
+					<p:message for="password2" />
+					
+					<p:outputLabel for="btnModalEmployee"
+						value="Seleção de Funcionario: " />
+					<p:commandButton value="Selecionar" id="btnModalEmployee"
+						oncomplete="PF('dialogEmployee').show();" />
+				</p:panelGrid>
+				
+				<ui:include src="../popups/popup-selectEmployee-login.xhtml" />
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Permissões para ADM:" />
+					<p:selectBooleanCheckbox value="#{loginManagedBean.login.ROLE_ADM}" />
+					<p:outputLabel value="Permissões para Vendedor:" />
+					<p:selectBooleanCheckbox
+						value="#{loginManagedBean.login.ROLE_SALESMAN}" />
+					<p:outputLabel value="Permissões para Mecânico:" />
+					<p:selectBooleanCheckbox
+						value="#{loginManagedBean.login.ROLE_MECHANIC}" />
+					<p:outputLabel value="Permissões de Gerente:" />
+					<p:selectBooleanCheckbox
+						value="#{loginManagedBean.login.ROLE_MANAGER}" />
+
+				</p:panelGrid>
+				
+				<p:commandButton value="Salvar" process="@form" update="@form"
+					action="#{loginManagedBean.save()}" icon="fa fa-fw fa-save" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{loginManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+			</h:form>
+			
+		</ui:define>
+	</ui:decorate>
+	
+</h:body>
+
+</html>

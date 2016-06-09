@@ -11,9 +11,11 @@ import com.stefanini.stefacar.model.service.FooService;
 @ManagedBean
 public class FooManagedBean {
 
+	@SuppressWarnings("unused")
 	@Inject
 	private FooService service;
+	@SuppressWarnings("unused")
 	@Inject
 	private FooRepository repository;
-	
+
 }

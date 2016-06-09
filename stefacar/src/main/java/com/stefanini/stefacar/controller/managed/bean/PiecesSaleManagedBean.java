@@ -1,4 +1,4 @@
-package com.stefanini.stefacar.controller.managed.bean;
+ package com.stefanini.stefacar.controller.managed.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,6 +23,7 @@ import com.stefanini.stefacar.model.service.impl.PiecesSaleServiceImpl;
 @ViewScoped
 public class PiecesSaleManagedBean implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private PiecesSaleServiceImpl service;
 
@@ -61,6 +62,7 @@ public class PiecesSaleManagedBean implements Serializable {
 
 	public void delete(PiecesSale piecesSale) {
 		service.delete(piecesSale);
+		listOfPiecesSales.remove(piecesSale);
 		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de peça excluido com sucesso");
 	}
 
@@ -147,4 +149,16 @@ public class PiecesSaleManagedBean implements Serializable {
 	public void setListOfClient(List<Client> listOfClient) {
 		this.listOfClient = listOfClient;
 	}
+	
+//	public void addPiece(Pieces pieces){
+//		if(listOfPieces.equals(pieces)){
+//		this.totalValue=this.totalValue+pieces.getValue();	
+//		pieces.setQuantity(pieces.getQuantity()-1);
+//		}else{
+//			listOfPieces.add(pieces);
+//			pieces.setQuantity(pieces.getQuantity()-1);
+//			this.totalValue=this.totalValue+pieces.getValue();	
+//			
+//		}
+//	}
 }
