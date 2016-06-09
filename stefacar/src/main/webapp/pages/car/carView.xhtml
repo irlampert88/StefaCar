@@ -41,7 +41,8 @@
 						<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
 							icon="ui-icon-alert" />
 					</p:commandButton>
-
+					<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+							action="#{carManagedBean.setCar(car)}" />
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 						<p:commandButton value="Sim" type="button"
 							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

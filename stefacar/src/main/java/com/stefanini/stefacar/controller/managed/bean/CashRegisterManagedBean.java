@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.warehouse.TypeOfPayment;
@@ -23,42 +22,42 @@ public class CashRegisterManagedBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	CashRegisterRepositoryImpl repositoryCash;
-	
+
 	@Inject
 	SaleRepositoryImpl repositorySale;
-	
+
 	@Inject
 	CashRegisterServiceImpl service;
-		
+
 	private CashRegister cashregister;
 	private Sale saleSelected;
 	private double discountedOrInterest;
-	
+
 	@PostConstruct
-	public void init(){
+	public void init() {
 		cashregister = new CashRegister();
 		saleSelected = new Sale();
 		cashregister.setSales(repositorySale.listAllRecordsByActive());
 	}
-	
-	public void closeSales(Sale sale){
-		sale.setStatus(false);//venda finalizada	
+
+	public void closeSales(Sale sale) {
+		sale.setStatus(false);// venda finalizada
 		service.closeSale(sale);
 	}
-	
-	public void calculatesDiscount(){
+
+	public void calculatesDiscount() {
 		discountedOrInterest = cashregister.getTypePayment().calculateFinalValue(saleSelected.getCar().getPrice());
 		calculatesTransshipment();
 	}
-	
-	private void calculatesTransshipment(){
-		cashregister.setTransshipment(cashregister.getAmountPaid()-discountedOrInterest);						
+
+	private void calculatesTransshipment() {
+		cashregister.setTransshipment(cashregister.getAmountPaid() - discountedOrInterest);
 	}
-	
-	//GETERS & SETERS
+
+	// GETERS & SETERS
 	public double getDiscountedValue() {
 		return discountedOrInterest;
 	}
@@ -82,8 +81,8 @@ public class CashRegisterManagedBean implements Serializable {
 	public void setSaleSelected(Sale saleSelected) {
 		this.saleSelected = saleSelected;
 	}
-	
-	public TypeOfPayment[] getTypeOfPayMent(){
+
+	public TypeOfPayment[] getTypeOfPayMent() {
 		return TypeOfPayment.values();
 	}
 

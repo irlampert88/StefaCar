@@ -33,7 +33,9 @@
 							<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
 								icon="ui-icon-alert" />
 						</p:commandButton>
-
+						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+							action="#{brandCarManagedBean.setBrand(brand)}" />
+							
 						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 							<p:commandButton value="Sim" type="button"
 								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

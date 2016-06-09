@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.controller.shared.MessengerSystem;
 import com.stefanini.stefacar.infra.dao.transactional.Transactional;
 
 import com.stefanini.stefacar.model.domain.Pieces;
@@ -20,6 +21,7 @@ public class PiecesServiceImpl {
 			repository.insert(pieces);
 		} else {
 			repository.update(pieces);
+			MessengerSystem.notificaAviso("Cadastro", "Editado");
 		}
 	}
 
