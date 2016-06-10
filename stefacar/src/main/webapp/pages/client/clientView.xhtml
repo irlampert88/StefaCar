@@ -16,7 +16,8 @@
 				<p:dataTable id="clientTable" var="client"
 					value="#{clientManagedBean.dataList}"
 					emptyMessage="Não existem clientes cadastrados"
-					style="padding-top:20px;">
+					style="padding-top:20px;" rows="5"
+                         paginator="true">
 					<p:column headerText="Name" style="text-align: center">
 						<h:outputText value="#{client.name}" />
 					</p:column>

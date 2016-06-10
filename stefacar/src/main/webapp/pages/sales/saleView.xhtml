@@ -13,7 +13,8 @@
 			<p:dataTable id="saleTable" var="sale"
 				value="#{saleManagedBean.listOfSales}"
 				emptyMessage="Não existem vendas cadastrados"
-				style="padding-top:20px;">
+				style="padding-top:20px;" rows="5"
+                         paginator="true">
 				<p:column headerText="Funcionário">
 					<h:outputText value="#{sale.employee.name}" />
 				</p:column>

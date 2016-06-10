@@ -16,7 +16,7 @@
 				<p:dataTable id="brandCarTable" var="brand"
 					value="#{brandCarManagedBean.dataList}"
 					emptyMessage="Não existem Marcas Cadastrados"
-					style="padding-top:20px;">
+					style="padding-top:20px;" rows="5" paginator="true">
 
 					<p:column headerText="Marca" style="text-align: center">
 						<h:outputText value="#{brand.name}" />
@@ -35,7 +35,7 @@
 						</p:commandButton>
 						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
 							action="#{brandCarManagedBean.setBrandForEdit(brand)}" />
-						
+
 						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 							<p:commandButton value="Sim" type="button"
 								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

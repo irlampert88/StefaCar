@@ -17,7 +17,8 @@
 				<p:dataTable id="outfitterTable" var="outfitter"
 					value="#{outfitterManagedBean.dataList}"
 					emptyMessage="Não existem fornecedores cadastrados"
-					style="padding-top:20px;">
+					style="padding-top:20px;" rows="5"
+                         paginator="true">
 					<p:column headerText="Name" style="text-align: center">
 						<h:outputText value="#{outfitter.name}" />
 					</p:column>
