@@ -46,20 +46,16 @@
 		</div>
 	</div>
 	<div>
-		<b:navBar rendered="#{sessionManagedBean.login.login}">
+		<b:navBar >
 			<b:navbarLinks>
-				<b:dropMenu value="Vendas"
-					rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_SALESMAN ||sessionManagedBean.login.ROLE_MECHANIC}">
+				<b:dropMenu value="Vendas">
 					<b:navLink value="Venda de carro"
-						href="/stefacar/pages/sales/saleRegister.xhtml"
-						rendered="#{sessionManagedBean.login.ROLE_ADM||sessionManagedBean.login.ROLE_SALESMAN}"></b:navLink>
-						
+						href="/stefacar/pages/sales/saleRegister.xhtml"></b:navLink>
+
 					<b:navLink value="Venda de peças"
-						href="/stefacar/pages/sales/piecesSaleRegister.xhtml"
-						rendered="#{sessionManagedBean.login.ROLE_ADM||sessionManagedBean.login.ROLE_MECHANIC}"></b:navLink>
+						href="/stefacar/pages/sales/piecesSaleRegister.xhtml"></b:navLink>
 				</b:dropMenu>
-				<b:dropMenu value="Consultas"
-					rendered="#{sessionManagedBean.login.ROLE_ADM||sessionManagedBean.login.ROLE_SALESMAN||sessionManagedBean.login.ROLE_MECHANIC }">
+				<b:dropMenu value="Consultas">
 					<b:navLink value="Clientes"
 						href="/stefacar/pages/client/clientView.xhtml"></b:navLink>
 					<b:navLink value="Funcionários"
@@ -69,13 +65,11 @@
 					<b:dropMenu value="Carros">
 						<b:navLink value="Marcas"
 							href="/stefacar/pages/brandCar/brandCarView.xhtml"></b:navLink>
-							<b:navLink value="Carros"
-							href="/stefacar/pages/car/carView.xhtml"></b:navLink>
+						<b:navLink value="Carros" href="/stefacar/pages/car/carView.xhtml"></b:navLink>
 						<b:navLink value="Modelos"
 							href="/stefacar/pages/modelCar/modelCarView.xhtml"></b:navLink>
 					</b:dropMenu>
-					<b:dropMenu value="Vendas"
-						rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
+					<b:dropMenu value="Vendas">
 						<b:navLink value="Venda de carro"
 							href="/stefacar/pages/sales/saleView.xhtml"></b:navLink>
 						<b:navLink value="Venda de peças"

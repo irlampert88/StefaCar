@@ -1,70 +1,57 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
-import java.util.List;
-
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
-import com.stefanini.stefacar.controller.shared.MessengerSystem;
-import com.stefanini.stefacar.model.domain.Login;
-import com.stefanini.stefacar.model.service.impl.LoginServiceImpl;
 
+
+@RequestScoped
 @ManagedBean
-@SessionScoped
-public class LoginManagedBean {
+public class LoginManagedBean extends AbstractMB {
+	@ManagedProperty(value = UserManagedBean.INJECTION_NAME)
+	private UserManagedBean userMB;
 
-	private Login login;
-	private List<Login> listOfRegisterLogins;
+	private String email;
+	private String password;
 
-	@Inject
-	private LoginServiceImpl service;
-
-	public LoginManagedBean() {
+	public String getEmail() {
+		return email;
 	}
 
-	public void save() {
-		service.save(getLogin());
-		MessengerSystem.notificaInformacao("Parabéns!", "Login salvo com sucesso!");
-		loadListOfLogins();
-		clean();
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void delete(Login login) {
-		service.delete(login);
-		MessengerSystem.notificaInformacao("Parabéns!", "Login deletado com sucesso!");
-		loadListOfLogins();
-		clean();
+	public String getPassword() {
+		return password;
 	}
 
-	public void clean() {
-		setLogin(new Login());
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	private void loadListOfLogins() {
-		setListOfRegisterLogins(service.loadAllLoginsFromDataBase());
-	}
+	public String login() {
+		UserFacade userFacade = new UserFacade();
 
-	public List<Login> getListOfRegisterLogins() {
-		if (listOfRegisterLogins == null) {
-			loadListOfLogins();
+		User user = userFacade.isValidLogin(email, password);
+		
+		if(user != null){
+			userMB.setUser(user);
+			FacesContext context = FacesContext.getCurrentInstance();
+			HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+			request.getSession().setAttribute("user", user);
+			return "/pages/protected/index.xhtml";
 		}
-		return listOfRegisterLogins;
+
+		displayErrorMessageToUser("Check your email/password");
+		
+		return null;
 	}
 
-	public void setListOfRegisterLogins(List<Login> listOfRegisterLogins) {
-		this.listOfRegisterLogins = listOfRegisterLogins;
-	}
-
-	public Login getLogin() {
-		if (login == null) {
-			clean();
-		}
-		return login;
-	}
-
-	public void setLogin(Login login) {
-		this.login = login;
-	}
-
+	public void setUserMB(UserMB userMB) {
+		this.userMB = userMB;
+	}	
 }
