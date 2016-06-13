@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Sale {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "idCliente", nullable = false)
@@ -25,17 +25,21 @@ public class Sale {
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "Carro", nullable = false)
 	private Car car;
-	@Column
-	private boolean status;//true = venda ativa & false = venda finalizada
+	@Column(name = "Progresso", nullable = false)
+	private boolean progress;//true = venda ativa & false = venda finalizada
 	
 	public Sale() {
 		this.client = new Client();
 		this.car = new Car();
 		this.employee = new Employee();
-		this.status = true;
+		this.progress = true;
 	}
-		
-	
+	public String getProgressString(){
+		if(isProgress())
+			return "Venda Ativa";
+		else 
+			return "Venda Finalizada";
+	}	
 	//GETERS & SETERS
 	public Client getClient() {
 		return client;
@@ -60,21 +64,13 @@ public class Sale {
 	}
 	public void setId(Integer idSale) {
 		this.id = idSale;
-	}	
-	public boolean isStatus() {
-		return status;
 	}
-	public void setStatus(boolean status) {
-		// FIXME NOME!
-		this.status = status;
+	public boolean isProgress() {
+		return progress;
 	}
-	public String getStatusString(){
-		if(isStatus())
-			return "Venda Ativa";
-		else 
-			return "Venda Finalizada";
+	public void setProgress(boolean progress) {
+		this.progress = progress;
 	}
-
 	//HASH & EQUALS
 	@Override
 	public int hashCode() {
@@ -84,6 +80,7 @@ public class Sale {
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + (progress ? 1231 : 1237);
 		return result;
 	}
 	@Override
@@ -114,6 +111,8 @@ public class Sale {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (progress != other.progress)
 			return false;
 		return true;
 	}	

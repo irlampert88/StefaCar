@@ -1,7 +1,5 @@
 package com.stefanini.stefacar.model.service.impl;
 
-import java.time.LocalDate;
-
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.infra.dao.transactional.Transactional;
@@ -20,12 +18,11 @@ public class CashRegisterServiceImpl {
 	
 	@Transactional
 	public void save(CashRegister cash){					
-		if(cash.getDateOfSale() == LocalDate.now()){
-			repositoryCashRegister.update(cash);
-			finalizesCashRegister(cash);			
-		}else{
+		if(cash.getId() == null){
 			repositoryCashRegister.insert(cash);
-			finalizesCashRegister(cash);
+			System.out.println(repositoryCashRegister.entregaDateDoBanco());		
+		}else{
+			repositoryCashRegister.update(cash);			
 		}
 	}
 	
@@ -33,14 +30,15 @@ public class CashRegisterServiceImpl {
 	public void closeSale(Sale sale){
 		repositorySale.update(sale);		
 	}
-	
-	@Transactional
-	private void finalizesCashRegister(CashRegister cash){ 
-		for (Sale sale : cash.getSales()) {				
-			if(sale.isStatus()){
-				sale.setStatus(false);
-				repositorySale.update(sale);
-			}
-		}
-	}
+	//colocar uma lógica que excluirá as vendas que não foram pagas ao fim do dia a lógica a baixo está errada 
+	//fazer com que exclua as vendas que ainda estão no caixa e não foram pagas ou seja cancelar as vendas
+//	@Transactional
+//	private void finalizesCashRegister(CashRegister cash){ 
+//		for (Sale sale : cash.getSales()) {				
+//			if(sale.isProgress()){
+//				sale.setProgress(false);
+//				repositorySale.update(sale);
+//			}
+//		}
+//	}
 }
