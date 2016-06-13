@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 body {
  background: #7dce21;
 	background: -moz-linear-gradient(left, #7dce21 1%, #24c1c1 20%, #1e5799 94%);
@@ -11,32 +11,68 @@ body {
 }
 
 .container {
-   padding-top: 110px;
-    padding-bottom: 120px;
-    padding-left: 400px;
-    padding-right: 20px;
+    padding-top: 5%;
+    padding-left: 38%;
     border-radius: 15px;
-    border-color:#d2d2d2;
+    border-color:#0080ff;
     position: fixed;
 }
 
-.form-login {
-    background-color: #EDEDED;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
-    border-color:#d2d2d2;
-    border-width: 5px;
-    box-shadow:0 1px 0 #cfcfcf;
+.loginmodal-container {
+  padding: 30px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  overflow: hidden;
+  border-radius: 15px;
+  border-color:#0080ff;
+   border-width: 10px;
 }
 
-h4 { 
- border:0 solid #c0c0c0; 
- border-bottom-width:3px;
- padding-bottom:10px;
+.loginmodal-container h1 {
+  text-align: center;
+}
+
+.loginmodal-container input[type=submit] {
+  display: block;
+  position: fixed;
+  border-radius: 15px;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #0080ff;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+}
+
+.loginmodal-submit {
+  border: 0px;
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 12px;
+  border: 1px solid #8AB2F2;
+  border-radius: 5px;
+}
+
+.loginmodal-submit:hover {
+  border: 1px solid #0080ff;
+  background-color: #357ae8;
+}
+
+
+h1 { 
+ font-size: 200%;
+ color: #4879AE;
  text-align: center;
+ padding-bottom: 5%;
 }
 
 .form-control {
