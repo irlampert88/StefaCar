@@ -12,7 +12,7 @@
 				<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
 				
 				<p:commandButton value="Atualizar Vendas Ativas" update="cashTable modalCloseSalesId"
-					action="#{cashRegisterManagedBean.upgradeSales()}" />
+					action="#{cashRegisterManagedBean.upgradeSales()}" style="float: right" />
 
 				<p:dataTable id="cashTable" var="receipt"
 					value="#{cashRegisterManagedBean.saleList}" 
@@ -33,7 +33,7 @@
 					<p:column headerText="Pagar a Venda" style="text-align: center">
 						<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"  
 							update="cashTable modalCloseSalesId" 
-							action="#{cashRegisterManagedBean.cashRegister.sale(receipt)}">							 
+							action="#{cashRegisterManagedBean.selectedSale(receipt)}">							 
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>

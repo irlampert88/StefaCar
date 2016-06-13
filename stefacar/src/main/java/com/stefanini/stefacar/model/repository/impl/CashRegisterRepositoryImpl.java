@@ -17,7 +17,7 @@ public class CashRegisterRepositoryImpl extends AbstractRepository<CashRegister>
 	}
 	
 	public String entregaDateDoBanco(){
-		java.sql.Date dataSql = (java.sql.Date) entityManager.createNativeQuery("select dateofsale from cashregister").getSingleResult();
+		java.sql.Date dataSql = (java.sql.Date) entityManager.createNativeQuery("select data_pagamento from cashregister").getSingleResult();
 		Date dataUtil = new Date(dataSql.getTime());
 		String dataString = DateUtil.dateToString(dataUtil);
 		return dataString;

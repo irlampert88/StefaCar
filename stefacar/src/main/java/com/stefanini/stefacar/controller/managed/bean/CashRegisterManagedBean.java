@@ -49,8 +49,7 @@ public class CashRegisterManagedBean implements Serializable {
 	public void closeSales() {
 		cashRegister.getSale().setProgress(false);// venda finalizada
 		service.closeSale(cashRegister.getSale());
-		cashRegister.setAmount(discountedOrInterest);
-		
+		cashRegister.setAmount(discountedOrInterest);		
 		service.save(cashRegister);
 		RequestContext.getCurrentInstance().execute("location.reload()");
 	}
@@ -59,7 +58,6 @@ public class CashRegisterManagedBean implements Serializable {
 		TypeOfPayment payment = (TypeOfPayment) event.getNewValue();
 		this.cashRegister.setTypePayment(payment);
 		discountedOrInterest = cashRegister.getTypePayment().calculateFinalValue(cashRegister.getSale().getCar().getPrice());
-//		calculatesTransshipment();
 	}
 	
 	public TypeOfPayment[] getTypeOfPayMent() {
@@ -73,6 +71,12 @@ public class CashRegisterManagedBean implements Serializable {
 	public void upgradeSales(){
 		saleList = repositorySale.listAllRecordsByActive();		
 	}
+	
+	public void selectedSale(Sale sale){
+		cashRegister.setSale(sale);
+		RequestContext.getCurrentInstance().execute("PF('dialogCloseSales').show()");
+	}
+	
 
 //		GETERS & SETERS	
 

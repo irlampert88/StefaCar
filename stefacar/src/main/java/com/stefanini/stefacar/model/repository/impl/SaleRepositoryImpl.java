@@ -17,7 +17,7 @@ public class SaleRepositoryImpl extends AbstractRepository<Sale> {
 //	}
 	
 	public List<Sale> listAllRecordsByActive(){
-		return entityManager.createQuery("select l from " + Sale.class.getSimpleName() + " l where status = true").getResultList();
+		return entityManager.createQuery("select l from " + Sale.class.getSimpleName() + " l where progress = true").getResultList();
 	}
 
 }

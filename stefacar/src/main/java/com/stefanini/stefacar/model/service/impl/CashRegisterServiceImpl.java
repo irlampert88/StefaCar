@@ -20,7 +20,7 @@ public class CashRegisterServiceImpl {
 	public void save(CashRegister cash){					
 		if(cash.getId() == null){
 			repositoryCashRegister.insert(cash);
-			System.out.println(repositoryCashRegister.entregaDateDoBanco());		
+//			System.out.println(repositoryCashRegister.entregaDateDoBanco());		
 		}else{
 			repositoryCashRegister.update(cash);			
 		}

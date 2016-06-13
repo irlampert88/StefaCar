@@ -34,7 +34,7 @@ public class CashRegister {
 	@JoinColumn(name = "sale_id")
 	private Sale sale;	
 	@Enumerated
-	private TypeOfPayment typePayment;
+	private TypeOfPayment typePayment;//ver com o Ivan para passar o id para o banco ou como persistir todas as enum's no banco
 	
 	public CashRegister() {
 		sale = new Sale();
