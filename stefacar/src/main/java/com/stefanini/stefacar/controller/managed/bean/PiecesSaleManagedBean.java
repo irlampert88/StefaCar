@@ -1,4 +1,4 @@
- package com.stefanini.stefacar.controller.managed.bean;
+package com.stefanini.stefacar.controller.managed.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,13 +9,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.stefanini.stefacar.controller.shared.MessengerSystem;
-import com.stefanini.stefacar.model.domain.Client;
-import com.stefanini.stefacar.model.domain.Employee;
-import com.stefanini.stefacar.model.domain.Pieces;
 import com.stefanini.stefacar.model.domain.PiecesSale;
-import com.stefanini.stefacar.model.repository.impl.ClientRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.EmployeeRepositoryImpl;
-import com.stefanini.stefacar.model.repository.impl.PiecesRepositoryImpl;
 import com.stefanini.stefacar.model.repository.impl.PiecesSaleRepositoryImpl;
 import com.stefanini.stefacar.model.service.impl.PiecesSaleServiceImpl;
 
@@ -30,28 +24,13 @@ public class PiecesSaleManagedBean implements Serializable {
 	@Inject
 	private PiecesSaleRepositoryImpl repositorySale;
 
-	@Inject
-	private EmployeeRepositoryImpl repositoryEmployee;
-
-	@Inject
-	private PiecesRepositoryImpl repositoryCar;
-
-	@Inject
-	private ClientRepositoryImpl repositoryClient;
-
 	private PiecesSale piecesSale;
 	private List<PiecesSale> listOfPiecesSales;
-	private List<Employee> listOfEmployee;
-	private List<Pieces> listOfPieces;
-	private List<Client> listOfClient;
 
 	@PostConstruct
 	public void init() {
 		piecesSale = new PiecesSale();
 		listOfPiecesSales = repositorySale.listAllRecords();
-		listOfEmployee = repositoryEmployee.listAllRecords();
-		listOfPieces = repositoryCar.listAllRecords();
-		listOfClient = repositoryClient.listAllRecords();
 	}
 
 	public void save() {
@@ -86,30 +65,6 @@ public class PiecesSaleManagedBean implements Serializable {
 		this.repositorySale = repositorySale;
 	}
 
-	public EmployeeRepositoryImpl getRepositoryEmployee() {
-		return repositoryEmployee;
-	}
-
-	public void setRepositoryEmployee(EmployeeRepositoryImpl repositoryEmployee) {
-		this.repositoryEmployee = repositoryEmployee;
-	}
-
-	public PiecesRepositoryImpl getRepositoryCar() {
-		return repositoryCar;
-	}
-
-	public void setRepositoryCar(PiecesRepositoryImpl repositoryCar) {
-		this.repositoryCar = repositoryCar;
-	}
-
-	public ClientRepositoryImpl getRepositoryClient() {
-		return repositoryClient;
-	}
-
-	public void setRepositoryClient(ClientRepositoryImpl repositoryClient) {
-		this.repositoryClient = repositoryClient;
-	}
-
 	public PiecesSale getPiecesSale() {
 		return piecesSale;
 	}
@@ -126,39 +81,4 @@ public class PiecesSaleManagedBean implements Serializable {
 		this.listOfPiecesSales = listOfPiecesSales;
 	}
 
-	public List<Employee> getListOfEmployee() {
-		return listOfEmployee;
-	}
-
-	public void setListOfEmployee(List<Employee> listOfEmployee) {
-		this.listOfEmployee = listOfEmployee;
-	}
-
-	public List<Pieces> getListOfPieces() {
-		return listOfPieces;
-	}
-
-	public void setListOfPieces(List<Pieces> listOfPieces) {
-		this.listOfPieces = listOfPieces;
-	}
-
-	public List<Client> getListOfClient() {
-		return listOfClient;
-	}
-
-	public void setListOfClient(List<Client> listOfClient) {
-		this.listOfClient = listOfClient;
-	}
-	
-//	public void addPiece(Pieces pieces){
-//		if(listOfPieces.equals(pieces)){
-//		this.totalValue=this.totalValue+pieces.getValue();	
-//		pieces.setQuantity(pieces.getQuantity()-1);
-//		}else{
-//			listOfPieces.add(pieces);
-//			pieces.setQuantity(pieces.getQuantity()-1);
-//			this.totalValue=this.totalValue+pieces.getValue();	
-//			
-//		}
-//	}
 }

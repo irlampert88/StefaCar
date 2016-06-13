@@ -4,15 +4,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalModelId"
-	widgetVar="dialogModel" modal="false" appendToBody="true"
-	resizable="false" header="Selecione um Modelo" closable="true">
+	widgetVar="dialogModel" modal="true" appendToBody="true"
+	resizable="false" header="Selecione o #{title}"  closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{carManagedBean.car.model}"
-			rowKey="#{model.id}" id="tableModel" var="model"
-			value="#{modelCarManagedBean.dataList}"
-			emptyMessage="Não existem modelos cadastrados"
-			style="padding-top:20px;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{model.id}" id="tableModel" var="model"
+				value="#{list}"
+				emptyMessage="Não existem modelos cadastrados"
+				style="padding-top:20px;">
 
 			<f:facet name="header" />
 			<p:column selectionMode="single"
@@ -33,7 +33,7 @@
 
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
-					oncomplete="PF('dialogModel').close" update="carForm"
+					oncomplete="PF('dialogModel').close" update="#{form}"
 					icon="ui-icon-search" process="tableModel" />
 			</f:facet>
 		</p:dataTable>

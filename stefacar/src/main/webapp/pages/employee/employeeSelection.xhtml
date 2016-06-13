@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalEmployeeId"
-	widgetVar="dialogEmployee" modal="false" appendToBody="true"
+	widgetVar="dialogEmployee" modal="true" appendToBody="true"
 	resizable="false" header="Selecione o #{title}" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">		
@@ -30,7 +30,7 @@
 
 				<f:facet name="footer">
 					<p:commandButton value="Selecionar"
-						oncomplete="PF('dialogEmployee').close" update="saleForm"
+						oncomplete="PF('dialogEmployee').close" update="#{form}"
 						icon="ui-icon-search" process="tableEmployes" />
 				</f:facet>
 			</p:dataTable>		

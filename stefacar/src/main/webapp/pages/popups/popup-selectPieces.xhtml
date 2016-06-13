@@ -5,15 +5,15 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalLivroId"
 	widgetVar="dialogPieces" modal="false" appendToBody="true"
-	header="Escolher Peça" closable="true">
+	header="Selecione o #{title}" closable="true">
 
 
 	<div style="height: 200px; width: 700px; overflow: auto;">
-		<p:dataTable id="piecesTable" var="pieces"
-			value="#{piecesManagedBean.dataList}"
-			selection="#{piecesSaleManagedBean.piecesSale.pieces}"
-			rowKey="#{pieces.id}" emptyMessage="Não existem peças cadastradas"
-			style=" padding-top:20px;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{pieces.id}" id="tablePieces" var="pieces"
+				value="#{list}"
+				emptyMessage="Não existem Peças cadastrados"
+				style="padding-top:20px;">
 			<f:facet name="header" />
 			<p:column selectionMode="multiple"
 				style="text-align:center; width:40px" />
@@ -36,7 +36,7 @@
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
 					oncomplete="PF('dialogPieces').close" update="saleForm"
-					icon="ui-icon-search" process="piecesTable" />
+					icon="ui-icon-search" process="tablePieces" />
 			</f:facet>
 
 		</p:dataTable>

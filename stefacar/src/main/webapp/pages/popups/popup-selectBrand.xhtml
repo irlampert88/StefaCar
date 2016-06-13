@@ -5,14 +5,14 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalBrandId"
 	widgetVar="dialogBrand" modal="false" appendToBody="true"
-	resizable="false" header="Selecione uma Marca" closable="true">
+	resizable="false"  header="Selecione o #{title}"  closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{modelCarManagedBean.model.brand}"
-			rowKey="#{brand.id}" id="tableBrand" var="brand"
-			value="#{brandCarManagedBean.dataList}"
-			emptyMessage="Não existem marcas cadastradas"
-			style="padding-top:20px;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{brand.id}" id="tableBrand" var="brand"
+				value="#{list}"
+				emptyMessage="Não existem Marcas cadastrados"
+				style="padding-top:20px;">
 
 			<f:facet name="header" />
 			<p:column selectionMode="single"

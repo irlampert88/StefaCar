@@ -15,7 +15,8 @@
 			<p:dataTable id="carTable" var="car"
 				value="#{carManagedBean.listAllCars}"
 				emptyMessage="Não existem Carros Cadastrados"
-				style="padding-top:20px;">
+				style="padding-top:20px;" rows="5"
+                         paginator="true">
 				<p:column headerText="Modelo" style="text-align: center">
 					<h:outputText value="#{car.model.name}" />
 				</p:column>

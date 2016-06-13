@@ -5,25 +5,23 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalManufacturerId"
 	widgetVar="dialogManufacturer" modal="true" appendToBody="true"
-	resizable="false" header="Selecione um Fornecedor" closable="true">
+	resizable="false" header="Selecione o #{title}" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:dataTable selection="#{piecesManagedBean.pieces.manufacturer}"
-			rowKey="#{manufacturer.id}" id="tableManufacturer" var="manufacturer"
-			value="#{piecesManagedBean.listOfManufacturer}"
-			emptyMessage="Não existem fornecedores  cadastrados"
+		<p:dataTable selection="#{target}" rowKey="#{manufacturer.id}"
+			id="tableManufacturer" var="manufacturer" value="#{list}"
+			emptyMessage="Não existem funcionários cadastrados"
 			style="padding-top:20px;">
-
 			<f:facet name="header" />
 			<p:column selectionMode="single"
-			style="text-align:center; width:40px" />
+				style="text-align:center; width:40px" />
 
 			<p:column headerText="CNPJ">
 				<h:outputText value="#{manufacturer.cnpj}" />
 			</p:column>
 			<p:column headerText="Nome">
 				<h:outputText value="#{manufacturer.name}" />
-			</p:column>			
+			</p:column>
 
 			<f:facet name="footer">
 				<p:commandButton value="Selecionar"
