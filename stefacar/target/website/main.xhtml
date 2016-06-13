@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Stefa Car</title>
+	<style type="text/css">
+</style>
+	<h:outputStylesheet library="styles" name="primefacesOverride.css" />
+	<h:outputStylesheet library="styles" name="animate.css" />
+	<h:outputStylesheet library="js" name="bootstrap.js" />
+	<h:outputStylesheet library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="js" name="default.js" />
+
+</h:head>
+
+<h:body>
+	<ui:decorate template="WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<b:column col-md="12">
+				<b:row>
+					<b:column col-xs="12" col-md="6" col-sm="6" col-lg="4">
+						<br />
+						<div class="animated fadeInLeftBig contentBoxCar color-car col-xs-offset-0">
+							<a href="/stefacar/pages/sales/saleView.xhtml" class="thumbnail ">
+								<img src="resources/imagens/green-car.png" alt="CarImage" class="img-inside-box"/>
+							</a>
+							<div class="contentText color-car">
+								<p class="cll-category-name">Carros</p>
+							</div>
+						</div>
+					</b:column>
+					<b:column col-xs="12" col-md="6" col-sm="6" col-lg="4">
+						<br />
+						<div class="animated fadeInUpBig contentBoxService color-service col-xs-offset-0">
+							<a href="/stefacar/pages/sales/saleView.xhtml" class="thumbnail">
+								<img src="resources/imagens/icon-paper-blue.png" alt="ServiceImage" class="img-inside-box"/>
+							</a>
+							<div class="contentText color-service">
+								<p class="cll-category-name">Serviços</p>
+							</div>
+						</div>
+					</b:column>
+					<b:column col-xs="12" col-md="6" col-sm="6" col-lg="4">
+						<br />
+						<div class="animated fadeInRightBig contentBoxPart  color-part col-xs-offset-0">
+							<a href="/stefacar/pages/sales/saleView.xhtml" class="thumbnail">
+								<img src="resources/imagens/tools-icon.png" alt="PartImage" class="img-inside-box"/>
+							</a>
+							<div class="contentText color-part">
+								<p class="cll-category-name" >Peças</p>
+							</div>
+						</div>
+					</b:column>
+				</b:row>
+			</b:column>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+
+</html>

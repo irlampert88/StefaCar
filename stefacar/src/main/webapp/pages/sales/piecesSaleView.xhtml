@@ -7,40 +7,37 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-			<h:form>
-				<p:outputLabel style="font-size: 30px;"
-					value="Lista de vendas:Peças" />
-				<p:dataTable id="saleTable" var="piecesSale"
-					value="#{piecesSaleManagedBean.listOfPiecesSales}"
-					emptyMessage="Não existem vendas cadastrados"
-					style="padding-top:20px;" rows="5" paginator="true">
-					<p:column headerText="Funcionário">
-						<h:outputText value="#{piecesSale.employee.name}" />
-					</p:column>
-					<p:column headerText="Cliente">
-						<h:outputText value="#{piecesSale.client.name}" />
-					</p:column>
+	<h:form>
+		<p:outputLabel style="font-size: 30px;" value="Lista de vendas:Peças" />
+		<button type="button" class="btn btn-primary"
+			onclick="mostraFormEscondeTable()">Novo</button>
+		<p:dataTable id="saleTable" var="piecesSale"
+			value="#{piecesSaleManagedBean.listOfPiecesSales}"
+			emptyMessage="Não existem vendas cadastrados"
+			style="padding-top:20px;" rows="5" paginator="true">
+			<p:column headerText="Funcionário">
+				<h:outputText value="#{piecesSale.employee.name}" />
+			</p:column>
+			<p:column headerText="Cliente">
+				<h:outputText value="#{piecesSale.client.name}" />
+			</p:column>
 
-					<p:column headerText="Ações" style="text-align: center">
-						<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
-							update="saleTable "
-							action="#{piecesSaleManagedBean.delete(piecesSale)}">
-							<p:confirm header="Confirmação" message="Deseja deletar a venda?"
-								icon="ui-icon-alert" />
-						</p:commandButton>
+			<p:column headerText="Ações" style="text-align: center">
+				<p:commandButton icon="fa fa-fw fa-trash" title="Cancelar Venda"
+					update="saleTable "
+					action="#{piecesSaleManagedBean.delete(piecesSale)}">
+					<p:confirm header="Confirmação" message="Deseja deletar a venda?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
 
-						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-							<p:commandButton value="Sim" type="button"
-								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-							<p:commandButton value="Não" type="button"
-								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-						</p:confirmDialog>
-					</p:column>
-				</p:dataTable>
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

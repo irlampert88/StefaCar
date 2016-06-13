@@ -7,77 +7,75 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;" value="Cadastro de peças" />
-			<h:form id="piecesForm">
-				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
-				<p:panelGrid columns="3">
+	<p:outputLabel style="font-size: 30px;" value="Cadastro de peças" />
+	<h:form id="piecesForm">
+		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+		<p:panelGrid columns="3">
 
-					<p:outputLabel for="Name" value="Nome:" />
-					<p:inputText id="Name" requiredMessage="Campo obrigatório"
-						required="true" placeholder="nome"
-						value="#{piecesManagedBean.pieces.name}" />
-					<p:message for="Name" />
+			<p:outputLabel for="Name" value="Nome:" />
+			<p:inputText id="Name" requiredMessage="Campo obrigatório"
+				required="true" placeholder="nome"
+				value="#{piecesManagedBean.pieces.name}" />
+			<p:message for="Name" />
 
-					<p:outputLabel for="serial" value="Nº de Série:" />
-					<p:inputText id="serial" requiredMessage="Campo obrigatório"
-						required="true" placeholder="serial"
-						value="#{piecesManagedBean.pieces.serialNumber}" />
-					<p:message for="serial" />
+			<p:outputLabel for="serial" value="Nº de Série:" />
+			<p:inputText id="serial" requiredMessage="Campo obrigatório"
+				required="true" placeholder="serial"
+				value="#{piecesManagedBean.pieces.serialNumber}" />
+			<p:message for="serial" />
 
-					<p:outputLabel for="value" value="Valor:" />
-					<p:inputText id="value" requiredMessage="Campo obrigatório"
-						required="true" placeholder="value"
-						value="#{piecesManagedBean.pieces.value}" />
-					<p:message for="value" />
+			<p:outputLabel for="value" value="Valor:" />
+			<p:inputText id="value" requiredMessage="Campo obrigatório"
+				required="true" placeholder="value"
+				value="#{piecesManagedBean.pieces.value}" />
+			<p:message for="value" />
 
-					<p:outputLabel for="btnModalOutfitter" value="Fornecedor: " />
-					<p:commandButton id="btnModalOutfitter" 
-					oncomplete="PF('dialogOutfitter').show();" icon="fa fa-fw fa-search"/>
-					<p:outputLabel for="btnModalOutfitter"
-						value="#{piecesManagedBean.pieces.outfitter.name}" />
+			<p:outputLabel for="btnModalOutfitter" value="Fornecedor: " />
+			<p:commandButton id="btnModalOutfitter"
+				oncomplete="PF('dialogOutfitter').show();" icon="fa fa-fw fa-search" />
+			<p:outputLabel for="btnModalOutfitter"
+				value="#{piecesManagedBean.pieces.outfitter.name}" />
 
-					<p:outputLabel for="btnModalManufacturer" value="Fabricante: " />
-					<p:commandButton id="btnModalManufacturer"
-						oncomplete="PF('dialogManufacturer').show();" icon="fa fa-fw fa-search" />
-					<p:outputLabel for="btnModalManufacturer"
-						value="#{piecesManagedBean.pieces.manufacturer.name}" />
+			<p:outputLabel for="btnModalManufacturer" value="Fabricante: " />
+			<p:commandButton id="btnModalManufacturer"
+				oncomplete="PF('dialogManufacturer').show();"
+				icon="fa fa-fw fa-search" />
+			<p:outputLabel for="btnModalManufacturer"
+				value="#{piecesManagedBean.pieces.manufacturer.name}" />
 
-					<p:outputLabel for="btnModalModel" value="Modelo: " />
-					<p:commandButton id="btnModalModel"
-						oncomplete="PF('dialogModel').show();" icon="fa fa-fw fa-search" />
-					<p:outputLabel for="btnModalModel"
-						value="#{piecesManagedBean.pieces.model.name}" />
+			<p:outputLabel for="btnModalModel" value="Modelo: " />
+			<p:commandButton id="btnModalModel"
+				oncomplete="PF('dialogModel').show();" icon="fa fa-fw fa-search" />
+			<p:outputLabel for="btnModalModel"
+				value="#{piecesManagedBean.pieces.model.name}" />
+		</p:panelGrid>
 
+		<ui:include src="../popups/popup-selectOutfitter.xhtml">
+			<ui:param name="title" value="Fornecedores" />
+			<ui:param name="target" value="#{piecesManagedBean.pieces.outfitter}" />
+			<ui:param name="list" value="#{outfitterManagedBean.dataList}" />
+		</ui:include>
 
-				</p:panelGrid>
-				<ui:include src="../popups/popup-selectOutfitter.xhtml">
-					<ui:param name="title"  value="Fornecedores" />
-					<ui:param name="target" value="#{piecesManagedBean.pieces.outfitter}" />
-					<ui:param name="list"   value="#{outfitterManagedBean.dataList}" />
-				</ui:include>
-				<ui:include src="../popups/popup-selectManufacturer.xhtml" >
-					<ui:param name="title"  value="Produtores" />
-					<ui:param name="target" value="#{piecesManagedBean.pieces.manufacturer}" />
-					<ui:param name="list"   value="#{manufacturerManagedBean.dataList}" />
-				</ui:include>
-				<ui:include src="../popups/popup-selectModel.xhtml">
-					<ui:param name="title"  value="Modelos" />
-					<ui:param name="target" value="#{piecesManagedBean.pieces.model}" />
-					<ui:param name="list"   value="#{modelCarManagedBean.dataList}" />
-					<ui:param name="form" value="piecesForm"/>
-				</ui:include>
+		<ui:include src="../popups/popup-selectManufacturer.xhtml">
+			<ui:param name="title" value="Produtores" />
+			<ui:param name="target"
+				value="#{piecesManagedBean.pieces.manufacturer}" />
+			<ui:param name="list" value="#{manufacturerManagedBean.dataList}" />
+		</ui:include>
 
+		<ui:include src="../popups/popup-selectModel.xhtml">
+			<ui:param name="title" value="Modelos" />
+			<ui:param name="target" value="#{piecesManagedBean.pieces.model}" />
+			<ui:param name="list" value="#{modelCarManagedBean.dataList}" />
+			<ui:param name="form" value="piecesForm" />
+		</ui:include>
 
-				<p:commandButton value="Salvar" process="@form"
-					action="#{piecesManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{piecesManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+		<p:commandButton value="Salvar" process="@form"
+			action="#{piecesManagedBean.save()}" icon="fa fa-fw fa-save"
+			update="@form" />
+		<p:commandButton value="Limpar" process="@this" update="@form"
+			action="#{piecesManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+	</h:form>
 </h:body>
 
 </html>

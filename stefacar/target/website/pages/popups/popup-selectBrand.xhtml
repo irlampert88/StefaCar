@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:dialog xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalBrandId"
+	widgetVar="dialogBrand" modal="false" appendToBody="true"
+	resizable="false"  header="Selecione o #{title}"  closable="true">
+
+	<div style="height: 200px; width: 550px; overflow: auto;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{brand.id}" id="tableBrand" var="brand"
+				value="#{list}"
+				emptyMessage="Não existem Marcas cadastrados"
+				style="padding-top:20px;">
+
+			<f:facet name="header" />
+			<p:column selectionMode="single"
+				style="text-align:center; width:40px" />
+			<p:column headerText="Nome">
+				<h:outputText value="#{brand.name}" />
+			</p:column>
+			<p:column headerText="Nacionalidade">
+				<h:outputText value="#{brand.nationality}" />
+			</p:column>
+			<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogBrand').close" update="modelCarForm"
+					icon="ui-icon-search" process="tableBrand" />
+			</f:facet>
+		</p:dataTable>
+
+	</div>
+</p:dialog>

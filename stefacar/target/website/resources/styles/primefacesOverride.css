@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+
+/* Componentes tinham borda */
+.ui-widget-content {
+	border: 0px #ffffff!important;
+	color: #5d5d5d;
+}
+
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;
+}
+/* .ui-button {
+	height: 40px;
+	width: 120px;
+	background-color: #ff0080;
+
+}
+
+.ui-button-text-only {
+	font-size: 14px;
+} */
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+

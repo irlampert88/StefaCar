@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
+
+			<h:form id="saleForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+				<p:panelGrid columns="3">
+
+					<p:outputLabel for="btnModalEmployee"
+						value="Funcionário : " />
+					<p:commandButton id="btnModalEmployee"
+						oncomplete="PF('dialogEmployee').show();" icon="fa fa-fw fa-search" />
+					<p:outputLabel for="btnModalEmployee"
+						value="#{saleManagedBean.sale.employee.registration}" />
+
+					<p:outputLabel for="btnModalClient"
+						value="Cliente : " />
+					<p:commandButton id="btnModalClient"
+						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" />
+					<p:outputLabel for="btnModalClient"
+						value="#{saleManagedBean.sale.client.cpf}" />
+
+					<p:outputLabel for="btnModalCar" 
+						value="Carro : " />
+					<p:commandButton id="btnModalCar"
+						oncomplete="PF('dialogCar').show();" icon="fa fa-fw fa-search" />
+					<p:outputLabel for="btnModalCar"
+						value="#{saleManagedBean.carShow.model}" />
+
+					<ui:include src="../client/clientSelection.xhtml" >
+						<ui:param name="title" value="Clientes" />
+						<ui:param name="target" value="#{saleManagedBean.sale.client}" />
+						<ui:param name="list" value="#{clientManagedBean.dataList}" />
+						<ui:param name="form" value="saleForm" />
+					</ui:include>
+					<ui:include src="../car/carSelection.xhtml" />
+						<ui:include src="../employee/employeeSelection.xhtml">
+						<ui:param name="title" value="Vendedores" />
+						<ui:param name="target" value="#{saleManagedBean.sale.employee}" />
+						<ui:param name="list" value="#{employeeManagedBean.salesman}" />
+						<ui:param name="form" value="saleForm" />
+					</ui:include>
+				</p:panelGrid>
+
+
+
+				<p:commandButton value="Salvar" process="@form" update="@form"
+					action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
+			</h:form>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+</html>

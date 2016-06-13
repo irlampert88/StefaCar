@@ -7,44 +7,40 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-		<h:form>
-			<p:outputLabel style="font-size: 30px;" value="Lista de funcionários" />
-			<p:button href="employeeRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
-			<p:dataTable id="employeeTable" var="employee"
-				value="#{employeeManagedBean.dataList}"
-				emptyMessage="Não existem funcionários cadastrados"
-				style="padding-top:20px;" rows="5"
-                         paginator="true">
-				<p:column headerText="Name">
-					<h:outputText value="#{employee.name}" />
-				</p:column>
-				<p:column headerText="Cpf">
-					<h:outputText value="#{employee.cpf}" />
-				</p:column>
-				<p:column headerText="email">
-					<h:outputText value="#{employee.email}" />
-				</p:column>
-				<p:column headerText="Ações" style="text-align: center">
-					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
-						update="employeeTable"
-						action="#{employeeManagedBean.delete(employee)}">
-						<p:confirm header="Confirmação"
-							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
-					</p:commandButton>
-						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{employeeManagedBean.setEmployeeForEdit(employee)}" />
-					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						<p:commandButton value="Sim" type="button"
-							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-						<p:commandButton value="Não" type="button"
-							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-					</p:confirmDialog>
-				</p:column>
-			</p:dataTable>
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+	<h:form>
+		<p:outputLabel style="font-size: 30px;" value="Lista de funcionários" />
+		<button type="button" class="btn btn-primary"
+			onclick="mostraFormEscondeTable()">Novo</button>
+		<p:dataTable id="employeeTable" var="employee"
+			value="#{employeeManagedBean.dataList}"
+			emptyMessage="Não existem funcionários cadastrados"
+			style="padding-top:20px;" rows="5" paginator="true">
+			<p:column headerText="Name">
+				<h:outputText value="#{employee.name}" />
+			</p:column>
+			<p:column headerText="Cpf">
+				<h:outputText value="#{employee.cpf}" />
+			</p:column>
+			<p:column headerText="email">
+				<h:outputText value="#{employee.email}" />
+			</p:column>
+			<p:column headerText="Ações" style="text-align: center">
+				<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
+					update="employeeTable"
+					action="#{employeeManagedBean.delete(employee)}">
+					<p:confirm header="Confirmação"
+						message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
+				</p:commandButton>
+				<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+					action="#{employeeManagedBean.setEmployeeForEdit(employee)}" />
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

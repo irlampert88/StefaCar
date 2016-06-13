@@ -7,59 +7,49 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-			<h:form>
-				<p:outputLabel style="font-size: 30px;" value="Lista de modelos" />
-				<p:button href="modelCarRegister.xhtml" value="Novo Cadastro"
-					style="left:20px" />
-				<p:dataTable id="modelCarTable" var="model"
-					value="#{modelCarManagedBean.dataList}"
-					emptyMessage="Não existem Modelos Cadastrados"
-					style="padding-top:20px;" rows="5"
-                         paginator="true">
-					<p:column headerText="Modelo">
-						<h:outputText value="#{model.name}" />
-					</p:column>
-					<p:column headerText="Categoria">
-						<h:outputText value="#{model.type}" />
-					</p:column>
-					<p:column headerText="Versão">
-						<h:outputText value="#{model.version}" />
-					</p:column>
-					<p:column headerText="Ano">
-						<h:outputText value="#{model.year}" />
-					</p:column>
-					<p:column headerText="Cilindrada">
-						<h:outputText value="#{model.cid}" />
-					</p:column>
-					<p:column headerText="Marca">
-						<h:outputText value="#{model.brand.name}" />
-					</p:column>
+	<h:form>
+		<p:outputLabel style="font-size: 30px;" value="Lista de modelos" />
+		<button type="button" class="btn btn-primary"
+			onclick="mostraFormEscondeTable()">Novo</button>
+		<p:dataTable id="modelCarTable" var="model"
+			value="#{modelCarManagedBean.dataList}"
+			emptyMessage="Não existem Modelos Cadastrados"
+			style="padding-top:20px;" rows="5" paginator="true">
+			<p:column headerText="Modelo">
+				<h:outputText value="#{model.name}" />
+			</p:column>
+			<p:column headerText="Categoria">
+				<h:outputText value="#{model.type}" />
+			</p:column>
+			<p:column headerText="Versão">
+				<h:outputText value="#{model.version}" />
+			</p:column>
+			<p:column headerText="Ano">
+				<h:outputText value="#{model.year}" />
+			</p:column>
+			<p:column headerText="Cilindrada">
+				<h:outputText value="#{model.cid}" />
+			</p:column>
+			<p:column headerText="Marca">
+				<h:outputText value="#{model.brand.name}" />
+			</p:column>
 
-
-
-					<p:column headerText="Ações" style="text-align: center">
-
-						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar o Modelo"
-							action="#{modelCarManagedBean.delete(model)}">
-							<p:confirm header="Confirmação"
-								message="Deseja deletar o Modelo?" icon="ui-icon-alert" />
-						</p:commandButton>
-						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{modelCarManagedBean.setModelForEdit(model)}" />
-						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-							<p:commandButton value="Sim" type="button"
-								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-							<p:commandButton value="Não" type="button"
-								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-						</p:confirmDialog>
-					</p:column>
-				</p:dataTable>
-
-
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+			<p:column headerText="Ações" style="text-align: center">
+				<p:commandButton icon="fa fa-fw fa-trash" title="Deletar o Modelo"
+					action="#{modelCarManagedBean.delete(model)}">
+					<p:confirm header="Confirmação" message="Deseja deletar o Modelo?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+				<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+					action="#{modelCarManagedBean.setModelForEdit(model)}" />
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

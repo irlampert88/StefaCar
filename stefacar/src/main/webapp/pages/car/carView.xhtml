@@ -7,53 +7,49 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-		<h:form>
-			<p:outputLabel style="font-size: 30px;" value="Lista de carros" />
-			<p:button href="carRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
-			<p:dataTable id="carTable" var="car"
-				value="#{carManagedBean.listAllCars}"
-				emptyMessage="Não existem Carros Cadastrados"
-				style="padding-top:20px;" rows="5"
-                         paginator="true">
-				<p:column headerText="Modelo" style="text-align: center">
-					<h:outputText value="#{car.model.name}" />
-				</p:column>
-				<p:column headerText="Preço" style="text-align: center">
-					<h:outputText converter="money" value="#{car.price}"/>
-				</p:column>
-				<p:column headerText="Cor" style="text-align: center">
-					<h:outputText value="#{car.color}" />
-				</p:column>
+	<h:form>
+		<p:outputLabel style="font-size: 30px;" value="Lista de carros" />
+		<button type="button" class="btn btn-primary"
+			onclick="mostraFormEscondeTable()">Novo</button>
+		<p:dataTable id="carTable" var="car"
+			value="#{carManagedBean.listAllCars}"
+			emptyMessage="Não existem Carros Cadastrados"
+			style="padding-top:20px;" rows="5" paginator="true">
+			<p:column headerText="Modelo" style="text-align: center">
+				<h:outputText value="#{car.model.name}" />
+			</p:column>
+			<p:column headerText="Preço" style="text-align: center">
+				<h:outputText converter="money" value="#{car.price}" />
+			</p:column>
+			<p:column headerText="Cor" style="text-align: center">
+				<h:outputText value="#{car.color}" />
+			</p:column>
 
-				<p:column headerText="Categoria">
-					<h:outputText value="#{car.model.type}" />
-				</p:column>
+			<p:column headerText="Categoria">
+				<h:outputText value="#{car.model.type}" />
+			</p:column>
 
-				<p:column headerText="Disponibilidade">
-					<h:outputText value="#{car.getAvaliableString()}" />
-				</p:column>
+			<p:column headerText="Disponibilidade">
+				<h:outputText value="#{car.getAvaliableString()}" />
+			</p:column>
 
-				<p:column headerText="Ações" style="text-align: center">
+			<p:column headerText="Ações" style="text-align: center">
 
-					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
-						update="carTable " action="#{carManagedBean.delete(car)}">
-						<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
-							icon="ui-icon-alert" />
-					</p:commandButton>
-					<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{carManagedBean.setCarForEdit(car)}" />
-					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						<p:commandButton value="Sim" type="button"
-							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-						<p:commandButton value="Não" type="button"
-							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-					</p:confirmDialog>
-				</p:column>
-			</p:dataTable>
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+				<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
+					update="carTable " action="#{carManagedBean.delete(car)}">
+					<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+				<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+					action="#{carManagedBean.setCarForEdit(car)}" />
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

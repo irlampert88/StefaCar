@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:dialog xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalManufacturerId"
+	widgetVar="dialogManufacturer" modal="true" appendToBody="true"
+	resizable="false" header="Selecione o #{title}" closable="true">
+
+	<div style="height: 200px; width: 550px; overflow: auto;">
+		<p:dataTable selection="#{target}" rowKey="#{manufacturer.id}"
+			id="tableManufacturer" var="manufacturer" value="#{list}"
+			emptyMessage="Não existem funcionários cadastrados"
+			style="padding-top:20px;">
+			<f:facet name="header" />
+			<p:column selectionMode="single"
+				style="text-align:center; width:40px" />
+
+			<p:column headerText="CNPJ">
+				<h:outputText value="#{manufacturer.cnpj}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{manufacturer.name}" />
+			</p:column>
+
+			<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogManufacturer').close" update="piecesForm"
+					icon="ui-icon-search" process="tableManufacturer" />
+			</f:facet>
+		</p:dataTable>
+
+	</div>
+
+</p:dialog>

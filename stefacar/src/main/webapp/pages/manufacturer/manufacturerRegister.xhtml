@@ -6,53 +6,48 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-			<p:outputLabel style="font-size: 30px;"
-				value="Cadastro de Fabricante" />
-			<h:form id="manufacturerForm">
-				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+	<p:outputLabel style="font-size: 30px;" value="Cadastro de Fabricante" />
+	<h:form id="manufacturerForm">
+		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-				<p:panelGrid columns="3">
+		<p:panelGrid columns="3">
 
-					<p:outputLabel for="Name" value="Nome:" />
-					<p:inputText id="Name" requiredMessage="Campo obrigatório"
-						required="true" placeholder="nome"
-						value="#{manufacturerManagedBean.manufacturer.name}" />
-					<p:message for="Name" />
+			<p:outputLabel for="Name" value="Nome:" />
+			<p:inputText id="Name" requiredMessage="Campo obrigatório"
+				required="true" placeholder="nome"
+				value="#{manufacturerManagedBean.manufacturer.name}" />
+			<p:message for="Name" />
 
-					<p:outputLabel for="Cnpj" value="Cnpj :" />
-					<p:inputMask maxlength="11" id="Cnpj" mask="99999999999999"
-						requiredMessage="Campo obrigatório" required="true"
-						placeholder="Cnpj"
-						value="#{manufacturerManagedBean.manufacturer.cnpj}">
-						<!-- <f:validator validatorId="cpfValidator" /> -->
-					</p:inputMask>
-					<p:message for="Cnpj" />
-					
-					<p:outputLabel for="Phone" value="Telefone: " />
-					<p:inputText id="Phone" requiredMessage="Campo obrigatório"
-						required="true" placeholder="telefone"
-						value="#{manufacturerManagedBean.manufacturer.phone}" />
-					<p:message for="Phone" />
+			<p:outputLabel for="Cnpj" value="Cnpj :" />
+			<p:inputMask maxlength="11" id="Cnpj" mask="99999999999999"
+				requiredMessage="Campo obrigatório" required="true"
+				placeholder="Cnpj"
+				value="#{manufacturerManagedBean.manufacturer.cnpj}">
+				<!-- <f:validator validatorId="cpfValidator" /> -->
+			</p:inputMask>
+			<p:message for="Cnpj" />
 
-					<p:outputLabel for="address" value="Endereço: " />
-					<p:inputText id="address" requiredMessage="Campo obrigatório"
-						required="true"
-						value="#{manufacturerManagedBean.manufacturer.address}" placeholder="Endereço"/>
-					<p:message for="address" />
+			<p:outputLabel for="Phone" value="Telefone: " />
+			<p:inputText id="Phone" requiredMessage="Campo obrigatório"
+				required="true" placeholder="telefone"
+				value="#{manufacturerManagedBean.manufacturer.phone}" />
+			<p:message for="Phone" />
 
-				</p:panelGrid>
-				<p:commandButton value="Salvar" process="@form"
-					action="#{manufacturerManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-					<p:button href="manufacturerView.xhtml" value="Voltar"/>
-				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{manufacturerManagedBean.clean()}"
-					icon="fa fa-fw fa-eraser" />
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+			<p:outputLabel for="address" value="Endereço: " />
+			<p:inputText id="address" requiredMessage="Campo obrigatório"
+				required="true"
+				value="#{manufacturerManagedBean.manufacturer.address}"
+				placeholder="Endereço" />
+			<p:message for="address" />
+
+		</p:panelGrid>
+		<p:commandButton value="Salvar" process="@form"
+			action="#{manufacturerManagedBean.save()}" icon="fa fa-fw fa-save"
+			update="@form" />
+		<p:button href="manufacturerView.xhtml" value="Voltar" />
+		<p:commandButton value="Limpar" process="@this" update="@form"
+			action="#{manufacturerManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+	</h:form>
 </h:body>
 
 </html>

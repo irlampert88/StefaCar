@@ -7,46 +7,42 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-			<h:form>
-				<p:outputLabel style="font-size: 30px;" value="Lista de marcas" />
-				<p:button href="brandcarRegister.xhtml" value="Novo Cadastro"
-					style="left:20px" />
-				<p:dataTable id="brandCarTable" var="brand"
-					value="#{brandCarManagedBean.dataList}"
-					emptyMessage="Não existem Marcas Cadastrados"
-					style="padding-top:20px;" rows="5" paginator="true">
+	<h:form>
+		<p:outputLabel style="font-size: 30px;" value="Lista de marcas" />
+		<button type="button" class="btn btn-primary"
+			onclick="mostraFormEscondeTable()">Novo</button>
+		<p:dataTable id="brandCarTable" var="brand"
+			value="#{brandCarManagedBean.dataList}"
+			emptyMessage="Não existem Marcas Cadastrados"
+			style="padding-top:20px;" rows="5" paginator="true">
 
-					<p:column headerText="Marca" style="text-align: center">
-						<h:outputText value="#{brand.name}" />
+			<p:column headerText="Marca" style="text-align: center">
+				<h:outputText value="#{brand.name}" />
 
-					</p:column>
-					<p:column headerText="Nacionalidade" style="text-align: center">
-						<h:outputText value="#{brand.nationality}" />
-					</p:column>
+			</p:column>
+			<p:column headerText="Nacionalidade" style="text-align: center">
+				<h:outputText value="#{brand.nationality}" />
+			</p:column>
 
-					<p:column headerText="Ações" style="text-align: center">
+			<p:column headerText="Ações" style="text-align: center">
 
-						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar a Marca"
-							action="#{brandCarManagedBean.delete(brand)}">
-							<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
-								icon="ui-icon-alert" />
-						</p:commandButton>
-						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{brandCarManagedBean.setBrandForEdit(brand)}" />
+				<p:commandButton icon="fa fa-fw fa-trash" title="Deletar a Marca"
+					action="#{brandCarManagedBean.delete(brand)}">
+					<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+				<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
+					action="#{brandCarManagedBean.setBrandForEdit(brand)}" />
 
-						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-							<p:commandButton value="Sim" type="button"
-								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-							<p:commandButton value="Não" type="button"
-								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 
-						</p:confirmDialog>
-					</p:column>
-				</p:dataTable>
-			</h:form>
-		</ui:define>
-	</ui:decorate>
+				</p:confirmDialog>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

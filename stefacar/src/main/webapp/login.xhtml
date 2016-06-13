@@ -10,8 +10,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Stefa Car</title>
 	<link	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-	
+	<h:outputScript library="js" name="jquery-2.2.4.js" />
+	<h:outputScript library="js" name="jquery-2.2.4.min.js" />
+	<h:outputScript library="js" name="stefacar.js" />
 	<h:outputStylesheet library="styles" name="style-login.css" />
+		
 </h:head>
 <h:body>
 	
@@ -34,7 +37,7 @@
 					<div class="wrapper">
 						<span class="group-btn"> <p:commandButton value="Log-in"
 								process="@form" update="@form"
-								action="#{sessionManagedBean.login()}" icon="fa fa-fw fa-save" />
+								action="#{sessionManagedBean.login()}" icon="fa fa-fw fa-save" onclick="redireciona('http://localhost:8080/stefacar/main.xhtml')" />
 						</span>
 					</div>
 				</div>

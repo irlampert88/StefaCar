@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:dialog xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalModelId"
+	widgetVar="dialogModel" modal="true" appendToBody="true"
+	resizable="false" header="Selecione o #{title}"  closable="true">
+
+	<div style="height: 200px; width: 550px; overflow: auto;">
+		<p:dataTable selection="#{target}"
+				rowKey="#{model.id}" id="tableModel" var="model"
+				value="#{list}"
+				emptyMessage="Não existem modelos cadastrados"
+				style="padding-top:20px;">
+
+			<f:facet name="header" />
+			<p:column selectionMode="single"
+				style="text-align:center; width:40px" />
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{model.name}" />
+			</p:column>
+			<p:column headerText="Versão">
+				<h:outputText value="#{model.version}" />
+			</p:column>
+			<p:column headerText="Ano">
+				<h:outputText value="#{model.year}" />
+			</p:column>
+			<p:column headerText="CID">
+				<h:outputText value="#{model.cid}" />
+			</p:column>
+
+			<f:facet name="footer">
+				<p:commandButton value="Selecionar"
+					oncomplete="PF('dialogModel').close" update="#{form}"
+					icon="ui-icon-search" process="tableModel" />
+			</f:facet>
+		</p:dataTable>
+
+	</div>
+</p:dialog>

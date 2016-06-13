@@ -7,78 +7,69 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:decorate template="../../WEB-INF/model/default.xhtml">
-		<ui:define name="center">
-		
-			<p:outputLabel style="font-size: 30px;"
-				value="Cadastro de funcionário" />
-			<h:form id="employeeForm">
-				<h:panelGrid columns="3" cellpadding="10">
-					<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+	<p:outputLabel style="font-size: 30px;" value="Cadastro de funcionário" />
+	<h:form id="employeeForm">
+		<h:panelGrid columns="3" cellpadding="10">
+			<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
-					<p:panelGrid columns="3">
+			<p:panelGrid columns="3">
 
-						<p:outputLabel for="Name" value="Nome:" />
-						<p:inputText id="Name" requiredMessage="Campo obrigatório"
-							required="true" placeholder="nome"
-							value="#{employeeManagedBean.employee.name}" />
-						<p:message for="Name" />
+				<p:outputLabel for="Name" value="Nome:" />
+				<p:inputText id="Name" requiredMessage="Campo obrigatório"
+					required="true" placeholder="nome"
+					value="#{employeeManagedBean.employee.name}" />
+				<p:message for="Name" />
 
-						<p:outputLabel for="Cpf" value="Cpf :" />
-						<p:inputMask maxlength="11" id="Cpf" mask="99999999999"
-							requiredMessage="Campo obrigatório" required="true"
-							placeholder="cpf" value="#{employeeManagedBean.employee.cpf}">
-							<f:validator validatorId="cpfValidator" />
-						</p:inputMask>
-						<p:message for="Cpf" />
+				<p:outputLabel for="Cpf" value="Cpf :" />
+				<p:inputMask maxlength="11" id="Cpf" mask="99999999999"
+					requiredMessage="Campo obrigatório" required="true"
+					placeholder="cpf" value="#{employeeManagedBean.employee.cpf}">
+					<f:validator validatorId="cpfValidator" />
+				</p:inputMask>
+				<p:message for="Cpf" />
 
-						<p:outputLabel for="Email" value="E-mail: " />
-						<p:inputText id="Email" requiredMessage="Campo obrigatório"
-							required="true" placeholder="email"
-							value="#{employeeManagedBean.employee.email}">
-							<f:validator validatorId="emailValidator" />
-						</p:inputText>
-						<p:message for="Email" />
+				<p:outputLabel for="Email" value="E-mail: " />
+				<p:inputText id="Email" requiredMessage="Campo obrigatório"
+					required="true" placeholder="email"
+					value="#{employeeManagedBean.employee.email}">
+					<f:validator validatorId="emailValidator" />
+				</p:inputText>
+				<p:message for="Email" />
 
-						<p:outputLabel for="Phone" value="Telefone: " />
-						<p:inputText id="Phone" requiredMessage="Campo obrigatório"
-							required="true" placeholder="telefone"
-							value="#{employeeManagedBean.employee.phone}" />
-						<p:message for="Phone" />
+				<p:outputLabel for="Phone" value="Telefone: " />
+				<p:inputText id="Phone" requiredMessage="Campo obrigatório"
+					required="true" placeholder="telefone"
+					value="#{employeeManagedBean.employee.phone}" />
+				<p:message for="Phone" />
 
-						<p:outputLabel for="Registration" value="Matrícula: " />
-						<p:inputText id="Registration" requiredMessage="Campo obrigatório"
-							required="true" placeholder="matricula"
-							value="#{employeeManagedBean.employee.registration}" />
-						<p:message for="Registration" />
+				<p:outputLabel for="Registration" value="Matrícula: " />
+				<p:inputText id="Registration" requiredMessage="Campo obrigatório"
+					required="true" placeholder="matricula"
+					value="#{employeeManagedBean.employee.registration}" />
+				<p:message for="Registration" />
 
-						<p:outputLabel for="id" value="Selecione o cargo: " />
+				<p:outputLabel for="id" value="Selecione o cargo: " />
 
-						<p:selectOneMenu id="id" converter="comboBoxConverter"
-							requiredMessage="Campo obrigatório" required="true"
-							value="#{employeeManagedBean.employee.type}" effect="fold">
-							<f:selectItem itemLabel="Selecione um cargo" itemValue="" />
-							<f:selectItems value="#{employeeManagedBean.employeeType}"
-								var="employeeType" itemLabel="#{employeeType.label}"
-								itemValue="#{employeeType}" />
-						</p:selectOneMenu>
+				<p:selectOneMenu id="id" converter="comboBoxConverter"
+					requiredMessage="Campo obrigatório" required="true"
+					value="#{employeeManagedBean.employee.type}" effect="fold">
+					<f:selectItem itemLabel="Selecione um cargo" itemValue="" />
+					<f:selectItems value="#{employeeManagedBean.employeeType}"
+						var="employeeType" itemLabel="#{employeeType.label}"
+						itemValue="#{employeeType}" />
+				</p:selectOneMenu>
 
-					</p:panelGrid>
+			</p:panelGrid>
 
-				</h:panelGrid>
+		</h:panelGrid>
 
-				<p:commandButton value="Salvar" process="@form"
-					action="#{employeeManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-					<p:button href="employeeView.xhtml" value="Voltar"/>
-				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{employeeManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
-
-
-			</h:form>
-
-		</ui:define>
-	</ui:decorate>
+		<p:commandButton value="Salvar" process="@form"
+			action="#{employeeManagedBean.save()}" icon="fa fa-fw fa-save"
+			update="@form" />
+		<p:button href="employeeView.xhtml" value="Voltar" />
+		<p:commandButton value="Limpar" process="@this" update="@form"
+			action="#{employeeManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+	</h:form>
 </h:body>
 
 </html>
