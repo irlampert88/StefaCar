@@ -22,16 +22,16 @@ public class CashRegister {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Convert(converter = LocalDateAttributeConverter.class)
-	@Column(name = "Data_Pagamento", nullable = false)
+	@Column(nullable = false)
 	private LocalDate dateOfSale;
-	@Column(name = "Valor_Total", nullable = false)
+	@Column(nullable = false)
 	private Double amount;
-	@Column(name = "Valor_Pago", nullable = false)
+	@Column(nullable = false)
 	private Double amountPaid;
-	@Column(name = "Troco", nullable = false)
+	@Column(nullable = false)
 	private Double transshipment;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "sale_id")
+	@JoinColumn(name = "sale_id", nullable = false)
 	private Sale sale;	
 	@Enumerated
 	private TypeOfPayment typePayment;//ver com o Ivan para passar o id para o banco ou como persistir todas as enum's no banco

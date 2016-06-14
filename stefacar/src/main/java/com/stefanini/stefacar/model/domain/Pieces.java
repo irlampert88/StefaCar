@@ -14,20 +14,20 @@ public class Pieces {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(nullable = false)
+	@Column(nullable = false, name = "serial_number")
 	private Integer serialNumber;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
 	private Double value;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idModelCar")
+	@JoinColumn(name = "model_car_id")
 	private ModelCar model;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idOutfitter")
+	@JoinColumn(name = "outfitter_id")
 	private Outfitter outfitter;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idManufacturer")
+	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 
 	public Integer getId() {

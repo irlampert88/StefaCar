@@ -15,11 +15,10 @@ import com.stefanini.stefacar.model.domain.ModelCar;
 public class Car {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idCar")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer id;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idCarModel")
+	@JoinColumn(name = "model_id")
 	private ModelCar model;
 	@Column(nullable = false)
 	private Double price;

@@ -20,7 +20,7 @@ public class BrandCar {
 	@Column(nullable = false)
 	private String nationality;
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idModelCar")
+	@JoinColumn(name = "model_id")
 	private ModelCar modelList;
 
 	public BrandCar() {
