@@ -1,10 +1,12 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 
 import org.primefaces.context.RequestContext;
@@ -34,64 +36,71 @@ public class CashRegisterManagedBean implements Serializable {
 	@Inject
 	CashRegisterServiceImpl service;
 
-	private CashRegister cashregister;
-	private Sale saleSelected;
+	private CashRegister cashRegister;
+	private List<Sale>saleList;
 	private double discountedOrInterest;
 
 	@PostConstruct
 	public void init() {
-		cashregister = new CashRegister();
-		saleSelected = new Sale();
-		cashregister.setSales(repositorySale.listAllRecordsByActive());
+		cashRegister = new CashRegister();		
+		saleList = repositorySale.listAllRecordsByActive();
 	}
 
-	public void closeSales(Sale sale) {
-		sale.setStatus(false);// venda finalizada
-		service.closeSale(sale);
+	public void closeSales() {
+		cashRegister.getSale().setProgress(false);// venda finalizada
+		service.closeSale(cashRegister.getSale());
+		cashRegister.setAmount(discountedOrInterest);		
+		service.save(cashRegister);
+		RequestContext.getCurrentInstance().execute("location.reload()");
 	}
 
-	public void calculatesDiscount() {
-		discountedOrInterest = cashregister.getTypePayment().calculateFinalValue(saleSelected.getCar().getPrice());
-		calculatesTransshipment();
-	}
-
-	private void calculatesTransshipment() {
-		cashregister.setTransshipment(cashregister.getAmountPaid() - discountedOrInterest);
+	public void calculatesDiscount(ValueChangeEvent event) {
+		TypeOfPayment payment = (TypeOfPayment) event.getNewValue();
+		this.cashRegister.setTypePayment(payment);
+		discountedOrInterest = cashRegister.getTypePayment().calculateFinalValue(cashRegister.getSale().getCar().getPrice());
 	}
 	
-	public void selectedSale(Sale sale){
-		setSaleSelected(sale);
-		RequestContext.getCurrentInstance().execute("PF('dialogCloseSales').show()");
-	}
-	
-	//GETERS & SETERS
-	public double getDiscountedValue() {
-		return discountedOrInterest;
-	}
-
-	public void setDiscountedValue(double discountedValue) {
-		this.discountedOrInterest = discountedValue;
-	}
-
-	public CashRegister getCashregister() {
-		return cashregister;
-	}
-
-	public void setCashregister(CashRegister cashregister) {
-		this.cashregister = cashregister;
-	}
-
-	public Sale getSaleSelected() {
-		return saleSelected;
-	}
-
-	public void setSaleSelected(Sale saleSelected) {
-		this.saleSelected = saleSelected;
-		System.out.println("fhksdjabhvfsdbanmvgbsabjk" +"  " + saleSelected.getCar().getPrice());
-	}
-
 	public TypeOfPayment[] getTypeOfPayMent() {
 		return TypeOfPayment.values();
 	}
+	
+	public void calculatesTransshipment() {
+		cashRegister.setTransshipment(cashRegister.getAmountPaid() - discountedOrInterest);
+	}
+	
+	public void upgradeSales(){
+		saleList = repositorySale.listAllRecordsByActive();		
+	}
+	
+	public void selectedSale(Sale sale){
+		cashRegister.setSale(sale);
+		RequestContext.getCurrentInstance().execute("PF('dialogCloseSales').show()");
+	}
+	
 
+//		GETERS & SETERS	
+
+	public CashRegister getCashRegister() {
+		return cashRegister;
+	}
+
+	public void setCashRegister(CashRegister cashRegister) {
+		this.cashRegister = cashRegister;
+	}
+
+	public List<Sale> getSaleList() {
+		return saleList;
+	}
+
+	public void setSaleList(List<Sale> saleList) {
+		this.saleList = saleList;
+	}
+
+	public double getDiscountedOrInterest() {
+		return discountedOrInterest;
+	}
+
+	public void setDiscountedOrInterest(double discountedOrInterest) {
+		this.discountedOrInterest = discountedOrInterest;
+	}
 }

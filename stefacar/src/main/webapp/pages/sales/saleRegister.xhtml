@@ -51,9 +51,7 @@
 						<ui:param name="form" value="saleForm" />
 					</ui:include>
 				</p:panelGrid>
-
-
-
+				
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
 				<p:commandButton value="Limpar" process="@this" update="@form"

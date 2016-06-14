@@ -80,6 +80,7 @@ public class SaleManagedBean implements Serializable {
 		modelCar = new ModelCar();
 		sale = new Sale();
 		carShow = new SaleCarShow();
+		listOfCarWhereBrandSelected = new ArrayList<>();
 	}
 
 	public void deliveryCarByBrand(ValueChangeEvent event) {

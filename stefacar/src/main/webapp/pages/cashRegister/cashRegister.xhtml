@@ -10,9 +10,12 @@
 		<ui:define name="center">
 			<h:form id="cashRegisterForm">
 				<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
+				
+				<p:commandButton value="Atualizar Vendas Ativas" update="cashTable modalCloseSalesId"
+					action="#{cashRegisterManagedBean.upgradeSales()}" style="float: right" />
 
 				<p:dataTable id="cashTable" var="receipt"
-					value="#{cashRegisterManagedBean.cashregister.sales}" 
+					value="#{cashRegisterManagedBean.saleList}" 
 					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
 					style="padding-top:20px;">
 					<p:column headerText="Código da Venda" style="text-align: center">
@@ -29,13 +32,13 @@
 					</p:column>
 					<p:column headerText="Pagar a Venda" style="text-align: center">
 						<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"  
-							update="cashTable" 
+							update="cashTable modalCloseSalesId" 
 							action="#{cashRegisterManagedBean.selectedSale(receipt)}">							 
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
-				<ui:include src="closeSales.xhtml" />
 			</h:form>
+			<ui:include src="closeSales.xhtml" />
 		</ui:define>
 	</ui:decorate>
 </h:body>

@@ -3,35 +3,52 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core" id="modalCarId"
+	xmlns:f="http://java.sun.com/jsf/core" id="modalCloseSalesId"
 	widgetVar="dialogCloseSales" modal="true" appendToBody="true"
 	resizable="false" header="Pagamento" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
-		<p:panelGrid columns="2">
-			<p:outputLabel for="amountText"	value="Valor Total da Venda: " />
-			<p:inputText id="amountText" readonly="true" value="#{cashRegisterManagedBean.saleSelected.car.price}" />
-			<p:outputLabel for="discountedValue" value="Valor com Desconto ou Acréscimo" />
-			<p:inputText id="discountedValue" readonly="true" value="#{cashRegisterManagedBean.discountedValue}" />
-			<p:separator/>
-			<p:separator/>
-			<p:outputLabel for="amountReceived" value="Valor Recebido: " />
-			<p:spinner id="amountReceived" value="#{cashRegisterManagedBean.cashregister.amountPaid}" prefix="R$" min="0" stepFactor="100.0" />
-			<p:outputLabel for="typePayment" value="Forma de Pagamento: " />
-			<p:selectOneMenu id="typePayment" converter="comboBoxConverter"
-				value="#{cashRegisterManagedBean.cashregister.typePayment}"
-				valueChangeListener="#{cashRegisterManagedBean.calculatesDiscount()}">
-				<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					
-				<f:selectItems value="#{cashRegisterManagedBean.typeOfPayMent}" var="type"
-					itemLabel="#{type.label}" itemValue="#{type.id}" />
-				<p:ajax event="change" process="@this" update="discountedValue" />					
-			</p:selectOneMenu>
-			<p:separator/>
-			<p:separator/>
-			<p:outputLabel for="transshipment" value="Valor do Troco: " />
-			<p:inputText id="transshipment" readonly="true" value="#{cashRegisterManagedBean.cashregister.transshipment}" />
-			
-		</p:panelGrid>
+		<h:form id="closeSalesForm">
+			<p:panelGrid columns="2">
+				<p:outputLabel for="amountText" value="Valor Total da Venda: " />
+				<p:inputText id="amountText" readonly="true"
+					value="#{cashRegisterManagedBean.cashRegister.sale.car.price}" />
+				<p:outputLabel for="discountedValue"
+					value="Valor com Desconto ou Acréscimo" />
+				<p:inputText id="discountedValue" readonly="true"
+					value="#{cashRegisterManagedBean.discountedOrInterest}" />
+				<p:separator />
+				<p:separator />
+				<p:outputLabel for="amountReceived" value="Valor Recebido: ">					
+				</p:outputLabel>
+				<p:spinner id="amountReceived" 
+					value="#{cashRegisterManagedBean.cashRegister.amountPaid}"
+					prefix="R$" min="0" stepFactor="100.0" >
+					<p:ajax event="change" process="closeSalesForm" update="closeSalesForm"/>
+					</p:spinner>
+				<p:outputLabel for="typePayment" value="Forma de Pagamento: " />
+				<p:selectOneMenu id="typePayment" converter="comboBoxConverter"
+					value="#{cashRegisterManagedBean.cashRegister.typePayment}"
+					valueChangeListener="#{cashRegisterManagedBean.calculatesDiscount}">
+					<f:selectItem itemLabel="Selecione" itemValue="#{null}"
+						noSelectionOption="true" />
+					<f:selectItems value="#{cashRegisterManagedBean.typeOfPayMent}"
+						var="type" itemLabel="#{type.label}" itemValue="#{type}" />
+					<p:ajax event="change" process="closeSalesForm" update="closeSalesForm" />
+				</p:selectOneMenu>
+				<p:separator />
+				<p:separator />
+				<p:outputLabel for="transshipment" value="Valor do Troco: " />
+				<p:inputText id="transshipment" readonly="true"
+					value="#{cashRegisterManagedBean.cashRegister.transshipment}" />
+				<p:commandButton value="Calcular o troco" action="#{cashRegisterManagedBean.calculatesTransshipment}" 
+				style="float: left" update="transshipment" />
+				<p:commandButton value="Finalizar Venda" style="float: right"
+					update=":cashRegisterForm:cashTable" process="closeSalesForm"
+					action="#{cashRegisterManagedBean.closeSales}" />
+
+			</p:panelGrid>
+		</h:form>
 
 	</div>
 

@@ -5,43 +5,57 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Stefa Car</title>
-	<link	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-	
+	<link
+		href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+		rel="stylesheet" />
+
 	<h:outputStylesheet library="styles" name="style-login.css" />
 </h:head>
 <h:body>
-	
-	
-<h:form>
-<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-5 col-md-3">
-				<div class="form-login">
-					<h4>Login.</h4>
-					<p:inputText id="username" requiredMessage="Campo obrigatório"
-						required="true" value="#{sessionManagedBean.username}"
-						placeholder="username" />
 
-					<h:inputSecret id="password" requiredMessage="Campo obrigatório"
-						required="true" value="#{sessionManagedBean.password}"
-						placeholder="password" />
 
-					<div class="wrapper">
-						<span class="group-btn"> <p:commandButton value="Log-in"
-								process="@form" update="@form"
-								action="#{sessionManagedBean.login()}" icon="fa fa-fw fa-save" />
-						</span>
+	<h:form>
+		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-5 col-md-3">
+					<div class="loginmodal-container">
+					
+						<h1>Seja bem-vindo!</h1>
+						
+						<div style="padding-bottom:10%;">
+							<p:inputText id="username" requiredMessage="Campo obrigatório"
+							style="height:31px; color:black;"
+								required="true" value="#{sessionManagedBean.username}"
+								placeholder="login" />
+						</div>
+						
+						<div style="padding-bottom:10%;">
+							<h:inputSecret id="password" requiredMessage="Campo obrigatório"
+							style="height:35px; width:102%;"
+								required="true" value="#{sessionManagedBean.password}"
+								pt:placeholder="senha" />
+						</div>
+						
+						<div class="wrapper" style="padding-bottom:15px;">
+							<span > 
+							<p:commandButton style="padding-top:5px; padding-bottom:5px; 
+							padding-left:55px; padding-right:55px; font-size:20px;" 
+							class="login loginmodal-submit" value="Entrar"
+									process="@form" update="@form"
+									action="#{sessionManagedBean.login()}"  />
+							</span>
+						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
 
 	</h:form>
 </h:body>
