@@ -11,18 +11,17 @@
 		<h:form id="closeSalesForm">
 			<p:panelGrid columns="2">
 				<p:outputLabel for="amountText" value="Valor Total da Venda: " />
-				<p:inputText id="amountText" readonly="true"
+				<p:inputText id="amountText" readonly="true" converter="money"
 					value="#{cashRegisterManagedBean.cashRegister.sale.car.price}" />
 				<p:outputLabel for="discountedValue"
 					value="Valor com Desconto ou Acréscimo" />
-				<p:inputText id="discountedValue" readonly="true"
+				<p:inputText id="discountedValue" readonly="true" converter="money"
 					value="#{cashRegisterManagedBean.discountedOrInterest}" />
 				<p:separator />
 				<p:separator />
 				<p:outputLabel for="amountReceived" value="Valor Recebido: ">					
 				</p:outputLabel>
-				<p:spinner id="amountReceived" 
-					value="#{cashRegisterManagedBean.cashRegister.amountPaid}"
+				<p:spinner id="amountReceived" value="#{cashRegisterManagedBean.cashRegister.amountPaid}"
 					prefix="R$" min="0" stepFactor="100.0" >
 					<p:ajax event="change" process="closeSalesForm" update="closeSalesForm"/>
 					</p:spinner>
@@ -39,7 +38,7 @@
 				<p:separator />
 				<p:separator />
 				<p:outputLabel for="transshipment" value="Valor do Troco: " />
-				<p:inputText id="transshipment" readonly="true"
+				<p:inputText id="transshipment" readonly="true" converter="money"
 					value="#{cashRegisterManagedBean.cashRegister.transshipment}" />
 				<p:commandButton value="Calcular o troco" action="#{cashRegisterManagedBean.calculatesTransshipment}" 
 				style="float: left" update="transshipment" />
