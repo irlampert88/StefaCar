@@ -18,6 +18,7 @@ public class ModelCar {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_model_car")
 	private Integer id;
 	@Column(nullable=false)
 	private String name;

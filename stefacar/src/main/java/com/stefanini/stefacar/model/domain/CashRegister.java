@@ -20,6 +20,7 @@ public class CashRegister {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_cash_register")
 	private Integer id;
 	@Convert(converter = LocalDateAttributeConverter.class)
 	@Column(nullable = false)

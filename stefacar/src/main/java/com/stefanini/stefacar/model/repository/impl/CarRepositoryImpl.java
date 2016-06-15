@@ -11,9 +11,9 @@ public class CarRepositoryImpl extends AbstractRepository<Car>{
 	
 	public List<SaleCarShow> listAllRecordsByBrand(Integer idBrand) {
 
-		String sql = "select c.price, m.type, c.color, m.name, m.version, m.year, m.id, c.id "
-				+ "from car as c inner join modelcar as m " + "on c.model_id = m.id join brandcar as b "
-				+ "on m.idbrandcar = b.id " + "where m.brand_id = " + idBrand + " and c.avaliable = 'true'";
+		String sql = "select c.price, m.type, c.color, m.name, m.version, m.year, m.id_model_car, c.id_car "
+				+ "from car as c inner join modelcar as m " + "on c.model_id = m.id_model_car join brandcar as b "
+				+ "on m.brand_id = b.id_brand_car " + "where m.brand_id = " + idBrand + " and c.avaliable = 'true'";
 
 		List<SaleCarShow> listOfCarShow = new ArrayList<>();
 		List<Object[]> resultList = entityManager.createNativeQuery(sql).getResultList();

@@ -14,6 +14,7 @@ public class BrandCar {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_brand_car")
 	private Integer id;
 	@Column(nullable = false)
 	private String name;
