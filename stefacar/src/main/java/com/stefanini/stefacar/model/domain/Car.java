@@ -15,7 +15,8 @@ import com.stefanini.stefacar.model.domain.ModelCar;
 public class Car {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name= "id_car")
 	private Integer id;
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "model_id")

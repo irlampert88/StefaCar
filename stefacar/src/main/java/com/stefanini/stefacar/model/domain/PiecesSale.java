@@ -3,6 +3,7 @@ package com.stefanini.stefacar.model.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,8 @@ import javax.persistence.ManyToOne;
 public class PiecesSale {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idSale;
+	@Column(name = "id_pieces_sale")
+	private Integer id;
 
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "cliente_id", nullable = false)
@@ -29,12 +31,12 @@ public class PiecesSale {
 	@JoinColumn(name = "pieces_id", nullable = false)
 	private List<Pieces> pieces;
 
-	public Integer getIdSale() {
-		return idSale;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdSale(Integer idSale) {
-		this.idSale = idSale;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Client getClient() {
@@ -67,7 +69,7 @@ public class PiecesSale {
 		int result = 1;
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
 		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
-		result = prime * result + ((idSale == null) ? 0 : idSale.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((pieces == null) ? 0 : pieces.hashCode());
 		return result;
 	}
@@ -91,10 +93,10 @@ public class PiecesSale {
 				return false;
 		} else if (!employee.equals(other.employee))
 			return false;
-		if (idSale == null) {
-			if (other.idSale != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idSale.equals(other.idSale))
+		} else if (!id.equals(other.id))
 			return false;
 		if (pieces == null) {
 			if (other.pieces != null)
