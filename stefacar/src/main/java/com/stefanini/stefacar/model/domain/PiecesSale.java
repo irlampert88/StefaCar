@@ -18,15 +18,15 @@ public class PiecesSale {
 	private Integer idSale;
 
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idCliente", nullable = false)
+	@JoinColumn(name = "cliente_id", nullable = false)
 	private Client client;
 
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idFuncionário", nullable = false)
+	@JoinColumn(name = "funcionario_id", nullable = false)
 	private Employee employee;
 
 	@ManyToMany(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idPieces", nullable = false)
+	@JoinColumn(name = "pieces_id", nullable = false)
 	private List<Pieces> pieces;
 
 	public Integer getIdSale() {

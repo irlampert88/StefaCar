@@ -17,15 +17,15 @@ public class Sale {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idCliente", nullable = false)
+	@JoinColumn(name = "client_id", nullable = false)
 	private Client client;
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "idFuncionario", nullable = false)
+	@JoinColumn(name = "employee_id", nullable = false)
 	private Employee employee;
 	@OneToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "Carro", nullable = false)
+	@JoinColumn(name = "car_id", nullable = false)
 	private Car car;
-	@Column(name = "Progresso", nullable = false)
+	@Column(name = "progress", nullable = false)
 	private boolean progress;//true = venda ativa & false = venda finalizada
 	
 	public Sale() {
