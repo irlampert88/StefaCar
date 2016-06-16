@@ -10,7 +10,7 @@
 	<h:form>
 		<p:outputLabel style="font-size: 30px;" value="Lista de funcionários" />
 		<button type="button" class="btn btn-primary"
-			onclick="mostraFormEscondeTable()">Novo</button>
+			onclick="mostraFormEscondeTable('form', '/stefacar/pages/employee/employeeRegister.xhtml')">Novo</button>
 		<p:dataTable id="employeeTable" var="employee"
 			value="#{employeeManagedBean.dataList}"
 			emptyMessage="Não existem funcionários cadastrados"

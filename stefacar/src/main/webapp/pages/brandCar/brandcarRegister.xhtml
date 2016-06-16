@@ -9,7 +9,8 @@
 <h:body>
 	<p:outputLabel style="font-size: 30px;"
 		value="Cadastro de Marca de Carro" />
-
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/brandCar/brandCarView.xhtml')">Votlar</button>
 	<h:form id="brandCarForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
@@ -30,7 +31,7 @@
 
 		<p:commandButton value="Salvar" process="@form"
 			action="#{brandCarManagedBean.save()}" icon="fa fa-fw fa-save"
-			update="@form" />
+			update="@form" onclick="carrega('table', '/stefacar/pages/brandCar/brandCarView.xhtml');"/>
 		<p:button href="brandCarView.xhtml" value="Voltar" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{brandCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

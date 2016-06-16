@@ -8,7 +8,7 @@
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Cadastro de Clientes" />
 	<button type="button" class="btn btn-primary"
-			onclick="mostraTablaEscondeForm('/stefacar/pages/client/clientView.xhtml')">Votlar</button>
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/client/clientView.xhtml')">Votlar</button>
 	<h:form id="clientForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 		<p:panelGrid columns="3">
@@ -20,19 +20,17 @@
 			<p:message for="Name" />
 
 			<p:outputLabel for="Cpf" value="Cpf :" />
-			<p:inputMask maxlength="11" id="Cpf" mask="99999999999"
+			<p:inputText maxlength="11" id="Cpf" mask="99999999999"
 				requiredMessage="Campo obrigatório" required="true"
 				validatorMessage="Digita um cpf válido seu besta" placeholder="cpf"
 				value="#{clientManagedBean.client.cpf}">
-				<f:validator for="Cpf" validatorId="cpfValidator" />
-			</p:inputMask>
+			</p:inputText>
 			<p:message for="Cpf" />
 
 			<p:outputLabel for="Email" value="E-mail: " />
 			<p:inputText id="Email" requiredMessage="Campo obrigatório"
 				required="true" placeholder="email"
 				value="#{clientManagedBean.client.mail}">
-				<f:validator validatorId="emailValidator" />
 			</p:inputText>
 
 			<p:message for="Email" />
@@ -53,7 +51,7 @@
 		</p:panelGrid>
 		<p:commandButton value="Salvar" process="@form"
 			action="#{clientManagedBean.save()}" icon="fa fa-fw fa-save"
-			update="@form" />
+			update="@form" onclick="carrega('table', '/stefacar/pages/client/clientView.xhtml');"/>
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{clientManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 	</h:form>

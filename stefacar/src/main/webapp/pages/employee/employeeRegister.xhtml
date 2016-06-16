@@ -8,6 +8,8 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Cadastro de funcionário" />
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/employee/employeeView.xhtml')">Votlar</button>
 	<h:form id="employeeForm">
 		<h:panelGrid columns="3" cellpadding="10">
 			<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
@@ -65,7 +67,7 @@
 
 		<p:commandButton value="Salvar" process="@form"
 			action="#{employeeManagedBean.save()}" icon="fa fa-fw fa-save"
-			update="@form" />
+			update="@form" onclick="carrega('table', '/stefacar/pages/employee/employeeView.xhtml');"/>
 		<p:button href="employeeView.xhtml" value="Voltar" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{employeeManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

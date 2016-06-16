@@ -10,11 +10,11 @@
 	<h:form>
 		<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
 		<button type="button" class="btn btn-primary"
-			onclick="mostraFormEscondeTable()">Novo</button>
+			onclick="mostraFormEscondeTable('form', '/stefacar/pages/client/clientRegister.xhtml')">Novo</button>
 		<p:dataTable id="clientTable" var="client"
 			value="#{clientManagedBean.dataList}"
 			emptyMessage="Não existem clientes cadastrados"
-			style="padding-top:20px;" rows="5" paginator="true">
+			style="padding-top:20px;" rows="5" paginator="true" >
 			<p:column headerText="Name" style="text-align: center">
 				<h:outputText value="#{client.name}" />
 			</p:column>
@@ -28,20 +28,12 @@
 				<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
 					update="@form" process="@this"
 					action="#{clientManagedBean.delete(client)}">
-
-					<p:confirm header="Confirmação"
-						message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 				</p:commandButton>
 
 				<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-					action="#{clientManagedBean.setClientForEdit(client)}" />
+					action="#{clientManagedBean.setClientForEdit(client)}" 
+					onclick="mostraFormEscondeTable('form', '/stefacar/pages/client/clientRegister.xhtml')"/>
 
-				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-					<p:commandButton value="Sim" type="button"
-						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-					<p:commandButton value="Não" type="button"
-						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-				</p:confirmDialog>
 			</p:column>
 		</p:dataTable>
 	</h:form>

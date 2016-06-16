@@ -8,6 +8,8 @@
 
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Venda de Veículo" />
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/sale/saleView.xhtml')">Votlar</button>
 	<h:form id="saleForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
@@ -47,7 +49,8 @@
 		</p:panelGrid>
 
 		<p:commandButton value="Salvar" process="@form" update="@form"
-			action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" />
+			action="#{saleManagedBean.save}" icon="fa fa-fw fa-save" 
+			onclick="carrega('table', '/stefacar/pages/sale/saleView.xhtml');"/>
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{saleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
 	</h:form>

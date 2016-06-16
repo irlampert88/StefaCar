@@ -10,7 +10,7 @@
 	<h:form>
 		<p:outputLabel style="font-size: 30px;" value="Lista de marcas" />
 		<button type="button" class="btn btn-primary"
-			onclick="mostraFormEscondeTable()">Novo</button>
+			onclick="mostraFormEscondeTable('form', '/stefacar/pages/brandCar/brandCarRegister.xhtml')">Novo</button>
 		<p:dataTable id="brandCarTable" var="brand"
 			value="#{brandCarManagedBean.dataList}"
 			emptyMessage="Não existem Marcas Cadastrados"

@@ -8,9 +8,9 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<p:outputLabel style="font-size: 30px;"
-		value="Cadastro de Modelo de Carro" />
-
+	<p:outputLabel style="font-size: 30px;" value="Cadastro de Modelo de Carro" />
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/modelCar/modelCarView.xhtml')">Votlar</button>
 	<h:form id="modelCarForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 		<p:panelGrid columns="3">
@@ -56,7 +56,8 @@
 			</p:selectOneMenu>
 		</p:panelGrid>
 		<p:commandButton value="Salvar" process="@form" update="@form"
-			action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" />
+			action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save"
+			onclick="carrega('table', '/stefacar/pages/modelCar/modelCarView.xhtml');" />
 		<p:button href="modelCarView.xhtml" value="Voltar" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

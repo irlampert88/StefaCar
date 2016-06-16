@@ -10,7 +10,7 @@
 	<h:form>
 		<p:outputLabel style="font-size: 30px;" value="Lista de fornecedores" />
 		<button type="button" class="btn btn-primary"
-			onclick="mostraFormEscondeTable()">Novo</button>
+			onclick="mostraFormEscondeTable('form', '/stefacar/pages/outfitter/outfitterRegister.xhtml')">Novo</button>
 		<p:dataTable id="outfitterTable" var="outfitter"
 			value="#{outfitterManagedBean.dataList}"
 			emptyMessage="Não existem fornecedores cadastrados"

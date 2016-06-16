@@ -10,7 +10,7 @@
 	<h:form>
 		<p:outputLabel style="font-size: 30px;" value="Lista de Peças" />
 		<button type="button" class="btn btn-primary"
-			onclick="mostraFormEscondeTable()">Novo</button>
+			onclick="mostraFormEscondeTable('form', '/stefacar/pages/pieces/piecesRegister.xhtml')">Novo</button>
 		<p:dataTable id="piecesTable" var="pieces"
 			value="#{piecesManagedBean.dataList}"
 			emptyMessage="Não existem peças cadastrados"

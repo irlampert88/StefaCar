@@ -9,6 +9,8 @@
 
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Cadastro de Fornecedor" />
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/outfitter/outfitterView.xhtml')">Votlar</button>
 	<h:form id="outfitterForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
@@ -43,7 +45,7 @@
 
 		<p:commandButton value="Salvar" process="@form"
 			action="#{outfitterManagedBean.save()}" icon="fa fa-fw fa-save"
-			update="@form" />
+			update="@form" onclick="carrega('table', '/stefacar/pages/outfitter/outfitterView.xhtml');"/>
 		<p:button href="outfitterView.xhtml" value="Voltar" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{outfitterManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

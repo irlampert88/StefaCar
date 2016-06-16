@@ -8,7 +8,8 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Cadastro de Carro" />
-
+	<button type="button" class="btn btn-primary"
+				onclick="mostraTablaEscondeForm('table', '/stefacar/pages/car/carView.xhtml')">Votlar</button>
 	<h:form id="carForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
@@ -34,7 +35,8 @@
 		<ui:include src="../popups/popup-selectModel.xhtml" />
 
 		<p:commandButton value="Salvar" process="@form" update="@form"
-			action="#{carManagedBean.save()}" icon="fa fa-fw fa-save" />
+			action="#{carManagedBean.save()}" icon="fa fa-fw fa-save" 
+			onclick="carrega('table', '/stefacar/pages/car/carView.xhtml');"/>
 		<p:button href="carView.xhtml" value="Voltar" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{carManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

@@ -7,7 +7,8 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Venda de Peça" />
-
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/sale/piecesSaleView.xhtml')">Votlar</button>
 	<h:form id="saleForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 		<p:panelGrid columns="3">
@@ -51,7 +52,8 @@
 		</ui:include>
 
 		<p:commandButton value="Salvar" process="@form" update="@form"
-			action="#{piecesSaleManagedBean.save}" icon="fa fa-fw fa-save" />
+			action="#{piecesSaleManagedBean.save}" icon="fa fa-fw fa-save"
+			onclick="carrega('table', '/stefacar/pages/sale/piecesSaleView.xhtml');" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{piecesSaleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
 	</h:form>

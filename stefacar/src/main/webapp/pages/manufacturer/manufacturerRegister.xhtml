@@ -7,6 +7,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:body>
 	<p:outputLabel style="font-size: 30px;" value="Cadastro de Fabricante" />
+	<button type="button" class="btn btn-primary"
+			onclick="mostraTablaEscondeForm('table', '/stefacar/pages/manufacturer/manufacturerView.xhtml')">Votlar</button>
 	<h:form id="manufacturerForm">
 		<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
 
@@ -43,7 +45,7 @@
 		</p:panelGrid>
 		<p:commandButton value="Salvar" process="@form"
 			action="#{manufacturerManagedBean.save()}" icon="fa fa-fw fa-save"
-			update="@form" />
+			update="@form" onclick="carrega('table', '/stefacar/pages/manufacturer/manufacturerView.xhtml');"/>
 		<p:button href="manufacturerView.xhtml" value="Voltar" />
 		<p:commandButton value="Limpar" process="@this" update="@form"
 			action="#{manufacturerManagedBean.clean()}" icon="fa fa-fw fa-eraser" />

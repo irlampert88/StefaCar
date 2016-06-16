@@ -12,8 +12,10 @@
 		
 		<h:outputStylesheet library="styles" name="primefacesOverride.css" />
 		<h:outputStylesheet library="styles" name="style.css" />
-		<h:outputScript library="js" name="jquery-2.2.4.js" />
-		<h:outputScript library="js" name="jquery-2.2.4.min.js" />
+<!-- 		<h:outputScript library="js" name="jquery-3.0.0.js" /> -->
+<!-- 		<h:outputScript library="js" name="jquery-3.0.0.min.js" /> -->
+<!-- 		<h:outputScript library="js" name="jquery-ui.js" /> -->
+<!-- 		<h:outputScript library="js" name="jquery-ui.min.js" /> -->
 		<h:outputScript library="js" name="stefacar.js" />
 		
 	</h:head>
@@ -60,23 +62,23 @@
 				<b:navBar>
 				    <b:navbarLinks>
 				        <b:dropMenu value="Vendas" class="btn btn-navbar">
-							<b:navLink value="Venda de carro" href="#" onclick="carrega('/stefacar/pages/sales/saleView.xhtml', '/stefacar/pages/sales/saleRegister.xhtml')"></b:navLink>
-							<b:navLink value="Venda de peças" href="#" onclick="carrega('/stefacar/pages/sales/piecesSaleView.xhtml', '/stefacar/pages/sales/piecesSaleRegister.xhtml')"></b:navLink>
+							<b:navLink value="Venda de carro" href="#" onclick="carregaUrl('/stefacar/pages/sales/saleView.xhtml', '/stefacar/pages/sales/saleRegister.xhtml')"></b:navLink>
+							<b:navLink value="Venda de peças" href="#" onclick="carregaUrl('/stefacar/pages/sales/piecesSaleView.xhtml', '/stefacar/pages/sales/piecesSaleRegister.xhtml')"></b:navLink>
 						</b:dropMenu>
 						<b:dropMenu value="Consultas" class="btn btn-navbar">
-							<b:navLink value="Clientes" href="#" onclick="carrega('/stefacar/pages/client/clientView.xhtml', '/stefacar/pages/client/clientRegister.xhtml')"></b:navLink>
-							<b:navLink value="Funcionários" href="#" onclick="carrega('/stefacar/pages/employee/employeeView.xhtml', '/stefacar/pages/employee/employeeRegister.xhtml')"></b:navLink>
-							<b:navLink value="Peças" href="#" onclick="carrega('/stefacar/pages/pieces/piecesView.xhtml', '/stefacar/pages/pieces/piecesRegister.xhtml')"></b:navLink>
+							<b:navLink value="Clientes" href="#" onclick="carregaUrl('/stefacar/pages/client/clientView.xhtml', '/stefacar/pages/client/clientRegister.xhtml')"></b:navLink>
+							<b:navLink value="Funcionários" href="#" onclick="carregaUrl('/stefacar/pages/employee/employeeView.xhtml', '/stefacar/pages/employee/employeeRegister.xhtml')"></b:navLink>
+							<b:navLink value="Peças" href="#" onclick="carregaUrl('/stefacar/pages/pieces/piecesView.xhtml', '/stefacar/pages/pieces/piecesRegister.xhtml')"></b:navLink>
 							<b:dropMenu value="Carros">
-								<b:navLink value="Marcas" href="#" onclick="carrega('/stefacar/pages/brandCar/brandCarView.xhtml', '/stefacar/pages/brandCar/brandCarRegister.xhtml')"></b:navLink>
-								<b:navLink value="Modelos" href="#" onclick="carrega('/stefacar/pages/modelCar/modelCarView.xhtml', '/stefacar/pages/modelCar/modelCarRegister.xhtml')"></b:navLink>
-								<b:navLink value="Veiculos" href="#" onclick="carrega('/stefacar/pages/car/carView.xhtml', '/stefacar/pages/car/carRegister.xhtml')"></b:navLink>
+								<b:navLink value="Marcas" href="#" onclick="carregaUrl('/stefacar/pages/brandCar/brandCarView.xhtml', '/stefacar/pages/brandCar/brandCarRegister.xhtml')"></b:navLink>
+								<b:navLink value="Modelos" href="#" onclick="carregaUrl('/stefacar/pages/modelCar/modelCarView.xhtml', '/stefacar/pages/modelCar/modelCarRegister.xhtml')"></b:navLink>
+								<b:navLink value="Veiculos" href="#" onclick="carregaUrl('/stefacar/pages/car/carView.xhtml', '/stefacar/pages/car/carRegister.xhtml')"></b:navLink>
 							</b:dropMenu>
-							<b:navLink value="Fornecedores" href="#" onclick="carrega('/stefacar/pages/outfitter/outfitterView.xhtml', '/stefacar/pages/outfitter/outfitterRegister.xhtml')"></b:navLink>
-							<b:navLink value="Fabricantes" href="#" onclick="carrega('/stefacar/pages/manufacturer/manufacturerView.xhtml', '/stefacar/pages/manufacturer/manufacturerRegister.xhtml')"></b:navLink>
+							<b:navLink value="Fornecedores" href="#" onclick="carregaUrl('/stefacar/pages/outfitter/outfitterView.xhtml', '/stefacar/pages/outfitter/outfitterRegister.xhtml')"></b:navLink>
+							<b:navLink value="Fabricantes" href="#" onclick="carregaUrl('/stefacar/pages/manufacturer/manufacturerView.xhtml', '/stefacar/pages/manufacturer/manufacturerRegister.xhtml')"></b:navLink>
 						</b:dropMenu>
 						<b:dropMenu value="Caixa" class="btn btn-navbar">
-							<b:navLink value="Registro de caixa" href="#" onclick="carrega('/stefacar/pages/cashRegister/cashRegister.xhtml')"></b:navLink>
+							<b:navLink value="Registro de caixa" href="#" onclick="carregaUrl('/stefacar/pages/cashRegister/cashRegister.xhtml', '/stefacar/pages/cashRegister/cashRegister.xhtml')"></b:navLink>
 						</b:dropMenu>
 				    </b:navbarLinks>
 				    <b:navbarLinks pull="right" styleClass="hidden-xs">
@@ -98,8 +100,13 @@
 						    	
 						    </div>
 					</b:column>
-					<b:column col-md="12" >
+					<b:column col-md="6" >
 						    <div id="form" style="display: none">
+						    	
+						    </div>
+					</b:column>
+					<b:column col-md="6" >
+						    <div id="popup" style="display: none">
 						    	
 						    </div>
 					</b:column>
