@@ -73,6 +73,7 @@
 				<p:commandButton value="Salvar" process="@form"
 					action="#{piecesManagedBean.save()}" icon="fa fa-fw fa-save"
 					update="@form" />
+						<p:button href="piecesView.xhtml" value="Voltar"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{piecesManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>
