@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 public class Pieces {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pieces")
 	private Integer id;
 	@Column(nullable = false, name = "serial_number")
 	private Integer serialNumber;

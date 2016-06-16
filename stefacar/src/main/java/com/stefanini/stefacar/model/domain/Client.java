@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_client")
 	private Integer id;
 	@Column(nullable = false)
 	private String name;

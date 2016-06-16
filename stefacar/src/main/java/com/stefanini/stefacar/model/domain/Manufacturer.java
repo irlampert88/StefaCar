@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class Manufacturer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_manufacturer")
 	private Integer id;
 	@Column(nullable = false)
 	private String cnpj;

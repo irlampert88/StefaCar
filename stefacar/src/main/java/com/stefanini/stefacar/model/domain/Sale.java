@@ -15,6 +15,7 @@ public class Sale {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_sale")
 	private Integer id;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "client_id", nullable = false)

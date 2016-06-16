@@ -67,13 +67,13 @@ public class SaleManagedBean implements Serializable {
 		changeCarShowToCarAndSetCarInSale();
 		sale.getCar().changeAvailability();
 		service.save(getSale());
-		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de Venda de Carro salvo com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Sale sale) {
 		service.delete(sale);
-		MessengerSystem.notificaInformacao("Parabï¿½ns!", "Cadastro de Venda de Carro excluido com sucesso");
+		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de Carro excluido com sucesso");
 	}
 
 	public void clean() {

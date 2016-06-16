@@ -11,6 +11,7 @@ public class Outfitter {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_outfitter")
 	private Integer id;
 	@Column(nullable = false)
 	private String cnpj;
