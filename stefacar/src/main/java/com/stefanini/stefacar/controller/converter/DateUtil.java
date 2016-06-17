@@ -23,6 +23,10 @@ public class DateUtil {
     public static String dateToString(Date data){
         return(new SimpleDateFormat("dd/MM/yyyy").format(data));
     }
+    
+    public static String dateToStringFormatBD(Date data){
+        return(new SimpleDateFormat("yyyy/MM/dd").format(data));
+    }
 
     public static String dateHourToString(Date data){
         SimpleDateFormat formatador = new SimpleDateFormat("HH:mm dd/MM/yyyy");
