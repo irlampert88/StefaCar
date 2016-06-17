@@ -37,7 +37,7 @@ public class CashRegisterServiceImpl {
 		repositorySale.update(sale);		
 	}	
 	@Transactional
-	private void finalizesCashRegister(List<Sale> sales){ 
+	public void finalizesCashRegister(List<Sale> sales){ 
 		for (Sale sale : sales) {				
 			if(sale.isProgress()){				
 				repositorySale.delete(sale);

@@ -45,6 +45,11 @@ public class CashRegisterManagedBean implements Serializable {
 		cashRegister = new CashRegister();		
 		saleList = repositorySale.listAllRecordsByActive();
 	}
+	
+	public void shutdown(){
+		service.finalizesCashRegister(saleList);
+		RequestContext.getCurrentInstance().execute("location.reload()");
+	}
 
 	public void closeSales() {
 		cashRegister.getSale().setProgress(false);// venda finalizada

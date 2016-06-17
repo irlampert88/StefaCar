@@ -10,19 +10,21 @@
 		<ui:define name="center">
 			<h:form id="cashRegisterForm">
 				<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa" />
-				
-				<p:commandButton value="Atualizar Vendas Ativas" update="cashTable modalCloseSalesId"
-					action="#{cashRegisterManagedBean.upgradeSales()}" style="float: right" />
 
-				<p:dataTable id="cashTable" var="receipt"
-					value="#{cashRegisterManagedBean.saleList}" 
+				<p:commandButton value="Atualizar Vendas Ativas"
+					update="cashTable modalCloseSalesId"
+					action="#{cashRegisterManagedBean.upgradeSales()}"
+					style="float: right; height: 50px " />
+
+				<p:dataTable id="cashTable" var="receipt" paginator="true" rows="5"
+					value="#{cashRegisterManagedBean.saleList}"
 					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
 					style="padding-top:20px;">
 					<p:column headerText="Código da Venda" style="text-align: center">
 						<h:outputText value="#{receipt.id}" />
 					</p:column>
 					<p:column headerText="Cliente" style="text-align: center">
-						<h:outputText value="#{receipt.client.name}" />	
+						<h:outputText value="#{receipt.client.name}" />
 					</p:column>
 					<p:column headerText="Vendedor" style="text-align: center">
 						<h:outputText value="#{receipt.employee.name}" />
@@ -31,12 +33,25 @@
 						<h:outputText value="#{receipt.car.model.name}" />
 					</p:column>
 					<p:column headerText="Pagar a Venda" style="text-align: center">
-						<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"  
-							update="cashTable modalCloseSalesId" 
-							action="#{cashRegisterManagedBean.selectedSale(receipt)}">							 
+						<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"
+							update="cashTable modalCloseSalesId" style="height: 30px; width:50px" 
+							action="#{cashRegisterManagedBean.selectedSale(receipt)}">
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
+				<p:commandButton id="closedCashRegister" value="Fechar o caixa"
+					icon="fa fa-fw fa-trash" title="Deletar as vendas"
+					action="#{cashRegisterManagedBean.shutdown}" process="@this" update="cashTable">
+					<p:confirm header="Confirmação" message="Deseja mesmo excluir as vendas não finalizadas?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
 			</h:form>
 			<ui:include src="closeSales.xhtml" />
 		</ui:define>
