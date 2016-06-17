@@ -1,37 +1,37 @@
 package com.stefanini.stefacar.controller.warehouse;
 
 public enum TypeOfPayment {
-	A_VISTA(1, "dinheiro") {
+	A_VISTA(0, "dinheiro") {
 		@Override
 		public double calculateFinalValue(Double price) {
 			return (price * 0.9);
 		}
 	},
-	CREDITO(2, "cartão de crédito 3x") {
+	CREDITO(1, "cartão de crédito 3x") {
 		@Override
 		public double calculateFinalValue(Double price) {
 			return (price * 1.3);
 		}
 	},
-	DEBITO(3, "cartão de débito") {
+	DEBITO(2, "cartão de débito") {
 		@Override
 		public double calculateFinalValue(Double price) {
 			return (price * 0.9);
 		}
 	},
-	BOLETO24(4, "boleto 24X") {
+	BOLETO24(3, "boleto 24X") {
 		@Override
 		public double calculateFinalValue(Double price) {
 			return calculateWhenParcels(price, 24);
 		}
 	},
-	BOLETO36(5, "boleto 36X") {
+	BOLETO36(4, "boleto 36X") {
 		@Override
 		public double calculateFinalValue(Double price) {
 			return calculateWhenParcels(price, 36);
 		}
 	},
-	BOLETO48(6, "boleto 48X") {
+	BOLETO48(5, "boleto 48X") {
 		@Override
 		public double calculateFinalValue(Double price) {
 			return calculateWhenParcels(price, 48);
