@@ -6,6 +6,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="closingPeriodForm">
 
+				<p:outputLabel style="font-size: 30px;"
+					value="Fechamento do Período Desejado" />
+				<br />
+				<br />
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Selecione a primeira Data: " for="interval1" />
+
+					<p:calendar id="interval1"
+						value="#{resultFiltersCashManagedBean.interval1}" navigator="true" />
+
+					<p:outputLabel value="Selecione a segunda Data: " for="interval2" />
+
+					<p:calendar id="interval2"
+						value="#{resultFiltersCashManagedBean.interval2}" navigator="true" />
+					<br />
+
+					<p:commandButton id="selectButton" value="Selecionar a Data"
+						action="#{resultFiltersCashManagedBean.populatesPerPeriod()}"
+						update="closingPeriodTable" />
+
+				</p:panelGrid>
+
+				<p:dataTable id="closingPeriodTable" var="obj" rows="5"
+					paginator="true" value="#{resultFiltersCashManagedBean.resultList}"
+					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
+					style="padding-top:20px;">
+					<p:column headerText="Data" style="text-align: center">
+						<h:outputText value="#{obj[0]}" />
+					</p:column>
+					<p:column headerText="Soma Total das Receitas">
+						<h:outputText value="#{obj[1]}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:decorate>
 </h:body>
 </html>

@@ -5,6 +5,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +35,7 @@ public class CashRegister {
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "sale_id", nullable = false)
 	private Sale sale;	
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private TypeOfPayment typePayment;//ver com o Ivan para passar o id para o banco ou como persistir todas as enum's no banco
 	
 	public CashRegister() {

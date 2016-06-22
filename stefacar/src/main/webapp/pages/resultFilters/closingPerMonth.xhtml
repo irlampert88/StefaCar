@@ -6,6 +6,52 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="closingMonthForm">
 
+				<p:outputLabel style="font-size: 30px;"
+					value="Fechamento do Mês Desejado" />
+				<br />
+				<br />
+				<p:panelGrid columns="1">
+					<p:selectOneMenu id="MonthSelect"
+						value="#{resultFiltersCashManagedBean.month}">
+						<f:selectItem itemLabel="Selecione um mês" itemValue="#{null}"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="Janeiro" itemValue="1" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="2" />
+						<f:selectItem itemLabel="Março" itemValue="3" />
+						<f:selectItem itemLabel="Abril" itemValue="4" />
+						<f:selectItem itemLabel="Maio" itemValue="5" />
+						<f:selectItem itemLabel="Junho" itemValue="6" />
+						<f:selectItem itemLabel="Julho" itemValue="7" />
+						<f:selectItem itemLabel="Agosto" itemValue="8" />
+						<f:selectItem itemLabel="Setembro" itemValue="9" />
+						<f:selectItem itemLabel="Outubro" itemValue="10" />
+						<f:selectItem itemLabel="Novembro" itemValue="11" />
+						<f:selectItem itemLabel="Dezembro" itemValue="12" />
+					</p:selectOneMenu>
+
+					<p:commandButton id="selectButton" value="Selecionar a Data"
+						action="#{resultFiltersCashManagedBean.populatesPerMonth()}"
+						update="closingMonthTable" />
+
+				</p:panelGrid>
+
+				<p:dataTable id="closingMonthTable" var="obj" rows="5"
+					paginator="true" value="#{resultFiltersCashManagedBean.resultList}"
+					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
+					style="padding-top:20px;">
+					<p:column headerText="Data" style="text-align: center">
+						<h:outputText value="#{obj[0]}" />
+					</p:column>
+					<p:column headerText="Soma Total das Receitas">
+						<h:outputText value="#{obj[1]}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:decorate>
 </h:body>
 </html>

@@ -9,23 +9,31 @@
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
 			<h:form id="closingDayForm">
-			
-				<p:outputLabel style="font-size: 30px;" value="Fechamento do Dia" />
-				
-				<p:commandButton value="Atualizar Vendas Ativas"
-					update="closingDayTable"
-					action="#{resultFiltersCashManagedBean.devolveResultado('2016/06/16')}"
-					style="margin-left:40% height: 50px " />
-					
-				<p:dataTable id="closingDayTable" var="obj" paginator="true"
-					rows="5" value="#{resultFiltersCashManagedBean.resultList}"
+
+				<p:outputLabel style="font-size: 30px;" value="Fechamento pela Data Desejada" />
+				<br />
+				<br />
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Selecione uma Data: " for="dataSelect" />
+					<p:calendar id="dataSelect"
+						value="#{resultFiltersCashManagedBean.specificDate}"
+						navigator="true" />
+					<br/>
+					<p:commandButton id="selectButton" value="Selecionar a Data"
+						action="#{resultFiltersCashManagedBean.populatesPerDay()}"
+						update="closingDayTable" />
+				</p:panelGrid>
+
+				<p:dataTable id="closingDayTable" var="obj" rows="5"
+					value="#{resultFiltersCashManagedBean.resultList}"
 					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">
-						<h:outputText value="#{obj[0]}"/>						
+						<h:outputText value="#{obj[0]}" />
 					</p:column>
-					<p:column>
-						<h:outputText value="#{obj[1]}"/>					
+					<p:column headerText="Soma Total das Receitas">
+						<h:outputText value="#{obj[1]}" />
 					</p:column>
 				</p:dataTable>
 			</h:form>
