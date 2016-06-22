@@ -19,5 +19,12 @@ public class SaleRepositoryImpl extends AbstractRepository<Sale> {
 	public List<Sale> listAllRecordsByActive(){
 		return entityManager.createQuery("select l from " + Sale.class.getSimpleName() + " l where progress = true").getResultList();
 	}
+	
+	public List<Object[]> listForRanking(){
+		String sql = "select e.name, sum(amount) from cashregister as c inner join sale as s on sale_id = s.id_sale "+ 
+				"inner join employee as e on s.employee_id = e.id_employee "+
+				"group by e.name order by sum(amount) desc";
+		return entityManager.createNativeQuery(sql).getResultList();
+	}
 
 }

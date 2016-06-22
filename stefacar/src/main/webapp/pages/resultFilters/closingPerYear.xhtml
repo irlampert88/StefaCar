@@ -11,13 +11,14 @@
 			<h:form id="closingYearForm">
 
 				<p:outputLabel style="font-size: 30px;"
-					value="Fechamento do Mês Desejado" />
+					value="Fechamento do Ano Desejado" />
 				<br />
 				<br />
-				<p:panelGrid columns="1">
-					<p:selectOneMenu id="YearSelect"
+				<p:panelGrid columns="2">
+					<p:outputLabel for="yearSelect" value="Selecione um Ano: "/>
+					<p:selectOneMenu id="yearSelect"
 						value="#{resultFiltersCashManagedBean.year}">
-						<f:selectItem itemLabel="Selecione um mês" itemValue="#{null}"
+						<f:selectItem itemLabel="Escolha um Ano" itemValue="#{null}"
 							noSelectionOption="true" />
 						<f:selectItem itemLabel=" Ano 2004" itemValue="2004" />
 						<f:selectItem itemLabel=" Ano 2005" itemValue="2005" />
@@ -42,7 +43,7 @@
 
 				<p:dataTable id="closingYearTable" var="obj" rows="5"
 					paginator="true" value="#{resultFiltersCashManagedBean.resultList}"
-					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
+					emptyMessage="Não existem Fechamentos"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">
 						<h:outputText value="#{obj[0]}" />

@@ -51,9 +51,9 @@ public class ResultFiltersCashManagedBean implements Serializable{
 		return resultList;			
 	}
 	
-	private List<Object[]> returnSearch(String month){
-		if (month != null) {
-			resultList = repositoryCash.closingPerMonth(month);
+	private List<Object[]> returnSearch(String month, String year){
+		if (month != null && year !=null) {
+			resultList = repositoryCash.closingPerMonth(month, year);
 		}
 		return resultList;			
 	}
@@ -74,7 +74,7 @@ public class ResultFiltersCashManagedBean implements Serializable{
 	}
 	
 	public void populatesPerMonth(){
-		resultList = returnSearch(month);
+		resultList = returnSearch(month, year);
 	}
 	
 	public void populatesPerYear(){

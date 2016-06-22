@@ -6,6 +6,36 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="closingPeriodForm">
+
+				<p:outputLabel style="font-size: 30px;"
+					value="Ranking de Vendedores Desde a Implantação do Sistema" />
+				<br />
+				<br />
+				
+				<p:commandButton value="Atualizar Ranking"
+					update="rankingSaleManTable"
+					action="#{resultFiltersSalesManManagedBean.upgradeRanking}"
+					style="float: right; height: 50px " />
+				
+				<br /><br />
+					
+				<p:dataTable id="rankingSaleManTable" var="obj" rows="5"
+					paginator="true" value="#{resultFiltersSalesManManagedBean.resultList}"
+					emptyMessage="Não existem resultados para essa consulta"
+					style="padding-top:20px;">
+					<p:column headerText="Vendedor" style="text-align: center">
+						<h:outputText value="#{obj[0]}" />
+					</p:column>
+					<p:column headerText="Soma Total das Vendas">
+						<h:outputText value="#{obj[1]}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:decorate>
 
 </h:body>
 </html>

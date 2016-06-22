@@ -42,9 +42,9 @@ public class CashRegisterRepositoryImpl extends AbstractRepository<CashRegister>
 		return entityManager.createNativeQuery(sql).getResultList();
 	}
 	
-	public List<Object[]> closingPerMonth(String month){
+	public List<Object[]> closingPerMonth(String month, String year){
 		String sql = "select dateofsale, (select SUM(amount)) " + "from cashregister where extract(month from dateofsale) = "
-				+ month + " group by dateofsale";
+				+ month +" and extract(year from dateofsale) = "+ year + " group by dateofsale";
 		return entityManager.createNativeQuery(sql).getResultList();
 	}
 	
