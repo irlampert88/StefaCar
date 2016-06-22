@@ -6,7 +6,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:define name="center">
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
 			<h:form id="closingYearForm">
 
 				<p:outputLabel style="font-size: 30px;"
@@ -14,10 +15,10 @@
 				<br />
 				<br />
 				<p:panelGrid columns="1">
-					<p:selectOneMenu id="MonthSelect"
-						value="#{resultFiltersCashManagedBean.month}">
+					<p:selectOneMenu id="YearSelect"
+						value="#{resultFiltersCashManagedBean.year}">
 						<f:selectItem itemLabel="Selecione um mês" itemValue="#{null}"
-							noSelectionOption="true" />						
+							noSelectionOption="true" />
 						<f:selectItem itemLabel=" Ano 2004" itemValue="2004" />
 						<f:selectItem itemLabel=" Ano 2005" itemValue="2005" />
 						<f:selectItem itemLabel=" Ano 2006" itemValue="2006" />
