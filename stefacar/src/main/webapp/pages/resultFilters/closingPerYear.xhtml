@@ -17,7 +17,7 @@
 				<p:panelGrid columns="2">
 					<p:outputLabel for="yearSelect" value="Selecione um Ano: "/>
 					<p:selectOneMenu id="yearSelect"
-						value="#{resultFiltersCashManagedBean.year}">
+						value="#{resultFiltersManagedBean.year}">
 						<f:selectItem itemLabel="Escolha um Ano" itemValue="#{null}"
 							noSelectionOption="true" />
 						<f:selectItem itemLabel=" Ano 2004" itemValue="2004" />
@@ -36,13 +36,13 @@
 					</p:selectOneMenu>
 
 					<p:commandButton id="selectButton" value="Selecionar o Ano"
-						action="#{resultFiltersCashManagedBean.populatesPerYear()}"
+						action="#{resultFiltersManagedBean.populatesPerYear()}"
 						update="closingYearTable" />
 
 				</p:panelGrid>
 
 				<p:dataTable id="closingYearTable" var="closing" rows="5"
-					paginator="true" value="#{resultFiltersCashManagedBean.result}"
+					paginator="true" value="#{resultFiltersManagedBean.result}"
 					emptyMessage="Não existem Fechamentos"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">

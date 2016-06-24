@@ -6,6 +6,75 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="sellerOnMonthForm">
 
+				<p:outputLabel style="font-size: 30px;"
+					value="Ranking de Vendedores pelo Mês Desejada" />
+				<br />
+				<br />
+				<p:panelGrid columns="2">
+					<p:outputLabel for="monthSelect" value="Selecione um Mês: "/>
+					<p:selectOneMenu id="monthSelect"
+						value="#{resultFiltersManagedBean.month}">
+						<f:selectItem itemLabel="Escolha um Mês" itemValue="#{null}"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="Janeiro" itemValue="1" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="2" />
+						<f:selectItem itemLabel="Março" itemValue="3" />
+						<f:selectItem itemLabel="Abril" itemValue="4" />
+						<f:selectItem itemLabel="Maio" itemValue="5" />
+						<f:selectItem itemLabel="Junho" itemValue="6" />
+						<f:selectItem itemLabel="Julho" itemValue="7" />
+						<f:selectItem itemLabel="Agosto" itemValue="8" />
+						<f:selectItem itemLabel="Setembro" itemValue="9" />
+						<f:selectItem itemLabel="Outubro" itemValue="10" />
+						<f:selectItem itemLabel="Novembro" itemValue="11" />
+						<f:selectItem itemLabel="Dezembro" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="yearSelect" value="Selecione um Ano: "/>
+					
+					<p:selectOneMenu id="yearSelect"
+						value="#{resultFiltersManagedBean.year}">
+						<f:selectItem itemLabel="Escolha um Ano" itemValue="#{null}"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel=" Ano 2004" itemValue="2004" />
+						<f:selectItem itemLabel=" Ano 2005" itemValue="2005" />
+						<f:selectItem itemLabel=" Ano 2006" itemValue="2006" />
+						<f:selectItem itemLabel=" Ano 2007" itemValue="2007" />
+						<f:selectItem itemLabel=" Ano 2008" itemValue="2008" />
+						<f:selectItem itemLabel=" Ano 2009" itemValue="2009" />
+						<f:selectItem itemLabel=" Ano 2010" itemValue="2010" />
+						<f:selectItem itemLabel=" Ano 2011" itemValue="2011" />
+						<f:selectItem itemLabel=" Ano 2012" itemValue="2012" />
+						<f:selectItem itemLabel=" Ano 2013" itemValue="2013" />
+						<f:selectItem itemLabel=" Ano 2014" itemValue="2014" />
+						<f:selectItem itemLabel=" Ano 2015" itemValue="2015" />
+						<f:selectItem itemLabel=" Ano 2016" itemValue="2016" />
+					</p:selectOneMenu>
+					<br/>
+
+					<p:commandButton id="selectButton" value="Selecionar a Data"
+						action="#{resultFiltersManagedBean.populatesSellerOnMonth()}"
+						update="rankingOnMonthTable" />
+
+				</p:panelGrid>
+
+				<p:dataTable id="rankingOnMonthTable" var="solds" rows="5"
+					paginator="true" value="#{resultFiltersManagedBean.resultSalesMan}"
+					emptyMessage="Não existem resultados para essa consulta"
+					style="padding-top:20px;">
+					<p:column headerText="Vendedor" style="text-align: center">
+						<h:outputText value="#{solds.nameOrDate}" />
+					</p:column>
+					<p:column headerText="Soma Total das Vendas">
+						<h:outputText value="#{solds.amount}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:decorate>
 </h:body>
 </html>

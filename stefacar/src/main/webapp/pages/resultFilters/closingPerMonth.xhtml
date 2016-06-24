@@ -17,7 +17,7 @@
 				<p:panelGrid columns="2">
 					<p:outputLabel for="monthSelect" value="Selecione um Mês: "/>
 					<p:selectOneMenu id="monthSelect"
-						value="#{resultFiltersCashManagedBean.month}">
+						value="#{resultFiltersManagedBean.month}">
 						<f:selectItem itemLabel="Escolha um Mês" itemValue="#{null}"
 							noSelectionOption="true" />
 						<f:selectItem itemLabel="Janeiro" itemValue="1" />
@@ -37,7 +37,7 @@
 					<p:outputLabel for="yearSelect" value="Selecione um Ano: "/>
 					
 					<p:selectOneMenu id="yearSelect"
-						value="#{resultFiltersCashManagedBean.year}">
+						value="#{resultFiltersManagedBean.year}">
 						<f:selectItem itemLabel="Escolha um Ano" itemValue="#{null}"
 							noSelectionOption="true" />
 						<f:selectItem itemLabel=" Ano 2004" itemValue="2004" />
@@ -57,13 +57,13 @@
 					<br/>
 
 					<p:commandButton id="selectButton" value="Selecionar a Data"
-						action="#{resultFiltersCashManagedBean.populatesPerMonth()}"
+						action="#{resultFiltersManagedBean.populatesPerMonth()}"
 						update="closingMonthTable" />
 
 				</p:panelGrid>
 
 				<p:dataTable id="closingMonthTable" var="closing" rows="5"
-					paginator="true" value="#{resultFiltersCashManagedBean.result}"
+					paginator="true" value="#{resultFiltersManagedBean.result}"
 					emptyMessage="Não existem Fechamentos"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">

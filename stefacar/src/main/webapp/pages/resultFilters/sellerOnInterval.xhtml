@@ -8,10 +8,10 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<h:form id="closingPeriodForm">
+			<h:form id="sellerOnIntervalForm">
 
 				<p:outputLabel style="font-size: 30px;"
-					value="Fechamento do Período Desejado" />
+					value="Ranking de Vendedores pelo Período Desejada" />
 				<br />
 				<br />
 				<p:panelGrid columns="2">
@@ -27,13 +27,13 @@
 					<br />
 
 					<p:commandButton id="selectButton" value="Selecionar a Data"
-						action="#{resultFiltersManagedBean.populatesPerPeriod()}"
-						update="closingPeriodTable" />
+						action="#{resultFiltersManagedBean.populatesSellerOnPeriod()}"
+						update="rankingOnPeriodTable" />
 
 				</p:panelGrid>
 
-				<p:dataTable id="closingPeriodTable" var="closing" rows="5"
-					paginator="true" value="#{resultFiltersManagedBean.result}"
+				<p:dataTable id="rankingOnPeriodTable" var="closing" rows="5"
+					paginator="true" value="#{resultFiltersManagedBean.resultSalesMan}"
 					emptyMessage="Não existem Fechamentos"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">

@@ -8,7 +8,7 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<h:form id="closingPeriodForm">
+			<h:form id="decreasingSellerForm">
 
 				<p:outputLabel style="font-size: 30px;"
 					value="Ranking de Vendedores Desde a Implantação do Sistema" />
@@ -17,20 +17,20 @@
 				
 				<p:commandButton value="Atualizar Ranking"
 					update="rankingSaleManTable"
-					action="#{resultFiltersSalesManManagedBean.upgradeRanking}"
+					action="#{resultFiltersManagedBean.upgradeRanking}"
 					style="float: right; height: 50px " />
 				
 				<br /><br />
 					
-				<p:dataTable id="rankingSaleManTable" var="closing" rows="5"
-					paginator="true" value="#{resultFiltersSalesManManagedBean.resultList}"
+				<p:dataTable id="rankingSaleManTable" var="solds" rows="5"
+					paginator="true" value="#{resultFiltersManagedBean.resultSalesMan}"
 					emptyMessage="Não existem resultados para essa consulta"
 					style="padding-top:20px;">
 					<p:column headerText="Vendedor" style="text-align: center">
-						<h:outputText value="#{closing.nameOrDate}" />
+						<h:outputText value="#{solds.nameOrDate}" />
 					</p:column>
 					<p:column headerText="Soma Total das Vendas">
-						<h:outputText value="#{closing.amount}" />
+						<h:outputText value="#{solds.amount}" />
 					</p:column>
 				</p:dataTable>
 			</h:form>

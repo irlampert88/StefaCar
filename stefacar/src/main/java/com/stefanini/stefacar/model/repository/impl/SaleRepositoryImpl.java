@@ -26,7 +26,7 @@ public class SaleRepositoryImpl extends AbstractRepository<Sale> {
 	}
 	
 	public List<Sale> listAllRecordsByActive(){
-		return entityManager.createQuery("select l from " + Sale.class.getSimpleName() + " l where progress = true").getResultList();
+		return entityManager.createQuery("select l from "+Sale.class.getSimpleName()+" l where progress = true").getResultList();
 	}
 	
 	public List<ResultSearch> listForRanking(){
@@ -38,5 +38,35 @@ public class SaleRepositoryImpl extends AbstractRepository<Sale> {
 		
 		return creationProcess(objectList);
 	}
-
+	
+	public List<ResultSearch> listForRankingOnDay(String day){
+		String sql = "select e.name, sum(amount) from cashregister as c inner join sale as s on sale_id = s.id_sale "+
+				"inner join employee as e on s.employee_id = e.id_employee "+
+				"where dateofsale = " + "'" + day + "'" + " group by e.name order by sum(amount) desc";
+		
+		List<Object[]> objectList = entityManager.createNativeQuery(sql).getResultList();
+		
+		return creationProcess(objectList);
+	}
+	
+	public List<ResultSearch> listForRankingOnMonth(String month, String year){
+		String sql = "select e.name, sum(amount) from cashregister as c inner join sale as s on sale_id = s.id_sale "+ 
+				"inner join employee as e on s.employee_id = e.id_employee where extract(month from dateofsale) = "+  
+				"'" + month + "'" + " and extract(year from dateofsale) = " + "'" + year + "'" +" group by e.name "+
+				"order by sum(amount) desc";
+		
+		List<Object[]> objectList = entityManager.createNativeQuery(sql).getResultList();
+		
+		return creationProcess(objectList);
+	}
+	
+	public List<ResultSearch> listForRankingOnPeriod(String d1, String d2){
+		String sql = "select e.name, sum(amount) from cashregister as c inner join sale as s on sale_id = s.id_sale "+ 
+				"inner join employee as e on s.employee_id = e.id_employee where dateofsale between "+"'"+d1+"'"+" and "
+				+"'"+d2+"'"+" group by e.name order by sum(amount) desc";
+		
+		List<Object[]> objectList = entityManager.createNativeQuery(sql).getResultList();
+		
+		return creationProcess(objectList);
+	}
 }

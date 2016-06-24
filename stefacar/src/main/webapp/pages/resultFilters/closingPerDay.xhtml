@@ -17,16 +17,15 @@
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Selecione uma Data: " for="dataSelect" />
 					<p:calendar id="dataSelect"
-						value="#{resultFiltersCashManagedBean.specificDate}"
+						value="#{resultFiltersManagedBean.specificDate}"
 						navigator="true" />
 					<br/>
 					<p:commandButton id="selectButton" value="Selecionar a Data"
-						action="#{resultFiltersCashManagedBean.populatesPerDay()}"
+						action="#{resultFiltersManagedBean.populatesPerDay()}"
 						update="closingDayTable" />
 				</p:panelGrid>
 
-				<p:dataTable id="closingDayTable" var="closing" rows="5"
-					value="#{resultFiltersCashManagedBean.result}"
+				<p:dataTable id="closingDayTable" var="closing" value="#{resultFiltersManagedBean.result}"
 					emptyMessage="Não existem Fechamentos"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">
