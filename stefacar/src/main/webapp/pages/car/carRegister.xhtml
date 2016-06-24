@@ -33,11 +33,16 @@
 						oncomplete="PF('dialogModel').show();" />
 
 				</p:panelGrid>
-				<ui:include src="../popups/popup-selectModel.xhtml" />
+				<ui:include src="../popups/popup-selectModel.xhtml">
+					<ui:param name="title" value="Modelos" />
+					<ui:param name="target" value="#{carManagedBean.car.model}" />
+					<ui:param name="list" value="#{modelCarManagedBean.dataList}" />
+					<ui:param name="form" value="carForm" />					
+				</ui:include>
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{carManagedBean.save()}" icon="fa fa-fw fa-save" />
-					<p:button href="carView.xhtml" value="Voltar"/>
+				<p:button href="carView.xhtml" value="Voltar" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{carManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>

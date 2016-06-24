@@ -34,7 +34,7 @@ public class Car {
 		this.price = price;
 		this.color = color;
 		this.id = id;
-		this.avaliable = false;
+		this.avaliable = true;
 	}
 	
 	//GETERS & SETERS

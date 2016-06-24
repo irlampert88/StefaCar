@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import com.stefanini.stefacar.model.domain.ResultSearch;
 import com.stefanini.stefacar.model.repository.impl.SaleRepositoryImpl;
 
 @ManagedBean
@@ -22,7 +23,7 @@ public class ResultFiltersSalesManManagedBean implements Serializable{
 	@Inject
 	SaleRepositoryImpl repositorySale;
 	
-	private List<Object[]>resultList;
+	private List<ResultSearch>resultList;
 	
 	@PostConstruct
 	public void init() {
@@ -36,14 +37,11 @@ public class ResultFiltersSalesManManagedBean implements Serializable{
 	
 	//GETERS & SETERS
 
-	public List<Object[]> getResultList() {
+	public List<ResultSearch> getResultList() {
 		return resultList;
 	}
 
-	public void setResultList(List<Object[]> resultList) {
+	public void setResultList(List<ResultSearch> resultList) {
 		this.resultList = resultList;
 	}
-	
-	
-
 }

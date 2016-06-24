@@ -25,15 +25,15 @@
 						update="closingDayTable" />
 				</p:panelGrid>
 
-				<p:dataTable id="closingDayTable" var="obj" rows="5"
-					value="#{resultFiltersCashManagedBean.resultList}"
+				<p:dataTable id="closingDayTable" var="closing" rows="5"
+					value="#{resultFiltersCashManagedBean.result}"
 					emptyMessage="Não existem Fechamentos"
 					style="padding-top:20px;">
 					<p:column headerText="Data" style="text-align: center">
-						<h:outputText value="#{obj[0]}" />
+						<h:outputText value="#{closing.nameOrDate}" />
 					</p:column>
 					<p:column headerText="Soma Total das Receitas">
-						<h:outputText value="#{obj[1]}" />
+						<h:outputText value="#{closing.amount}" />
 					</p:column>
 				</p:dataTable>
 			</h:form>
