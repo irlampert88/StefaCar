@@ -6,6 +6,49 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="consultationByBrandForm">
 
+				<p:outputLabel style="font-size: 30px;" value="Consulta de venda por Marca Desejada" />
+				<br />
+				<br />
+				
+				<p:selectOneMenu id="comboBrand" converter="comboBoxConverter"
+					value="#{resultFiltersSalesCarManagedBean.selectedBrand}"
+					valueChangeListener="#{resultFiltersSalesCarManagedBean.deliveryCarByBrand}">
+					<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />					
+					<f:selectItems value="#{resultFiltersSalesCarManagedBean.resultBrand}" var="brand"
+						itemLabel="#{brand.name}" itemValue="#{brand.id}" />
+					<p:ajax event="change" process="@this" update="tableStockCars" />					
+				</p:selectOneMenu>	
+				
+				<p:dataTable rowKey="#{car.price}" id="tableStockCars" var="car"
+				value="#{resultFiltersSalesCarManagedBean.result}"
+				emptyMessage="Não existem carros no estoque com a marca selecionada"
+				style="padding-top:20px;">
+				
+				<p:column headerText="Categoria">
+					<h:outputText value="#{car.type}" />
+				</p:column>
+				<p:column headerText="Model">
+					<h:outputText value="#{car.model}" />
+				</p:column>
+				<p:column headerText="Versão">
+					<h:outputText value="#{car.version}" />
+				</p:column>
+				<p:column headerText="Cor">
+					<h:outputText value="#{car.color}" />
+				</p:column>
+				<p:column headerText="Ano">
+					<h:outputText value="#{car.year}" />
+				</p:column>
+				<p:column headerText="Valor">
+					<h:outputText value="#{car.price}" converter="money"/>
+				</p:column>
+			</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:decorate>
 </h:body>
 </html>

@@ -21,7 +21,7 @@ public class SaleCarShow implements Serializable{
 		this.year = year;
 		this.idModel = idModel;
 		this.idCar = idCar;
-	}
+	} 
 	
 	public SaleCarShow() {
 		
