@@ -4,7 +4,7 @@
 	bean-discovery-mode="all">
 
 	<interceptors>
-		<class>com.stefanini.stefacar.infra.dao.transactional.TransactionalInterceptor</class>
+		<class>com.stefanini.stefacar.infra.dao.transactional.TransactionalInterceptor</class>		
 	</interceptors>
 
 </beans>
