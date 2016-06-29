@@ -29,7 +29,7 @@
 					<p:column headerText="Ações" style="text-align: center">
 
 						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar a Marca"
-							action="#{brandCarManagedBean.delete(brand)}">
+							action="#{brandCarManagedBean.delete(brand)}" update="brandCarTable">
 							<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
 								icon="ui-icon-alert" />
 						</p:commandButton>
