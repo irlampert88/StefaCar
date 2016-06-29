@@ -31,6 +31,9 @@
 					<p:outputLabel for="btnModalModel" value="Seleção de Modelo: " />
 					<p:commandButton value="Selecionar Modelo" id="btnModalModel"
 						oncomplete="PF('dialogModel').show();" />
+					<p:outputLabel for="btnModalModel"
+						value="#{carManagedBean.car.model.name}" />
+
 
 				</p:panelGrid>
 				<ui:include src="../popups/popup-selectModel.xhtml">

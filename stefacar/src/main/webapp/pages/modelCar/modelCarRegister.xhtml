@@ -47,7 +47,8 @@
 					<p:outputLabel for="btnModalBrand" value="Marca : " />
 					<p:commandButton id="btnModalBrand"
 						oncomplete="PF('dialogBrand').show();" icon="fa fa-fw fa-search" />
-					<p:outputLabel />
+					<p:outputLabel for="btnModalBrand"
+						value="#{modelCarManagedBean.model.brand.name}" />
 
 					<p:outputLabel for="id" value="Categoria :" />
 
@@ -63,11 +64,15 @@
 
 				</p:panelGrid>
 
-				<ui:include src="../popups/popup-selectBrand.xhtml" />
+				<ui:include src="../popups/popup-selectBrand.xhtml">
+					<ui:param name="title" value="Marcas" />
+					<ui:param name="target" value="#{modelCarManagedBean.model.brand}" />
+					<ui:param name="list" value="#{brandCarManagedBean.dataList}" />
+				</ui:include>
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
 					action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" />
-					<p:button href="modelCarView.xhtml" value="Voltar"/>
+				<p:button href="modelCarView.xhtml" value="Voltar" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
 			</h:form>
