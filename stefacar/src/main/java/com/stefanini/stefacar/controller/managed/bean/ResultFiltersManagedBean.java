@@ -69,6 +69,24 @@ public class ResultFiltersManagedBean implements Serializable {
 		}
 	}
 	
+	public void populatesSeller(){
+		if (specificDate != null && specificDateFinal == null) {
+			populatesSellerOnDay();
+			MessengerSystem.notificaInformacao("Sucesso", "Ranking Diário");
+		} else if (specificDate != null && specificDateFinal != null && month == null && year == null) {
+			populatesSellerOnPeriod();
+			MessengerSystem.notificaInformacao("Sucesso", "Ranking do Período");
+		} else if (month == null && year != null) {
+			populatesPerYear();
+			MessengerSystem.notificaInformacao("Sucesso", "Relatório Anual");
+		} else if (month != null && year != null){
+			populatesPerMonth();
+			MessengerSystem.notificaInformacao("Sucesso", "Relatório Mensal");
+		} else {
+			MessengerSystem.nootificaErro("Campo nulo", "Data Inicial ou Ano não preenchida");
+		}
+	}
+	
 	private void clean() {
 		this.interval1 = null;
 		this.interval2 = null;
@@ -78,28 +96,28 @@ public class ResultFiltersManagedBean implements Serializable {
 		this.specificDateFinal = null;
 	}
 
-	public void upgradeRanking() {
-		resultSalesMan = repositorySale.listForRanking();
-	}
-
-	public void upgradeRankingToDay() {
-		if (specificDate != null) {
-			resultSalesMan = repositorySale.listForRankingOnDay(DateUtil.dateToStringFormatBD(specificDate));
-		} else {
-			MessengerSystem.nootificaErro("Ops!", "Você não preencheu a Data.");
-		}
-		clean();
-	}
-
-	public void upgradeRankingToMonth() {
-		resultSalesMan = repositorySale.listForRankingOnMonth(month, year);
-		clean();
-	}
-
-	public void upgradeRankingToInterval() {
-		resultSalesMan = repositorySale.listForRanking();
-		clean();
-	}
+//	public void upgradeRanking() {
+//		resultSalesMan = repositorySale.listForRanking();
+//	}
+//
+//	public void upgradeRankingToDay() {
+//		if (specificDate != null) {
+//			resultSalesMan = repositorySale.listForRankingOnDay(DateUtil.dateToStringFormatBD(specificDate));
+//		} else {
+//			MessengerSystem.nootificaErro("Ops!", "Você não preencheu a Data.");
+//		}
+//		clean();
+//	}
+//
+//	public void upgradeRankingToMonth() {
+//		resultSalesMan = repositorySale.listForRankingOnMonth(month, year);
+//		clean();
+//	}
+//
+//	public void upgradeRankingToInterval() {
+//		resultSalesMan = repositorySale.listForRanking();
+//		clean();
+//	}
 
 	public void populatesPerDay() {		
 		result = returnSearch(specificDate);

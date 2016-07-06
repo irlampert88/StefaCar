@@ -8,12 +8,61 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<h:form id="decreasingSellerForm">
-
-				<p:outputLabel style="font-size: 30px;"
-					value="Ranking de Vendedores Desde a Implantação do Sistema" />
+			<h:form id="decreasingSellerForm">			
+				<p:outputLabel style="font-size: 30px; margin-left: 11%" value="Ranking de Vendedores" />				
 				<br />
 				<br />
+				
+				<p:panelGrid columns="4">
+					<p:outputLabel value="Selecione uma Data: " for="dataSel" />
+					<p:calendar id="dataSel" placeholder="Data Inicial"
+						value="#{resultFiltersManagedBean.specificDate}"
+						navigator="true" />
+					
+					<p:outputLabel value="Selecione o fim do Intervalo: " for="finalSelect" />
+					<p:calendar id="finalSelect" placeholder="Data Final"
+						value="#{resultFiltersManagedBean.specificDateFinal}"
+						navigator="true" />
+					
+					<p:outputLabel for="monthSelect" value="Selecione um Mês: "/>
+					<p:selectOneMenu id="monthSelect" 
+						value="#{resultFiltersManagedBean.month}">
+						<f:selectItem itemLabel="Se quiser mensal" itemValue="#{null}"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="Janeiro" itemValue="1" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="2" />
+						<f:selectItem itemLabel="Março" itemValue="3" />
+						<f:selectItem itemLabel="Abril" itemValue="4" />
+						<f:selectItem itemLabel="Maio" itemValue="5" />
+						<f:selectItem itemLabel="Junho" itemValue="6" />
+						<f:selectItem itemLabel="Julho" itemValue="7" />
+						<f:selectItem itemLabel="Agosto" itemValue="8" />
+						<f:selectItem itemLabel="Setembro" itemValue="9" />
+						<f:selectItem itemLabel="Outubro" itemValue="10" />
+						<f:selectItem itemLabel="Novembro" itemValue="11" />
+						<f:selectItem itemLabel="Dezembro" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="yearSelect" value="Selecione um Ano: "/>					
+					<p:selectOneMenu id="yearSelect"
+						value="#{resultFiltersManagedBean.year}">
+						<f:selectItem itemLabel="Escolha um Ano" itemValue="#{null}"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel=" Ano 2004" itemValue="2004" />
+						<f:selectItem itemLabel=" Ano 2005" itemValue="2005" />
+						<f:selectItem itemLabel=" Ano 2006" itemValue="2006" />
+						<f:selectItem itemLabel=" Ano 2007" itemValue="2007" />
+						<f:selectItem itemLabel=" Ano 2008" itemValue="2008" />
+						<f:selectItem itemLabel=" Ano 2009" itemValue="2009" />
+						<f:selectItem itemLabel=" Ano 2010" itemValue="2010" />
+						<f:selectItem itemLabel=" Ano 2011" itemValue="2011" />
+						<f:selectItem itemLabel=" Ano 2012" itemValue="2012" />
+						<f:selectItem itemLabel=" Ano 2013" itemValue="2013" />
+						<f:selectItem itemLabel=" Ano 2014" itemValue="2014" />
+						<f:selectItem itemLabel=" Ano 2015" itemValue="2015" />
+						<f:selectItem itemLabel=" Ano 2016" itemValue="2016" />
+					</p:selectOneMenu>									
+				</p:panelGrid>
 				
 				<p:commandButton value="Atualizar Ranking"
 					update="rankingSaleManTable"

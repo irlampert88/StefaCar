@@ -25,12 +25,8 @@
 					<p:commandButton id="selectButton" value="Selecionar a Data"
 						action="#{resultFiltersManagedBean.populatesSellerOnDay()}"
 						update="rankingOnDayTable" />
-				</p:panelGrid>
-				<p:commandButton id="refreshTable" value="Atualizar Ranking"
-					update="rankingOnDayTable"
-					action="#{resultFiltersManagedBean.upgradeRankingToDay}"
-					style="float: right; height: 50px " />				
-				
+				</p:panelGrid>	
+								
 				<br /><br />
 					
 				<p:dataTable id="rankingOnDayTable" var="solds" value="#{resultFiltersManagedBean.resultSalesMan}"
