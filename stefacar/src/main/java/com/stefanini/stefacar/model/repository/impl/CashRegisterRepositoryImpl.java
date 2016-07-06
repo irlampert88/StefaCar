@@ -3,9 +3,8 @@ package com.stefanini.stefacar.model.repository.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.text.NumberFormat;
 import com.stefanini.stefacar.controller.converter.DateUtil;
-
 import com.stefanini.stefacar.model.domain.CashRegister;
 import com.stefanini.stefacar.model.domain.ResultSearch;
 
@@ -38,7 +37,8 @@ public class CashRegisterRepositoryImpl extends AbstractRepository<CashRegister>
 				Date date = (Date)objects[0];
 				String dateOfSale = DateUtil.dateToString(date);
 				Double amount = (Double)objects[1];
-				ResultSearch result = new ResultSearch(dateOfSale, amount);
+				System.out.println(NumberFormat.getCurrencyInstance().format(amount));
+				ResultSearch result = new ResultSearch(dateOfSale, NumberFormat.getCurrencyInstance().format(amount));
 				resultSearch.add(result);
 			}
 		}
@@ -79,6 +79,5 @@ public class CashRegisterRepositoryImpl extends AbstractRepository<CashRegister>
 		List<Object[]> objectList = entityManager.createNativeQuery(sql).getResultList();
 		
 		return creationProcess(objectList); 
-	}
-	
+	}	
 }

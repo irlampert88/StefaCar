@@ -10,9 +10,9 @@ public class ResultSearch implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String nameOrDate;
-	private Double amount;
+	private String amount;
 	
-	public ResultSearch(String name, Double amount) { 
+	public ResultSearch(String name, String amount) { 
 		this.nameOrDate = name;
 		this.amount = amount;
 	}
@@ -23,10 +23,10 @@ public class ResultSearch implements Serializable{
 	
 	//GETERS & SETERS
 	
-	public Double getAmount() {
+	public String getAmount() {
 		return amount;
 	}
-	public void setAmount(Double amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

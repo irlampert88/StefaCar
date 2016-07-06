@@ -1,5 +1,6 @@
 package com.stefanini.stefacar.model.repository.impl;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,7 @@ public class SaleRepositoryImpl extends AbstractRepository<Sale> {
 			for (Object[] objects : objectArray) {			 
 				String name = (String)objects[0];
 				Double amount = (Double)objects[1];
-				ResultSearch result = new ResultSearch(name, amount);
+				ResultSearch result = new ResultSearch(name, (NumberFormat.getCurrencyInstance().format(amount)));
 				resultSearch.add(result);
 			}
 		}
