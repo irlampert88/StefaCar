@@ -38,7 +38,7 @@ public class ResultFiltersSalesCarManagedBean implements Serializable{
 	@PostConstruct
 	public void init(){
 		result = new ArrayList<>();
-		resultBrand = repositoryBrand.listAllRecords();
+		resultBrand = repositoryBrand.listAllRecordsbyOrderName();
 	}
 	
 	public void deliveryCarByBrand(ValueChangeEvent event) {

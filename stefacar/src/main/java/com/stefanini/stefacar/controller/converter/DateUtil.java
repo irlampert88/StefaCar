@@ -40,6 +40,12 @@ public class DateUtil {
         return(dataString);
     }
     
+    public static String dateToStringYear(Date data){
+    	SimpleDateFormat formatador = new SimpleDateFormat("yyyy");
+    	String dataString = formatador.format(data);
+    	return (dataString);
+    }
+    
     public static boolean verificaData(String data)
     {
        return(data.matches("\\d{2}/\\d{2}/\\d{4}"));

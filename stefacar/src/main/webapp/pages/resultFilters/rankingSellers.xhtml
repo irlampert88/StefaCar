@@ -8,7 +8,10 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-			<h:form id="decreasingSellerForm">			
+			<h:form id="decreasingSellerForm">		
+			
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+					
 				<p:outputLabel style="font-size: 30px; margin-left: 11%" value="Ranking de Vendedores" />				
 				<br />
 				<br />
@@ -63,11 +66,8 @@
 						<f:selectItem itemLabel=" Ano 2016" itemValue="2016" />
 					</p:selectOneMenu>									
 				</p:panelGrid>
-				
-				<p:commandButton value="Atualizar Ranking"
-					update="rankingSaleManTable"
-					action="#{resultFiltersManagedBean.upgradeRanking}"
-					style="float: right; height: 50px " />
+				<p:commandButton id="selectButton" value="Selecionar a Data" style="margin-left: 20%; height:55px;"
+						action="#{resultFiltersManagedBean.populatesSeller()}" update="rankingSaleManTable growl" process="@form" />			
 				
 				<br /><br />
 					

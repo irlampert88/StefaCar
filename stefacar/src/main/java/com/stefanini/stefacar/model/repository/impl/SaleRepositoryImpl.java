@@ -70,4 +70,13 @@ public class SaleRepositoryImpl extends AbstractRepository<Sale> {
 		
 		return creationProcess(objectList);
 	}
+	
+	public List<ResultSearch> listForRankingOnYear(String year){
+		String sql = "select e.name, sum(amount) from cashregister as c inner join sale as s on sale_id = s.id_sale "+ 
+				"inner join employee as e on s.employee_id = e.id_employee where extract(year from dateofsale) = "+"'"+year+"' "+  
+				"group by e.name order by sum(amount) desc";
+		List<Object[]> objectList = entityManager.createNativeQuery(sql).getResultList();
+		
+		return creationProcess(objectList);
+	}
 }

@@ -35,8 +35,6 @@ public class ResultFiltersManagedBean implements Serializable {
 	private List<ResultSearch> resultSalesMan;
 	private Date specificDate;
 	private Date specificDateFinal;
-	private Date interval1;
-	private Date interval2;
 	private String month, year;
 
 	@PostConstruct
@@ -45,6 +43,13 @@ public class ResultFiltersManagedBean implements Serializable {
 		resultSalesMan = repositorySale.listForRanking();
 	}
 
+	private void clean() {
+		this.month = null;
+		this.year = null;
+		this.specificDate = null;
+		this.specificDateFinal = null;
+	}
+	
 	public void populates() {
 		try {
 			if (specificDate != null && specificDateFinal == null) {
@@ -59,65 +64,18 @@ public class ResultFiltersManagedBean implements Serializable {
 			} else if (month != null && year != null){
 				populatesPerMonth();
 				MessengerSystem.notificaInformacao("Sucesso", "Relatório Mensal");
+			} else if(month != null && year == null){
+				populatesPerMonth();
+				MessengerSystem.notificaInformacao("Foi gerado do ano corrente", "Relatório Mensal");
 			} else {
-				MessengerSystem.nootificaErro("Campo nulo", "Data Inicial ou Ano não preenchida");
+				MessengerSystem.nootificaErro("Campo nulo", "Data Inicial não preenchida");
 			}
 		} catch (NullPointerException e) {
 			MessengerSystem.nootificaErro("Campo nulo", "Data Inicial ou Ano não preenchida");
 		} catch (IndexOutOfBoundsException e) {
 			MessengerSystem.nootificaErro("Lista Vazia", "Lista Vazia");
 		}
-	}
-	
-	public void populatesSeller(){
-		if (specificDate != null && specificDateFinal == null) {
-			populatesSellerOnDay();
-			MessengerSystem.notificaInformacao("Sucesso", "Ranking Diário");
-		} else if (specificDate != null && specificDateFinal != null && month == null && year == null) {
-			populatesSellerOnPeriod();
-			MessengerSystem.notificaInformacao("Sucesso", "Ranking do Período");
-		} else if (month == null && year != null) {
-			populatesPerYear();
-			MessengerSystem.notificaInformacao("Sucesso", "Relatório Anual");
-		} else if (month != null && year != null){
-			populatesPerMonth();
-			MessengerSystem.notificaInformacao("Sucesso", "Relatório Mensal");
-		} else {
-			MessengerSystem.nootificaErro("Campo nulo", "Data Inicial ou Ano não preenchida");
-		}
-	}
-	
-	private void clean() {
-		this.interval1 = null;
-		this.interval2 = null;
-		this.month = null;
-		this.year = null;
-		this.specificDate = null;
-		this.specificDateFinal = null;
-	}
-
-//	public void upgradeRanking() {
-//		resultSalesMan = repositorySale.listForRanking();
-//	}
-//
-//	public void upgradeRankingToDay() {
-//		if (specificDate != null) {
-//			resultSalesMan = repositorySale.listForRankingOnDay(DateUtil.dateToStringFormatBD(specificDate));
-//		} else {
-//			MessengerSystem.nootificaErro("Ops!", "Você não preencheu a Data.");
-//		}
-//		clean();
-//	}
-//
-//	public void upgradeRankingToMonth() {
-//		resultSalesMan = repositorySale.listForRankingOnMonth(month, year);
-//		clean();
-//	}
-//
-//	public void upgradeRankingToInterval() {
-//		resultSalesMan = repositorySale.listForRanking();
-//		clean();
-//	}
+	}	
 
 	public void populatesPerDay() {		
 		result = returnSearch(specificDate);
@@ -125,34 +83,32 @@ public class ResultFiltersManagedBean implements Serializable {
 	}
 
 	private List<ResultSearch> returnSearch(Date d) {
-		if (specificDate != null) {
 			result = repositoryCash.closingPerDay(DateUtil.dateToStringFormatBD(d));			
-		}
 		return result;
 	}
 
 	public void populatesPerPeriod() {
-		result = returnSearch(interval1, interval2);
+		result = returnSearch(specificDate, specificDateFinal);
 		clean();
 	}
 
 	private List<ResultSearch> returnSearch(Date d1, Date d2) {
-		if (interval1 != null && interval2 != null) {
-			result = repositoryCash.closingPerPeriod(DateUtil.dateToStringFormatBD(d1),
-					DateUtil.dateToStringFormatBD(d2));
-		}
+		result = repositoryCash.closingPerPeriod(DateUtil.dateToStringFormatBD(d1), DateUtil.dateToStringFormatBD(d2));
 		return result;
 	}
 
 	public void populatesPerMonth() {
-		result = returnSearch(month, year);
+		if(year == null){
+			String yearTemporary = DateUtil.dateToStringYear(new Date());
+			result = returnSearch(month, yearTemporary);
+		}else{
+			result = returnSearch(month, year);			
+		}
 		clean();
 	}
 
 	private List<ResultSearch> returnSearch(String month, String year) {
-		if (month != null && year != null) {
 			result = repositoryCash.closingPerMonth(month, year);
-		}
 		return result;
 	}
 
@@ -170,6 +126,27 @@ public class ResultFiltersManagedBean implements Serializable {
 
 
 	// COMEÇO DAS SELEÇÕES DE VENDEDORES
+	
+	public void populatesSeller(){
+		if (specificDate != null && specificDateFinal == null) {
+			populatesSellerOnDay();
+			MessengerSystem.notificaInformacao("Sucesso", "Ranking Diário");
+		} else if (specificDate != null && specificDateFinal != null && month == null && year == null) {
+			populatesSellerOnPeriod();
+			MessengerSystem.notificaInformacao("Sucesso", "Ranking do Período");
+		} else if (month == null && year != null) {
+			populatesPerYear();
+			MessengerSystem.notificaInformacao("Sucesso", "Relatório Anual");
+		} else if (month != null && year != null){
+			populatesSellerOnMonth();
+			MessengerSystem.notificaInformacao("Sucesso", "Relatório Mensal");
+		} else if(month != null && year == null){
+			populatesSellerOnMonth();
+			MessengerSystem.notificaInformacao("Foi gerado do ano corrente", "Relatório Mensal");
+		} else {
+			MessengerSystem.nootificaErro("Campo nulo", "Data Inicial não preenchida");
+		}
+	}
 
 	public void populatesSellerOnDay() {
 		resultSalesMan = returnSellerOnDay(specificDate);
@@ -177,35 +154,42 @@ public class ResultFiltersManagedBean implements Serializable {
 	}
 
 	private List<ResultSearch> returnSellerOnDay(Date d) {
-		if (specificDate != null) {
-			resultSalesMan = repositorySale.listForRankingOnDay(DateUtil.dateToStringFormatBD(d));
-		}
+		resultSalesMan = repositorySale.listForRankingOnDay(DateUtil.dateToStringFormatBD(d));
 		return resultSalesMan;
 	}
 
 	public void populatesSellerOnMonth() {
-		resultSalesMan = returnSellerOnMonth(month, year);
+		if(year == null){
+			String yearTemporary = DateUtil.dateToStringYear(new Date());
+			resultSalesMan = returnSellerOnMonth(month, yearTemporary);			
+		} else{
+			resultSalesMan = returnSellerOnMonth(month, year);
+		}
 		clean();
 	}
 
 	private List<ResultSearch> returnSellerOnMonth(String month, String year) {
-		if (month != null && year != null) {
-			resultSalesMan = repositorySale.listForRankingOnMonth(month, year);
-		}
+		resultSalesMan = repositorySale.listForRankingOnMonth(month, year);
 		return resultSalesMan;
 	}
 
 	public void populatesSellerOnPeriod() {
-		resultSalesMan = returnSellerOnPeriod(interval1, interval2);
+		resultSalesMan = returnSellerOnPeriod(specificDate, specificDateFinal);
 		clean();
 	}
 
 	private List<ResultSearch> returnSellerOnPeriod(Date d1, Date d2) {
-		if (interval1 != null && interval2 != null) {
-			resultSalesMan = repositorySale.listForRankingOnPeriod(DateUtil.dateToStringFormatBD(d1),
-					DateUtil.dateToStringFormatBD(d2));
-		}
+		resultSalesMan=repositorySale.listForRankingOnPeriod(DateUtil.dateToStringFormatBD(d1), DateUtil.dateToStringFormatBD(d2));
 		return resultSalesMan;
+	}
+	
+	public void populatesSellerOnYear() {
+		returnSellerOnYear(year);
+		clean();
+	}
+	
+	private List<ResultSearch> returnSellerOnYear(String year){
+		return repositorySale.listForRankingOnYear(year);
 	}
 
 	// GETERS & SETERS
@@ -217,23 +201,7 @@ public class ResultFiltersManagedBean implements Serializable {
 	public void setSpecificDate(Date specificDate) {
 		this.specificDate = specificDate;
 	}
-
-	public Date getInterval1() {
-		return interval1;
-	}
-
-	public void setInterval1(Date interval1) {
-		this.interval1 = interval1;
-	}
-
-	public Date getInterval2() {
-		return interval2;
-	}
-
-	public void setInterval2(Date interval2) {
-		this.interval2 = interval2;
-	}
-
+	
 	public String getMonth() {
 		return month;
 	}

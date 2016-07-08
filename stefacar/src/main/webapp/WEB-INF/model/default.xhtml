@@ -93,17 +93,11 @@
 				<b:dropMenu value="Relatórios"
 					rendered="#{sessionManagedBean.login.ROLE_ADM|| sessionManagedBean.login.ROLE_MANAGER}">
 
-					<b:navLink value="Fechamento de caixa por dia"
+					<b:navLink value="Fechamento de Caixa"
 						href="/stefacar/pages/resultFilters/closing.xhtml" />														
 					<p:separator />
-					<b:navLink value="Por vendedor em ordem decrescente"
-						href="/stefacar/pages/resultFilters/decreasingSeller.xhtml" />
-					<b:navLink value="Por vendedor que mais vendeu no dia específico"
-						href="/stefacar/pages/resultFilters/sellerOnDay.xhtml" />
-					<b:navLink value="Por vendedor que mais vendeu no mês"
-						href="/stefacar/pages/resultFilters/sellerOnMonth.xhtml" />
-					<b:navLink value="Por vendedor que mais vendeu no intervalo específico"
-						href="/stefacar/pages/resultFilters/sellerOnInterval.xhtml" />
+					<b:navLink value="Ranking de vendedores"
+						href="/stefacar/pages/resultFilters/rankingSellers.xhtml" />
 					<p:separator />
 					<b:navLink value="Por marca de carro vendido"
 						href="/stefacar/pages/resultFilters/carBrandSold.xhtml" />
