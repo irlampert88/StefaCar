@@ -6,18 +6,34 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+
 <h:body>
+<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
+		<p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
+  			  <p:graphicImage name="/Users/Public/Pictures/Sample Pictures/images.jpg" />
+		</p:dialog>
 			<h:form>
 				<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
 				<p:button href="clientRegister.xhtml" value="Novo Cadastro"
 					style="left:20px" />
+				<p:commandButton value="Download" ajax="false"
+					icon="ui-icon-arrowthick-1-s">
+					<p:fileDownload value="#{fileDownloadView.file}" />
+				</p:commandButton>
 				<p:dataTable id="clientTable" var="client"
 					value="#{clientManagedBean.dataList}"
 					emptyMessage="Não existem clientes cadastrados"
-					style="padding-top:20px;" rows="5"
-                         paginator="true">
+					style="padding-top:20px;" rows="5" paginator="true">
 					<p:column headerText="Name" style="text-align: center">
 						<h:outputText value="#{client.name}" />
 					</p:column>

@@ -1,24 +1,24 @@
 package com.stefanini.stefacar.controller.managed.bean;
 
-import java.util.List;
+import java.io.InputStream;
 
-import javax.inject.Inject;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
-import com.stefanini.stefacar.controller.jasper.Report;
-import com.stefanini.stefacar.model.domain.Client;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
+@ManagedBean
 public class ReportManagedBean {
-	@Inject
-	private Report report;
+	private StreamedContent file;
 
-	public void generateClienteReport(List<Client> client) {
-		String target="ClientReport.jrxml";
-		try {
-			report.print(client,target);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public ReportManagedBean() {
+		InputStream stream = FacesContext.getCurrentInstance().getExternalContext()
+				.getResourceAsStream("/Users/pvmeira/Desktop/Relatorios/relatorioDeCliente.pdf");
+		file = new DefaultStreamedContent(stream, "application/pdf", "relatorio.pdf");
+	}
 
+	public StreamedContent getFile() {
+		return file;
 	}
 }
