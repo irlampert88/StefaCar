@@ -22,7 +22,7 @@
 						<h:outputText value="#{pieces.name}" />
 					</p:column>
 					<p:column headerText="Valor" style="text-align: center">
-						<h:outputText value="#{pieces.value}" />
+						<h:outputText value="#{pieces.value}" converter="money"/>
 					</p:column>
 					<p:column headerText="Nº de série" style="text-align: center">
 						<h:outputText value="#{pieces.serialNumber}" />
