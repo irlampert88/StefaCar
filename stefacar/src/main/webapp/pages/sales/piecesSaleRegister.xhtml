@@ -17,19 +17,19 @@
 					<p:outputLabel for="btnModalEmployee" value="Funcionário : " />
 					<p:commandButton id="btnModalEmployee"
 						oncomplete="PF('dialogEmployee').show();"
-						icon="fa fa-fw fa-search" />
+						icon="fa fa-fw fa-search" style="font-size:13px;"/>
 					<p:outputLabel for="btnModalEmployee"
 						value="#{piecesSaleManagedBean.piecesSale.employee.name}" />
 
 					<p:outputLabel for="btnModalClient" value="Cliente : " />
 					<p:commandButton id="btnModalClient"
-						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" />
+						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search" style="font-size:13px;"/>
 					<p:outputLabel for="btnModalClient"
 						value="#{piecesSaleManagedBean.piecesSale.client.name}" />
 
 					<p:outputLabel for="btnModalPieces" value="Peças : " />
 					<p:commandButton id="btnModalPieces"
-						oncomplete="PF('dialogPieces').show();" icon="fa fa-fw fa-search" />
+						oncomplete="PF('dialogPieces').show();" icon="fa fa-fw fa-search" style="font-size:13px;"/>
 
 
 				</p:panelGrid>
@@ -54,9 +54,9 @@
 				</ui:include>
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
-					action="#{piecesSaleManagedBean.save}" icon="fa fa-fw fa-save" />
+					action="#{piecesSaleManagedBean.save}" icon="fa fa-fw fa-save" style="font-size:13px;" title="Salvar registro de nova venda"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{piecesSaleManagedBean.clean}" icon="fa fa-fw fa-eraser" />
+					action="#{piecesSaleManagedBean.clean}" icon="fa fa-fw fa-eraser" style="font-size:13px;" title="Salvar registro de nova venda"/>
 			</h:form>
 
 		</ui:define>
