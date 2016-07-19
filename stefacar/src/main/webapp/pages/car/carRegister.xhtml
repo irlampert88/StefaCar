@@ -22,14 +22,15 @@
 						placeholder="preço" />
 					<p:message for="price" />
 
-					<p:outputLabel for="color" value="Cor do carro:" />
+					<p:outputLabel for="color" value="Cor" />
 					<p:inputText id="color" requiredMessage="Campo obrigatório"
 						required="true" value="#{carManagedBean.car.color}"
 						placeholder="cor" />
 					<p:message for="color" />
 
-					<p:outputLabel for="btnModalModel" value="Seleção de Modelo: " />
-					<p:commandButton value="Selecionar Modelo" id="btnModalModel"
+					<p:outputLabel for="btnModalModel" value="Modelo: " />
+					<p:commandButton icon="fa fa-fw fa-search" style="font-size:13px;"
+						title="Selecionar modelo" id="btnModalModel"
 						oncomplete="PF('dialogModel').show();" />
 					<p:outputLabel for="btnModalModel"
 						value="#{carManagedBean.car.model.name}" />
@@ -40,14 +41,18 @@
 					<ui:param name="title" value="Modelos" />
 					<ui:param name="target" value="#{carManagedBean.car.model}" />
 					<ui:param name="list" value="#{modelCarManagedBean.dataList}" />
-					<ui:param name="form" value="carForm" />					
+					<ui:param name="form" value="carForm" />
 				</ui:include>
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
-					action="#{carManagedBean.save()}" icon="fa fa-fw fa-save" />
-				<p:button href="carView.xhtml" value="Voltar" />
+					action="#{carManagedBean.save()}" icon="fa fa-fw fa-save"
+					title="Salvar cadastro de carro" style="font-size:13px;" />
+				<p:button href="carView.xhtml" value="Voltar"
+					icon="fa fa-mail-reply" style="font-size:13px;"
+					title="Voltar para Visualizações de carros" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{carManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+					action="#{carManagedBean.clean()}" icon="fa fa-fw fa-eraser"
+					title="Limpar campos prenchidos" style="font-size:13px;" />
 			</h:form>
 
 		</ui:define>

@@ -9,7 +9,7 @@
 <h:body>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-		
+
 			<p:outputLabel style="font-size: 30px;"
 				value="Cadastro de funcionário" />
 			<h:form id="employeeForm">
@@ -52,7 +52,7 @@
 							value="#{employeeManagedBean.employee.registration}" />
 						<p:message for="Registration" />
 
-						<p:outputLabel for="id" value="Selecione o cargo: " />
+						<p:outputLabel for="id" value="Cargo: " />
 
 						<p:selectOneMenu id="id" converter="comboBoxConverter"
 							requiredMessage="Campo obrigatório" required="true"
@@ -69,10 +69,13 @@
 
 				<p:commandButton value="Salvar" process="@form"
 					action="#{employeeManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-					<p:button href="employeeView.xhtml" value="Voltar"/>
+					update="@form" title="Salvar Cadastro de Funcionario" style="font-size:13px;"/>
+				<p:button href="employeeView.xhtml" value="Voltar"
+					title="Voltar para Visualizações de Funcionario"
+					icon="fa fa-mail-reply" style="font-size: 13px;" />
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{employeeManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+					action="#{employeeManagedBean.clean()}" icon="fa fa-fw fa-eraser"
+					title="Limpar campos prenchidos " style="font-size:13px;"/>
 
 
 			</h:form>

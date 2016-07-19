@@ -14,8 +14,8 @@ public class ReportManagedBean {
 
 	public ReportManagedBean() {
 		InputStream stream = FacesContext.getCurrentInstance().getExternalContext()
-				.getResourceAsStream("/Users/pvmeira/Desktop/Relatorios/relatorioDeCliente.pdf");
-		file = new DefaultStreamedContent(stream, "application/pdf", "relatorio.pdf");
+				.getResourceAsStream("C:/Users/pvmeira/Desktop/Relatorios/relatorioDeCliente.pdf");
+		file = new DefaultStreamedContent(stream, "application/pdf", "relatorioDeCliente.pdf");
 	}
 
 	public StreamedContent getFile() {

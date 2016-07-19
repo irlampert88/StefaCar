@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core" id="modalCarId"
-	widgetVar="dialogCar" modal="false" appendToBody="true"
+	widgetVar="dialogCar" modal="true" appendToBody="true"
 	resizable="false" header="Selecione o Carro" closable="true">
 
 	<div style="height: 200px; width: 550px; overflow: auto;">
@@ -30,22 +30,22 @@
 				<p:column selectionMode="single"
 					style="width:40px;text-align:center" />
 
-				<p:column headerText="Categoria">
+				<p:column headerText="Categoria" style="text-align:center">
 					<h:outputText value="#{car.type}" />
 				</p:column>
-				<p:column headerText="Model">
+				<p:column headerText="Model" style="text-align:center">
 					<h:outputText value="#{car.model}" />
 				</p:column>
-				<p:column headerText="Versão">
+				<p:column headerText="Versão" style="text-align:center">
 					<h:outputText value="#{car.version}" />
 				</p:column>
-				<p:column headerText="Cor">
+				<p:column headerText="Cor" style="text-align:center">
 					<h:outputText value="#{car.color}" />
 				</p:column>
-				<p:column headerText="Ano">
+				<p:column headerText="Ano" style="text-align:center">
 					<h:outputText value="#{car.year}" />
 				</p:column>
-				<p:column headerText="Valor">
+				<p:column headerText="Valor" style="text-align:center">
 					<h:outputText value="#{car.price}" converter="money"/>
 				</p:column>
 

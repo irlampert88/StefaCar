@@ -12,7 +12,7 @@
 			<h:form>
 				<p:outputLabel style="font-size: 30px;" value="Lista de fabricantes" />
 				<p:button href="manufacturerRegister.xhtml" value="Novo Cadastro"
-					style="left:20px" />
+					style="left:20px" title="Cadastrar novo fabricante"/>
 				<p:dataTable id="manufacturerTable" var="manufacturer"
 					value="#{manufacturerManagedBean.dataList}"
 					emptyMessage="Não existem fabricantes cadastrados"
@@ -30,12 +30,12 @@
 					<p:column headerText="Ações" style="text-align: center">
 						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
 							update="manufacturerTable"
-							action="#{manufacturerManagedBean.delete(manufacturer)}">
+							action="#{manufacturerManagedBean.delete(manufacturer)}" style="font-size:13px;">
 							<p:confirm header="Confirmação"
 								message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 						</p:commandButton>
 						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{manufacturerManagedBean.setManufacturerForEdit(manufacturer)}" />
+							action="#{manufacturerManagedBean.setManufacturerForEdit(manufacturer)}" style="font-size:13px;"/>
 						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 							<p:commandButton value="Sim" type="button"
 								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

@@ -11,7 +11,7 @@
 		<ui:define name="center">
 		<h:form>
 			<p:outputLabel style="font-size: 30px;" value="Lista de carros" />
-			<p:button href="carRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
+			<p:button href="carRegister.xhtml" value="Novo Cadastro" style="left:20px" title="Cadastrar novo carro"/>
 			<p:dataTable id="carTable" var="car"
 				value="#{carManagedBean.listAllCars}"
 				emptyMessage="Não existem Carros Cadastrados"
@@ -27,24 +27,24 @@
 					<h:outputText value="#{car.color}" />
 				</p:column>
 
-				<p:column headerText="Categoria">
+				<p:column headerText="Categoria" style="text-align:center">
 					<h:outputText value="#{car.model.type}" />
 				</p:column>
 
-				<p:column headerText="Disponibilidade">
+				<p:column headerText="Disponibilidade" style="text-align:center">
 					<h:outputText value="#{car.getAvaliableString()}" />
 				</p:column>
 
 				<p:column headerText="Ações" style="text-align: center">
 
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar carro"
-						update="carTable " action="#{carManagedBean.delete(car)}">
+						update="carTable " action="#{carManagedBean.delete(car)}" style="font-size:13px;">
 						<p:confirm header="Confirmação" message="Deseja deletar o Carro?"
 							icon="ui-icon-alert" />
 					</p:commandButton>
 					
 					<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{carManagedBean.setCarForEdit(car)}" />
+							action="#{carManagedBean.setCarForEdit(car)}" style="font-size:13px;"/>
 							
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 						<p:commandButton value="Sim" type="button"

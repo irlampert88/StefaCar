@@ -39,17 +39,17 @@
 
 					<p:outputLabel for="address" value="Endereço: " />
 					<p:inputText id="address" requiredMessage="Campo obrigatório"
-						required="true" value="#{outfitterManagedBean.outfitter.address}" />
+						required="true" value="#{outfitterManagedBean.outfitter.address}" placeholder="Endereço"/>
 					<p:message for="address" />
 
 				</p:panelGrid>
 
 				<p:commandButton value="Salvar" process="@form"
 					action="#{outfitterManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-					<p:button href="outfitterView.xhtml" value="Voltar"/>
+					update="@form" title="Salvar cadastro de fornecedor" style="font-size:13px;"/>
+					<p:button href="outfitterView.xhtml" value="Voltar" style="font-size:13px;" title="Voltar para Visualizações de Fornecedor" icon="fa fa-mail-reply"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{outfitterManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+					action="#{outfitterManagedBean.clean()}" icon="fa fa-fw fa-eraser" title="Limpar campos preenchidos" style="font-size:13px;"/>
 			</h:form>
 			
 		</ui:define>

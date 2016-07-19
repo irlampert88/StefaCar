@@ -45,11 +45,11 @@
 				</p:panelGrid>
 				<p:commandButton value="Salvar" process="@form"
 					action="#{manufacturerManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-					<p:button href="manufacturerView.xhtml" value="Voltar"/>
+					update="@form" style="font-size:13px;" title="Salvar cadastro de fabricante"/>
+					<p:button href="manufacturerView.xhtml" value="Voltar" icon="fa fa-mail-reply" style="font-size:13px;" title="Voltar para visualização de fabricante"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
 					action="#{manufacturerManagedBean.clean()}"
-					icon="fa fa-fw fa-eraser" />
+					icon="fa fa-fw fa-eraser" style="font-size:13px;" title="Limpar campos preenchidos"/>
 			</h:form>
 		</ui:define>
 	</ui:decorate>

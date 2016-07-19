@@ -8,28 +8,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-<script type="text/javascript">
-function start() {
-    PF('statusDialog').show();
-}
 
-function stop() {
-    PF('statusDialog').hide();
-}
-</script>
 	<ui:decorate template="../../WEB-INF/model/default.xhtml">
 		<ui:define name="center">
-		<p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
-  			  <p:graphicImage name="/Users/Public/Pictures/Sample Pictures/images.jpg" />
-		</p:dialog>
 			<h:form>
 				<p:outputLabel style="font-size: 30px;" value="Lista de clientes" />
 				<p:button href="clientRegister.xhtml" value="Novo Cadastro"
-					style="left:20px" />
-				<p:commandButton value="Download" ajax="false"
-					icon="ui-icon-arrowthick-1-s">
-					<p:fileDownload value="#{fileDownloadView.file}" />
-				</p:commandButton>
+					style="left:20px" title="Cadastrar novo cliente"/>
 				<p:dataTable id="clientTable" var="client"
 					value="#{clientManagedBean.dataList}"
 					emptyMessage="Não existem clientes cadastrados"
@@ -46,14 +31,14 @@ function stop() {
 					<p:column headerText="Ações" style="text-align: center">
 						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
 							update="@form" process="@this"
-							action="#{clientManagedBean.delete(client)}">
+							action="#{clientManagedBean.delete(client)}" style="font-size: 13px;">
 
 							<p:confirm header="Confirmação"
 								message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 						</p:commandButton>
 
 						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{clientManagedBean.setClientForEdit(client)}" />
+							action="#{clientManagedBean.setClientForEdit(client)}" style="font-size: 13px;"/>
 
 						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 							<p:commandButton value="Sim" type="button"

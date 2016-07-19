@@ -12,7 +12,7 @@
 			<h:form>
 				<p:outputLabel style="font-size: 30px;" value="Lista de marcas" />
 				<p:button href="brandcarRegister.xhtml" value="Novo Cadastro"
-					style="left:20px" />
+					style="left:20px" title="Cadastrar Nova Marca"/>
 				<p:dataTable id="brandCarTable" var="brand"
 					value="#{brandCarManagedBean.dataList}"
 					emptyMessage="Não existem Marcas Cadastrados"
@@ -29,12 +29,12 @@
 					<p:column headerText="Ações" style="text-align: center">
 
 						<p:commandButton icon="fa fa-fw fa-trash" title="Deletar a Marca"
-							action="#{brandCarManagedBean.delete(brand)}" update="brandCarTable">
+							action="#{brandCarManagedBean.delete(brand)}" update="brandCarTable" style="font-size:13px;">
 							<p:confirm header="Confirmação" message="Deseja deletar a Marca?"
 								icon="ui-icon-alert" />
 						</p:commandButton>
 						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{brandCarManagedBean.setBrandForEdit(brand)}" />
+							action="#{brandCarManagedBean.setBrandForEdit(brand)}" style="font-size:13px;"/>
 
 						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 							<p:commandButton value="Sim" type="button"

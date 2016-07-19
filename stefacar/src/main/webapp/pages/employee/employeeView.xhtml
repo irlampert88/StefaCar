@@ -11,30 +11,30 @@
 		<ui:define name="center">
 		<h:form>
 			<p:outputLabel style="font-size: 30px;" value="Lista de funcionários" />
-			<p:button href="employeeRegister.xhtml" value="Novo Cadastro" style="left:20px"/>
+			<p:button href="employeeRegister.xhtml" value="Novo Cadastro" style="left:20px" title="Cadastrar Novo Funcionario"/>
 			<p:dataTable id="employeeTable" var="employee"
 				value="#{employeeManagedBean.dataList}"
 				emptyMessage="Não existem funcionários cadastrados"
 				style="padding-top:20px;" rows="5"
                          paginator="true">
-				<p:column headerText="Name">
+				<p:column headerText="Name" style="text-align: center">
 					<h:outputText value="#{employee.name}" />
 				</p:column>
-				<p:column headerText="Cpf">
+				<p:column headerText="Cpf" style="text-align: center">
 					<h:outputText value="#{employee.cpf}" />
 				</p:column>
-				<p:column headerText="email">
+				<p:column headerText="email" style="text-align: center">
 					<h:outputText value="#{employee.email}" />
 				</p:column>
 				<p:column headerText="Ações" style="text-align: center">
 					<p:commandButton icon="fa fa-fw fa-trash" title="Deletar cadastro"
 						update="employeeTable"
-						action="#{employeeManagedBean.delete(employee)}">
+						action="#{employeeManagedBean.delete(employee)}" style="font-size:13px;">
 						<p:confirm header="Confirmação"
 							message="Deseja deletar esse cadastro?" icon="ui-icon-alert" />
 					</p:commandButton>
 						<p:commandButton icon="fa fa-fw fa-edit" title="Editar cadastro"
-							action="#{employeeManagedBean.setEmployeeForEdit(employee)}" />
+							action="#{employeeManagedBean.setEmployeeForEdit(employee)}" style="font-size: 13px;"/>
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 						<p:commandButton value="Sim" type="button"
 							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />

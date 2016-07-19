@@ -32,10 +32,10 @@
 
 				<p:commandButton value="Salvar" process="@form"
 					action="#{brandCarManagedBean.save()}" icon="fa fa-fw fa-save"
-					update="@form" />
-					<p:button href="brandCarView.xhtml" value="Voltar"/>
+					update="@form"  style="font-size:13px;" title="Salvar Cadastro de Marca"/>
+					<p:button href="brandCarView.xhtml" value="Voltar" icon="fa fa-mail-reply" style="font-size:13px;" title="Voltar para Visualizações de Marca"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{brandCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+					action="#{brandCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" style="font-size:13px;" title="Limpar campos prenchidos"/>
 			</h:form>
 		</ui:define>
 	</ui:decorate>

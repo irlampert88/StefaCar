@@ -46,7 +46,7 @@
 
 					<p:outputLabel for="btnModalBrand" value="Marca : " />
 					<p:commandButton id="btnModalBrand"
-						oncomplete="PF('dialogBrand').show();" icon="fa fa-fw fa-search" />
+						oncomplete="PF('dialogBrand').show();" icon="fa fa-fw fa-search" title="Selecionar marca" style="font-size:13px;"/>
 					<p:outputLabel for="btnModalBrand"
 						value="#{modelCarManagedBean.model.brand.name}" />
 
@@ -71,10 +71,10 @@
 				</ui:include>
 
 				<p:commandButton value="Salvar" process="@form" update="@form"
-					action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" />
-				<p:button href="modelCarView.xhtml" value="Voltar" />
+					action="#{modelCarManagedBean.save()}" icon="fa fa-fw fa-save" title="Salvar Cadastro de Modelo" style="font-size:13px;"/>
+				<p:button href="modelCarView.xhtml" value="Voltar" icon="fa fa-mail-reply" style="font-size: 13px;" title="Voltar para Visualizações de Modelo"/>
 				<p:commandButton value="Limpar" process="@this" update="@form"
-					action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" />
+					action="#{modelCarManagedBean.clean()}" icon="fa fa-fw fa-eraser" title="Limpar campos preenchidos" style="font-size:13px;"/>
 			</h:form>
 		</ui:define>
 	</ui:decorate>
