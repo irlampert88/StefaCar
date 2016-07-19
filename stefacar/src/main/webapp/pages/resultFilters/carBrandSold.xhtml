@@ -29,7 +29,7 @@
 				<p:dataTable rowKey="#{car.price}" id="tableStockCars" var="car"
 					value="#{resultFiltersSalesCarManagedBean.result}"
 					emptyMessage="Não existem carros no estoque com a marca selecionada"
-					style="padding-top:20px;">
+					style="padding-top:20px;" paginator="true" rows="5">
 
 					<p:column headerText="Categoria" style="text-align:center">
 						<h:outputText value="#{car.type}" />
