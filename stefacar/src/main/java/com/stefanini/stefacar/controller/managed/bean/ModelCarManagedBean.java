@@ -32,14 +32,14 @@ public class ModelCarManagedBean {
 
 	public void save() {
 		service.save(getModel());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo salvo com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Modelo salvo com sucesso!");
 		clean();
 	}
 
 	public void delete(ModelCar model) {
 		service.delete(model);
 		dataList.remove(model);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Modelo excluido com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Modelo excluido com sucesso!");
 	}
 
 	public void setList(List<ModelCar> dataList) {

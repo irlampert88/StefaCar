@@ -31,14 +31,14 @@ public class BrandCarManagedBean {
 
 	public void save() {
 		service.save(getBrand());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Marca salvo com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Marca salvo com sucesso!");
 		clean();
 	}
 
 	public void delete(BrandCar brand) {
 		service.delete(brand);
 		dataList.remove(brand);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Marca excluido com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Marca excluido com sucesso!");
 	}
 
 	public void setList(List<BrandCar> dataList) {

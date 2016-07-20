@@ -35,14 +35,14 @@ public class PiecesSaleManagedBean implements Serializable {
 
 	public void save() {
 		service.save(piecesSale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de peça salvo com sucesso");
+		MessengerSystem.notifyInfo("Parabéns!", "Cadastro de Venda de peça salvo com sucesso");
 		clean();
 	}
 
 	public void delete(PiecesSale piecesSale) {
 		service.delete(piecesSale);
 		listOfPiecesSales.remove(piecesSale);
-		MessengerSystem.notificaInformacao("Parabéns!", "Cadastro de Venda de peça excluido com sucesso");
+		MessengerSystem.notifyInfo("Parabéns!", "Cadastro de Venda de peça excluido com sucesso");
 	}
 
 	public void clean() {

@@ -32,14 +32,14 @@ public class PiecesManagedBean {
 
 	public void save() {
 		service.save(getPieces());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro da Peça salvo com sucesso");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro da Peça salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Pieces pieces) {
 		service.delete(pieces);
 		dataList.remove(pieces);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro da Peça excluido com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro da Peça excluido com sucesso!");
 	}
 
 	public void setList(List<Pieces> dataList) {

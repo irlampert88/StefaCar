@@ -34,7 +34,7 @@ public class TransactionalInterceptor implements Serializable {
 
 			entityManager.getTransaction().rollback();
 
-			MessengerSystem.nootificaErro("Erro - ",
+			MessengerSystem.notifyError("Erro - ",
 				"Detalhes do erro: " + e.getClass().getName() + " - " + e.getMessage());
 
 			e.printStackTrace();

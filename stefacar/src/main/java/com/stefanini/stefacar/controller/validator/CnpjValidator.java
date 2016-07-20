@@ -15,7 +15,7 @@ public class CnpjValidator implements Validator {
 	public void validate(FacesContext arg0, UIComponent arg1, Object valorTela) throws ValidatorException {
 		if (!validaCNPJ(String.valueOf(valorTela))) {
 			((UIInput) arg1).setValid(false);
-			MessengerSystem.nootificaErro("OPS", "Cnpj é inválido");
+			MessengerSystem.notifyError("OPS", "Cnpj é inválido");
 		}
 	}
 

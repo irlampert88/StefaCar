@@ -1,0 +1,58 @@
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '58098505375', 'cmd@stefa.com', 'Joãozinho da Silva', '(51)89007654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '99664116408', 'cmd1@stefa.com', 'Joãozinho da Silva Das dores', '(51)89007654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '41134839812', 'cmd@stefacar.com', 'Paulinho de Só', '(55)00007654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '95046178249', 'cmd12@stefacar.com', 'Giovanni Silva', '(51)00107654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '46970265862', 'cmd1001@stefacar.com', 'Gabriella Maciel', '(55)00006654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '10767020154', 'cmd120@stefacar.com', 'Silvana Silva', '(51)00307654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '91832190560', 'cmd1003@stefacar.com', 'Jussamara Couto', '(55)10006654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '82531222847', 'cmd130@stefacar.com', 'Moacir Marcos ', '(51)20307654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '23862684628', 'cmd1004@stefacar.com', 'Marcos Paulo Da souza', '(55)20006654');
+insert into Client (address, cpf, mail, name, phone) values ('Rua exemplo', '23535333105', 'cmd140@stefacar.com', 'Ruan Marcos ', '(51)24307654');
+
+insert into Employee (cpf, email, name, phone, registration, type) values ('09770530590', 'vendas@stefacar.com', 'João Carlos Coutinho', '(51)12349876', 100006, 'VENDEDOR');
+insert into Employee (cpf, email, name, phone, registration, type) values ('82504744811', 'vendas1@stefacar.com', 'Palma Junior', '(51)22349876', 100007, 'VENDEDOR');
+insert into Employee (cpf, email, name, phone, registration, type) values ('95457012930', 'vendas3@stefacar.com', 'João Pedro', '(51)32349876', 100008, 'VENDEDOR');
+insert into Employee (cpf, email, name, phone, registration, type) values ('03474682334', 'vendas2@stefacar.com', 'Felipe Marques da Silva', '(51)42349876', 100009, 'VENDEDOR');
+insert into Employee (cpf, email, name, phone, registration, type) values ('01749899892', 'vendas4@stefacar.com', 'Marcelo Santos', '(51)38849876', 100010, 'VENDEDOR');
+insert into Employee (cpf, email, name, phone, registration, type) values ('39069175924', 'vendas5@stefacar.com', 'Marcela Steffans', '(51)72349876', 100011, 'VENDEDOR');
+
+insert into BrandCar ( name, nationality) values ( 'Volkswagen', 'Alema');
+insert into BrandCar ( name, nationality) values ( 'Mercedes-Benz', 'Alema');
+insert into BrandCar ( name, nationality) values ( 'Honda', 'Japonesa');
+insert into BrandCar ( name, nationality) values ( 'Ford', 'Americana');
+insert into BrandCar ( name, nationality) values ( 'Nissan', 'Japonesa');
+insert into BrandCar ( name, nationality) values ( 'Audi', 'Alema');
+insert into BrandCar ( name, nationality) values ( 'Renault', 'Francesa');
+insert into BrandCar ( name, nationality) values ( 'Chevrolet', 'Americana');
+insert into BrandCar ( name, nationality) values ( 'Land Rover', 'Americana');
+insert into BrandCar ( name, nationality) values ( 'Peugeot', 'Francesa');
+insert into BrandCar ( name, nationality) values ( 'Fiat', 'Italiana');
+insert into BrandCar ( name, nationality) values ( 'Kia Motors', 'Coreia do SUl');
+insert into BrandCar ( name, nationality) values ( 'Mazda', 'Japonesa');
+insert into BrandCar ( name, nationality) values ( 'Ferrari', 'Italiana');
+insert into BrandCar ( name, nationality) values ( 'MINI', 'Reino Unido');
+insert into BrandCar ( name, nationality) values ( 'Lexus', 'Japonesa');
+
+insert into ModelCar (brand_id, cid, name, type, version, year) values (1, '1.6', 'ModeloA', 'HATCH_COMPACTO', 'versãoA', '2010');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (2, '1.6', 'ModeloB', 'HATCH_COMPACTO', 'versãoB', '2011');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (3, '1.6', 'ModeloC', 'HATCH_COMPACTO', 'versãoC', '2012');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (4, '1.6', 'ModeloD', 'HATCH_COMPACTO', 'versãoD', '2013');
+
+insert into ModelCar (brand_id, cid, name, type, version, year) values (5, '1.6', 'ModeloE', 'HATCH_COMPACTO', 'versãoE', '2010');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (6, '1.6', 'ModeloF', 'HATCH_COMPACTO', 'versãoF', '2011');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (7, '1.6', 'ModeloG', 'HATCH_COMPACTO', 'versãoG', '2012');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (8, '1.6', 'ModeloH', 'HATCH_COMPACTO', 'versãoH', '2013');
+
+insert into ModelCar (brand_id, cid, name, type, version, year) values (9, '1.6', 'ModeloI', 'HATCH_COMPACTO', 'versãoI', '2010');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (10, '1.6', 'ModeloJ', 'HATCH_COMPACTO', 'versãoJ', '2011');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (11, '1.6', 'ModeloK', 'HATCH_COMPACTO', 'versãoK', '2012');
+insert into ModelCar (brand_id, cid, name, type, version, year) values (12, '1.6', 'ModeloL', 'HATCH_COMPACTO', 'versãoL', '2013');
+
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',3 ,50000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',3 ,50000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',4 ,68000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',5 ,78000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',6 ,100000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',7 ,98000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',8 ,34000 );
+insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',9 ,55000 );
