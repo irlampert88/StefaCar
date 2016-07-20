@@ -24,10 +24,10 @@
 					<p:message for="Name" />
 
 					<p:outputLabel for="Cnpj" value="Cnpj :" />
-					<p:inputMask maxlength="11" id="Cnpj" mask="99999999999999"
+					<p:inputMask maxlength="14" id="Cnpj" mask="99999999999999"
 						requiredMessage="Campo obrigatório" required="true"
 						placeholder="Cnpj" value="#{outfitterManagedBean.outfitter.cnpj}">
-						<!-- <f:validator validatorId="cpfValidator" /> -->
+						<f:validator for="Cnpj" validatorId="cnpjValidator"/>
 					</p:inputMask>
 					<p:message for="Cnpj" />
 
