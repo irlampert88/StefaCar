@@ -31,14 +31,14 @@ public class ServicingManagedBean {
 
 	public void save() {
 		service.save(getServicing());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Serviços salvo com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Serviços salvo com sucesso!");
 		clean();
 	}
 
 	public void delete(Servicing servicing) {
 		service.delete(servicing);
 		dataList.remove(servicing);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Serviços excluido com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Serviços excluido com sucesso!");
 	}
 
 	public void setList(List<Servicing> dataList) {

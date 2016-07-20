@@ -16,14 +16,14 @@ public class ComboBoxConverter implements Converter {
 	private static final String KEY = ComboBoxConverter.class.getCanonicalName();
 
 	@Override
-	public String getAsString(FacesContext context, UIComponent component, Object objeto) {
-		if (objeto != null) {
-			if (!getObjetos(context).containsKey(objeto)) {
+	public String getAsString(FacesContext context, UIComponent component, Object object) {
+		if (object != null) {
+			if (!getObjetos(context).containsKey(object)) {
 				String uuid = UUID.randomUUID().toString();
-				getObjetos(context).put(objeto, uuid);
+				getObjetos(context).put(object, uuid);
 				return uuid;
 			} else {
-				return getObjetos(context).get(objeto);
+				return getObjetos(context).get(object);
 			}
 		}
 

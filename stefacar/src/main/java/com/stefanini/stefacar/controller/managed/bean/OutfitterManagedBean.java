@@ -31,14 +31,14 @@ public class OutfitterManagedBean {
 
 	public void save() {
 		service.save(getOutfitter());
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Fornecedor salvo com sucesso");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Fornecedor salvo com sucesso");
 		clean();
 	}
 
 	public void delete(Outfitter outfitter) {
 		service.delete(outfitter);
 		dataList.remove(outfitter);
-		MessengerSystem.notificaInformacao("Parabens!", "Cadastro de Fornecedor excluido com sucesso!");
+		MessengerSystem.notifyInfo("Parabens!", "Cadastro de Fornecedor excluido com sucesso!");
 	}
 
 	public void setList(List<Outfitter> dataList) {

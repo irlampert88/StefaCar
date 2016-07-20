@@ -57,27 +57,27 @@ public class SessionManagedBean {
 				this.login = loginFromDb;
 				login.setLogin(true);
 				if (login.getROLE_ADM() == true) {
-					MessengerSystem.notificaAviso("Usuario" + login.getUsername(),
+					MessengerSystem.notifyNotice("Usuario" + login.getUsername(),
 							"Bem vindo, sua permissão é de Administrador");
 					return "main.xhtml?faces-redirect=true";
 				} else if (login.getROLE_SALESMAN() == true) {
-					MessengerSystem.notificaAviso("Usuario" + login.getUsername(),
+					MessengerSystem.notifyNotice("Usuario" + login.getUsername(),
 							"Bem vindo, sua permissão é de Vendedor");
 					return "main.xhtml?faces-redirect=true";
 				} else if (login.getROLE_MECHANIC() == true) {
-					MessengerSystem.notificaAviso("Usuario" + login.getUsername(),
+					MessengerSystem.notifyNotice("Usuario" + login.getUsername(),
 							"Bem vindo, sua permissão é de Mecanico");
 					return "main.xhtml?faces-redirect=true";
 
 				} else if (login.getROLE_MANAGER() == true) {
-					MessengerSystem.notificaAviso("Usuario" + login.getUsername(),
+					MessengerSystem.notifyNotice("Usuario" + login.getUsername(),
 							"Bem vindo, sua permissão é de gerente");
 					return "main.xhtml?faces-redirect=true";
 				}
 
 			}
 		}
-		MessengerSystem.nootificaErro("Erro no Login", "Senha ou Usuario Invalido");
+		MessengerSystem.notifyError("Erro no Login", "Senha ou Usuario Invalido");
 		return "login.xhtml?faces-redirect=true";
 	}
 

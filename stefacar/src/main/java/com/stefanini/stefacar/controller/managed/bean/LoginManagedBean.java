@@ -25,14 +25,14 @@ public class LoginManagedBean {
 
 	public void save() {
 		service.save(getLogin());
-		MessengerSystem.notificaInformacao("Parabéns!", "Login salvo com sucesso!");
+		MessengerSystem.notifyInfo("Parabï¿½ns!", "Login salvo com sucesso!");
 		loadListOfLogins();
 		clean();
 	}
 
 	public void delete(Login login) {
 		service.delete(login);
-		MessengerSystem.notificaInformacao("Parabéns!", "Login deletado com sucesso!");
+		MessengerSystem.notifyInfo("Parabï¿½ns!", "Login deletado com sucesso!");
 		loadListOfLogins();
 		clean();
 	}

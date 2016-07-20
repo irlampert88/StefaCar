@@ -54,26 +54,26 @@ public class ResultFiltersManagedBean implements Serializable {
 		try {
 			if (specificDate != null && specificDateFinal == null) {
 				populatesPerDay();
-				MessengerSystem.notificaInformacao("Sucesso", "Relatório Diário");
+				MessengerSystem.notifyInfo("Sucesso", "Relatï¿½rio Diï¿½rio");
 			} else if (specificDate != null && specificDateFinal != null && month == null && year == null) {
 				populatesPerPeriod();
-				MessengerSystem.notificaInformacao("Sucesso", "Relatório de Período");
+				MessengerSystem.notifyInfo("Sucesso", "Relatï¿½rio de Perï¿½odo");
 			} else if (month == null && year != null) {
 				populatesPerYear();
-				MessengerSystem.notificaInformacao("Sucesso", "Relatório Anual");
+				MessengerSystem.notifyInfo("Sucesso", "Relatï¿½rio Anual");
 			} else if (month != null && year != null){
 				populatesPerMonth();
-				MessengerSystem.notificaInformacao("Sucesso", "Relatório Mensal");
+				MessengerSystem.notifyInfo("Sucesso", "Relatï¿½rio Mensal");
 			} else if(month != null && year == null){
 				populatesPerMonth();
-				MessengerSystem.notificaInformacao("Foi gerado do ano corrente", "Relatório Mensal");
+				MessengerSystem.notifyInfo("Foi gerado do ano corrente", "Relatï¿½rio Mensal");
 			} else {
-				MessengerSystem.nootificaErro("Campo nulo", "Data Inicial não preenchida");
+				MessengerSystem.notifyError("Campo nulo", "Data Inicial nï¿½o preenchida");
 			}
 		} catch (NullPointerException e) {
-			MessengerSystem.nootificaErro("Campo nulo", "Data Inicial ou Ano não preenchida");
+			MessengerSystem.notifyError("Campo nulo", "Data Inicial ou Ano nï¿½o preenchida");
 		} catch (IndexOutOfBoundsException e) {
-			MessengerSystem.nootificaErro("Lista Vazia", "Lista Vazia");
+			MessengerSystem.notifyError("Lista Vazia", "Lista Vazia");
 		}
 	}	
 
@@ -125,26 +125,26 @@ public class ResultFiltersManagedBean implements Serializable {
 	}
 
 
-	// COMEÇO DAS SELEÇÕES DE VENDEDORES
+	// COMEï¿½O DAS SELEï¿½ï¿½ES DE VENDEDORES
 	
 	public void populatesSeller(){
 		if (specificDate != null && specificDateFinal == null) {
 			populatesSellerOnDay();
-			MessengerSystem.notificaInformacao("Sucesso", "Ranking Diário");
+			MessengerSystem.notifyInfo("Sucesso", "Ranking Diï¿½rio");
 		} else if (specificDate != null && specificDateFinal != null && month == null && year == null) {
 			populatesSellerOnPeriod();
-			MessengerSystem.notificaInformacao("Sucesso", "Ranking do Período");
+			MessengerSystem.notifyInfo("Sucesso", "Ranking do Perï¿½odo");
 		} else if (month == null && year != null) {
 			populatesPerYear();
-			MessengerSystem.notificaInformacao("Sucesso", "Relatório Anual");
+			MessengerSystem.notifyInfo("Sucesso", "Relatï¿½rio Anual");
 		} else if (month != null && year != null){
 			populatesSellerOnMonth();
-			MessengerSystem.notificaInformacao("Sucesso", "Relatório Mensal");
+			MessengerSystem.notifyInfo("Sucesso", "Relatï¿½rio Mensal");
 		} else if(month != null && year == null){
 			populatesSellerOnMonth();
-			MessengerSystem.notificaInformacao("Foi gerado do ano corrente", "Relatório Mensal");
+			MessengerSystem.notifyInfo("Foi gerado do ano corrente", "Relatï¿½rio Mensal");
 		} else {
-			MessengerSystem.nootificaErro("Campo nulo", "Data Inicial não preenchida");
+			MessengerSystem.notifyError("Campo nulo", "Data Inicial nï¿½o preenchida");
 		}
 	}
 

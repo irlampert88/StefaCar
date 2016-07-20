@@ -23,7 +23,7 @@ public class CpfValidator implements Validator {
 			}
 			if (isAPatternCpf(cpf) || !validateCpf(cpf)) {
 				((UIInput) component).setValid(false);
-				MessengerSystem.nootificaErro("Ops!", "Cpf inválido");
+				MessengerSystem.notifyError("Ops!", "Cpf inválido");
 			}
 		}
 	}
