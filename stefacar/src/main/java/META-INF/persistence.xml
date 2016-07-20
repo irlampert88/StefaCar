@@ -21,7 +21,8 @@
 		<class>com.stefanini.stefacar.model.domain.Pieces</class>
 		<class>com.stefanini.stefacar.model.domain.PiecesSale</class>
 		<class>com.stefanini.stefacar.model.domain.CashRegister</class>	
-		<class>com.stefanini.stefacar.model.domain.Login</class>			
+		<class>com.stefanini.stefacar.model.domain.Login</class>	
+		<class>com.stefanini.stefacar.model.domain.Servicing</class>			
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

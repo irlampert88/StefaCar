@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form>
+				<p:outputLabel style="font-size: 30px;" value="Lista de Serviços" />
+
+			<p:button href="servicingRegister.xhtml" value="Novo Cadastro" style="left:20px" 
+			title="Cadastrar nova ordem de serviço"/>
+
+				<p:dataTable id="servicingTable" var="servicing"
+					value="#{servicingManagedBean.dataList}"
+					emptyMessage="Não existem Ordem de Serviços Cadastrados"
+					style="padding-top:20px;" rows="5" paginator="true">
+
+					<p:column headerText="Cliente" style="text-align: center">
+						<h:outputText value="#{servicing.client.name}" />
+					</p:column>
+
+					<p:column headerText="Carro" style="text-align: center">
+						<h:outputText value="#{servicing.model.name}" />
+					</p:column>
+
+					<p:column headerText="Funcionário" style="text-align: center">
+						<h:outputText value="#{servicing.employee.name}" />
+					</p:column>
+
+					<p:column headerText="Tipo de Serviço" style="text-align: center">
+						<h:outputText value="#{servicing.kindOfService}" />
+					</p:column>
+
+					<p:column headerText="Data de Entrada" style="text-align: center">
+						<h:outputText value="#{servicing.dataOfIssue}">
+							<f:convertDateTime pattern="dd/MM/yyyy"
+								timeZone="America/Sao_Paulo" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Data de Saida" style="text-align: center">
+						<h:outputText value="#{servicing.forecastDate}">
+							<f:convertDateTime pattern="dd/MM/yyyy"
+								timeZone="America/Sao_Paulo" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Valor Inicial" style="text-align: center">
+						<h:outputText value="#{servicing.initialValue}" converter="money">
+
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Observações" style="text-align: center">
+						<h:outputText value="#{servicing.comments}" />
+					</p:column>
+
+
+					<p:column headerText="Ações" style="text-align: center">
+
+						<p:commandButton icon="fa fa-fw fa-trash"
+							title="Deletar a Ordem de Serviço" update="@form"
+							action="#{servicingManagedBean.delete(servicing)}" style="font-size:13px;">
+							<p:confirm header="Confirmação"
+								message="Deseja deletar a Ordem de Serviço?"
+								icon="ui-icon-alert" />
+						</p:commandButton>
+						<p:commandButton icon="fa fa-fw fa-edit"
+							title="Editar a Ordem de Serviço"
+							action="#{servicingManagedBean.setServicingForEdit(servicing)}" style="font-size:13px;"/>
+
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+
+						</p:confirmDialog>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+
+</html>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<p:outputLabel style="font-size: 30px;" value="Cadastro de Serviços" />
+
+			<h:form id="servicingForm">
+				<p:growl id="growl" showDetail="true" sticky="false" life="4000" />
+
+				<h:panelGrid columns="3">
+
+					<p:outputLabel for="btnModalClient" value="Cliente : " />
+					<p:commandButton id="btnModalClient"
+						oncomplete="PF('dialogClient').show();" icon="fa fa-fw fa-search"
+						style="font-size:13px;" />
+					<p:outputLabel for="btnModalClient"
+						value="#{servicingManagedBean.servicing.client.name}" />
+
+					<p:outputLabel for="btnModalModel" value="Modelo: " />
+					<p:commandButton icon="fa fa-fw fa-search" style="font-size:13px;"
+						title="Selecionar modelo" id="btnModalModel"
+						oncomplete="PF('dialogModel').show();" />
+					<p:outputLabel for="btnModalModel"
+						value="#{servicingManagedBean.servicing.model.name}" />
+
+					<p:outputLabel for="btnModalEmployee" value="Funcionário : " />
+					<p:commandButton id="btnModalEmployee"
+						oncomplete="PF('dialogEmployee').show();"
+						icon="fa fa-fw fa-search" style="font-size:13px;" />
+					<p:outputLabel for="btnModalEmployee"
+						value="#{servicingManagedBean.servicing.employee.name}" />
+
+
+					<p:outputLabel for="dataOfIssue" value="Data de Emissão" />
+
+					<p:inputText value="#{servicingManagedBean.servicing.dataOfIssue}"
+						style="width:180px" size="10" placeholder="Data de Emissão"
+						id="dataOfIssue"
+						converterMessage="Erro ao converter data de emissão">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:inputText>
+					<p:outputLabel />
+
+					<p:outputLabel for="forecastDate" value="Data de Saida" />
+
+					<p:inputText value="#{servicingManagedBean.servicing.forecastDate}"
+						style="width:180px" size="10" placeholder="Data de Saida"
+						id="forecastDate"
+						converterMessage="Erro ao converter data de saida">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:inputText>
+					<p:outputLabel />
+
+
+					<p:outputLabel for="initialValue" value="Valor Inicial" />
+
+					<p:inputText id="initialValue" requiredMessage="Campo obrigatório"
+						required="true" style="width:175px"
+						value="#{servicingManagedBean.servicing.initialValue}"
+						placeholder="Valor Inicial">
+
+					</p:inputText>
+					<p:outputLabel />
+
+					<p:outputLabel for="kindOfService" value="Tipo de Serviço" />
+
+					<p:inputText id="kindOfService" requiredMessage="Campo obrigatório"
+						required="true"
+						value="#{servicingManagedBean.servicing.kindOfService}"
+						placeholder="Tipo de Serviço" />
+						<p:outputLabel />
+
+					<p:outputLabel for="comments" value="Observações" />
+
+					<p:inputTextarea id="comments" requiredMessage="Campo obrigatório"
+						required="true" value="#{servicingManagedBean.servicing.comments}"
+						placeholder="Observações" cols="60" rows="3" />
+					
+
+
+				</h:panelGrid>
+				<ui:include src="../client/clientSelection.xhtml">
+					<ui:param name="title" value="Clientes" />
+					<ui:param name="target"
+						value="#{servicingManagedBean.servicing.client}" />
+					<ui:param name="list" value="#{clientManagedBean.dataList}" />
+					<ui:param name="form" value="servicingForm" />
+				</ui:include>
+				<ui:include src="../employee/employeeSelection.xhtml">
+					<ui:param name="title" value="Vendedores" />
+					<ui:param name="target"
+						value="#{servicingManagedBean.servicing.employee}" />
+					<ui:param name="list" value="#{employeeManagedBean.salesman}" />
+					<ui:param name="form" value="servicingForm" />
+				</ui:include>
+				<ui:include src="../popups/popup-selectModel.xhtml">
+					<ui:param name="title" value="Modelos" />
+					<ui:param name="target"
+						value="#{servicingManagedBean.servicing.model}" />
+					<ui:param name="list" value="#{modelCarManagedBean.dataList}" />
+					<ui:param name="form" value="servicingForm" />
+				</ui:include>
+
+				<p:commandButton value="Salvar" process="@form"
+					action="#{servicingManagedBean.save()}" icon="fa fa-fw fa-save"
+					update="@form" style="font-size:13px;" title="Salvar registro de novo serviço"/>
+				<p:button href="orderServicingView.xhtml" value="Voltar" style="font-size:13px;" title="Voltar para visualização de "/>
+				<p:commandButton value="Limpar" process="@this" update="@form"
+					action="#{servicingManagedBean.clean()}" icon="fa fa-fw fa-eraser" style="font-size:13px;" title="Limpar campos preenchidos" />
+
+
+			</h:form>
+
+		</ui:define>
+	</ui:decorate>
+</h:body>
+
+</html>
