@@ -56,3 +56,30 @@ insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',6 ,100
 insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',7 ,98000 );
 insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',8 ,34000 );
 insert into Car (avaliable, color, model_id, price) values (TRUE, 'BLACK',9 ,55000 );
+
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '27212827000115', 'Fabricante B', '(55)55555555');
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '46399685000191', 'Fabricante C', '(55)45555555');
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '18233558000182', 'Fabricante D', '(55)35555555');
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '40538158000134', 'Fabricante E', '(55)25555555');
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '48550443000182', 'Fabricante F', '(55)12555555');
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '17827346000160', 'Fabricante G', '(55)13555555');
+insert into Manufacturer (address, cnpj, name, phone) values ('Teste', '55481258000149', 'Fabricante H', '(55)14555555');
+
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '49348187000108', 'FornecedorB', '(55)12345678');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '47725405000150', 'FornecedorC', '(55)12345678');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '23737672000180', 'FornecedorD', '(55)00345678');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '12056103000152', 'FornecedorE', '(55)00005678');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '54174455000152', 'FornecedorF', '(55)10045678');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '37718441000133', 'FornecedorG', '(55)12340078');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '09498083000165', 'FornecedorH', '(55)12345600');
+insert into Outfitter (address, cnpj, name, phone) values ('Teste', '23693743000190', 'FornecedorI', '(55)12340000');
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaB', 1, 102, 40);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaB', 1, 102, 40);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaC', 1, 102, 50);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaD', 1, 102, 60);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaE', 1, 102, 70);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaF', 1, 102, 45);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaG', 1, 102, 54);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaH', 1, 102, 20);
+insert into Pieces (manufacturer_id, model_car_id, name, outfitter_id, serial_number, value) values (1, 2, 'PeçaI', 1, 102, 400);
+

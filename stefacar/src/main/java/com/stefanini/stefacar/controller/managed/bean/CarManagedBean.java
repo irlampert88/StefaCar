@@ -35,9 +35,8 @@ public class CarManagedBean {
 
 	public void save() {
 		getCar().changeAvailability();
-		// getCar().setAvaliable(true);
 		service.save(getCar());
-		MessengerSystem.notifyInfo("Parab�ns!", "Cadastro de Carro salvo com sucesso!");
+		MessengerSystem.notifyInfo("Parabéns!", "Cadastro de Carro salvo com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}
@@ -45,7 +44,7 @@ public class CarManagedBean {
 	public void delete(Car Car) {
 		service.delete(Car);
 		listAllCars.remove(car);
-		MessengerSystem.notifyInfo("Parab�ns!", "Cadastro de Carro excluido com sucesso!");
+		MessengerSystem.notifyInfo("Parabéns!", "Cadastro de Carro excluido com sucesso!");
 		loadAllCarsFromDataBase();
 		clean();
 	}

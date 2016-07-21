@@ -31,6 +31,23 @@ public class PiecesSale {
 	@JoinColumn(name = "pieces_id", nullable = false)
 	private List<Pieces> pieces;
 
+	@Column(name = "progress", nullable = false)
+	private boolean progress=true;
+
+	 public PiecesSale() {
+	 this.client = new Client();
+	 this.employee = new Employee();
+	 this.pieces = (List<Pieces>) new Pieces();
+	 this.progress = true;
+	 }
+
+	public String getProgressString() {
+		if (isProgress())
+			return "Venda Ativa";
+		else
+			return "Venda Finalizada";
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -63,47 +80,12 @@ public class PiecesSale {
 		this.pieces = pieces;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
-		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((pieces == null) ? 0 : pieces.hashCode());
-		return result;
+	public boolean isProgress() {
+		return progress;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PiecesSale other = (PiecesSale) obj;
-		if (client == null) {
-			if (other.client != null)
-				return false;
-		} else if (!client.equals(other.client))
-			return false;
-		if (employee == null) {
-			if (other.employee != null)
-				return false;
-		} else if (!employee.equals(other.employee))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (pieces == null) {
-			if (other.pieces != null)
-				return false;
-		} else if (!pieces.equals(other.pieces))
-			return false;
-		return true;
+	public void setProgress(boolean progress) {
+		this.progress = progress;
 	}
 
 }

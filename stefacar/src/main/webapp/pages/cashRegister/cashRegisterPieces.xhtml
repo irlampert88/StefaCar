@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:decorate template="../../WEB-INF/model/default.xhtml">
+		<ui:define name="center">
+			<h:form id="cashRegisterForm">
+				<p:outputLabel style="font-size: 30px;" value="Vendas no Caixa:Peças" />
+
+				<p:commandButton value="Atualizar Vendas Ativas"
+					update="cashTable modalCloseSalesPiecesId"
+					action="#{cashRegisterPiecesManagedBean.upgradeSales()}"
+					style="float: right; height: 50px " />
+
+				<p:dataTable id="cashTable" var="receipt" paginator="true" rows="5"
+					value="#{cashRegisterPiecesManagedBean.saleList}"
+					emptyMessage="Não existem Vendas Pendendentes de Pagamento"
+					style="padding-top:20px;">
+					<p:column headerText="Código da Venda" style="text-align: center">
+						<h:outputText value="#{receipt.id}" />
+					</p:column>
+					<p:column headerText="Cliente" style="text-align: center">
+						<h:outputText value="#{receipt.client.name}" />
+					</p:column>
+					<p:column headerText="Vendedor" style="text-align: center">
+						<h:outputText value="#{receipt.employee.name}" />
+					</p:column>
+					<p:column headerText="Pagar a Venda" style="text-align: center">
+						<p:commandButton icon="fa fa-fw fa-money" title="Pagar o pedido"
+							update="cashTable modalCloseSalesPiecesId" style="height: 30px; width:50px" 
+							action="#{cashRegisterPiecesManagedBean.selectedSale(receipt)}">
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton id="closedCashRegister" value="Fechar o caixa"
+					icon="fa fa-fw fa-trash" title="Deletar as vendas"
+					action="#{cashRegisterPiecesManagedBean.shutdown}" process="@this" update="cashTable">
+					<p:confirm header="Confirmação" message="Deseja mesmo excluir as vendas não finalizadas?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</h:form>
+			<ui:include src="closeSalesPieces.xhtml" />
+		</ui:define>
+	</ui:decorate>
+</h:body>
+</html>
